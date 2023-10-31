@@ -20,3 +20,12 @@ READMEの使い方
 保留　操作説明書 卒展説明用A4 1 枚
 保留　アプリ説明動画(3分)限定公開URL
 保留　卒業制作展用パネル
+
+----Web Design 参考集 -----
+Q&A ボタン
+・灰
+https://copypet.jp/codedescription/960/
+・カテゴリ分け
+https://copypet.jp/codedescription/962/
+・オレンジ
+https://copypet.jp/codedescription/961/
