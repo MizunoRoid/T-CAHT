@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 READMEの使い方
 1.変更内容の記載
 例　sorce                       batch
