@@ -36,4 +36,4 @@ https://copypet.jp/codedescription/962/
 https://copypet.jp/codedescription/961/
 
 Q＆A　T-CHAT ホーム画面デザイン (未完成)
-![T-CHAT ホーム画面　未完成](https://github.com/MizunoRoid/T-CHAT/assets/118154286/1ed24ad9-12bf-4ab3-9112-21ba735c6a3f)
+![App screen Home ver2](https://github.com/MizunoRoid/T-CHAT/assets/118154286/a2ef086e-26e2-403f-93a7-990a13a95401)
