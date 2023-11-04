@@ -1,74 +1,103 @@
 .logo {
-    width: 230px;
+  width: 230px;
 }
+
 header {
-    background: #fff; /*ヘッダーの背景色 */
-    color: #fff; /* ヘッダーの文字色 */
-    padding: 9px;
+  background: #fff;
+  /*ヘッダーの背景色 */
+  color: #fff;
+  /* ヘッダーの文字色 */
+  padding: 9px;
 }
 
-.name{
-    color: #696969;
-
+.name {
+  color: #696969;
 }
+
+.search {
+  width: 20%;
+}
+.POST {
+  width: 10%;
+}
+
 nav {
-    text-transform: uppercase;
-    list-style: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  color: #000;
+  /* ナビの文字色 */
+  padding: 9px;
+  /* ナビの上下左右の間隔 */
+}
 
-display: flex;
-justify-content: space-around;
-    background: #fff;
-        color: #000; /* ナビの文字色 */
-    padding: 9px; /* ナビの上下左右の間隔 */
-  }
-  body {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 0;
-    background: #fff;
-    max-width: 1300px;
-  }
-  main {
-    float: right;
-    width: 70%;
-    background: #bbda53;
-    padding: 9px;
-    box-sizing: border-box;
-  }
-  h1, h2, h3 {
-    margin: 10px 0;
-  }
-  section {
-    background: #e5ef99;
-    color: #000;
-    padding: 9px;
-    margin-bottom: 9px;
-  }
-  article {
-    background: #fff;
-    color: #000;
-    padding: 9px;
-  }
-  aside {
-    float: right;
-    width: 30%;
-    padding: 9px;
-    box-sizing: border-box;
-  }
-  footer {
-    background: #dd7663;
-    color: #fff;
-    padding: 9px;
-  }
-  .container {
-    overflow: hidden;
-  }
-  .container::after {
-    content: "";
-    clear: both;
-    display: block;
-  }
+body {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  background: #fff;
+  max-width: 1300px;
+}
 
+main {
+  float: right;
+  width: 70%;
+  background: #bbda53;
+  padding: 9px;
+  box-sizing: border-box;
+}
 
+h1,
+h2,
+h3 {
+  margin: 10px 0;
+}
+
+section {
+  background: #e5ef99;
+  color: #000;
+  padding: 9px;
+  margin-bottom: 9px;
+}
+
+article {
+  background: #fff;
+  color: #000;
+  padding: 9px;
+}
+
+aside {
+  float: left;
+  width: 30%;
+
+  padding: 9px;
+  box-sizing: border-box;
+  background-color: #e5ef99;
+}
+p {
+  background: #fff;
+  color: #000;
+  padding: 9px;
+}
+footer {
+  background: #dd7663;
+  color: #fff;
+  padding: 9px;
+}
+
+.container {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: block;
+}
