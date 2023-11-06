@@ -40,3 +40,10 @@ https://copypet.jp/codedescription/961/
 Q＆A　T-CHAT ホーム画面デザイン (未完成)
 Font Arial Black,Arial,BIZ UDPゴシック
 ![T-CHAT Home Screen](https://github.com/MizunoRoid/T-CHAT/assets/118154286/c366e71d-9630-4b03-8ad5-565c71652edd)
+
+![T-CHAT_Answer_Screen](https://github.com/MizunoRoid/T-CHAT/assets/118154286/6b5414a9-c795-4113-bbf0-d3bebee0813b)
+
+![T-CHAT_Screen_Design](https://github.com/MizunoRoid/T-CHAT/assets/118154286/1c009915-5a46-4bb9-a130-b4b56d051e36)
+
+![T-CHAT_Question_Screen](https://github.com/MizunoRoid/T-CHAT/assets/118154286/2a80f00d-9e46-40eb-accf-da0a337f21dc)
+
