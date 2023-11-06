@@ -3,22 +3,40 @@
 }
 
 header {
-  background: #fff;
+  background: #F2F2F2;
   /*ヘッダーの背景色 */
   color: #fff;
   /* ヘッダーの文字色 */
   padding: 9px;
 }
-.name {
-  color: #696969;
+
+.home {
+  color: #000000;
+  font-family: 'Arial Black';
+  text-decoration: none;
+}
+.question {
+  color: #000000;
+  font-family: 'Arial Black';
+  text-decoration: none;
 }
 
 .search {
   width: 20%;
+  background-color: #7F7F7F;
 }
+
+::placeholder{
+color: #E6E6E6;
+text-align: left;
+
+}
+
 .POST {
   width: 10%;
 }
+
+
 
 nav {
   font-size: 20px;
@@ -95,13 +113,16 @@ aside {
   width: 30%;
   padding: 9px;
   box-sizing: border-box;
-  background-color: #e5ef99;
+  background-color: #FFF2CC;
+  border: 2px solid #C9A330;
+  font-family: 'Arial Black';
 }
 p {
   height: 80%;
-  background: #fff;
+  background: #FFF2CC;
   color: #000;
   padding: 9px;
+  font-family: 'Arial','BIZ UDPゴシック';
 }
 
 .container {
