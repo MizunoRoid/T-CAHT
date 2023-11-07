@@ -23,6 +23,7 @@ header {
 
 .search {
   width: 20%;
+  background-color: #7f7f7f;
 }
 ::placeholder {
   color: #e6e6e6;
