@@ -1,5 +1,5 @@
 .logo {
-  width: 230px;
+  width: 20%;
 }
 
 header {
@@ -14,20 +14,22 @@ header {
   font-family: "Arial Black";
   text-decoration: none;
 }
+
 .question {
   color: #000000;
   font-family: "Arial Black";
   text-decoration: none;
 }
+
 .search {
   width: 20%;
   background-color: #7f7f7f;
 }
-
 ::placeholder {
   color: #e6e6e6;
   text-align: left;
 }
+
 .POST {
   width: 10%;
   background-color: #7f7f7f;
@@ -59,7 +61,7 @@ body {
 main {
   float: right;
   width: 70%;
-  background: #bbda53;
+  background: #fff;
   padding: 9px;
   box-sizing: border-box;
 }
@@ -86,11 +88,10 @@ article {
 aside {
   float: left;
   width: 30%;
-
   padding: 9px;
   box-sizing: border-box;
-  background-color: #fff2cc;
-  border: 2px solid #d3b863;
+  background-color: #FFF2CC;
+  border: 2px solid #D3B863;
 }
 p .rank {
   height: 80%;
@@ -99,11 +100,7 @@ p .rank {
   padding: 9px;
   font-family: "Arial", "BIZ UDPゴシック";
 }
-footer {
-  background: #dd7663;
-  color: #fff;
-  padding: 9px;
-}
+
 
 .container {
   overflow: hidden;
