@@ -55,13 +55,13 @@ body {
   margin-bottom: 0;
   padding: 0;
   background: #fff;
-  max-width: 1300px;
+  max-width: 1980px;
 }
 
 main {
   float: right;
   width: 70%;
-  background: #fff;
+  background: #59cbff;
   padding: 2px;
   box-sizing: border-box;
 }
@@ -109,11 +109,11 @@ aside {
   width: 30%;
   padding: 9px;
   box-sizing: border-box;
-  background-color: #e5ef99;
+  background-color: #fff;
 }
 p {
   height: 80%;
-  background: #fff2cc;
+  background: #fff;
   color: #000;
   padding: 9px;
   font-family: "Arial", "BIZ UDPゴシック";
@@ -124,7 +124,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   overflow: scroll;
-  background: #5397d4;
+  background: #fff;
   padding: 2px;
 }
 

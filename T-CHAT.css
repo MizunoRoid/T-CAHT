@@ -46,7 +46,7 @@ body {
 main {
   float: right;
   width: 70%;
-  background: #bbda53;
+  background: #59cbff;
   padding: 9px;
   box-sizing: border-box;
 }
@@ -76,7 +76,7 @@ aside {
 
   padding: 9px;
   box-sizing: border-box;
-  background-color: #e5ef99;
+  background-color: #fff;
 }
 p {
   height: 80%;
@@ -94,6 +94,7 @@ footer {
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
+  background: #59cbff;
 }
 
 .container::after {
