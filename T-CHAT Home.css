@@ -58,28 +58,37 @@ body {
 main {
   float: right;
   width: 70%;
-  background: #bbda53;
-  padding: 9px;
+  padding: 2px;
   box-sizing: border-box;
+  background: #59cbff;
 }
 
-h1,
-h2,
-h3 {
+h1 {
+  margin: 2px 0;
+  font-size: 15px;
+  font-weight: normal;
+}
+h2 {
   margin: 10px 0;
 }
 
-section {
-  background: #e5e5e5;
-  color: #000;
-  padding: 9px;
-  margin-bottom: 9px;
+h3 {
+  margin: 2px 0;
 }
 
+section {
+  background: #fff;
+  color: #000;
+  padding: 2px;
+  /* margin-bottom: 9px; */
+}
 article {
   background: #fff;
   color: #000;
   padding: 9px;
+  margin: 10px;
+  font-size: 28px;
+  font-weight: bolder;
 }
 
 aside {
@@ -88,8 +97,8 @@ aside {
 
   padding: 9px;
   box-sizing: border-box;
-  background-color: #fff2cc;
-  border: 2px solid #d3b863;
+  background-color: #fff;
+  border: 2px solid #fff;
 }
 p .rank {
   height: 80%;
@@ -114,4 +123,28 @@ footer {
   content: "";
   clear: both;
   display: block;
+}
+.article-category {
+  background-color: #f2f2f2;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
+}
+.unsolved-category {
+  background-color: #8faadc;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
+}
+.Notanswered-category {
+  background-color: #ffd966;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
+}
+.answered-category {
+  background-color: #ff6969;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
 }
