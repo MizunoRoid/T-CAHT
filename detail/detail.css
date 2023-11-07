@@ -55,7 +55,7 @@ body {
   margin-bottom: 0;
   padding: 0;
   background: #fff;
-  max-width: 1300px;
+  max-width: 1980px;
 }
 
 main {
@@ -109,7 +109,7 @@ aside {
   width: 30%;
   padding: 9px;
   box-sizing: border-box;
-  background-color: #e5ef99;
+  background-color: #FFF2CC;
 }
 p {
   height: 80%;
