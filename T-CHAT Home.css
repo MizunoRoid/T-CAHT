@@ -3,21 +3,33 @@
 }
 
 header {
-  background: #fff;
+  background: #f2f2f2;
   /*ヘッダーの背景色 */
   color: #fff;
   /* ヘッダーの文字色 */
   padding: 9px;
 }
-.name {
-  color: #696969;
+.home {
+  color: #000000;
+  font-family: "Arial Black";
+  text-decoration: none;
 }
-
+.question {
+  color: #000000;
+  font-family: "Arial Black";
+  text-decoration: none;
+}
 .search {
   width: 20%;
 }
+
+::placeholder {
+  color: #e6e6e6;
+  text-align: left;
+}
 .POST {
   width: 10%;
+  background-color: #7f7f7f;
 }
 
 nav {
@@ -40,13 +52,13 @@ body {
   margin-bottom: 0;
   padding: 0;
   background: #fff;
-  max-width: 1300px;
+  max-width: 1980px;
 }
 
 main {
   float: right;
   width: 70%;
-  background: #59cbff;
+  background: #bbda53;
   padding: 9px;
   box-sizing: border-box;
 }
@@ -76,13 +88,15 @@ aside {
 
   padding: 9px;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #fff2cc;
+  border: 2px solid #d3b863;
 }
-p {
+p .rank {
   height: 80%;
   background: #fff;
   color: #000;
   padding: 9px;
+  font-family: "Arial", "BIZ UDPゴシック";
 }
 footer {
   background: #dd7663;
@@ -94,7 +108,6 @@ footer {
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
-  background: #59cbff;
 }
 
 .container::after {
