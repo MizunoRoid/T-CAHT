@@ -58,7 +58,7 @@ body {
 
 main {
   float: right;
-  width: 70%;
+  width: 80%;
   padding: 2px;
   box-sizing: border-box;
 }
@@ -70,6 +70,7 @@ h1 {
 }
 h2 {
   margin: 10px 0;
+  background-color: #fff;
 }
 
 h3 {
@@ -111,13 +112,14 @@ article {
 
 aside {
   float: left;
-  width: 30%;
+  width: 20%;
 
   padding: 9px;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #fff2cc;
   border: 2px solid #fff;
 }
+
 p .rank {
   height: 80%;
   background: #fff;
@@ -165,4 +167,33 @@ footer {
   border-radius: 15px;
   color: #000000;
   padding: 5px 8px 5px 8px;
+}
+.item-list {
+  position: relative;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left; /* 中央寄せ */
+}
+h4 {
+  vertical-align: bottom;
+  margin: 0;
+  padding: 0;
+}
+.item {
+  position: relative;
+  left: 20px;
+  justify-content: right; /* 中央寄せ */
+  font-size: 25px;
+}
+.ranking_logo {
+  font-size: 25px;
+
+  box-sizing: border-box;
+}
+.rank {
+  left: 12px;
+  position: relative;
+  margin: 0px 25px 0px 0px;
+  font-size: 25px;
 }
