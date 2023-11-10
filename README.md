@@ -27,7 +27,8 @@ READMEの使い方
 保留　卒業制作展用パネル
 
 ホーム画面作成　富岡
-
+header作成　　　水野
+Preview機能　　山本
 ----Web Design 参考集 -----
 Q&A ボタン
 ・灰
