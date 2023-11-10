@@ -79,6 +79,11 @@ h2 {
 h3 {
   margin: 2px 0;
 }
+h4 {
+  vertical-align: bottom;
+  margin: 0;
+  padding: 0;
+}
 
 section {
   background: #fff;
@@ -173,25 +178,31 @@ p .rank {
   align-items: center;
   justify-content: left; /* 中央寄せ */
 }
-h4 {
-  vertical-align: bottom;
-  margin: 0;
-  padding: 0;
-}
+
 .item {
+  line-height: 200%;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-family: "Sawarabi Gothic", sans-serif;
   position: relative;
   left: 20px;
   justify-content: right; /* 中央寄せ */
   font-size: 25px;
 }
-.ranking_logo {
-  font-size: 25px;
-
+.head {
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  position: relative;
+  left: 20px;
   box-sizing: border-box;
 }
 .rank {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-family: "Sawarabi Gothic", sans-serif;
   left: 12px;
   position: relative;
   margin: 0px 25px 0px 0px;
   font-size: 25px;
+}
+.icon {
+  width: 30px;
 }
