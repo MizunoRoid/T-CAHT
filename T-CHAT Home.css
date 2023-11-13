@@ -209,11 +209,14 @@ section {
   margin-bottom: 5px;
   border-radius: 28px;
 }
+
 article {
   background: #FDF6E9;
   color: #000;
-  padding: 9px;
-  margin: 10px;
+  padding: 3px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  margin-left: 5px;
   font-size: 28px;
   font-weight: bolder;
 }
@@ -222,19 +225,45 @@ aside {
   float: left;
   width: 230px;
   height: 450px;
-  padding: 9px;
+  padding: 3px;
   box-sizing: border-box;
   background-color: #fff2cc;
   border: 2px solid #BF9000;
-  padding-right: 0; /* 右側に20pxのパディングを設定 */
+  border-radius: 20px;
 }
 
-p .rank {
-  height: 80%;
-  background: #fff;
-  color: #000;
-  padding: 9px;
-  font-family: "Arial", "BIZ UDPゴシック";
+.head {
+  font-family: "Arial Black";
+  font-size: 30px;
+  margin-left: 12px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.rank {
+  font-family: Arial,;
+  left: 12px;
+  position: relative;
+  margin: 0px 25px 0px 0px;
+  font-size: 25px;
+}
+
+.item {
+  line-height: 200%;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-family: "Sawarabi Gothic", sans-serif;
+  position: relative;
+  left: 20px;
+  justify-content: right; /* 中央寄せ */
+  font-size: 25px;
+}
+
+.item-list {
+  position: relative;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left; /* 中央寄せ */
 }
 
 .container {
@@ -272,38 +301,5 @@ p .rank {
   color: #000000;
   padding: 5px 8px 5px 8px;
 }
-.item-list {
-  position: relative;
-  left: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: left; /* 中央寄せ */
-}
 
-.item {
-  line-height: 200%;
-  font-family: "M PLUS Rounded 1c", sans-serif;
-  font-family: "Sawarabi Gothic", sans-serif;
-  position: relative;
-  left: 20px;
-  justify-content: right; /* 中央寄せ */
-  font-size: 25px;
-}
-.head {
-  font-family: "Roboto", sans-serif;
-  font-size: 30px;
-  position: relative;
-  left: 20px;
-  box-sizing: border-box;
-}
-.rank {
-  font-family: "M PLUS Rounded 1c", sans-serif;
-  font-family: "Sawarabi Gothic", sans-serif;
-  left: 12px;
-  position: relative;
-  margin: 0px 25px 0px 0px;
-  font-size: 25px;
-}
-.icon {
-  width: 30px;
-}
+
