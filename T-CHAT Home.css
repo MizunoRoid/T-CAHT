@@ -166,6 +166,18 @@ background-color: #fff;
 border-radius: 8px 8px 8px 8px;
 }
 
+.container {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
 main {
   background-color: white;
   border-radius: 40px; /*要素を丸くする */
@@ -236,6 +248,7 @@ aside {
   font-family: "Arial Black";
   font-size: 30px;
   margin-left: 11px;
+  margin-bottom: 10px;
   position: relative;
   box-sizing: border-box;
 }
@@ -250,7 +263,7 @@ aside {
 
 .item {
   margin: 2px;
-  line-height: 35px;
+  line-height: 34px;
   font-family: Arial,"BIZ UDGothic";
   position: relative;
   left: 20px;
@@ -266,17 +279,6 @@ aside {
   justify-content: left; /* 中央寄せ */
 }
 
-.container {
-  overflow: hidden;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.container::after {
-  content: "";
-  clear: both;
-  display: block;
-}
 .article-category {
   background-color: #f2f2f2;
   border-radius: 15px;
