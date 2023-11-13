@@ -235,13 +235,13 @@ aside {
 .head {
   font-family: "Arial Black";
   font-size: 30px;
-  margin-left: 12px;
+  margin-left: 11px;
   position: relative;
   box-sizing: border-box;
 }
 
 .rank {
-  font-family: Arial,;
+  font-family: Arial Black;
   left: 12px;
   position: relative;
   margin: 0px 25px 0px 0px;
@@ -249,9 +249,9 @@ aside {
 }
 
 .item {
-  line-height: 200%;
-  font-family: "M PLUS Rounded 1c", sans-serif;
-  font-family: "Sawarabi Gothic", sans-serif;
+  margin: 2px;
+  line-height: 35px;
+  font-family: Arial,"BIZ UDGothic";
   position: relative;
   left: 20px;
   justify-content: right; /* 中央寄せ */
