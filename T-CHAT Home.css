@@ -133,7 +133,7 @@ aside {
   box-sizing: border-box;
   background-color: #fff2cc;
   border: 2px solid #fff;
-  padding-right: ; /* 右側に20pxのパディングを設定 */
+  padding-right: 20px; /* 右側に20pxのパディングを設定 */
 }
 
 p .rank {
