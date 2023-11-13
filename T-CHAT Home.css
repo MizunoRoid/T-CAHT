@@ -1,4 +1,33 @@
 
+body {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  background: #fff;
+  max-width: 1980px;
+}
+
+h1 {
+  margin: 2px 0;
+  font-size: 15px;
+  font-weight: normal;
+}
+h2 {
+  margin: 10px 0;
+  background-color: #fff;
+}
+
+h3 {
+  margin: 2px 0;
+}
+h4 {
+  vertical-align: bottom;
+  margin: 0;
+  padding: 0;
+}
+
 .background {
   background-color: #F2F2F2;
   border: 10px solid #E3E9EE; /* ページ全体に10pxの灰色のボーダーを設定 */
@@ -18,6 +47,7 @@ header {
   justify-content: flex-start;
   width: 98.3%;
   border: 2px solid white;
+  margin-bottom: 10px;
 }
 
 
@@ -137,77 +167,51 @@ background-color: #fff;
 border-radius: 8px 8px 8px 8px;
 }
 
-
-body {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 0;
-  background: #fff;
-  max-width: 1980px;
-}
-
 main {
+  background-color: white;
   border-radius: 40px; /*要素を丸くする */
   border-width: 100px; /* 上、右、下、左の順に指定 */
   float: right;
-  width: 80%;
-  background: #fff;
-  padding: 9px;
+  width: 900px;
+  height: 450px;
+  margin-left: 30px;
   box-sizing: border-box;
   border: 2px solid black; /* 2pxの幅で黒い縁線を追加 */
-  padding: 20px;
-  padding-left: 100px;
-  padding-right: 100px; /* 右側に20pxのパディングを設定 */
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-right: 8px; /* 右側に20pxのパディングを設定 */
   /* 右側に20pxのパディングを設定 */
 }
 
-h1 {
-  margin: 2px 0;
-  font-size: 15px;
-  font-weight: normal;
-}
-h2 {
-  margin: 10px 0;
-  background-color: #fff;
-}
-
-h3 {
-  margin: 2px 0;
-}
-h4 {
-  vertical-align: bottom;
-  margin: 0;
-  padding: 0;
-}
-
 section {
-  background: #fff;
+  background: #FDF6E9;
   color: #000;
-  padding: 10px;
+  padding: 11px;
   /* margin-bottom: 9px; */
+  border-radius: 28px;
 }
 .box1 {
-  background: #8faadc;
+  border : 2px solid #8faadc;
   color: #000;
-  padding: 2px;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  border-radius: 28px;
 }
 .box2 {
   background: #ffd966;
   color: #000;
   padding: 2px;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  border-radius: 28px;
 }
 .box3 {
   background: #ff6969;
   color: #000;
   padding: 2px;
   margin-bottom: 5px;
+  border-radius: 28px;
 }
 article {
-  background: #fff;
+  background: #FDF6E9;
   color: #000;
   padding: 9px;
   margin: 10px;
@@ -217,12 +221,12 @@ article {
 
 aside {
   float: left;
-  width: 20%;
-
+  width: 230px;
+  height: 450px;
   padding: 9px;
   box-sizing: border-box;
   background-color: #fff2cc;
-  border: 2px solid #fff;
+  border: 2px solid #BF9000;
   padding-right: 0; /* 右側に20pxのパディングを設定 */
 }
 
