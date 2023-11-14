@@ -188,38 +188,52 @@ main {
   margin-left:38px;
   box-sizing: border-box;
   border: 2px solid black; /* 2pxの幅で黒い縁線を追加 */
-  padding-top: 8px;
+  padding-top: 6px;
   padding-left: 8px;
-  padding-right: 20px; /* 右側に20pxのパディングを設定 */
+  padding-right: 10px; /* 右側に20pxのパディングを設定 */
   /* 右側に20pxのパディングを設定 */
+  overflow:auto;
 }
+
+main::-webkit-scrollbar {
+  width: 13px;
+  }
+main::-webkit-scrollbar-track {
+  background-color: #eff2f7;
+  border-radius: 100px;
+  }
+main::-webkit-scrollbar-thumb {
+  background: #abbdda;
+  border-radius: 100px;
+  width: 130px;
+  }
 
 section {
   background: #FDF6E9;
   color: #000;
   padding: 11px;
   /* margin-bottom: 9px; */
-  border-radius: 28px;
+  border-radius: 26px;
 }
 .box1 {
   border : 2px solid #8faadc;
   color: #000;
   margin-bottom: 6px;
-  border-radius: 28px;
+  border-radius: 26px;
 }
 .box2 {
   background: #ffd966;
   color: #000;
   padding: 2px;
   margin-bottom: 6px;
-  border-radius: 28px;
+  border-radius: 26px;
 }
 .box3 {
   background: #ff6969;
   color: #000;
   padding: 2px;
-  margin-bottom: 5px;
-  border-radius: 28px;
+  margin-bottom: 6px;
+  border-radius: 26px;
 }
 
 article {
