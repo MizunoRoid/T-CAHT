@@ -1,6 +1,36 @@
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  background: #fff;
+  max-width: 1980px;
+}
+
+h1 {
+  margin: 2px 0;
+  font-size: 15px;
+  font-weight: normal;
+}
+h2 {
+  margin: 10px 0;
+  background-color: #fff;
+}
+
+h3 {
+  margin: 2px 0;
+}
+h4 {
+  vertical-align: bottom;
+  margin: 0;
+  padding: 0;
+}
+
 .background {
-  background-color: #f2f2f2;
-  border: 10px solid #e3e9ee; /* ページ全体に10pxの灰色のボーダーを設定 */
+  background-color: #F2F2F2;
+  border: 10px solid #E3E9EE; /* ページ全体に10pxの灰色のボーダーを設定 */
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,7 +39,7 @@
 }
 
 header {
-  background-color: #f2f2f2; /* ヘッダーの背景色を設定 */
+  background-color: #F2F2F2; /* ヘッダーの背景色を設定 */
   color: #fff; /* テキストの色を設定 */
   padding: 10px; /* 内側の余白を設定 */
   display: flex;
@@ -17,6 +47,7 @@ header {
   justify-content: flex-start;
   width: 98.3%;
   border: 2px solid white;
+  margin-bottom: 10px;
 }
 
 .home {
@@ -58,7 +89,7 @@ header {
 ::placeholder {
   color: #e6e6e6;
   text-align: left;
-  font-family: "Arial Black", "MS Gothic";
+  font-family: "Arial Black",'MS Gothic';
   padding-left: 3px;
 }
 
@@ -78,12 +109,12 @@ header {
 .search-form button::after {
   width: 20px;
   height: 20px;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%20%3Cpath%20d%3D%22M23.7%2020.8%2019%2016.1c-.2-.2-.5-.3-.8-.3h-.8c1.3-1.7%202-3.7%202-6C19.5%204.4%2015.1%200%209.7%200S0%204.4%200%209.7s4.4%209.7%209.7%209.7c2.3%200%204.3-.8%206-2v.8c0%20.3.1.6.3.8l4.7%204.7c.4.4%201.2.4%201.6%200l1.3-1.3c.5-.5.5-1.2.1-1.6zm-14-5.1c-3.3%200-6-2.7-6-6s2.7-6%206-6%206%202.7%206%206-2.6%206-6%206z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%20%3C%2Fsvg%3E");
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%20%3Cpath%20d%3D%22M23.7%2020.8%2019%2016.1c-.2-.2-.5-.3-.8-.3h-.8c1.3-1.7%202-3.7%202-6C19.5%204.4%2015.1%200%209.7%200S0%204.4%200%209.7s4.4%209.7%209.7%209.7c2.3%200%204.3-.8%206-2v.8c0%20.3.1.6.3.8l4.7%204.7c.4.4%201.2.4%201.6%200l1.3-1.3c.5-.5.5-1.2.1-1.6zm-14-5.1c-3.3%200-6-2.7-6-6s2.7-6%206-6%206%202.7%206%206-2.6%206-6%206z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%20%3C%2Fsvg%3E');
   background-repeat: no-repeat;
-  content: "";
+  content: '';
 }
 
-.notification {
+.notification{
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 10px;
@@ -92,21 +123,21 @@ header {
   font-size: 29px;
 }
 
-.login {
+.login{
   margin-top: 5px;
   margin-bottom: 5px;
   padding-left: 3px;
   padding-right: 8px;
   font-family: "Arial Black";
   color: white;
-  background-color: #afdfe4;
-  border: #afdfe4;
+  background-color: #AFDFE4;
+  border: #AFDFE4;
   border-radius: 8px 8px 8px 8px;
   font-size: 25px;
   text-decoration: none;
 }
 
-.post {
+.post{
   margin-left: 15px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -114,121 +145,25 @@ header {
   padding-right: 10px;
   font-family: "Arial Black";
   color: white;
-  background-color: #92d050;
-  border: #92d050;
+  background-color: #92D050;
+  border: #92D050;
   border-radius: 8px 8px 8px 8px;
   font-size: 25px;
 }
 .logo img {
-  margin-left: 5px;
-  margin-right: 40px;
-  max-width: 150px; /* ロゴ画像の
+margin-left: 5px;
+margin-right: 40px;
+max-width: 150px; /* ロゴ画像の
 最大幅を設定 */
 }
 
 nav ul {
-  list-style: none; /* リストのマーカーを非表示に */
-  padding: 0;
-  display: flex;
-  gap: 30px;
-  background-color: #fff;
-  border-radius: 8px 8px 8px 8px;
-}
-
-body {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 0;
-  background: #fff;
-  max-width: 1980px;
-}
-
-main {
-  border-radius: 40px; /*要素を丸くする */
-  border-width: 100px; /* 上、右、下、左の順に指定 */
-  float: right;
-  width: 80%;
-  background: #fff;
-  padding: 9px;
-  box-sizing: border-box;
-  border: 2px solid black; /* 2pxの幅で黒い縁線を追加 */
-  padding: 20px;
-  padding-left: 100px;
-  padding-right: 100px; /* 右側に20pxのパディングを設定 */
-  /* 右側に20pxのパディングを設定 */
-}
-
-h1 {
-  margin: 2px 0;
-  font-size: 15px;
-  font-weight: normal;
-}
-h2 {
-  margin: 10px 0;
-  background-color: #fff;
-}
-
-h3 {
-  margin: 2px 0;
-}
-h4 {
-  vertical-align: bottom;
-  margin: 0;
-  padding: 0;
-}
-
-section {
-  background: #fff;
-  color: #000;
-  padding: 10px;
-  /* margin-bottom: 9px; */
-}
-.box1 {
-  background: #8faadc;
-  color: #000;
-  padding: 2px;
-  margin-bottom: 5px;
-}
-.box2 {
-  background: #ffd966;
-  color: #000;
-  padding: 2px;
-  margin-bottom: 5px;
-}
-.box3 {
-  background: #ff6969;
-  color: #000;
-  padding: 2px;
-  margin-bottom: 5px;
-}
-article {
-  background: #fff;
-  color: #000;
-  padding: 9px;
-  margin: 10px;
-  font-size: 28px;
-  font-weight: bolder;
-}
-
-aside {
-  float: left;
-  width: 20%;
-
-  padding: 9px;
-  box-sizing: border-box;
-  background-color: #fff2cc;
-  border: 2px solid #fff;
-  padding-right: 0; /* 右側に20pxのパディングを設定 */
-}
-
-p .rank {
-  height: 80%;
-  background: #fff;
-  color: #000;
-  padding: 9px;
-  font-family: "Arial", "BIZ UDPゴシック";
+list-style: none; /* リストのマーカーを非表示に */
+padding: 0;
+display: flex;
+gap: 30px;
+background-color: #fff;
+border-radius: 8px 8px 8px 8px;
 }
 
 .container {
@@ -242,6 +177,108 @@ p .rank {
   clear: both;
   display: block;
 }
+
+main {
+  background-color: white;
+  border-radius: 40px; /*要素を丸くする */
+  border-width: 100px; /* 上、右、下、左の順に指定 */
+  float: right;
+  width: 900px;
+  height: 450px;
+  margin-left:38px;
+  box-sizing: border-box;
+  border: 2px solid black; /* 2pxの幅で黒い縁線を追加 */
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-right: 20px; /* 右側に20pxのパディングを設定 */
+  /* 右側に20pxのパディングを設定 */
+}
+
+section {
+  background: #FDF6E9;
+  color: #000;
+  padding: 11px;
+  /* margin-bottom: 9px; */
+  border-radius: 28px;
+}
+.box1 {
+  border : 2px solid #8faadc;
+  color: #000;
+  margin-bottom: 6px;
+  border-radius: 28px;
+}
+.box2 {
+  background: #ffd966;
+  color: #000;
+  padding: 2px;
+  margin-bottom: 6px;
+  border-radius: 28px;
+}
+.box3 {
+  background: #ff6969;
+  color: #000;
+  padding: 2px;
+  margin-bottom: 5px;
+  border-radius: 28px;
+}
+
+article {
+  background: #FDF6E9;
+  color: #000;
+  padding: 3px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  margin-left: 5px;
+  font-size: 28px;
+  font-weight: bolder;
+}
+
+aside {
+  float: left;
+  width: 230px;
+  height: 450px;
+  padding: 3px;
+  box-sizing: border-box;
+  background-color: #fff2cc;
+  border: 2px solid #BF9000;
+  border-radius: 20px;
+}
+
+.head {
+  font-family: "Arial Black";
+  font-size: 30px;
+  margin-left: 11px;
+  margin-bottom: 10px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.rank {
+  font-family: Arial Black;
+  left: 12px;
+  position: relative;
+  margin: 0px 25px 0px 0px;
+  font-size: 25px;
+}
+
+.item {
+  margin: 2px;
+  line-height: 34px;
+  font-family: Arial,"BIZ UDGothic";
+  position: relative;
+  left: 20px;
+  justify-content: right; /* 中央寄せ */
+  font-size: 25px;
+}
+
+.item-list {
+  position: relative;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left; /* 中央寄せ */
+}
+
 .article-category {
   background-color: #f2f2f2;
   border-radius: 15px;
@@ -266,38 +303,5 @@ p .rank {
   color: #000000;
   padding: 5px 8px 5px 8px;
 }
-.item-list {
-  position: relative;
-  left: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: left; /* 中央寄せ */
-}
 
-.item {
-  line-height: 200%;
-  font-family: "M PLUS Rounded 1c", sans-serif;
-  font-family: "Sawarabi Gothic", sans-serif;
-  position: relative;
-  left: 20px;
-  justify-content: right; /* 中央寄せ */
-  font-size: 25px;
-}
-.head {
-  font-family: "Roboto", sans-serif;
-  font-size: 30px;
-  position: relative;
-  left: 20px;
-  box-sizing: border-box;
-}
-.rank {
-  font-family: "M PLUS Rounded 1c", sans-serif;
-  font-family: "Sawarabi Gothic", sans-serif;
-  left: 12px;
-  position: relative;
-  margin: 0px 25px 0px 0px;
-  font-size: 25px;
-}
-.icon {
-  width: 30px;
-}
+
