@@ -190,9 +190,11 @@ main {
   border: 2px solid black; /* 2pxの幅で黒い縁線を追加 */
   padding-top: 6px;
   padding-left: 8px;
-  padding-right: 10px; /* 右側に20pxのパディングを設定 */
+  padding-right: 8px; /* 右側に20pxのパディングを設定 */
   /* 右側に20pxのパディングを設定 */
   overflow:auto;
+  scroll-snap-align: start;
+  
 }
 
 main::-webkit-scrollbar {
@@ -256,8 +258,19 @@ aside {
   background-color: #fff2cc;
   border: 2px solid #BF9000;
   border-radius: 20px;
+  position: relative;
+  display: inline;
 }
-
+aside::after{
+  content:"";
+  display:inline-block;
+  width:2px;
+  height:435px;
+  background-color:black;
+  position:absolute;
+  top:5px;
+  right:-20px;
+}
 .head {
   font-family: "Arial Black";
   font-size: 30px;
