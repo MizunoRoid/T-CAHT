@@ -11,106 +11,7 @@ header {
 .bordered-element {
   border: 10px solid #d9d9d9; /* ボーダーの幅と色を指定 */
 }
-.home {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  color: #000000;
-  font-family: "Arial Black";
-  text-decoration: none;
-  margin-right: 5px;
-  margin-left: 15px;
-  font-size: 25px;
-}
 
-.question {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  color: #000000;
-  font-family: "Arial Black";
-  text-decoration: none;
-  margin-right: 15px;
-  font-size: 25px;
-}
-.search-form {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 3px;
-}
-
-.search {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border-radius: 8px 0 0 8px;
-  width: 250px;
-  background-color: #f8f8f8;
-  border: 2px solid #7f7f7f;
-  font-size: 25px;
-}
-::placeholder {
-  color: #e6e6e6;
-  text-align: left;
-  font-family: "Arial Black", "MS Gothic";
-  padding-left: 3px;
-}
-
-.search-form button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 35px;
-  margin-right: 7px;
-  border: none;
-  border-radius: 0 8px 8px 0;
-  background-color: #2589d0;
-  cursor: pointer;
-}
-
-.search-form button::after {
-  width: 20px;
-  height: 20px;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%20%3Cpath%20d%3D%22M23.7%2020.8%2019%2016.1c-.2-.2-.5-.3-.8-.3h-.8c1.3-1.7%202-3.7%202-6C19.5%204.4%2015.1%200%209.7%200S0%204.4%200%209.7s4.4%209.7%209.7%209.7c2.3%200%204.3-.8%206-2v.8c0%20.3.1.6.3.8l4.7%204.7c.4.4%201.2.4%201.6%200l1.3-1.3c.5-.5.5-1.2.1-1.6zm-14-5.1c-3.3%200-6-2.7-6-6s2.7-6%206-6%206%202.7%206%206-2.6%206-6%206z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%20%3C%2Fsvg%3E");
-  background-repeat: no-repeat;
-  content: "";
-}
-
-.notification {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 10px;
-  text-decoration: none;
-  margin-right: 20px;
-  font-size: 29px;
-}
-
-.login {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding-left: 3px;
-  padding-right: 8px;
-  font-family: "Arial Black";
-  color: white;
-  background-color: #afdfe4;
-  border: #afdfe4;
-  border-radius: 8px 8px 8px 8px;
-  font-size: 25px;
-  text-decoration: none;
-}
-
-.post {
-  margin-left: 15px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding-left: 3px;
-  padding-right: 10px;
-  font-family: "Arial Black";
-  color: white;
-  background-color: #92d050;
-  border: #92d050;
-  border-radius: 8px 8px 8px 8px;
-  font-size: 25px;
-}
 .logo img {
   margin-left: 5px;
   margin-right: 40px;
@@ -118,16 +19,9 @@ header {
   最大幅を設定 */
 }
 
-nav ul {
-  list-style: none; /* リストのマーカーを非表示に */
-  padding: 0;
-  display: flex;
-  gap: 30px;
-  background-color: #fff;
-  border-radius: 8px 8px 8px 8px;
-}
 .box1 {
   display: flex;
+  justify-content: center; /* 要素を水平方向に中央寄せ */
 }
 .list {
   width: 10%;
@@ -136,34 +30,47 @@ nav ul {
   max-height: 200px;
   margin-right: 30px;
   border: 2px solid #c0c0c0;
+  border-radius: 8px 8px 8px 8px;
+  font-size: 18px;
+  font-family: "M PLUS Rounded 1c", sans-serif;
 }
 .tag {
   min-height: 50px;
   max-height: 200px;
-  width: 80%;
+  width: 77%;
   margin-top: 10px;
+  margin-right: 20px;
   border: 2px solid #c0c0c0;
   border-left: none;
+  border-radius: 0 8px 8px 0;
 
   /* 例: 枠線をオレンジ色に設定 */
 }
 ::placeholder {
   color: #000000;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 18px;
 }
 
 .text {
   width: 85%;
   border: 2px solid #c0c0c0;
+  border-radius: 8px 8px 8px 8px;
 }
 /*header*/
 
-.fa-solid.fa-photo-film {
+.photo {
+  background: none;
+  cursor: pointer;
   border: 2px solid #c0c0c0; /* 例: 枠線をオレンジ色に設定 */
   padding: 10px;
   color: #a8a7a7; /* アイコンの色を緑に変更 */
   position: relative;
   top: 5px;
+  font-size: 16px;
+  border-radius: 8px 0 0 8px;
 }
+
 .fa-solid.fa-tags {
   padding: 10px;
   border: 2px solid #c0c0c0; /* 例: 枠線をオレンジ色に設定 */
@@ -180,21 +87,74 @@ nav ul {
   color: #a8a7a7; /* アイコンの色を緑に変更 */
   position: relative;
   top: 5px;
-  left: 10px;
+  right: 2p;
+  border-radius: 8px 8px 8px 8px;
 }
 .box2 {
   display: flex;
   align-items: center;
+  justify-content: center; /* 要素を水平方向に中央寄せ */
+}
+.pencil {
+  color: #a8a7a7; /* アイコンの色を緑に変更 */
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.book {
+  color: #a8a7a7; /* アイコンの色を緑に変更 */
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.eye {
+  color: #a8a7a7; /* アイコンの色を緑に変更 */
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .textarea {
-  width: 100%;
+  width: 97.5%;
   height: 100vh;
   font-size: 20px; /* 例: フォントサイズを16ピクセルに設定 */
   box-sizing: border-box; /* ボックスモデルを調整 */
   margin: 10px 0; /* 上下に10pxのマージンを設定 */
   border: 2px solid #c0c0c0;
+  border-radius: 8px 8px 8px 8px;
+  margin-left: 20px;
 }
 .textarea::placeholder {
   color: #5b5a5a;
+}
+
+/* ボタンのスタイル */
+.save {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 29px;
+  font-family: "Arial Black";
+  background-color: #9dc3e6;
+  color: #fff; /* アイコンの色を緑に変更 */
+  border-radius: 8px 8px 8px 8px;
+  margin-left: 1000px;
+}
+.post {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 29px;
+  font-family: "Arial Black";
+  background-color: #92d050;
+  color: #fff; /* アイコンの色を緑に変更 */
+  border-radius: 8px 8px 8px 8px;
+  margin-left: auto;
 }
