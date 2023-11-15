@@ -3,86 +3,105 @@
   <head>
     <link rel="stylesheet" type="text/css" href="T-CHAT Post.css" />
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Noto+Sans+JP&family=Sawarabi+Gothic&display=swap"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
       rel="stylesheet"
     />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Sawarabi+Gothic&display=swap"
-      rel="stylesheet"
-    />
   </head>
 
   <body>
-    <div class="background">
-      <header>
-        <div class="logo">
-          <img src="..\image\T-CHAT_icon.png" alt="Your Image" />
-        </div>
+    <script
+      src="https://kit.fontawesome.com/eae95656cf.js"
+      crossorigin="anonymous"
+    ></script>
+    <div class="bordered-element">
+      <div class="background">
+        <header>
+          <div class="logo">
+            <img src="..\image\T-CHAT_icon.png" alt="Your Image" />
+          </div>
+          <button class="save">
+            <i class="fa-solid fa-floppy-disk"></i>
+            Save
+          </button>
+          <button class="post">
+            <i class="fa-solid fa-file-import"></i>
+            Post
+          </button>
+        </header>
+      </div>
 
-        <nav>
-          <ul>
-            <a href="xxx" class="home">🏡Home</a>
-            <a href="xxx" class="question">💡Question</a>
-            <div class="search-form">
-              <input type="text" class="search" placeholder="Search" />
-              <button type="submit" aria-label="検索"></button>
-            </div>
-          </ul>
-        </nav>
-        <a href="xxx" class="notification">🔔</a>
-        <a href="xxx" class="login">👤Login</a>
-        <button type="button" class="post">📪Post</button>
-      </header>
-    </div>
-    <div class="container">
-      <main>
-        <div class="box1">
-          <select class="list" name="名前" size="1">
-            <option selected="selected">フォーマット</option>
+      <div class="container">
+        <main>
+          <div class="box1">
+            <select class="list" name="名前" size="1">
+              <option selected="selected">フォーマット</option>
 
-            <option value="under10">10歳未満</option>
+              <option value="under10">10歳未満</option>
 
-            <option value="20-29">20代</option>
+              <option value="20-29">20代</option>
 
-            <option value="30-39">30代</option>
+              <option value="30-39">30代</option>
 
-            <option value="over40" disabled="disabled">40歳以上</option>
-          </select>
-          <input
-            class="text"
-            type="text"
-            name="名前"
-            value=""
-            placeholder="質問タイトル"
-          />
-        </div>
-        <div class="box2">
-          <i class="fa-solid fa-photo-film"></i>
-          <input
-            type="text"
-            name="名前"
-            value=""
-            placeholder="タグを入力してください"
-            class="tag"
-          />
-        </div>
-        <div class="box3">
-          <section>
-            <h3>shunsuke</h3>
-            <h1>2023年10月25日</h1>
+              <option value="over40" disabled="disabled">40歳以上</option>
+            </select>
+            <input
+              class="text"
+              type="text"
+              name="名前"
+              value=""
+              placeholder="質問タイトル"
+            />
+          </div>
+          <div class="box2">
+            <button class="photo">
+              <i class="fa-solid fa-photo-film fa-2x"></i>
+            </button>
+            <i class="fa-solid fa-tags fa-2x"></i>
 
-            <article>
-              トライデントコンピュータの校舎が変わるってほんと？
-            </article>
-            <span class="article-category">Java</span>
-            <span class="answered-category">解決</span>
-          </section>
-        </div>
-      </main>
+            <input
+              type="text"
+              name="名前"
+              value=""
+              placeholder="タグを入力してください"
+              class="tag"
+            />
+
+            <label class="fa-solid fa-border">
+              <button class="pencil">
+                <i class="fa-solid fa-pencil fa-2x"></i>
+              </button>
+              <button class="book">
+                <i class="fa-solid fa-book fa-2x"></i>
+              </button>
+              <button class="eye">
+                <i class="fa-solid fa-eye fa-2x"></i>
+              </button>
+            </label>
+          </div>
+          <div class="box3">
+            <textarea
+              class="textarea"
+              rows="4"
+              cols="50"
+              placeholder="質問したいこと
+ここに質問したいことを記載してください
+例）
+Firebaseのデータベースを使用してログイン画面を作っています。
+その途中で問題が発生しました。その問題とはFirebaseの構成が理解出来ないんですよ～、
+なんで教えてほしいですね～。"
+            ></textarea>
+          </div>
+        </main>
+      </div>
     </div>
   </body>
 </html>
