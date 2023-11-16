@@ -267,3 +267,23 @@ h1 {
 .text::placeholder {
   color: #000;
 }
+.answer2 {
+  display: flex;
+  overflow: hidden; /* float要素の後にくる要素が影響を受けないようにするために使用 */
+
+  flex-direction: column;
+}
+.library {
+  border: 2px solid #000;
+  background-color: #fff;
+}
+.element {
+  border: 2px solid #000;
+}
+#selectedImage {
+  width: 300px; /* Adjust the width as needed */
+  height: auto; /* Maintain the aspect ratio */
+}
+#imageInput {
+  display: none;
+}
