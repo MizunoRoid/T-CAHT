@@ -16,6 +16,7 @@ h2 {
 h3 {
   margin: 2px 0;
 }
+
 h4 {
   vertical-align: bottom;
   margin: 0;
@@ -24,7 +25,8 @@ h4 {
 
 .background {
   background-color: #f2f2f2;
-  border: 10px solid #e3e9ee; /* ページ全体に10pxの灰色のボーダーを設定 */
+  border: 10px solid #e3e9ee;
+  /* ページ全体に10pxの灰色のボーダーを設定 */
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -33,9 +35,12 @@ h4 {
 }
 
 header {
-  background-color: #f2f2f2; /* ヘッダーの背景色を設定 */
-  color: #fff; /* テキストの色を設定 */
-  padding: 10px; /* 内側の余白を設定 */
+  background-color: #f2f2f2;
+  /* ヘッダーの背景色を設定 */
+  color: #fff;
+  /* テキストの色を設定 */
+  padding: 10px;
+  /* 内側の余白を設定 */
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -64,6 +69,7 @@ header {
   margin-right: 15px;
   font-size: 25px;
 }
+
 .search-form {
   display: flex;
   align-items: center;
@@ -80,6 +86,7 @@ header {
   border: 2px solid #7f7f7f;
   font-size: 25px;
 }
+
 ::placeholder {
   color: #e6e6e6;
   text-align: left;
@@ -144,21 +151,25 @@ header {
   border-radius: 8px 8px 8px 8px;
   font-size: 25px;
 }
+
 .logo img {
   margin-left: 5px;
   margin-right: 40px;
-  max-width: 150px; /* ロゴ画像の
+  max-width: 150px;
+  /* ロゴ画像の
 最大幅を設定 */
 }
 
 nav ul {
-  list-style: none; /* リストのマーカーを非表示に */
+  list-style: none;
+  /* リストのマーカーを非表示に */
   padding: 0;
   display: flex;
   gap: 30px;
   background-color: #fff;
   border-radius: 8px 8px 8px 8px;
 }
+
 main {
   /* 上、右、下、左の順に指定 */
   float: right;
@@ -168,11 +179,13 @@ main {
   box-sizing: border-box;
   padding-top: 6px;
   padding-left: 8px;
-  padding-right: 8px; /* 右側に20pxのパディングを設定 */
+  padding-right: 8px;
+  /* 右側に20pxのパディングを設定 */
   /* 右側に20pxのパディングを設定 */
   overflow: auto;
   scroll-snap-align: start;
 }
+
 .box1 {
   border: 2px solid #8faadc;
   color: #000;
@@ -180,15 +193,18 @@ main {
   border-radius: 26px;
   background: #fdf6e9;
 }
+
 section {
   color: #000;
   padding: 11px;
   /* margin-bottom: 9px; */
   border-radius: 26px;
 }
+
 h3 {
   margin: 2px 0;
 }
+
 h1 {
   margin: 2px 0;
   font-size: 15px;
@@ -205,39 +221,49 @@ h1 {
   font-size: 28px;
   font-weight: bolder;
 }
+
 .article-category {
   background-color: #f2f2f2;
   border-radius: 15px;
   color: #000000;
   padding: 5px 8px 5px 8px;
 }
+
 .unsolved-category {
   background-color: #8faadc;
   border-radius: 15px;
   color: #000000;
   padding: 5px 8px 5px 8px;
 }
+
 .border {
-  border-top: 1px solid #000; /* 線の色と太さを指定 */
+  border-top: 1px solid #000;
+  /* 線の色と太さを指定 */
 }
+
 .text-medium {
   font-size: 20px;
 }
+
 .text-small {
   font-size: 18px;
 }
+
 .response {
   background-color: #fff;
 }
+
 .answer {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #fff;
 }
+
 .text {
   width: 60%;
   height: 20px;
 }
+
 .text::placeholder {
   color: #000;
 }

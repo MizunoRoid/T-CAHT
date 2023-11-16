@@ -344,6 +344,10 @@ a.answered {
   border-radius: 26px;
 }
 
+a.article {
+  text-decoration: none;
+}
+
 .box2 {
   background: #ffd966;
   color: #000;
@@ -377,7 +381,7 @@ aside {
   height: 450px;
   padding: 3px;
   box-sizing: border-box;
-  
+
   border-radius: 20px;
   position: relative;
   display: inline;
