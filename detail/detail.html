@@ -94,10 +94,31 @@
               value=""
               placeholder="質問タイトル"
             />
-            <section class="answer2">
-              <i class="fa-solid fa-image"></i>
-              <textarea name="" id="textarea" cols="30" rows="10"> </textarea>
-            </section>
+            <div class="element">
+              <label for="imageInput" class="custom-file-upload">
+                <i class="fa-solid fa-eye fa-2x"></i> 画像を選択
+              </label>
+
+              <!-- 実際のファイル入力フィールド（非表示） -->
+              <input type="file" id="imageInput" accept="image/*" />
+
+              <!-- Button to trigger the image preview -->
+              <button id="previewButton">プレビュー</button>
+
+              <!-- Display the selected image -->
+              <div id="imageContainer" style="display: none">
+                <img id="selectedImage" alt="Selected Image" />
+                <button id="closeButton">Close</button>
+              </div>
+
+              <!-- Display the code of the selected image -->
+              <pre id="imageCode"></pre>
+
+              <script src="detail.js"></script>
+              <section class="answer2">
+                <textarea name="" id="textarea" cols="30" rows="10"> </textarea>
+              </section>
+            </div>
           </section>
         </div>
       </main>
