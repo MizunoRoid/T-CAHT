@@ -150,6 +150,7 @@ header {
   border: #92d050;
   border-radius: 8px 8px 8px 8px;
   font-size: 25px;
+  text-decoration: none;
 }
 
 .logo img {
