@@ -248,43 +248,93 @@ section {
   font-size: 25px;
 }
 
-.category1 {
-  background-color: #8faadc;
-  margin-top: 30px;
-  margin-bottom: 50px;
-  margin-left: 70px;
-  font-size: 20px;
-  border-radius: 13px;
-  font-weight: 600;
+a.unsolved {
   color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.category1 {
+  margin-top: 30px;
+  margin-left: 70px;
+  background-color: #86a4dc;
+  border-bottom: 5px solid #6c97e8;
+  border-radius: 13px;
+  font-size: 20px;
   padding: 5px 8px 5px 5px;
-  position:absolute
+  position: absolute
+}
+
+.category1:hover {
+  margin-top: 33px;
+  color: #fff;
+  background: #86a4dc;
+  border-bottom: 2px solid #6c97e8;
+}
+
+.category1 {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
+a.Notanswered {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .category2 {
-  background-color: #ffd966;
   margin-top: 90px;
   margin-bottom: 50px;
   margin-left: 70px;
-  font-size: 20px;
+  background-color: #ffd966;
+  border-bottom: 5px solid #e1b532;
   border-radius: 13px;
-  font-weight: 600;
-  color: #000000;
+  font-size: 20px;
   padding: 5px 8px 5px 5px;
-  position:absolute
+  position: absolute
+}
+
+.category2:hover {
+  margin-top: 93px;
+  color: #fff;
+  background: #ffd966;
+  border-bottom: 2px solid #e1b532;
+}
+
+.category2 {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
+a.answered {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .category3 {
-  background-color: #ff6969;
   margin-top: 150px;
   margin-bottom: 50px;
   margin-left: 70px;
-  font-size: 20px;
+  background-color: #ff6969;
+  border-bottom: 5px solid #ee3b3b;
   border-radius: 13px;
-  font-weight: 600;
-  color: #000000;
-  padding: 5px 15px 5px 15px;
-  position:absolute
+  font-size: 20px;
+  padding: 5px 17px 5px 17px;
+  position: absolute
+}
+
+.category3:hover {
+  margin-top: 153px;
+  color: #fff;
+  background: #ff6969;
+  border-bottom: 2px solid #ee3b3b;
+}
+
+.category3 {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 
 .box1 {

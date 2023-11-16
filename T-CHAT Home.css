@@ -1,4 +1,3 @@
-
 body {
   margin-left: auto;
   margin-right: auto;
@@ -14,6 +13,7 @@ h1 {
   font-size: 15px;
   font-weight: normal;
 }
+
 h2 {
   margin: 10px 0;
   background-color: #fff;
@@ -22,6 +22,7 @@ h2 {
 h3 {
   margin: 2px 0;
 }
+
 h4 {
   vertical-align: bottom;
   margin: 0;
@@ -30,7 +31,8 @@ h4 {
 
 .background {
   background-color: #F2F2F2;
-  border: 10px solid #E3E9EE; /* ページ全体に10pxの灰色のボーダーを設定 */
+  border: 10px solid #E3E9EE;
+  /* ページ全体に10pxの灰色のボーダーを設定 */
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -39,9 +41,12 @@ h4 {
 }
 
 header {
-  background-color: #F2F2F2; /* ヘッダーの背景色を設定 */
-  color: #fff; /* テキストの色を設定 */
-  padding: 10px; /* 内側の余白を設定 */
+  background-color: #F2F2F2;
+  /* ヘッダーの背景色を設定 */
+  color: #fff;
+  /* テキストの色を設定 */
+  padding: 10px;
+  /* 内側の余白を設定 */
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -70,6 +75,7 @@ header {
   margin-right: 15px;
   font-size: 25px;
 }
+
 .search-form {
   display: flex;
   align-items: center;
@@ -86,10 +92,11 @@ header {
   border: 2px solid #7f7f7f;
   font-size: 25px;
 }
+
 ::placeholder {
   color: #e6e6e6;
   text-align: left;
-  font-family: "Arial Black",'MS Gothic';
+  font-family: "Arial Black", 'MS Gothic';
   padding-left: 3px;
 }
 
@@ -114,7 +121,7 @@ header {
   content: '';
 }
 
-.notification{
+.notification {
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 10px;
@@ -123,7 +130,7 @@ header {
   font-size: 29px;
 }
 
-.login{
+.login {
   margin-top: 5px;
   margin-bottom: 5px;
   padding-left: 3px;
@@ -137,7 +144,7 @@ header {
   text-decoration: none;
 }
 
-.post{
+.post {
   margin-left: 15px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -150,20 +157,23 @@ header {
   border-radius: 8px 8px 8px 8px;
   font-size: 25px;
 }
+
 .logo img {
-margin-left: 5px;
-margin-right: 40px;
-max-width: 150px; /* ロゴ画像の
+  margin-left: 5px;
+  margin-right: 40px;
+  max-width: 150px;
+  /* ロゴ画像の
 最大幅を設定 */
 }
 
 nav ul {
-list-style: none; /* リストのマーカーを非表示に */
-padding: 0;
-display: flex;
-gap: 30px;
-background-color: #fff;
-border-radius: 8px 8px 8px 8px;
+  list-style: none;
+  /* リストのマーカーを非表示に */
+  padding: 0;
+  display: flex;
+  gap: 30px;
+  background-color: #fff;
+  border-radius: 8px 8px 8px 8px;
 }
 
 .container {
@@ -180,35 +190,41 @@ border-radius: 8px 8px 8px 8px;
 
 main {
   background-color: white;
-  border-radius: 40px; /*要素を丸くする */
-  border-width: 100px; /* 上、右、下、左の順に指定 */
+  border-radius: 40px;
+  /*要素を丸くする */
+  border-width: 100px;
+  /* 上、右、下、左の順に指定 */
   float: right;
   width: 900px;
   height: 450px;
-  margin-left:38px;
+  margin-left: 38px;
   box-sizing: border-box;
-  border: 2px solid black; /* 2pxの幅で黒い縁線を追加 */
+  border: 2px solid black;
+  /* 2pxの幅で黒い縁線を追加 */
   padding-top: 6px;
   padding-left: 8px;
-  padding-right: 8px; /* 右側に20pxのパディングを設定 */
+  padding-right: 8px;
   /* 右側に20pxのパディングを設定 */
-  overflow:auto;
+  /* 右側に20pxのパディングを設定 */
+  overflow: auto;
   scroll-snap-align: start;
-  
+
 }
 
 main::-webkit-scrollbar {
   width: 13px;
-  }
+}
+
 main::-webkit-scrollbar-track {
   background-color: #eff2f7;
   border-radius: 100px;
-  }
+}
+
 main::-webkit-scrollbar-thumb {
   background: #abbdda;
   border-radius: 100px;
   width: 130px;
-  }
+}
 
 section {
   background: #FDF6E9;
@@ -217,12 +233,14 @@ section {
   /* margin-bottom: 9px; */
   border-radius: 26px;
 }
+
 .box1 {
-  border : 2px solid #8faadc;
+  border: 2px solid #8faadc;
   color: #000;
   margin-bottom: 6px;
   border-radius: 26px;
 }
+
 .box2 {
   background: #ffd966;
   color: #000;
@@ -230,6 +248,7 @@ section {
   margin-bottom: 6px;
   border-radius: 26px;
 }
+
 .box3 {
   background: #ff6969;
   color: #000;
@@ -261,16 +280,18 @@ aside {
   position: relative;
   display: inline;
 }
-aside::after{
-  content:"";
-  display:inline-block;
-  width:2px;
-  height:435px;
-  background-color:black;
-  position:absolute;
-  top:5px;
-  right:-20px;
+
+aside::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 435px;
+  background-color: black;
+  position: absolute;
+  top: 5px;
+  right: -20px;
 }
+
 .head {
   font-family: "Arial Black";
   font-size: 30px;
@@ -291,10 +312,11 @@ aside::after{
 .item {
   margin: 2px;
   line-height: 34px;
-  font-family: Arial,"BIZ UDGothic";
+  font-family: Arial, "BIZ UDGothic";
   position: relative;
   left: 20px;
-  justify-content: right; /* 中央寄せ */
+  justify-content: right;
+  /* 中央寄せ */
   font-size: 25px;
 }
 
@@ -303,7 +325,8 @@ aside::after{
   left: 20px;
   display: flex;
   align-items: center;
-  justify-content: left; /* 中央寄せ */
+  justify-content: left;
+  /* 中央寄せ */
 }
 
 .article-category {
@@ -312,23 +335,24 @@ aside::after{
   color: #000000;
   padding: 5px 8px 5px 8px;
 }
+
 .unsolved-category {
   background-color: #8faadc;
   border-radius: 15px;
   color: #000000;
   padding: 5px 8px 5px 8px;
 }
+
 .Notanswered-category {
   background-color: #ffd966;
   border-radius: 15px;
   color: #000000;
   padding: 5px 8px 5px 8px;
 }
+
 .answered-category {
   background-color: #ff6969;
   border-radius: 15px;
   color: #000000;
   padding: 5px 8px 5px 8px;
 }
-
-
