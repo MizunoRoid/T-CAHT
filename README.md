@@ -14,6 +14,13 @@ READMEの使い方
 ---- AWS コンソールログイン-----
 https://056445715636.signin.aws.amazon.com/console
 
+----AWS Dynamodb----
+パーティションキー  ソートキー
+ログイン機能    SystemType :Login  Id
+質問機能        SystemType :Quetion UserID  UserID QuetionID Quetion 
+通知機能        SystemType :Notification ???
+
+
 -----コーディングルール-----
 ・分かりにくい変数名を使わない
 例 int a = 0 NG　int number = 0 OK
