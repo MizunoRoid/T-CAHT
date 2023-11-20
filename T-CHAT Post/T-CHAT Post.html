@@ -22,7 +22,9 @@
     <div class="background">
       <header>
         <div class="logo">
-          <a href="../T-CHAT Home.html" class="home"><img src="..\image\T-CHAT_icon.png" alt="Your Image" /></a>
+          <a href="../T-CHAT Home.html" class="home">
+            <img src="..\image\T-CHAT_icon.png" alt="Your Image" />
+          </a>
         </div>
         <button class="save">
           <i class="fa-solid fa-floppy-disk"></i>
@@ -39,25 +41,25 @@
       <main>
         <div class="box1">
           <select class="list" name="名前" size="1">
-            <option selected="selected">フォーマット</option>
+            <option selected="selected">選択して下さい</option>
 
-            <option value="under10">10歳未満</option>
+            <option value="private">プライベート</option>
 
-            <option value="20-29">20代</option>
+            <option value="change">意見交換</option>
 
-            <option value="30-39">30代</option>
+            <option value="QA">Q & A</option>
 
-            <option value="over40" disabled="disabled">40歳以上</option>
           </select>
           <input class="text" type="text" name="名前" value="" placeholder="質問タイトル" />
         </div>
+
         <div class="box2">
           <button class="photo">
             <i class="fa-solid fa-photo-film fa-2x"></i>
           </button>
           <i class="fa-solid fa-tags fa-2x"></i>
 
-          <input type="text" name="名前" value="" placeholder="タグを入力してください" class="tag" />
+          <input class="tag" type="text" name="名前" value="" placeholder="タグを入力してください" />
 
           <label class="fa-solid fa-border">
             <button class="pencil">
@@ -71,6 +73,7 @@
             </button>
           </label>
         </div>
+        
         <div class="box3">
           <textarea class="textarea" rows="4" cols="50" placeholder="質問したいこと
 ここに質問したいことを記載してください
