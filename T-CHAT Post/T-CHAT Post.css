@@ -12,11 +12,6 @@ header {
   border: 2px solid white;
 }
 
-.bordered-element {
-  border: 10px solid #d9d9d9;
-  /* ボーダーの幅と色を指定 */
-}
-
 .header .logo img {
   background-color: #f2f2f2;
   /* ヘッダーの背景色を設定 */
@@ -44,6 +39,7 @@ header {
 
 ::placeholder {
   font-family: "M PLUS Rounded 1c", sans-serif;
+  color: #c9c6c6;
 }
 
 .logo img {
@@ -88,14 +84,14 @@ header {
 }
 
 .list {
-  width: 10%;
+  width: 12%;
   font-size: 15px;
   min-height: 50px;
   max-height: 200px;
   margin-right: 30px;
   border: 2px solid #c0c0c0;
   border-radius: 8px 8px 8px 8px;
-  font-size: 20px;
+  font-size: 16px;
   font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
@@ -208,10 +204,4 @@ header {
   border: 2px solid #c0c0c0;
   border-radius: 8px 8px 8px 8px;
   margin-left: 20px;
-}
-
-.textarea::placeholder {
-  color: #5b5a5a;
-  font-size: 28px;
-  /* placeholder のフォントサイズを変更 */
 }
