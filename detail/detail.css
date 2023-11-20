@@ -271,20 +271,27 @@ h1 {
 .answer2 {
   display: flex;
   overflow: hidden; /* float要素の後にくる要素が影響を受けないようにするために使用 */
-
+  justify-content: flex-end; /* ボタンを右側に寄せる */
   flex-direction: column;
 }
-.library {
-  border: 2px solid #000;
-  background-color: #fff;
-}
+
 .element {
   border: 2px solid #000;
 }
 #selectedImage {
-  width: 300px; /* Adjust the width as needed */
+  width: 100px; /* Adjust the width as needed */
   height: auto; /* Maintain the aspect ratio */
 }
 #imageInput {
   display: none;
+}
+#previewButton {
+  margin-left: auto; /* 左側の余白をautoに設定 */
+}
+#answer {
+  margin-left: 1200px; /* ボタンとテキストエリアの間に余白を追加 */
+}
+#textarea {
+  height: 200px;
+  width: 100%;
 }
