@@ -277,18 +277,29 @@ h1 {
   width: 100px; /* Adjust the width as needed */
   height: auto; /* Maintain the aspect ratio */
 }
-#imageInput {
-  display: none;
-}
+
 #previewButton {
-  margin-left: 1150px; /* 左側の余白をautoに設定 */
+  display: inline-block; /* インラインブロック要素にすることで横幅がコンテンツに合わせられる */
+  cursor: pointer; /* マウスが重なるとポインターを表示 */
+  border-radius: 8px 8px 8px 8px;
+  font-size: 18px;
+  width: 120px;
+  height: 50px;
+  background-color: #fff;
+  border: 3px solid #dfe0e0;
+  left: 800px; /* 任意の値を指定して調整 */
+  position: relative; /* 要素の位置を調整するために必要 */
 }
 #answer-button {
   margin-left: 1200px; /* ボタンとテキストエリアの間に余白を追加 */
   background-color: #55c500;
+  border: none;
+  right: 20px; /* 任意の値を指定して調整 */
+  position: relative;
 }
 .textarea {
-  border-radius: 0 0 8px 8px;
+  border-top: none; /* 上辺に線を引かない */
+  border-bottom: none; /* 上辺に線を引かない */
 }
 .textarea::placeholder {
   color: #a8a7a7; /* アイコンの色を緑に変更 */
@@ -296,6 +307,31 @@ h1 {
 #answer-button {
   width: 120px; /* 任意の幅を指定 */
   height: 40px; /* 任意の高さを指定 */
-  font-size: 28px; /* 任意のフォントサイズを指定 */
+  font-size: 18px;
+  color: #fff; /* 黒色の文字色 */
+
   margin-left: auto;
+  border-radius: 8px 8px 8px 8px;
+  display: block; /* 要素をブロック要素に変更 */
+  margin-right: 0; /* 右側のマージンを0に設定 */
+}
+.file-upload {
+  background-color: #ffffff; /* 白色の背景色 */
+  color: #000000; /* 黒色の文字色 */
+  display: inline-block; /* インラインブロック要素にすることで横幅がコンテンツに合わせられる */
+  cursor: pointer; /* マウスが重なるとポインターを表示 */
+  border-radius: 5px; /* 任意の角丸を追加 */
+  margin-top: 10px;
+}
+.file-upload i {
+  color: #808080; /* 灰色のアイコン色 */
+}
+.file-upload:hover {
+  background-color: #f0f0f0; /* ホバー時の背景色 */
+}
+.background-color {
+  border-top: none; /* 上辺に線を引かない */
+  border-right: 1px solid #000; /* 右辺に1pxの黒い線を引く */
+  border-bottom: 1px solid #000; /* 下辺に1pxの黒い線を引く */
+  border-left: 1px solid #000;
 }
