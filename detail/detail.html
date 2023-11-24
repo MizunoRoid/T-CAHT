@@ -3,80 +3,141 @@
   <head>
     <link rel="stylesheet" type="text/css" href="detail.css" />
     <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Sawarabi+Gothic&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <header>
-      <h1>
-        <a href="TOPページのURL">
-          <img class="logo" src="T-CHAT_icon_2.png" alt="ヘッダー画像"/></a>
-      </h1>
-      <nav>
-          <a href="xxx" class="home">home</a>
-          <a href="xxx" class="question">question</a>
-          <input type="search" name="search" class="search" placeholder="Search" />
-          <button type="button" class="POST">POST</button>
-      </nav>
-    </header>
-  
-    <div class="container">
-    
-      <aside>
-        
-        <h2>Trend</h2>
-        
-        <p>koukoku</p>
-        
-    
-      </aside>
-    <main>
-      
-      
-      <section>
-        <h3>Tomioka</h3>
-        <article>投稿日:2023年10月25日
-        </article>
+    <script
+      src="https://kit.fontawesome.com/eae95656cf.js"
+      crossorigin="anonymous"
+    ></script>
+    <div class="background">
+      <header>
+        <div class="logo">
+          <a href="../T-CHAT Home.html" class="home"
+            ><img src="../image/T-CHAT_icon.png"
+          /></a>
+        </div>
 
-        <h2>アプリ案が思いつかなくて困っています</h2>
-        <span class="article-category">アプリ案</span>
-        <span class="unsolved-category">未解決</span>
+        <nav>
+          <ul>
+            <a href="../T-CHAT Home.html" class="home">🏡Home</a>
+            <a href="../question/question.html" class="question">💡Question</a>
+            <div class="search-form">
+              <input type="text" class="search" placeholder="Search" />
+              <button type="submit" aria-label="検索"></button>
+            </div>
+          </ul>
+        </nav>
+        <a href="xxx" class="notification">🔔</a>
+        <a href="xxx" class="login">👤Login</a>
+        <a href="../T-CHAT Post/T-CHAT Post.html" class="post">📪Post</a>
+      </header>
 
-        
-        <h4></h4>
-      </section>
-      
-      <section>
-        <h6>1.アプリ案が思いつかない</h6>
-        <article>授業内でアプリ企画を二つ考えなければいけません正直無理です。助けてほしいです。</article>
-        <h7>1.1候補案</h7>
-        <article>一応候補となる案は出ています。ルーレットを回し行きたい店を決めるアプリやチャットボットを活用したアプリです。
-        </article>
-        <h7>1.2必要要綱</h7>
-        <article>androidアプリかつweb apiを必ず一つ使うこと
-        </article>
-        <h5></h5>
-      </section>
-      
-      <section>
-        <h6>1.疑問点</h6>
-        <article>アプリ開発で大量の疑問点を抱えています。タスケテ</article>
+      <main>
+        <div class="box1">
+          <section>
+            <p class="name">MIZUNO</p>
+            <p class="date">2023年10月25日</p>
+            <p class="large">アプリ案が思いつかなくて困っています</p>
+            <span class="article-category">アプリ案</span>
+            <span class="unsolved-category">未解決</span>
+            <p class="border"></p>
+            <p class="text-medium">1.アプリ案が思いつかない</p>
+            <p class="text-Extremely-small">
+              授業内でアプリ企画を二つ考えなければいけません正直無理です。助けてほしいです。
+            </p>
+            <p class="text-small">1.1候補案</p>
+            <p class="text-Extremely-small">
+              一応候補となる案は出ています。ルーレットを回し行きたい店を決めるアプリやchatbotを活用したアプリです。
+            </p>
+            <p class="text-small">1.必須要綱</p>
+            <p class="text-Extremely-small">
+              androidアプリかつWEB APIを必ず使うこと。
+            </p>
+            <p class="border"></p>
+            <p class="text-medium">2.疑問点</p>
+            <p class="text-Extremely-small">
+              アプリ開発で大量の疑問点を抱えています。タスケテ....
+            </p>
+            <p class="text-small">2.1企画発表は2案か</p>
+            <p class="text-Extremely-small">
+              実際に企画発表をする案は二ついるのでしょうか。そこをお聞きしたいです。
+            </p>
+            <p class="large">3.回答者へのお願い</p>
+            <p class="text-Extremely-small">
+              前述した質問内容を答えていただきたいです。よろしくお願いいたします。
+            </p>
+            <p class="border"></p>
+            <p class="large">1件の回答</p>
+          </section>
+          <section class="response">
+            <p class="name">Tomi</p>
+            <p class="date">2023年11月25日</p>
+            <p class="text-Extremely-small">
+              2.1企画発表は2案か<br />実際に企画発表をする案は二ついるのでしょうか。そこをお聞きしたいです。
+            </p>
+          </section>
 
-        <h7>2.1企画発表は2案か</h7>
+          <section class="answer">
+            <input
+              class="text"
+              type="text"
+              name="名前"
+              value=""
+              placeholder="名前を入力してください"
+            />
 
-        <article>実際に企画発表をする案は二ついるのでしょうか。そこをお聞きしたいです。</article>
-        <article>記事</article>
-      </section>
-      
-    
-    </main>
-    
-    <aside>
-    
-        <h2>ranking</h2>
-        <p>koukoku</p>
-        
-    </aside>
-</div>
+            <section class="answer">
+              <div class="element">
+                <!-- <label for="imageInput" class="file-upload">
+                  <i class="fa-solid fa-photo-film fa-2x"></i></i> 画像を選択してください
+                </label> -->
 
+                <!-- 実際のファイル入力フィールド（非表示） -->
+                <input type="file" id="imageInput" accept="image/*" />
+
+                <!-- Button to trigger the image preview -->
+                <button id="previewButton">プレビュー</button>
+
+                <!-- Display the selected image -->
+                <div id="imageContainer" style="display: none">
+                  <img id="selectedImage" alt="Selected Image" />
+                  <button id="closeButton">Close</button>
+                </div>
+
+                <!-- Display the code of the selected image -->
+                <pre id="imageCode"></pre>
+
+                <script src="detail.js"></script>
+              </div>
+
+              <section class="answer2">
+                <textarea
+                  class="textarea"
+                  rows="10"
+                  cols="50"
+                  placeholder="テキストを入力"
+                ></textarea>
+              </section>
+
+              <section class="background-color">
+                <button id="answer-button">投稿する</button>
+              </section>
+            </section>
+          </section>
+        </div>
+      </main>
+    </div>
   </body>
 </html>

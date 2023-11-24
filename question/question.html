@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="T-CHAT Home.css" />
+  <link rel="stylesheet" type="text/css" href="question.css" />
   <meta charset="utf-8" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,16 +15,19 @@
 </head>
 
 <body>
+  <!-- 絵文字使うためのサイト -->
+  <script src="https://kit.fontawesome.com/0342a7eaf5.js" crossorigin="anonymous"></script>
+
   <div class="background">
     <header>
       <div class="logo">
-        <a href="T-CHAT Home.html" class="home"><img src="image/T-CHAT_icon.png" /></a>
+        <a href="../T-CHAT Home.html" class="home"><img src="../image/T-CHAT_icon.png" /></a>
       </div>
 
       <nav>
         <ul>
-          <a href="T-CHAT Home.html" class="home">🏡Home</a>
-          <a href="question/question.html" class="question">💡Question</a>
+          <a href="../T-CHAT Home.html" class="home">🏡Home</a>
+          <a href="question.html" class="question">💡Question</a>
           <div class="search-form">
             <input type="text" class="search" placeholder="Search" />
             <button type="submit" aria-label="検索"></button>
@@ -33,60 +36,25 @@
       </nav>
       <a href="xxx" class="notification">🔔</a>
       <a href="xxx" class="login">👤Login</a>
-      <a href="T-CHAT Post/T-CHAT Post.html" class="post">📪Post</a>
+      <a href="../T-CHAT Post/T-CHAT Post.html" class="post">📪Post</a>
     </header>
 
     <div class="container">
+
       <aside>
-        <div class="item-list">
-          <div class="head">📈 Trend</div>
+        <i class="fa-solid fa-tag fa-2x"></i>
+        <a class="Category">Category</a>
+
+        <div class="category1">
+          <a href="#" class="unsolved">未回答</a>
         </div>
 
-        <div class="item-list">
-          <h4>
-            <a href="index.html"><img src="./image/no1.png" alt="サイトロゴ" /></a>
-          </h4>
-          <div class="item">Bug</div>
+        <div class="category2">
+          <a href="#" class="Notanswered">未解決</a>
         </div>
-        <div class="item-list">
-          <h4>
-            <a href="index.html"><img src="./image/no2.png" alt="サイトロゴ" /></a>
-          </h4>
-          <div class="item">Firebase</div>
-        </div>
-        <div class="item-list">
-          <h4>
-            <a href="index.html"><img src="./image/no3.png" alt="サイトロゴ" /></a>
-          </h4>
-          <div class="item">Java</div>
-        </div>
-        <div class="item-list">
-          <div class="rank">4</div>
-          <div class="item">News</div>
-        </div>
-        <div class="item-list">
-          <div class="rank">5</div>
-          <div class="item">Android</div>
-        </div>
-        <div class="item-list">
-          <div class="rank">6</div>
-          <div class="item">JavaScript</div>
-        </div>
-        <div class="item-list">
-          <div class="rank">7</div>
-          <div class="item">HTML</div>
-        </div>
-        <div class="item-list">
-          <div class="rank">8</div>
-          <div class="item">アプリ案</div>
-        </div>
-        <div class="item-list">
-          <div class="rank">9</div>
-          <div class="item">If文</div>
-        </div>
-        <div class="item-list">
-          <div class="rank">10</div>
-          <div class="item">For文</div>
+
+        <div class="category3">
+          <a href="#" class="answered">解決</a>
         </div>
       </aside>
 
@@ -96,7 +64,7 @@
             <section>
               <h3>MIZUNO</h3>
               <h1>2023年10月25日</h1>
-              <a href="detail/detail.html" class="article">
+              <a href="../detail/detail.html" class="article">
                 <article>アプリ案が思いつかなくて困っています</article>
               </a>
               <span class="article-category">アプリ案</span>
@@ -128,6 +96,7 @@
           </div>
         </div>
       </main>
+
     </div>
   </div>
 </body>

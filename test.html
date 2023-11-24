@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>カスタムファイルアップロードボタン</title>
+    <style>
+      /* 実際のファイルインプットを隠す */
+      input[type="file"] {
+        display: none;
+      }
+
+      /* カスタムファイルアップロードボタンのスタイル */
+      .custom-upload-button {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .custom-upload-button span {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #4caf50; /* グリーンの背景色 */
+        color: white;
+        cursor: pointer;
+        border-radius: 5px; /* ボーダーラジアスを設定 */
+      }
+
+      /* ファイルインプットのスタイルを変更 */
+      input[type="file"] + span {
+        background-color: #3498db; /* ブルーの背景色 */
+        color: #fff;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px; /* ボーダーラジアスを設定 */
+      }
+
+      /* 選択されたファイル名表示用のスタイル */
+      #fileDetails {
+        margin-top: 10px; /* 適宜調整 */
+        text-align: right; /* テキストを右寄せにする */
+        font-size: 14px; /* 適宜調整 */
+        color: white; /* テキストカラーを白に設定 */
+        background-color: #fff; /* 背景色を白に設定 */
+        padding: 5px; /* 適宜調整 */
+        display: inline-block; /* インラインブロック要素に設定 */
+        border-radius: 5px; /* ボーダーラジアスを設定 */
+      }
+
+      /* ファイル名と拡張子を表示するためのスタイル */
+      #fileNameExtension {
+        display: inline-block;
+        margin-left: 10px; /* ボタンとの間隔を調整 */
+        color: black; /* 拡張子のカラーをブラックに設定 */
+        background-color: #fff; /* 背景色を白に設定 */
+        border-radius: 5px; /* ボーダーラジアスを設定 */
+      }
+
+      /* プレビューボタンのスタイル */
+      #previewButton {
+        background-color: #3498db; /* ブルーの背景色 */
+        color: white; /* プレビューボタンの文字色を白に設定 */
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        margin-top: 10px; /* 適宜調整 */
+        display: inline-block; /* インラインブロック要素に設定 */
+        border-radius: 5px; /* ボーダーラジアスを設定 */
+      }
+
+      /* 画像表示用のスタイル */
+      #imageContainer {
+        display: none; /* 初期状態では非表示 */
+        text-align: center; /* 画像を中央揃えにする */
+      }
+
+      #selectedImage {
+        max-width: 50%; /* 画像の最大幅を設定 */
+        max-height: 50%; /* 画像の最大高さを設定 */
+        margin-top: 10px; /* 適宜調整 */
+        border-radius: 5px; /* ボーダーラジアスを設定 */
+      }
+
+      /* 閉じるボタンのスタイル */
+      #closeButton {
+        display: none; /* 初期状態では非表示 */
+        background-color: #e74c3c; /* レッドの背景色 */
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        margin-top: 10px; /* 適宜調整 */
+        border-radius: 5px; /* ボーダーラジアスを設定 */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- カスタムファイルアップロードボタンのラッパー -->
+    <div class="custom-upload-button">
+      <!-- カスタムスタイルのボタン -->
+      <span onclick="document.getElementById('imageInput').click()"
+        >ファイルを選択</span
+      >
+      <!-- ファイル名と拡張子を表示するための要素 -->
+      <div id="fileDetails">
+        <span id="fileNameExtension"></span>
+        <!-- プレビューボタン -->
+        <button id="previewButton" onclick="toggleImage()">プレビュー</button>
+      </div>
+      <!-- 選択された画像を表示するための要素 -->
+      <div id="imageContainer">
+        <img id="selectedImage" alt="Selected Image" />
+        <!-- 閉じるボタン -->
+        <button id="closeButton" onclick="closeImage()">閉じる</button>
+      </div>
+    </div>
+
+    <!-- 実際のファイルインプット -->
+    <input
+      type="file"
+      id="imageInput"
+      accept="image/*"
+      onchange="updateFileDetails()"
+    />
+
+    <script>
+      // ファイルが選択されたときに呼ばれる関数
+      function updateFileDetails() {
+        const input = document.getElementById("imageInput");
+        const fileNameExtensionDisplay =
+          document.getElementById("fileNameExtension");
+        const imageContainer = document.getElementById("imageContainer");
+        const selectedImage = document.getElementById("selectedImage");
+        const closeButton = document.getElementById("closeButton");
+        const previewButton = document.getElementById("previewButton");
+
+        const fileName = input.files[0]
+          ? input.files[0].name
+          : "ファイルを選択";
+        const fileExtension = fileName.split(".").pop(); // 拡張子を抽出
+        fileNameExtensionDisplay.textContent = ` ファイル名: ${fileName} `;
+        previewButton.style.display = "inline-block"; // プレビューボタンを表示
+
+        // 画像が選択された場合、表示する
+        if (input.files && input.files[0]) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            selectedImage.src = e.target.result;
+          };
+
+          reader.readAsDataURL(input.files[0]);
+          imageContainer.style.display = "block"; // 画像コンテナを表示
+          closeButton.style.display = "block"; // 閉じるボタンを表示
+        } else {
+          selectedImage.src = ""; // 画像が選択されていない場合、表示をクリア
+          imageContainer.style.display = "none"; // 画像コンテナを非表示
+          closeButton.style.display = "none"; // 閉じるボタンを非表示
+        }
+      }
+
+      // 画像を閉じる関数
+      function closeImage() {
+        const imageContainer = document.getElementById("imageContainer");
+        imageContainer.style.display = "none"; // 画像コンテナを非表示
+      }
+
+      // プレビューボタンを切り替える関数
+      function toggleImage() {
+        const imageContainer = document.getElementById("imageContainer");
+        // Toggle the visibility of the image container
+        imageContainer.style.display =
+          imageContainer.style.display === "none" ? "block" : "none";
+      }
+    </script>
+  </body>
+</html>
