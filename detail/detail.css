@@ -250,14 +250,18 @@ h1 {
 }
 
 .text {
+  font-size: 16px;
+  margin: 10px;
   width: 20%;
   height: 20px;
   background-color: #f2f2f2;
+  font-weight: bold; /* または font-weight: 700; */
+
   border-radius: 8px 8px 8px 8px;
 }
 
 .text::placeholder {
-  color: #000;
+  color: #a6a6a6;
 }
 .answer {
   margin-top: 10px;
@@ -273,23 +277,7 @@ h1 {
   border: 1px solid #000;
   border-radius: 8px 8px 0 0;
 }
-#selectedImage {
-  width: 100px; /* Adjust the width as needed */
-  height: auto; /* Maintain the aspect ratio */
-}
 
-#previewButton {
-  display: inline-block; /* インラインブロック要素にすることで横幅がコンテンツに合わせられる */
-  cursor: pointer; /* マウスが重なるとポインターを表示 */
-  border-radius: 8px 8px 8px 8px;
-  font-size: 18px;
-  width: 120px;
-  height: 50px;
-  background-color: #fff;
-  border: 3px solid #dfe0e0;
-  left: 800px; /* 任意の値を指定して調整 */
-  position: relative; /* 要素の位置を調整するために必要 */
-}
 #answer-button {
   margin-left: 1200px; /* ボタンとテキストエリアの間に余白を追加 */
   background-color: #55c500;
@@ -309,6 +297,7 @@ h1 {
   height: 40px; /* 任意の高さを指定 */
   font-size: 18px;
   color: #fff; /* 黒色の文字色 */
+  font-weight: bold; /* または font-weight: 700; */
 
   margin-left: auto;
   border-radius: 8px 8px 8px 8px;
@@ -334,4 +323,101 @@ h1 {
   border-right: 1px solid #000; /* 右辺に1pxの黒い線を引く */
   border-bottom: 1px solid #000; /* 下辺に1pxの黒い線を引く */
   border-left: 1px solid #000;
+  border-radius: 0 0 8px 8px;
 }
+
+/* ここからプレビューのプログラム */
+
+/* 実際のファイルインプットを隠す */
+input[type="file"] {
+  display: none;
+}
+
+/* カスタムファイルアップロードボタンのスタイル */
+.custom-upload-button {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  font-weight: bold; /* または font-weight: 700; */
+}
+
+.custom-upload-button span {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #ff7b69; /* グリーンの背景色 */
+  color: white;
+  cursor: pointer;
+  border-radius: 5px; /* ボーダーラジアスを設定 */
+}
+
+/* ファイルインプットのスタイルを変更 */
+input[type="file"] + span {
+  background-color: #3498db; /* ブルーの背景色 */
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px; /* ボーダーラジアスを設定 */
+}
+
+/* 選択されたファイル名表示用のスタイル */
+#fileDetails {
+  margin-top: 10px; /* 適宜調整 */
+  text-align: right; /* テキストを右寄せにする */
+  font-size: 14px; /* 適宜調整 */
+  color: white; /* テキストカラーを白に設定 */
+  background-color: #fff; /* 背景色を白に設定 */
+  padding: 5px; /* 適宜調整 */
+  display: inline-block; /* インラインブロック要素に設定 */
+  border-radius: 5px; /* ボーダーラジアスを設定 */
+}
+
+/* ファイル名と拡張子を表示するためのスタイル */
+#fileNameExtension {
+  display: inline-block;
+  margin-left: 10px; /* ボタンとの間隔を調整 */
+  color: black; /* 拡張子のカラーをブラックに設定 */
+  background-color: #fff; /* 背景色を白に設定 */
+  border-radius: 5px; /* ボーダーラジアスを設定 */
+}
+
+/* プレビューボタンのスタイル */
+#previewButton {
+  background-color: #3498db; /* ブルーの背景色 */
+  color: white; /* プレビューボタンの文字色を白に設定 */
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 10px; /* 適宜調整 */
+  display: inline-block; /* インラインブロック要素に設定 */
+  border-radius: 5px; /* ボーダーラジアスを設定 */
+  font-weight: bold; /* または font-weight: 700; */
+}
+
+/* 画像表示用のスタイル */
+#imageContainer {
+  display: none; /* 初期状態では非表示 */
+  text-align: center; /* 画像を中央揃えにする */
+}
+
+#selectedImage {
+  max-width: 50%; /* 画像の最大幅を設定 */
+  max-height: 50%; /* 画像の最大高さを設定 */
+  margin-top: 10px; /* 適宜調整 */
+  border-radius: 5px; /* ボーダーラジアスを設定 */
+  border: 3px solid #bfbfbf;
+}
+
+/* 閉じるボタンのスタイル */
+#closeButton {
+  display: none; /* 初期状態では非表示 */
+  background-color: #e74c3c; /* レッドの背景色 */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 10px; /* 適宜調整 */
+  border-radius: 5px; /* ボーダーラジアスを設定 */
+  font-weight: bold; /* または font-weight: 700; */
+}
+
+/* ここまでがプレビューのプログラム */

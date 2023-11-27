@@ -100,24 +100,37 @@
 
             <section class="answer">
               <div class="element">
-                <!-- <label for="imageInput" class="file-upload">
-                  <i class="fa-solid fa-photo-film fa-2x"></i></i> 画像を選択してください
-                </label> -->
-
-                <!-- 実際のファイル入力フィールド（非表示） -->
-                <input type="file" id="imageInput" accept="image/*" />
-
-                <!-- Button to trigger the image preview -->
-                <button id="previewButton">プレビュー</button>
-
-                <!-- Display the selected image -->
-                <div id="imageContainer" style="display: none">
-                  <img id="selectedImage" alt="Selected Image" />
-                  <button id="closeButton">Close</button>
+                <!-- カスタムファイルアップロードボタンのラッパー -->
+                <div class="custom-upload-button">
+                  <!-- カスタムスタイルのボタン -->
+                  <span onclick="document.getElementById('imageInput').click()"
+                    >ファイルを選択</span
+                  >
+                  <!-- ファイル名と拡張子を表示するための要素 -->
+                  <div id="fileDetails">
+                    <span id="fileNameExtension"></span>
+                    <!-- プレビューボタン -->
+                    <button id="previewButton" onclick="toggleImage()">
+                      プレビュー
+                    </button>
+                  </div>
+                  <!-- 選択された画像を表示するための要素 -->
+                  <div id="imageContainer">
+                    <img id="selectedImage" alt="Selected Image" />
+                    <!-- 閉じるボタン -->
+                    <button id="closeButton" onclick="closeImage()">
+                      閉じる
+                    </button>
+                  </div>
                 </div>
 
-                <!-- Display the code of the selected image -->
-                <pre id="imageCode"></pre>
+                <!-- 実際のファイルインプット -->
+                <input
+                  type="file"
+                  id="imageInput"
+                  accept="image/*"
+                  onchange="updateFileDetails()"
+                />
 
                 <script src="detail.js"></script>
               </div>
