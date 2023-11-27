@@ -224,7 +224,10 @@ main::-webkit-scrollbar-thumb {
   border-radius: 100px;
   width: 130px;
 }
-
+.total {
+  position: sticky;
+  margin-left: auto;
+}
 section {
   background: #fdf6e9;
   color: #000;
