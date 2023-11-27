@@ -174,7 +174,7 @@ nav ul {
 main {
   /* 上、右、下、左の順に指定 */
   float: right;
-  width: 98.3%;
+  width: calc(98.3% - 20px); /* 右側に20pxのパディングを考慮 */
   height: 100%;
   margin-left: 38px;
   box-sizing: border-box;
@@ -186,7 +186,20 @@ main {
   overflow: auto;
   scroll-snap-align: start;
 }
+main::-webkit-scrollbar {
+  width: 13px;
+}
 
+main::-webkit-scrollbar-track {
+  background-color: #eff2f7;
+  border-radius: 100px;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: #abbdda;
+  border-radius: 100px;
+  width: 130px;
+}
 .box1 {
   border: 2px solid #8faadc;
   color: #000;
@@ -194,6 +207,7 @@ main {
   border-radius: 26px;
   background: #fdf6e9;
   padding: 11px;
+  border-radius: 8px 8px 8px 8px;
 }
 
 h3 {
@@ -206,22 +220,14 @@ h1 {
   font-weight: normal;
 }
 
-.large {
-  background: #fdf6e9;
-  color: #000;
-  padding: 3px;
-  margin-top: 5px;
-  margin-bottom: 7px;
-  margin-left: 5px;
-  font-size: 28px;
-  font-weight: bolder;
-}
-
 .article-category {
   background-color: #f2f2f2;
   border-radius: 15px;
   color: #000000;
   padding: 5px 8px 5px 8px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 15px;
 }
 
 .unsolved-category {
@@ -229,24 +235,72 @@ h1 {
   border-radius: 15px;
   color: #000000;
   padding: 5px 8px 5px 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-
+.total {
+  margin-left: 800px;
+}
+.name {
+  font-weight: bolder;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+.date {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 15px;
+}
+.name {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 15px;
+}
+.large {
+  background: #fdf6e9;
+  color: #000;
+  padding: 3px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  margin-left: 15px;
+  font-size: 28px;
+  font-weight: bolder;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
 .border {
   border-top: 1px solid #000;
   /* 線の色と太さを指定 */
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .text-medium {
   font-size: 20px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 15px;
+  font-weight: bolder;
 }
 
 .text-small {
-  font-size: 18px;
-}
+  margin-left: 15px;
 
+  font-size: 18px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+.text-Extremely-small {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 40px;
+}
 .response {
   background-color: #fff;
   border-radius: 8px 8px 8px 8px;
+}
+.reply {
+  margin-left: 15px;
 }
 
 .text {
@@ -266,6 +320,7 @@ h1 {
 .answer {
   margin-top: 10px;
   background-color: #fff;
+  border-radius: 8px 8px 8px 8px;
 }
 .answer2 {
   display: flex;
@@ -284,13 +339,16 @@ h1 {
   border: none;
   right: 20px; /* 任意の値を指定して調整 */
   position: relative;
+  margin-bottom: 10px;
 }
 .textarea {
   border-top: none; /* 上辺に線を引かない */
   border-bottom: none; /* 上辺に線を引かない */
+  font-size: 20px;
 }
 .textarea::placeholder {
   color: #a8a7a7; /* アイコンの色を緑に変更 */
+  font-size: 20px;
 }
 #answer-button {
   width: 120px; /* 任意の幅を指定 */
@@ -344,7 +402,7 @@ input[type="file"] {
 .custom-upload-button span {
   display: inline-block;
   padding: 10px 15px;
-  background-color: #ff7b69; /* グリーンの背景色 */
+  background-color: #e87400; /* グリーンの背景色 */
   color: white;
   cursor: pointer;
   border-radius: 5px; /* ボーダーラジアスを設定 */
@@ -374,7 +432,7 @@ input[type="file"] + span {
 /* ファイル名と拡張子を表示するためのスタイル */
 #fileNameExtension {
   display: inline-block;
-  margin-left: 10px; /* ボタンとの間隔を調整 */
+  margin-right: auto; /* ボタンとの間隔を調整 */
   color: black; /* 拡張子のカラーをブラックに設定 */
   background-color: #fff; /* 背景色を白に設定 */
   border-radius: 5px; /* ボーダーラジアスを設定 */
@@ -386,8 +444,9 @@ input[type="file"] + span {
   color: white; /* プレビューボタンの文字色を白に設定 */
   border: none;
   padding: 10px 15px;
+  position: relative;
   cursor: pointer;
-  margin-top: 10px; /* 適宜調整 */
+  margin-left: auto;
   display: inline-block; /* インラインブロック要素に設定 */
   border-radius: 5px; /* ボーダーラジアスを設定 */
   font-weight: bold; /* または font-weight: 700; */
