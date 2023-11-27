@@ -191,7 +191,7 @@ nav ul {
 
 main {
   background-color: white;
-  /*要素を丸くする */
+
   border-width: 100px;
   /* 上、右、下、左の順に指定 */
   float: right;

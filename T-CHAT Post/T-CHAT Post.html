@@ -1,90 +1,109 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <head>
+    <link rel="stylesheet" type="text/css" href="T-CHAT Post.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <link rel="stylesheet" type="text/css" href="T-CHAT Post.css" />
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Noto+Sans+JP&family=Sawarabi+Gothic&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Noto+Sans+JP&family=Sawarabi+Gothic&display=swap"
-    rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
-    rel="stylesheet" />
-</head>
-
-<body>
-  <script src="https://kit.fontawesome.com/eae95656cf.js" crossorigin="anonymous"></script>
-  <div class="bordered-element">
-    <div class="background">
-      <header>
-        <div class="logo">
-          <a href="../T-CHAT Home.html" class="home">
-            <img src="..\image\T-CHAT_icon.png" alt="Your Image" />
-          </a>
-        </div>
-        <button class="save">
-          <i class="fa-solid fa-floppy-disk"></i>
-          Save
-        </button>
-        <button class="post" onclick="location.href='../T-CHAT Home.html'">
-          <i class="fa-solid fa-file-import"></i>
-          Post
-        </button>
-      </header>
-    </div>
-
-    <div class="container">
-      <main>
-        <div class="box1">
-          <select class="list" name="名前" size="1">
-            <option selected="selected" hidden>選択して下さい</option>
-
-            <option value="private">プライベート</option>
-
-            <option value="change">意見交換</option>
-
-            <option value="QA">Q & A</option>
-
-          </select>
-          <input class="text" type="text" name="名前" value="" placeholder="質問タイトル" />
-        </div>
-
-        <div class="box2">
-          <button class="photo">
-            <i class="fa-solid fa-photo-film fa-2x"></i>
+  <body>
+    <script
+      src="https://kit.fontawesome.com/eae95656cf.js"
+      crossorigin="anonymous"
+    ></script>
+    <div class="bordered-element">
+      <div class="background">
+        <header>
+          <div class="logo">
+            <a href="../T-CHAT Home.html" class="home">
+              <img src="..\image\T-CHAT_icon.png" alt="Your Image" />
+            </a>
+          </div>
+          <button class="save">
+            <i class="fa-solid fa-floppy-disk"></i>
+            Save
           </button>
-          <i class="fa-solid fa-tags fa-2x"></i>
+          <button class="post">
+            <i class="fa-solid fa-file-import"></i>
+            Post
+          </button>
+        </header>
+      </div>
 
-          <input class="tag" type="text" name="名前" value="" placeholder="タグを入力してください" />
+      <div class="container">
+        <main>
+          <div class="box1">
+            <select class="list" name="名前" size="1">
+              <option selected="selected" hidden>選択して下さい</option>
 
-          <label class="fa-solid fa-border">
-            <button class="pencil">
-              <i class="fa-solid fa-pencil fa-2x"></i>
+              <option value="private">プライベート</option>
+
+              <option value="change">意見交換</option>
+
+              <option value="QA">Q & A</option>
+            </select>
+            <input
+              class="text"
+              type="text"
+              name="名前"
+              value=""
+              placeholder="質問タイトル"
+            />
+          </div>
+
+          <div class="box2">
+            <button class="photo">
+              <i class="fa-solid fa-photo-film fa-2x"></i>
             </button>
-            <button class="book">
-              <i class="fa-solid fa-book fa-2x"></i>
-            </button>
-            <button class="eye">
-              <i class="fa-solid fa-eye fa-2x"></i>
-            </button>
-          </label>
-        </div>
-        
-        <div class="box3">
-          <textarea class="textarea" rows="4" cols="50" placeholder="質問したいこと
+            <i class="fa-solid fa-tags fa-2x"></i>
+
+            <input
+              class="tag"
+              type="text"
+              name="名前"
+              value=""
+              placeholder="タグを入力してください"
+            />
+
+            <label class="fa-solid fa-border">
+              <button class="pencil">
+                <i class="fa-solid fa-pencil fa-2x"></i>
+              </button>
+              <button class="book">
+                <i class="fa-solid fa-book fa-2x"></i>
+              </button>
+              <button class="eye">
+                <i class="fa-solid fa-eye fa-2x"></i>
+              </button>
+            </label>
+          </div>
+
+          <div class="box3">
+            <textarea
+              class="textarea"
+              rows="4"
+              cols="50"
+              placeholder="質問したいこと
 ここに質問したいことを記載してください
 例）
 Firebaseのデータベースを使用してログイン画面を作っています。
 その途中で問題が発生しました。その問題とはFirebaseの構成が理解出来ないんですよ～、
-なんで教えてほしいですね～。"></textarea>
-        </div>
-      </main>
+なんで教えてほしいですね～。"
+            ></textarea>
+          </div>
+        </main>
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
