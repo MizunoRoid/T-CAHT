@@ -104,13 +104,6 @@ header {
   border-radius: 8px 8px 8px 8px;
 }
 
-.box2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* 要素を水平方向に中央寄せ */
-}
-
 .photo {
   background: none;
   cursor: pointer;
@@ -151,7 +144,12 @@ header {
 
   /* 例: 枠線をオレンジ色に設定 */
 }
-
+.box2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 要素を水平方向に中央寄せ */
+}
 .fa-solid.fa-border {
   border: 2px solid #c0c0c0;
   /* 例: 枠線をオレンジ色に設定 */
@@ -160,7 +158,7 @@ header {
   /* アイコンの色を緑に変更 */
   position: relative;
   top: 5px;
-  right: 2p;
+  right: 2px;
   border-radius: 8px 8px 8px 8px;
 }
 
@@ -171,6 +169,7 @@ header {
   border: none;
   cursor: pointer;
   font-size: 16px;
+  vertical-align: middle; /* 中央揃えを追加 */
 }
 
 .book {
@@ -181,6 +180,7 @@ header {
   border: none;
   cursor: pointer;
   font-size: 16px;
+  vertical-align: middle; /* 中央揃えを追加 */
 }
 
 .eye {
@@ -191,6 +191,7 @@ header {
   border: none;
   cursor: pointer;
   font-size: 16px;
+  vertical-align: middle; /* 中央揃えを追加 */
 }
 
 .textarea {
