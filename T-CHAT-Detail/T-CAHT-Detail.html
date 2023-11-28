@@ -9,7 +9,6 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
       rel="stylesheet"
     />
-
     <link
       href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Sawarabi+Gothic&display=swap"
       rel="stylesheet"
@@ -32,7 +31,9 @@
         <nav>
           <ul>
             <a href="../T-CHAT-Home/T-CHAT-Home.html" class="home">🏡Home</a>
-            <a href="../T-CHAT-Question/T-CHAT-Question.html" class="question">💡Question</a>
+            <a href="../T-CHAT-Question/T-CHAT-Question.html" class="question"
+              >💡Question</a
+            >
             <div class="search-form">
               <input type="text" class="search" placeholder="Search" />
               <button type="submit" aria-label="検索"></button>
@@ -46,13 +47,15 @@
 
       <main>
         <div class="box1">
-          <section>
+          <section class="">
             <p class="name">MIZUNO</p>
             <p class="date">2023年10月25日</p>
             <p class="large">アプリ案が思いつかなくて困っています</p>
             <span class="article-category">アプリ案</span>
             <span class="unsolved-category">未解決</span>
-            <span class="total">回答数１</span>
+            <div class="answer5">
+              <span class="total">回答数１</span>
+            </div>
             <p class="border"></p>
             <p class="text-medium">1.アプリ案が思いつかない</p>
             <p class="text-Extremely-small">
@@ -107,25 +110,23 @@
                   <span onclick="document.getElementById('imageInput').click()"
                     >ファイルを選択</span
                   >
-                  <!-- ファイル名と拡張子を表示するための要素 -->
-                  <span id="fileNameExtension"></span>
-
-                  <div id="fileDetails">
-                    <!-- プレビューボタン -->
-                    <button id="previewButton" onclick="toggleImage()">
-                      プレビュー
-                    </button>
-                  </div>
-                  <!-- 選択された画像を表示するための要素 -->
-                  <div id="imageContainer">
-                    <img id="selectedImage" alt="Selected Image" />
-                    <!-- 閉じるボタン -->
-                    <button id="closeButton" onclick="closeImage()">
-                      閉じる
-                    </button>
-                  </div>
                 </div>
-
+                <!-- ファイル名と拡張子を表示するための要素 -->
+                <span id="fileNameExtension"></span>
+                <div id="fileDetails">
+                  <!-- プレビューボタン -->
+                  <button id="previewButton" onclick="toggleImage()">
+                    プレビュー
+                  </button>
+                </div>
+                <!-- 選択された画像を表示するための要素 -->
+                <div id="imageContainer">
+                  <img id="selectedImage" alt="Selected Image" />
+                  <!-- 閉じるボタン -->
+                  <button id="closeButton" onclick="closeImage()">
+                    閉じる
+                  </button>
+                </div>
                 <!-- 実際のファイルインプット -->
                 <input
                   type="file"
@@ -134,7 +135,7 @@
                   onchange="updateFileDetails()"
                 />
 
-                <script src="detail.js"></script>
+                <script src="T-CHAT-Detail.js"></script>
               </div>
 
               <section class="answer2">

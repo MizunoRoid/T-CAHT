@@ -344,6 +344,8 @@ a.answered {
   color: #000;
   margin-bottom: 6px;
   border-radius: 26px;
+  position: relative; /* 相対位置を指定 */
+  z-index: 1; /* 他の要素より手前に配置 */
 }
 
 a.article {
@@ -356,6 +358,8 @@ a.article {
   padding: 2px;
   margin-bottom: 6px;
   border-radius: 26px;
+  position: relative; /* 相対位置を指定 */
+  z-index: 1; /* 他の要素より手前に配置 */
 }
 
 .box3 {
@@ -364,6 +368,8 @@ a.article {
   padding: 2px;
   margin-bottom: 6px;
   border-radius: 26px;
+  position: relative; /* 相対位置を指定 */
+  z-index: 1; /* 他の要素より手前に配置 */
 }
 
 article {
@@ -463,4 +469,21 @@ aside::after {
   border-radius: 15px;
   color: #000000;
   padding: 5px 8px 5px 8px;
+}
+.unsolved-category-answer,
+.Notanswered-category-answer,
+.answered-category-answer {
+  bottom: 10px;
+  position: absolute; /* 絶対位置を指定 */
+  z-index: 2; /* 他の要素より手前に配置 */
+}
+.unsolved-category-answer {
+  margin-left: 700px;
+}
+
+.Notanswered-category-answer {
+  margin-left: 700px; /* .unsolved-category-answer と同じスタイルを持たせる */
+}
+.answered-category-answer {
+  margin-left: 700px; /* .unsolved-category-answer と同じスタイルを持たせる */
 }
