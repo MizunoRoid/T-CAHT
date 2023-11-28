@@ -15,12 +15,6 @@ https://056445715636.signin.aws.amazon.com/console
 質問機能 SystemType :Quetion UserID UserID QuetionID Quetion
 通知機能 SystemType :Notification ???
 
-{
-"errorMessage": "Unable to import module 'lambda_function': No module named 'pydantic_core.\_pydantic_core'",
-"errorType": "Runtime.ImportModuleError",
-"requestId": "a15d0101-0596-4892-9e10-11175370c6a6",
-"stackTrace": []
-}
 
 -----コーディングルール-----
 ・分かりにくい変数名を使わない

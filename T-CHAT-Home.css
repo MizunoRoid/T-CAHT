@@ -1,0 +1,385 @@
+body {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  background: #fff;
+  max-width: 1980px;
+}
+
+h1 {
+  margin: 2px 0;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+h2 {
+  margin: 10px 0;
+  background-color: #fff;
+}
+
+h3 {
+  margin: 2px 0;
+}
+
+h4 {
+  vertical-align: bottom;
+  margin: 0;
+  padding: 0;
+}
+
+.background {
+  background-color: #f2f2f2;
+  border: 10px solid #e3e9ee;
+  /* ページ全体に10pxの灰色のボーダーを設定 */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+header {
+  background-color: #f2f2f2;
+  /* ヘッダーの背景色を設定 */
+  color: #fff;
+  /* テキストの色を設定 */
+  padding: 10px;
+  /* 内側の余白を設定 */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 98.3%;
+  border: 2px solid white;
+  margin-bottom: 10px;
+}
+
+.home {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #000000;
+  font-family: "Arial Black";
+  text-decoration: none;
+  margin-right: 5px;
+  margin-left: 15px;
+  font-size: 25px;
+}
+
+.question {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #000000;
+  font-family: "Arial Black";
+  text-decoration: none;
+  margin-right: 15px;
+  font-size: 25px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.search {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 8px 0 0 8px;
+  width: 250px;
+  background-color: #f8f8f8;
+  border: 2px solid #7f7f7f;
+  font-size: 25px;
+}
+
+::placeholder {
+  color: #e6e6e6;
+  text-align: left;
+  font-family: "Arial Black", "MS Gothic";
+  padding-left: 3px;
+}
+
+.search-form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 35px;
+  margin-right: 7px;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  background-color: #2589d0;
+  cursor: pointer;
+}
+
+.search-form button::after {
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%20%3Cpath%20d%3D%22M23.7%2020.8%2019%2016.1c-.2-.2-.5-.3-.8-.3h-.8c1.3-1.7%202-3.7%202-6C19.5%204.4%2015.1%200%209.7%200S0%204.4%200%209.7s4.4%209.7%209.7%209.7c2.3%200%204.3-.8%206-2v.8c0%20.3.1.6.3.8l4.7%204.7c.4.4%201.2.4%201.6%200l1.3-1.3c.5-.5.5-1.2.1-1.6zm-14-5.1c-3.3%200-6-2.7-6-6s2.7-6%206-6%206%202.7%206%206-2.6%206-6%206z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%20%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  content: "";
+}
+
+.notification {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 29px;
+}
+
+.login {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 3px;
+  padding-right: 8px;
+  font-family: "Arial Black";
+  color: white;
+  background-color: #afdfe4;
+  border: #afdfe4;
+  border-radius: 8px 8px 8px 8px;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.post {
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 3px;
+  padding-right: 10px;
+  font-family: "Arial Black";
+  color: white;
+  background-color: #92d050;
+  border: #92d050;
+  border-radius: 8px 8px 8px 8px;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.logo img {
+  margin-left: 5px;
+  margin-right: 40px;
+  max-width: 150px;
+  /* ロゴ画像の
+最大幅を設定 */
+}
+
+nav ul {
+  list-style: none;
+  /* リストのマーカーを非表示に */
+  padding: 0;
+  display: flex;
+  gap: 30px;
+  background-color: #fff;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.container {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+main {
+  background-color: white;
+  border-radius: 40px;
+  /*要素を丸くする */
+  border-width: 100px;
+  /* 上、右、下、左の順に指定 */
+  float: right;
+  width: 900px;
+  height: 450px;
+  margin-left: 38px;
+  box-sizing: border-box;
+  border: 2px solid black;
+  /* 2pxの幅で黒い縁線を追加 */
+  padding-top: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  /* 右側に20pxのパディングを設定 */
+  /* 右側に20pxのパディングを設定 */
+  overflow: auto;
+  scroll-snap-align: start;
+}
+
+main::-webkit-scrollbar {
+  width: 13px;
+}
+
+main::-webkit-scrollbar-track {
+  background-color: #eff2f7;
+  border-radius: 100px;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: #abbdda;
+  border-radius: 100px;
+  width: 130px;
+}
+
+section {
+  background: #fdf6e9;
+  color: #000;
+  padding: 11px;
+  /* margin-bottom: 9px; */
+  border-radius: 26px;
+}
+
+.box1 {
+  border: 2px solid #8faadc;
+  color: #000;
+  margin-bottom: 6px;
+  border-radius: 26px;
+  position: relative; /* 相対位置を指定 */
+  z-index: 1; /* 他の要素より手前に配置 */
+}
+
+a.article {
+  text-decoration: none;
+}
+
+.box2 {
+  background: #ffd966;
+  color: #000;
+  padding: 2px;
+  margin-bottom: 6px;
+  border-radius: 26px;
+  position: relative; /* 相対位置を指定 */
+  z-index: 1; /* 他の要素より手前に配置 */
+}
+
+.box3 {
+  background: #ff6969;
+  color: #000;
+  padding: 2px;
+  margin-bottom: 6px;
+  border-radius: 26px;
+  position: relative; /* 相対位置を指定 */
+  z-index: 1; /* 他の要素より手前に配置 */
+}
+
+article {
+  background: #fdf6e9;
+  color: #000;
+  padding: 3px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  margin-left: 5px;
+  font-size: 28px;
+  font-weight: bolder;
+}
+
+aside {
+  float: left;
+  width: 230px;
+  height: 450px;
+  padding: 3px;
+  box-sizing: border-box;
+  background-color: #fff2cc;
+  border: 2px solid #bf9000;
+  border-radius: 20px;
+  position: relative;
+  display: inline;
+}
+
+aside::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 435px;
+  background-color: black;
+  position: absolute;
+  top: 5px;
+  right: -20px;
+}
+
+.head {
+  font-family: "Arial Black";
+  font-size: 30px;
+  margin-left: 11px;
+  margin-bottom: 10px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.rank {
+  font-family: Arial Black;
+  left: 12px;
+  position: relative;
+  margin: 0px 25px 0px 0px;
+  font-size: 25px;
+}
+
+.item {
+  margin: 2px;
+  line-height: 34px;
+  font-family: Arial, "BIZ UDGothic";
+  position: relative;
+  left: 20px;
+  justify-content: right;
+  /* 中央寄せ */
+  font-size: 25px;
+}
+
+.item-list {
+  position: relative;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  /* 中央寄せ */
+}
+
+.article-category {
+  background-color: #f2f2f2;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
+}
+
+.unsolved-category {
+  background-color: #8faadc;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
+}
+
+.Notanswered-category {
+  background-color: #ffd966;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
+}
+
+.answered-category {
+  background-color: #ff6969;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
+}
+.unsolved-category-answer,
+.Notanswered-category-answer,
+.answered-category-answer {
+  bottom: 10px;
+  position: absolute; /* 絶対位置を指定 */
+  z-index: 2; /* 他の要素より手前に配置 */
+}
+.unsolved-category-answer {
+  margin-left: 700px;
+}
+
+.Notanswered-category-answer {
+  margin-left: 700px; /* .unsolved-category-answer と同じスタイルを持たせる */
+}
+.answered-category-answer {
+  margin-left: 700px; /* .unsolved-category-answer と同じスタイルを持たせる */
+}
