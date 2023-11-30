@@ -15,7 +15,6 @@ https://056445715636.signin.aws.amazon.com/console
 質問機能 SystemType :Quetion UserID UserID QuetionID Quetion
 通知機能 SystemType :Notification ???
 
-
 -----コーディングルール-----
 ・分かりにくい変数名を使わない
 例 int a = 0 NG 　 int number = 0 OK
@@ -55,6 +54,8 @@ https://056445715636.signin.aws.amazon.com/console
 Quetion 画面の画面左側の要素を押すことで投稿されている未回答、未解決、解決タグの絞り込みができるようになる機能　だがこの機能は Class Box が可変になったら作業開始
 
 タグ自体を追加する機能がいる？　あとでいい
+
+動的サイト、静的サイトの切り分け 現在は S3 に入れて動かしているが、将来ログイン機能を実装するにあたり動的になる可能性あり　要調査
 
 ログイン機能　一人一人のユーザが識別されていないと誰が投稿したのか、その質問は解決できたのかというのがわからないままになってしまう
 
