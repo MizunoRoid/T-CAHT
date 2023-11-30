@@ -247,6 +247,10 @@ a.article {
   text-decoration: none;
 }
 
+.answers {
+  padding-left: 500px;
+}
+
 .box2 {
   background: #ffd966;
   color: #000;
