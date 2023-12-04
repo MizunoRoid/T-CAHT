@@ -84,6 +84,8 @@ S3 にファイルのアップロードを行う　でなければ AWS で動作
 
 API Gateway の正しいイベントの設定
 
+DB 絶対完成
+
 CloudWatch の管理
 
 ----Web Design 参考集 -----
