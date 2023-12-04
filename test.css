@@ -1,74 +1,116 @@
-@charset "utf-8";
-
-/* ボタン共通設定 */
-.btn03 {
-  /*影の基点とするためrelativeを指定*/
-  position: relative;
-  /*ボタンの形状*/
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  background: transparent;
-  border-radius: 25px;
-  border: solid 1px #333;
-  outline: none;
-  /*アニメーションの指定*/
-  transition: all 0.2s ease;
+.modal {
+  padding: 80px 0;
 }
 
-/*hoverをした後のボタンの形状*/
-.btn03:hover {
-  border-color: transparent;
+/* モーダルを開くボタン */
+.modal__images {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/*ボタンの中のテキスト*/
-.btn03 span {
+.modal__images .modal__image {
   position: relative;
-  z-index: 2; /*z-indexの数値をあげて文字を背景よりも手前に表示*/
-  /*テキストの形状*/
+  width: calc((100% - (32px * 2)) / 3);
+  transition: opacity 0.6s;
+}
+
+.modal__images .modal__image:hover {
+  opacity: 0.6;
+}
+
+.modal__images .modal__trigger {
+  cursor: pointer;
+}
+
+.modal__images .modal__image:nth-child(3n - 1),
+.modal__images .modal__image:nth-child(3n) {
+  margin-left: 32px;
+}
+
+.modal__images .modal__image:nth-child(n + 4) {
+  margin-top: 32px;
+}
+
+.modal__images .modal__image:before {
   display: block;
-  padding: 10px 30px;
-  background: #e87400;
-  border-radius: 25px;
-  color: #fff;
-  /*アニメーションの指定*/
-  transition: all 0.3s ease;
+  padding-top: calc((2 / 3) * 100%);
+  padding-top: 100%;
+  content: "";
 }
 
-/*== 下に押し込まれる（立体が平面に） */
-
-/*影の設定*/
-.pushdown:before {
-  content: "";
-  /*絶対配置で影の位置を決める*/
+.modal__images .modal__image img {
   position: absolute;
-  z-index: -1;
-  top: 4px;
+  top: 0;
   left: 0;
-  /*影の形状*/
   width: 100%;
   height: 100%;
-  border-radius: 25px;
-  background-color: #333;
+  object-fit: cover;
+  object-position: center top;
 }
 
-/*hoverの際にY軸に4pxずらす*/
-.pushdown:hover span {
-  border: solid 1px #333;
-
-  background-color: #fff;
-  color: #333;
-  transform: translateY(4px);
+/* モーダル本体 */
+.modal__wrapper {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
 }
 
-/*========= レイアウトのためのCSS ===============*/
-
-body {
-  vertical-align: middle;
-  padding: 100px 0;
-  text-align: center;
+.modal__layer {
+  height: 100%;
+  background: rgba(50, 50, 50, 0.85);
+  cursor: pointer;
 }
 
-p {
-  margin: 0 0 10px 0;
+.modal__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: scroll;
+  width: min(calc(100% - 40px), 1000px);
+  max-height: calc(100% - 40px);
+}
+
+/* モーダルを閉じるボタン */
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: rgba(50, 50, 50, 1);
+  cursor: pointer;
+  transition: opacity 0.6s;
+}
+
+.modal__close:hover {
+  opacity: 0.6;
+}
+
+.modal__close:before,
+.modal__close:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 1px;
+  background: #fff;
+  content: "";
+}
+
+.modal__close:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal__close:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.modal__content .modal__image img {
+  width: 100%;
 }
