@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-  <link rel="stylesheet" type="text/css" href="T-CHAT-Post.css" />
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <link rel="stylesheet" type="text/css" href="T-CHAT-Post.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha384-GLhlTQ8i7uqF1E1+eLvFIH1KRw8i/SF5+FmNDPGPLsMtkI1i66UTZvcXEUdamzjH"
+      crossorigin="anonymous"
+    />
 
   <link
     href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Noto+Sans+JP&family=Sawarabi+Gothic&display=swap"
@@ -62,11 +67,26 @@
           <input class="text" type="text" name="名前" value="" placeholder="質問タイトル" />
         </div>
 
-        <div class="box2">
-          <button class="photo">
-            <i class="fa-solid fa-photo-film fa-2x"></i>
-          </button>
-          <i class="fa-solid fa-tags fa-2x"></i>
+          <div class="box2">
+            <div
+              for="photoInput"
+              class="tooltip-container button1"
+              onmouseover="showTooltip('Button 1')"
+              onmouseout="hideTooltip(event)"
+              onmouseleave="handleTooltipMouseLeave(event)"
+            >
+              <input
+                type="file"
+                id="photoInput"
+                accept="image/*"
+                multiple
+                style="display: none"
+              />
+              <label for="photoInput" class="fas fa-photo-film fa-2x"></label>
+              <div id="myTooltip" class="tooltip">添付する画像の選択</div>
+            </div>
+
+            <i class="fa-solid fa-tags fa-2x"></i>
 
           <!-- 追加 -->
           <select multiple class="tag" type="text" name="タグ" value="" placeholder="タグを入力してください">
@@ -98,18 +118,45 @@
             });
           </script>
 
-          <label class="fa-solid fa-border">
-            <button class="pencil">
-              <i class="fa-solid fa-pencil fa-2x"></i>
-            </button>
-            <button class="book">
-              <i class="fa-solid fa-book fa-2x"></i>
-            </button>
-            <button class="eye">
-              <i class="fa-solid fa-eye fa-2x"></i>
-            </button>
-          </label>
-        </div>
+            <label class="fa-solid fa-border">
+              <div
+                class="tooltip-container button2"
+                onmouseover="showTooltip('Button 2', event)"
+                onmouseout="hideTooltip(event)"
+                onmouseleave="handleTooltipMouseLeave(event)"
+              >
+                <i class="fa-solid fa-pencil fa-2x"></i>
+                <div class="tooltip">編集</div>
+              </div>
+
+              <div
+                class="tooltip-container button3"
+                onmouseover="showTooltip('Button 3', event)"
+                onmouseout="hideTooltip(event)"
+                onmouseleave="handleTooltipMouseLeave(event)"
+              >
+                <i class="fa-solid fa-book fa-2x"></i>
+                <div class="tooltip">ノート</div>
+              </div>
+
+              <div
+                class="tooltip-container button4"
+                onmouseover="showTooltip('Button 4', event)"
+                onmouseout="hideTooltip(event)"
+                onmouseleave="handleTooltipMouseLeave(event)"
+              >
+                <div id="myModal" class="modal">
+                  <span class="close" onclick="closeModal()">&times;</span>
+                  <div class="modal-content" id="previewContainer"></div>
+                </div>
+                <label
+                  onclick="previewPhotos()"
+                  class="fa-solid fa-eye fa-2x"
+                ></label>
+                <div class="tooltip">プレビュー</div>
+              </div>
+            </label>
+          </div>
 
         <div class="box3">
           <textarea class="textarea" rows="4" cols="50" placeholder="質問したいこと
@@ -117,11 +164,11 @@
 例）
 Firebaseのデータベースを使用してログイン画面を作っています。
 その途中で問題が発生しました。その問題とはFirebaseの構成が理解出来ないんですよ～、
-なんで教えてほしいですね～。"></textarea>
-        </div>
-      </main>
+なんで教えてほしいですね～。"
+            ></textarea>
+          </div>
+        </main>
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
