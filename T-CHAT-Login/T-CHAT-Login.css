@@ -1,0 +1,123 @@
+header {
+  /* ヘッダーの背景色を設定 */
+  color: #fff;
+  /* テキストの色を設定 */
+  padding: 10px;
+  /* 内側の余白を設定 */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 98.3%;
+  border: 2px solid white;
+}
+
+.header .logo img {
+  background-color: #f2f2f2;
+  /* ヘッダーの背景色を設定 */
+  color: #fff;
+  /* テキストの色を設定 */
+  padding: 10px;
+  /* 内側の余白を設定 */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 98.3%;
+  border: 2px solid white;
+}
+.logo img {
+  background-color: #fff;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 40px;
+  max-width: 150px;
+  /* ロゴ画像の
+      最大幅を設定 */
+}
+.name {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  font-size: 50px;
+  margin-left: 190px;
+}
+.border {
+  border-top: 1px solid #bfbfbf;
+  /* 線の色と太さを指定 */
+  margin-top: 20px;
+  width: 70%;
+  margin-left: 190px;
+  margin-bottom: 20px;
+}
+/* body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+} */
+
+.login-container {
+  padding: 30px;
+  width: 500px;
+  font-family: Arial, sans-serif;
+  position: relative;
+  left: 350px;
+  margin: 0;
+}
+
+button {
+  background-color: #55c500;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  padding: 15px; /* パディングを変更してボタンの高さを調整 */
+  width: 100%; /* 幅を100%にして親要素に合わせる */
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#error-message {
+  color: red;
+  margin-top: 10px;
+}
+label {
+  display: block; /* ラベルをブロック要素に変更して改行させる */
+  margin-bottom: 5px; /* ラベルの下に少し余白を設ける */
+}
+
+#username {
+  font-size: 20px; /* テキスト入力フィールドのフォントサイズを変更 */
+  outline-color: #55c500;
+  border-radius: 4px;
+  border: 1px solid #000000;
+}
+
+#username::placeholder {
+  font-size: 20px; /* placeholderのフォントサイズを変更 */
+}
+#password {
+  font-size: 20px; /* テキスト入力フィールドのフォントサイズを変更 */
+  outline-color: #55c500;
+  border-radius: 4px;
+  border: 1px solid #000000;
+}
+#password::placeholder {
+  font-size: 20px; /* placeholderのフォントサイズを変更 */
+}
+input {
+  width: 100%; /* 入力フィールドを親要素に合わせる */
+  padding: 8px; /* パディングを変更して高さを調整 */
+  margin-bottom: 15px; /* 入力フィールドの下に余白を設ける */
+}
+.submit {
+  font-size: 20px;
+  width: 250px;
+  margin-left: 26%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 8px;
+  font-weight: bold; /* ボタンのテキストを太字にする */
+}
