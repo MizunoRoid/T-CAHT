@@ -1,109 +1,127 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <link rel="stylesheet" type="text/css" href="T-CHAT-Post.css" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Noto+Sans+JP&family=Sawarabi+Gothic&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+<head>
+  <link rel="stylesheet" type="text/css" href="T-CHAT-Post.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <body>
-    <script
-      src="https://kit.fontawesome.com/eae95656cf.js"
-      crossorigin="anonymous"
-    ></script>
-    <div class="bordered-element">
-      <div class="background">
-        <header>
-          <div class="logo">
-            <a href="../T-CHAT-Home.html" class="home">
-              <img src="../T-CHAT-Image/T-CHAT_icon.png" alt="Your Image" />
-            </a>
-          </div>
-          <button class="save">
-            <i class="fa-solid fa-floppy-disk"></i>
-            Save
+  <link
+    href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Noto+Sans+JP&family=Sawarabi+Gothic&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
+    rel="stylesheet" />
+
+  <!-- 参考 https://qiita.com/yoyoyo_pg/items/4859dfbbc512ef653828 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
+
+</head>
+
+<body>
+  <script src="https://kit.fontawesome.com/eae95656cf.js" crossorigin="anonymous"></script>
+  <div class="bordered-element">
+    <div class="background">
+      <header>
+        <div class="logo">
+          <a href="../T-CHAT-Home.html" class="home">
+            <img src="../T-CHAT-Image/T-CHAT_icon.png" alt="Your Image" />
+          </a>
+        </div>
+        <button class="save">
+          <i class="fa-solid fa-floppy-disk"></i>
+          Save
+        </button>
+        <button class="post">
+          <i class="fa-solid fa-file-import"></i>
+          Post
+        </button>
+      </header>
+    </div>
+
+    <div class="container">
+      <main>
+        <div class="box1">
+          <select class="list" name="名前" size="1">
+            <option selected="selected" hidden>選択して下さい</option>
+
+            <option value="private">プライベート</option>
+
+            <option value="change">意見交換</option>
+
+            <option value="QA">Q & A</option>
+          </select>
+          <input class="text" type="text" name="名前" value="" placeholder="質問タイトル" />
+        </div>
+
+        <div class="box2">
+          <button class="photo">
+            <i class="fa-solid fa-photo-film fa-2x"></i>
           </button>
-          <button class="post">
-            <i class="fa-solid fa-file-import"></i>
-            Post
-          </button>
-        </header>
-      </div>
+          <i class="fa-solid fa-tags fa-2x"></i>
 
-      <div class="container">
-        <main>
-          <div class="box1">
-            <select class="list" name="名前" size="1">
-              <option selected="selected" hidden>選択して下さい</option>
+          <!-- 追加 -->
+          <select multiple class="tag" type="text" name="タグ" value="" placeholder="タグを入力してください">
+            <option value="1">アプリ案</option>
+            <option value="2">Firebase</option>
+            <option value="3">Bug</option>
+            <option value="4">Java</option>
+            <option value="5">Android</option>
+            <option value="6">News</option>
+            <option value="7">HTML</option>
+            <option value="8">If文</option>
+            <option value="9">For文</option>
+            <option value="10">10月</option>
+            <option value="11">11月</option>
+            <option value="12">12月</option>
+          </select>
 
-              <option value="private">プライベート</option>
+          <script>
+            $(function () {
+              $('select.tag').multipleSelect({
+                width: 926,
+                formatSelectAll: function () {
+                  return 'すべて';
+                },
+                formatAllSelected: function () {
+                  return '全て選択されています';
+                }
+              });
+            });
+          </script>
 
-              <option value="change">意見交換</option>
-
-              <option value="QA">Q & A</option>
-            </select>
-            <input
-              class="text"
-              type="text"
-              name="名前"
-              value=""
-              placeholder="質問タイトル"
-            />
-          </div>
-
-          <div class="box2">
-            <button class="photo">
-              <i class="fa-solid fa-photo-film fa-2x"></i>
+          <label class="fa-solid fa-border">
+            <button class="pencil">
+              <i class="fa-solid fa-pencil fa-2x"></i>
             </button>
-            <i class="fa-solid fa-tags fa-2x"></i>
+            <button class="book">
+              <i class="fa-solid fa-book fa-2x"></i>
+            </button>
+            <button class="eye">
+              <i class="fa-solid fa-eye fa-2x"></i>
+            </button>
+          </label>
+        </div>
 
-            <input
-              class="tag"
-              type="text"
-              name="名前"
-              value=""
-              placeholder="タグを入力してください"
-            />
-
-            <label class="fa-solid fa-border">
-              <button class="pencil">
-                <i class="fa-solid fa-pencil fa-2x"></i>
-              </button>
-              <button class="book">
-                <i class="fa-solid fa-book fa-2x"></i>
-              </button>
-              <button class="eye">
-                <i class="fa-solid fa-eye fa-2x"></i>
-              </button>
-            </label>
-          </div>
-
-          <div class="box3">
-            <textarea
-              class="textarea"
-              rows="4"
-              cols="50"
-              placeholder="質問したいこと
+        <div class="box3">
+          <textarea class="textarea" rows="4" cols="50" placeholder="質問したいこと
 ここに質問したいことを記載してください
 例）
 Firebaseのデータベースを使用してログイン画面を作っています。
 その途中で問題が発生しました。その問題とはFirebaseの構成が理解出来ないんですよ～、
-なんで教えてほしいですね～。"
-            ></textarea>
-          </div>
-        </main>
-      </div>
+なんで教えてほしいですね～。"></textarea>
+        </div>
+      </main>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

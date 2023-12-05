@@ -132,7 +132,7 @@ header {
   border-left: none;
 }
 
-.tag {
+/* .tag {
   min-height: 50px;
   max-height: 200px;
   width: 900px;
@@ -142,15 +142,17 @@ header {
   border: 2px solid #c0c0c0;
   border-left: none;
   border-radius: 0 8px 8px 0;
+} */
 
   /* 例: 枠線をオレンジ色に設定 */
-}
+
 .box2 {
   display: flex;
   align-items: center;
   justify-content: center;
   /* 要素を水平方向に中央寄せ */
 }
+
 .fa-solid.fa-border {
   border: 2px solid #c0c0c0;
   /* 例: 枠線をオレンジ色に設定 */
@@ -159,7 +161,7 @@ header {
   /* アイコンの色を緑に変更 */
   position: relative;
   top: 5px;
-  right: 2px;
+  left: 2px;
   border-radius: 8px 8px 8px 8px;
 }
 
