@@ -146,6 +146,15 @@ header {
   margin-left: 20px;
   border: 2px solid #c0c0c0;
   border-radius: 8px 8px 8px 8px;
+}*/
+
+.tag {
+  font-size: 20px;
+  min-height: 50px;
+  max-height: 200px;
+  margin-left: 20px;
+  border: 2px solid #c0c0c0;
+  border-radius: 8px 8px 8px 8px;
 }
 
 /* select.tag {
