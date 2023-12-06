@@ -55,7 +55,8 @@ header {
   background: none;
   border: none;
   cursor: pointer;
-  margin: 0; /* 余白をなくす */
+  margin: 0;
+  /* 余白をなくす */
   font-size: 29px;
   font-family: "Arial Black";
   background-color: #9dc3e6;
@@ -69,7 +70,8 @@ header {
   background: none;
   border: none;
   cursor: pointer;
-  margin: 0; /* 余白をなくす */
+  margin: 0;
+  /* 余白をなくす */
   font-size: 29px;
   font-family: "Arial Black";
   background-color: #92d050;
@@ -141,18 +143,16 @@ header {
 /* .tag {
   min-height: 51px;
   max-height: 200px;
-  margin-left: -22px; /* 負の値に変更して左に移動 */
-
-  /* width: 900px;
-  margin-top: 10px;
-  margin-right: 20px;
-  font-size: 24px;
+  margin-left: 20px;
   border: 2px solid #c0c0c0;
-  border-left: none;
-  border-radius: 0 8px 8px 0;
-}  */
+  border-radius: 8px 8px 8px 8px;
+}
 
-  /* 例: 枠線をオレンジ色に設定 */
+/* select.tag {
+  border: 1px solid;
+  height: auto;
+  font-size: 90px;
+} */
 
 .box2 {
   display: flex;
@@ -217,8 +217,10 @@ header {
 .tooltip-container {
   position: relative;
   display: inline-block;
-  margin-left: 5px; /* 左の余白 */
-  margin-right: 5px; /* 右の余白 */
+  margin-left: 5px;
+  /* 左の余白 */
+  margin-right: 5px;
+  /* 右の余白 */
 }
 
 .tooltip-container .tooltip {
@@ -257,6 +259,7 @@ header {
   font-size: 33px;
   border-radius: 8px 0 0 8px;
 }
+
 .button1 .tooltip {
   left: 100%;
   bottom: 80%;
@@ -269,11 +272,13 @@ header {
   cursor: pointer;
   font-size: 16px;
 }
+
 .button2 .tooltip {
   bottom: 120%;
   left: 50%;
   font-weight: normal;
 }
+
 .button3 .fas {
   color: #a8a7a7;
   background: none;
@@ -281,11 +286,13 @@ header {
   cursor: pointer;
   font-size: 16px;
 }
+
 .button3 .tooltip {
   bottom: 120%;
   left: 50%;
   font-weight: normal;
 }
+
 .button4 .fas {
   color: #a8a7a7;
   background: none;
@@ -293,6 +300,7 @@ header {
   cursor: pointer;
   font-size: 16px;
 }
+
 .button4 .tooltip {
   bottom: 120%;
   left: 50%;
@@ -364,6 +372,7 @@ header {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -373,6 +382,7 @@ header {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -380,7 +390,8 @@ header {
 
 /* Additional styles for custom file upload button */
 #photoInput {
-  display: none; /* 標準のファイル名表示を非表示にする */
+  display: none;
+  /* 標準のファイル名表示を非表示にする */
 }
 
 .custom-file-upload {
@@ -389,4 +400,5 @@ header {
   padding: 6px 12px;
   cursor: pointer;
 }
+
 /* ここまでがモーダルウィンドウのcss */
