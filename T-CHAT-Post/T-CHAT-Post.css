@@ -103,7 +103,7 @@ header {
   width: 85%;
   font-size: 24px;
   border: 2px solid #c0c0c0;
-  margin-right: 20px;
+  margin-right: 13px;
   border-radius: 8px 8px 8px 8px;
 }
 
@@ -124,6 +124,14 @@ header {
   background-color: #f2f2f2;
 } */
 
+.box2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -15px;
+}
+
+/*タグアイコン*/
 .fa-solid.fa-tags {
   padding: 10px;
   margin-left: 20px;
@@ -140,40 +148,34 @@ header {
   border-left: none;
 }
 
-/* .tag {
-  min-height: 51px;
+/*タグ関連*/
+button.ms-choice {
+  min-height: 56px;
   max-height: 200px;
-  margin-left: 20px;
+  margin-top: 10px;
+  margin-left: -25px;
   border: 2px solid #c0c0c0;
-  border-radius: 8px 8px 8px 8px;
-}*/
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-left: none;
+}
 
-.tag {
+/* フォントサイズを変更する */
+.ms-choice span {
   font-size: 20px;
-  min-height: 50px;
-  max-height: 200px;
-  margin-left: 20px;
-  border: 2px solid #c0c0c0;
-  border-radius: 8px 8px 8px 8px;
+  margin-top: 23px;
+  margin-left: -35px;
 }
 
-/* select.tag {
-  border: 1px solid;
-  height: auto;
-  font-size: 90px;
-} */
-
-.box2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+div.icon-caret {
+  margin: 70px;
 }
 
+/*鉛筆とか*/
 .fa-solid.fa-border {
   border: 2px solid #c0c0c0;
   /* 例: 枠線をオレンジ色に設定 */
 
-  margin-left: 10px;
   padding: 10px;
   color: #a8a7a7;
   /* アイコンの色を緑に変更 */
