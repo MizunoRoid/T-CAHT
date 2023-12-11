@@ -27,8 +27,11 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const search_button =document.getElementById("search_button");
 const post = db. collection('post')
+var min = 1 ;
+var max = 3 ;
+var randam_num = Math.floor(Math.random()*(max + 1 - min )) + min ;
 
-GetData();
+getData();
 
 search_button.addEventListener('click',function(){
     let result = document.getElementById('search_text')
@@ -38,10 +41,10 @@ search_button.addEventListener('click',function(){
 
 function getData() {
     post.get().then((doc) => {
-        let addData = `<div>`;
+        let addData = `<div class="${}">`;
         addData += `<section>`;
         doc.forEach((docData) => {
-            addData += ``
+            addData += `<>`
         })    
     })
 }
