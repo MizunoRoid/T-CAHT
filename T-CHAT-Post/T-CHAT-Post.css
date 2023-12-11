@@ -155,8 +155,7 @@ button.ms-choice {
   margin-top: 10px;
   margin-left: -25px;
   border: 2px solid #c0c0c0;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-radius: 0px 8px 8px 0px;
   border-left: none;
 }
 
@@ -168,7 +167,7 @@ button.ms-choice {
 }
 
 div.icon-caret {
-  margin: 70px;
+  margin: 20px;
 }
 
 /*鉛筆とか*/
@@ -181,7 +180,7 @@ div.icon-caret {
   /* アイコンの色を緑に変更 */
   position: relative;
   top: 5px;
-  left: 2px;
+  left: 15px;
   border-radius: 8px 8px 8px 8px;
 }
 
