@@ -7,7 +7,11 @@ var firebaseConfig = {
     appId: "1:276479107458:web:329742b4d052a975d16f9b",
     measurementId: "G-WPZGDY4H0F"
     };
-    
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const seach =document.getElementById("search");
+
 function getParam(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, `\\$&`);
