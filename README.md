@@ -6,6 +6,9 @@ print("Hello World") print("Good night World") 2.参考 Web サイトのリン�
 例　こうしたほうがいいんじゃないか？　みたいな？ 5.やってほしいこと、仕事内容
 　仕事内容も記載するんで、これ見て作業してくださいな～
 
+共有のgmail  tchat1211@gmail.com
+パスワード   t-chat1211??
+
 ----Firebase Configration----
 const firebaseConfig = {
 apiKey: "AIzaSyARxI5dZXILhMkMDTDE5MyK88yJlCh-A_Y",
