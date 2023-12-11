@@ -1,17 +1,3 @@
-var firebaseConfig = {
-    apiKey: "AIzaSyARxI5dZXILhMkMDTDE5MyK88yJlCh-A_Y",
-    authDomain: "t-chat-d4c62.firebaseapp.com",
-    projectId: "t-chat-d4c62",
-    storageBucket: "t-chat-d4c62.appspot.com",
-    messagingSenderId: "276479107458",
-    appId: "1:276479107458:web:329742b4d052a975d16f9b",
-    measurementId: "G-WPZGDY4H0F"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    const seach =document.getElementById("search");
-
 function getParam(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, `\\$&`);
@@ -25,3 +11,20 @@ function getParam(name, url) {
     }
     return decodeURIComponent(results[2].replace(/\+/g, ` `));
 }
+
+var firebaseConfig = {
+    apiKey: "AIzaSyARxI5dZXILhMkMDTDE5MyK88yJlCh-A_Y",
+    authDomain: "t-chat-d4c62.firebaseapp.com",
+    projectId: "t-chat-d4c62",
+    storageBucket: "t-chat-d4c62.appspot.com",
+    messagingSenderId: "276479107458",
+    appId: "1:276479107458:web:329742b4d052a975d16f9b",
+    measurementId: "G-WPZGDY4H0F"
+    };
+
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+const seach =document.getElementById("search");
+const 
