@@ -27,24 +27,27 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const search_button =document.getElementById("search_button");
 const post = db. collection('post')
-var min = 1 ;
-var max = 3 ;
-var randam_num = Math.floor(Math.random()*(max + 1 - min )) + min ;
+var min = 1 ; var max = 3 ;
+var randam_num = String(Math.floor(Math.random()*(max + 1 - min )) + min) ;
 
 getData();
 
 search_button.addEventListener('click',function(){
     let result = document.getElementById('search_text')
-    location.href = `./`
+    location.href = `./`;
     result.value = '';
 })
 
 function getData() {
     post.get().then((doc) => {
-        let addData = `<div class="${}">`;
+        let addData = `<div class="box${result}">`;
         addData += `<section>`;
         doc.forEach((docData) => {
-            addData += `<>`
+            addData += `<h3>投稿者名${docData.data().UserName}</h3>`;
+            addData += `<h1>投稿日:${docData.data().PostData}`;
+            addData += `<article>${docData.data().Title}`
+            addData += `<span class="article-category">${docData.data().Tag}`
+            addData += ``
         })    
     })
 }
