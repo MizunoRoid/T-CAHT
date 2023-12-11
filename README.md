@@ -6,6 +6,17 @@ print("Hello World") print("Good night World") 2.参考 Web サイトのリン�
 例　こうしたほうがいいんじゃないか？　みたいな？ 5.やってほしいこと、仕事内容
 　仕事内容も記載するんで、これ見て作業してくださいな～
 
+----Firebase Configration----
+const firebaseConfig = {
+apiKey: "AIzaSyARxI5dZXILhMkMDTDE5MyK88yJlCh-A_Y",
+authDomain: "t-chat-d4c62.firebaseapp.com",
+projectId: "t-chat-d4c62",
+storageBucket: "t-chat-d4c62.appspot.com",
+messagingSenderId: "276479107458",
+appId: "1:276479107458:web:329742b4d052a975d16f9b",
+measurementId: "G-WPZGDY4H0F"
+};
+
 ---- AWS コンソールログイン-----
 https://056445715636.signin.aws.amazon.com/console
 
