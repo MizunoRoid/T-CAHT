@@ -22,9 +22,26 @@ var firebaseConfig = {
     measurementId: "G-WPZGDY4H0F"
     };
 
-
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
-const seach =document.getElementById("search");
-const 
+const search_button =document.getElementById("search_button");
+const post = db. collection('post')
+
+GetData();
+
+search_button.addEventListener('click',function(){
+    let result = document.getElementById('search_text')
+    location.href = `./`
+    result.value = '';
+})
+
+function getData() {
+    post.get().then((doc) => {
+        let addData = `<div>`;
+        addData += `<section>`;
+        doc.forEach((docData) => {
+            addData += ``
+        })    
+    })
+}
