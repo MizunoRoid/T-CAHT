@@ -191,7 +191,7 @@ nav ul {
 
 main {
   background-color: white;
-  border-radius: 40px;
+  border-radius: 15px;
   /*要素を丸くする */
   border-width: 100px;
   /* 上、右、下、左の順に指定 */
@@ -203,27 +203,30 @@ main {
   border: 2px solid black;
   /* 2pxの幅で黒い縁線を追加 */
   padding-top: 6px;
-  padding-left: 8px;
+  padding-left: 2px;
   padding-right: 8px;
   /* 右側に20pxのパディングを設定 */
   /* 右側に20pxのパディングを設定 */
-  overflow: auto;
-  scroll-snap-align: start;
+  /* scroll-snap-align: start; */
+}
+.simplebar-track {
+  background: #e5e5e5; /* バーの背景色を設定できます*/
+  border-radius: 10px; /* バーに丸みをもたせる*/
+  left: 865px;
 }
 
-main::-webkit-scrollbar {
-  width: 13px;
+.simplebar-track .simplebar-scrollbar.simplebar-visible::before {
+  opacity: 1; /* デフォルトだと薄くなっています。*/
 }
 
-main::-webkit-scrollbar-track {
-  background-color: #eff2f7;
-  border-radius: 100px;
+.simplebar-track .simplebar-scrollbar::before {
+  background: #abbdda; /* ここでバーの色を設定 */
 }
-
-main::-webkit-scrollbar-thumb {
-  background: #abbdda;
-  border-radius: 100px;
-  width: 130px;
+.scroll-area {
+  height: 440px;
+  width: 860px;
+  left: 10px;
+  border-radius: 20px; /* バーに丸みをもたせる*/
 }
 
 section {
