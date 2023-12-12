@@ -103,5 +103,10 @@ function closeModal() {
     previewContainer.innerHTML = '';
   }, 400);
 }
-
 // ここまでがモーダルウィンドウのjs
+
+const save_button =document.getElementById("save");
+
+save_button.addEventListener("click",async function(){
+
+});
