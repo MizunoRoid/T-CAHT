@@ -13,6 +13,7 @@ function closeModal() {
   overlay.style.display = "none";
   modal.style.display = "none";
 }
+
 function getParam(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, `\\$&`);
@@ -41,7 +42,7 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 const search_button =document.getElementById("search_button");
-const post = db. collection('post')
+const post = db. collection('Post')
 var min = 1 ; var max = 3 ;
 var randam_num = String(Math.floor(Math.random()*(max + 1 - min )) + min) ;
 
@@ -59,10 +60,16 @@ function getData() {
         addData += `<section>`;
         doc.forEach((docData) => {
             addData += `<h3>投稿者名${docData.data().UserName}</h3>`;
-            addData += `<h1>投稿日:${docData.data().PostData}`;
-            addData += `<article>${docData.data().Title}`
-            addData += `<span class="article-category">${docData.data().Tag}`
-            addData += ``
-        })    
+            addData += `<h1>投稿日:${docData.data().PostDay}</h1>`;
+            addData += `<article>${docData.data().Title}</article>`
+            addData += `<span class="article-category">${docData.data().Tag}</span>`
+            addData += `</section>`
+            addData += `</div>`
+        });
+        var add_element = document.getElementById("add-element");
+        add_element.innerHTML += addData;
     })
-}
+    .catch((error) => {
+        console.log("データ取得失敗:",error);
+    });
+};
