@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="T-CHAT-Login.css" />
+    <link rel="stylesheet" href="T-CHAT-Signin.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -45,8 +45,9 @@
       <div class="container">
         <main>
             <div class="title">
-              <section class="">
-                <p class="name">T-CHATにログイン</p>
+              <section >
+                <p class="name">T-CHATへようこそ！</p>
+                <p class="small title">新規登録をして利用を開始しましょう。</p>
                 <p class="border"></p>
               
               </section>
@@ -57,17 +58,21 @@
 
     <div class="login-container">
       <form id="loginForm">
-        <input type="text" id="username" placeholder="ユーザー名 または メールアドレス"
+        <input type="text" id="username" placeholder="ユーザー名"
+        name="username" required />
+        <input type="text" id="username" placeholder="メールアドレス"
         name="username" required />
 
         <input type="password" id="password" placeholder="パスワード" name="password" required />
 
-        <p class="signin">T-CHATのアカウントを持っていない場合は<a href="../T-CHAT-Signin/T-CHAT-Signin.html">新規登録</a>から。</p>
+        <p class="signin">もしT-CHATのアカウントを持っている場合は<a href="../T-CHAT-Login/T-CHAT-Login.html">ログイン</a>から。</p>
 
-        <button type="submit" class="submit">T-CHATにログイン</button>
+        
+
+        <button type="submit" class="submit">登録する</button>
       </form>
       <p id="error-message"></p>
     </div>
-    <script src="T-CHAT-Login.js"></script>
+    <script src="T-CHAT-Signin.js"></script>
   </body>
 </html>
