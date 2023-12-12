@@ -44,7 +44,7 @@ const db = firebase.firestore();
 const search_button =document.getElementById("search_button");
 const post = db. collection('Post')
 var min = 1 ; var max = 3 ;
-var randam_num = String(Math.floor(Math.random()*(max + 1 - min )) + min) ;
+//var randam_num = String(Math.floor(Math.random()*(max + 1 - min )) + min) ;
 
 getData();
 
@@ -56,7 +56,7 @@ search_button.addEventListener('click',function(){
 
 function getData() {
     post.get().then((doc) => {
-        let addData = `<div class="box${result}">`;
+        let addData = `<div class="box1">`;
         addData += `<section>`;
         doc.forEach((docData) => {
             addData += `<h3>投稿者名${docData.data().UserName}</h3>`;
