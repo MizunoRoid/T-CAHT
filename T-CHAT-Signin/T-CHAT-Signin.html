@@ -24,6 +24,9 @@
       href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
       rel="stylesheet"
     />
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
   </head>
   <body>
     <script
@@ -56,8 +59,8 @@
           </main>
     </div>
 
-    <div class="login-container">
-      <form id="loginForm">
+    <div class="signin-container">
+      <form id="signinForm">
         <input type="text" id="username" placeholder="ユーザー名"
         name="username" required />
         <input type="text" id="username" placeholder="メールアドレス"

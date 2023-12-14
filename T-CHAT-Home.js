@@ -59,7 +59,7 @@ function getData() {
         let addData = `<div class="box1">`;
         addData += `<section>`;
         doc.forEach((docData) => {
-            addData += `<h3>投稿者名${docData.data().UserName}</h3>`;
+            addData += `<h3>${docData.data().UserName}</h3>`;
             addData += `<h1>投稿日:${docData.data().PostDay}</h1>`;
             addData += `<article>${docData.data().Title}</article>`
             addData += `<span class="article-category">${docData.data().Tag}</span>`
