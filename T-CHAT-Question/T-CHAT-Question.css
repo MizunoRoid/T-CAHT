@@ -196,7 +196,7 @@ main {
   border-width: 100px;
   /* 上、右、下、左の順に指定 */
   float: right;
-  width: 900%;
+  width: 900px;
   height: auto;
   margin-left: 38px;
   box-sizing: border-box;
@@ -229,8 +229,8 @@ main {
 }
 
 .scroll-area {
-  width: 860%;
-  height: auto;
+  width: 860px;
+  height: 440px;
   left: 10px;
   border-radius: 20px;
   /* バーに丸みをもたせる*/
@@ -506,6 +506,6 @@ aside::after {
 }
 
 .answered-category-answer {
-  margin-left: 700px;
+  margin-left: 600px;
   /* .unsolved-category-answer と同じスタイルを持たせる */
 }
