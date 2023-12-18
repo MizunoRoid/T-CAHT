@@ -191,7 +191,8 @@ nav ul {
 
 main {
   background-color: white;
-
+  border-radius: 15px;
+  /*要素を丸くする */
   border-width: 100px;
   /* 上、右、下、左の順に指定 */
   float: right;
@@ -202,32 +203,40 @@ main {
   border: 2px solid black;
   /* 2pxの幅で黒い縁線を追加 */
   padding-top: 6px;
-  padding-left: 8px;
+  padding-left: 2px;
   padding-right: 8px;
   /* 右側に20pxのパディングを設定 */
   /* 右側に20pxのパディングを設定 */
-  overflow: auto;
-  scroll-snap-align: start;
+  /* scroll-snap-align: start; */
 }
 
-main::-webkit-scrollbar {
-  width: 13px;
+.simplebar-track {
+  background: #e5e5e5;
+  /* バーの背景色を設定できます*/
+  border-radius: 10px;
+  /* バーに丸みをもたせる*/
+  left: 865px;
 }
 
-main::-webkit-scrollbar-track {
-  background-color: #eff2f7;
-  border-radius: 100px;
+.simplebar-track .simplebar-scrollbar.simplebar-visible::before {
+  opacity: 1;
+  /* デフォルトだと薄くなっています。*/
 }
 
-main::-webkit-scrollbar-thumb {
+.simplebar-track .simplebar-scrollbar::before {
   background: #abbdda;
-  border-radius: 100px;
-  width: 130px;
+  /* ここでバーの色を設定 */
 }
-.total {
-  position: sticky;
-  margin-left: auto;
+
+.scroll-area {
+  height: 440px;
+  width: 860px;
+  left: 10px;
+  border-radius: 20px;
+  /* バーに丸みをもたせる*/
+  bottom: 3px;
 }
+
 section {
   background: #fdf6e9;
   color: #000;
@@ -344,8 +353,10 @@ a.answered {
   color: #000;
   margin-bottom: 6px;
   border-radius: 26px;
-  position: relative; /* 相対位置を指定 */
-  z-index: 1; /* 他の要素より手前に配置 */
+  position: relative;
+  /* 相対位置を指定 */
+  z-index: 1;
+  /* 他の要素より手前に配置 */
 }
 
 a.article {
@@ -358,8 +369,10 @@ a.article {
   padding: 2px;
   margin-bottom: 6px;
   border-radius: 26px;
-  position: relative; /* 相対位置を指定 */
-  z-index: 1; /* 他の要素より手前に配置 */
+  position: relative;
+  /* 相対位置を指定 */
+  z-index: 1;
+  /* 他の要素より手前に配置 */
 }
 
 .box3 {
@@ -368,8 +381,10 @@ a.article {
   padding: 2px;
   margin-bottom: 6px;
   border-radius: 26px;
-  position: relative; /* 相対位置を指定 */
-  z-index: 1; /* 他の要素より手前に配置 */
+  position: relative;
+  /* 相対位置を指定 */
+  z-index: 1;
+  /* 他の要素より手前に配置 */
 }
 
 article {
@@ -470,20 +485,27 @@ aside::after {
   color: #000000;
   padding: 5px 8px 5px 8px;
 }
+
 .unsolved-category-answer,
 .Notanswered-category-answer,
 .answered-category-answer {
   bottom: 10px;
-  position: absolute; /* 絶対位置を指定 */
-  z-index: 2; /* 他の要素より手前に配置 */
+  position: absolute;
+  /* 絶対位置を指定 */
+  z-index: 2;
+  /* 他の要素より手前に配置 */
 }
+
 .unsolved-category-answer {
   margin-left: 700px;
 }
 
 .Notanswered-category-answer {
-  margin-left: 700px; /* .unsolved-category-answer と同じスタイルを持たせる */
+  margin-left: 700px;
+  /* .unsolved-category-answer と同じスタイルを持たせる */
 }
+
 .answered-category-answer {
-  margin-left: 700px; /* .unsolved-category-answer と同じスタイルを持たせる */
+  margin-left: 700px;
+  /* .unsolved-category-answer と同じスタイルを持たせる */
 }
