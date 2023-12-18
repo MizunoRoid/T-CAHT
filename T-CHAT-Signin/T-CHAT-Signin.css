@@ -24,6 +24,7 @@ header {
   width: 98.3%;
   border: 2px solid white;
 }
+
 .logo img {
   background-color: #fff;
   padding: 12px;
@@ -33,6 +34,7 @@ header {
   /* ロゴ画像の
         最大幅を設定 */
 }
+
 .name {
   margin-top: 1px;
   margin-bottom: 1px;
@@ -40,6 +42,7 @@ header {
 
   margin-left: 190px;
 }
+
 .border {
   border-top: 1px solid #bfbfbf;
   /* 線の色と太さを指定 */
@@ -48,6 +51,7 @@ header {
   margin-left: 190px;
   margin-bottom: 20px;
 }
+
 /* body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -72,8 +76,10 @@ button {
   padding: 10px;
   border: none;
   cursor: pointer;
-  padding: 15px; /* パディングを変更してボタンの高さを調整 */
-  width: 100%; /* 幅を100%にして親要素に合わせる */
+  padding: 15px;
+  /* パディングを変更してボタンの高さを調整 */
+  width: 100%;
+  /* 幅を100%にして親要素に合わせる */
 }
 
 button:hover {
@@ -84,46 +90,62 @@ button:hover {
   color: red;
   margin-top: 10px;
 }
+
 label {
-  display: block; /* ラベルをブロック要素に変更して改行させる */
-  margin-bottom: 5px; /* ラベルの下に少し余白を設ける */
+  display: block;
+  /* ラベルをブロック要素に変更して改行させる */
+  margin-bottom: 5px;
+  /* ラベルの下に少し余白を設ける */
 }
 
 #username {
-  font-size: 20px; /* テキスト入力フィールドのフォントサイズを変更 */
+  font-size: 20px;
+  /* テキスト入力フィールドのフォントサイズを変更 */
   outline-color: #55c500;
   border-radius: 4px;
   border: 1px solid #000000;
 }
 
 #username::placeholder {
-  font-size: 20px; /* placeholderのフォントサイズを変更 */
+  font-size: 20px;
+  /* placeholderのフォントサイズを変更 */
 }
 
 #mailaddress {
-  font-size: 20px; /* テキスト入力フィールドのフォントサイズを変更 */
+  font-size: 20px;
+  /* テキスト入力フィールドのフォントサイズを変更 */
   outline-color: #55c500;
   border-radius: 4px;
   border: 1px solid #000000;
 }
 
 #mailaddress::placeholder {
-  font-size: 20px; /* placeholderのフォントサイズを変更 */
+  font-size: 20px;
+  /* placeholderのフォントサイズを変更 */
 }
+
 #password {
-  font-size: 20px; /* テキスト入力フィールドのフォントサイズを変更 */
+  font-size: 20px;
+  /* テキスト入力フィールドのフォントサイズを変更 */
   outline-color: #55c500;
   border-radius: 4px;
   border: 1px solid #000000;
 }
+
 #password::placeholder {
-  font-size: 20px; /* placeholderのフォントサイズを変更 */
+  font-size: 20px;
+  /* placeholderのフォントサイズを変更 */
 }
+
 input {
-  width: 100%; /* 入力フィールドを親要素に合わせる */
-  padding: 8px; /* パディングを変更して高さを調整 */
-  margin-bottom: 15px; /* 入力フィールドの下に余白を設ける */
+  width: 100%;
+  /* 入力フィールドを親要素に合わせる */
+  padding: 8px;
+  /* パディングを変更して高さを調整 */
+  margin-bottom: 15px;
+  /* 入力フィールドの下に余白を設ける */
 }
+
 .submit {
   font-size: 20px;
   width: 250px;
@@ -131,7 +153,8 @@ input {
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 8px;
-  font-weight: bold; /* ボタンのテキストを太字にする */
+  font-weight: bold;
+  /* ボタンのテキストを太字にする */
 }
 
 .small.title {
@@ -139,6 +162,7 @@ input {
   left: 200px;
   font-size: 27px;
 }
+
 .signin {
   color: #9e9e9e;
 }
