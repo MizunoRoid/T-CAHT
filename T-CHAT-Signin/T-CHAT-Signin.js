@@ -17,12 +17,28 @@ const mailaddress = document.getElementById("mailaddress");
 const register_button = document.getElementById("register_button");
 
 register_button.addEventListener("click", async function(){
+    const querySnapshop = await user_register.get();
+    var document_size = querySnapshop.size;
+    var username_map = querySnapshop.docs.map(postDoc => postDoc.data().UserName);
+    var password_map = querySnapshop.docs.map(postDoc => postDoc.data().PassWord);
+    var mailaddress_map = querySnapshop.docs.map(postDoc => postDoc.data().MailAddress);
     if(username.value !="" && password.value != "" && mailaddress.value != ""){
-        
-    await user_register.add({
-        UserName: username.value,
-        PassWord: password.value,
-        MailAddress: mailaddress.value
-    });
-    };
+        for(counter=0;counter<document_size;++counter){
+            if(username_map[counter]==username.value && password_map[counter]==password.value && mailaddress_map[counter]==mailaddress.value){
+                // ログイン失敗時の処理
+                document.getElementById("error-message").textContent = "既にそのユーザー情報は登録されています。";
+                break;
+            }else{
+                await user_register.add({
+                    UserName: username.value,
+                    PassWord: password.value,
+                    MailAddress: mailaddress.value
+                });
+
+                break;
+            };
+        };
+    }else{
+        document.getElementById("error-message").textContent = "入力してください";
+    }
 });
