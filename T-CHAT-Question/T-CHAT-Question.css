@@ -196,8 +196,8 @@ main {
   border-width: 100px;
   /* 上、右、下、左の順に指定 */
   float: right;
-  width: 900px;
-  height: 450px;
+  width: 900%;
+  height: auto;
   margin-left: 38px;
   box-sizing: border-box;
   border: 2px solid black;
@@ -229,8 +229,8 @@ main {
 }
 
 .scroll-area {
-  height: 440px;
-  width: 860px;
+  width: 860%;
+  height: auto;
   left: 10px;
   border-radius: 20px;
   /* バーに丸みをもたせる*/
