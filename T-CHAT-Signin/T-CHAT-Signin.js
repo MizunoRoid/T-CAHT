@@ -25,4 +25,21 @@ register_button.addEventListener("click", async function(){
         MailAddress: mailaddress.value
     });
     };
+    const querySnapshop = await user_register.get();
+    var document_size = querySnapshop.size;
+    var username_map = querySnapshop.docs.map(postDoc => postDoc.data().UserName);
+    var password_map = querySnapshop.docs.map(postDoc => postDoc.data().PassWord);
+    var mailaddress_map = querySnapshop.docs.map(postDoc => postDoc.data().MailAddress);
+    for(counter=0;counter<document_size;++counter){
+        if(username_map[counter]==username && password_map[counter]==password && mailaddress_map[counter]==mailaddress){
+            
+        }
+    }
 });
+ // if (username === dummyUsername && password === dummyPassword) {
+    //     // ログイン成功時の処理
+    //     document.getElementById("error-message").textContent = "Login successful!";
+    // } else {
+    //     // ログイン失敗時の処理
+    //     document.getElementById("error-message").textContent = "Invalid username or password";
+    // }
