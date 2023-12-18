@@ -99,6 +99,17 @@ label {
 #username::placeholder {
   font-size: 20px; /* placeholderのフォントサイズを変更 */
 }
+
+#mailaddress {
+  font-size: 20px; /* テキスト入力フィールドのフォントサイズを変更 */
+  outline-color: #55c500;
+  border-radius: 4px;
+  border: 1px solid #000000;
+}
+
+#mailaddress::placeholder {
+  font-size: 20px; /* placeholderのフォントサイズを変更 */
+}
 #password {
   font-size: 20px; /* テキスト入力フィールドのフォントサイズを変更 */
   outline-color: #55c500;
