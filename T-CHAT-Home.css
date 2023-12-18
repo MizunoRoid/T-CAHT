@@ -209,24 +209,31 @@ main {
   /* 右側に20pxのパディングを設定 */
   /* scroll-snap-align: start; */
 }
+
 .simplebar-track {
-  background: #e5e5e5; /* バーの背景色を設定できます*/
-  border-radius: 10px; /* バーに丸みをもたせる*/
+  background: #e5e5e5;
+  /* バーの背景色を設定できます*/
+  border-radius: 10px;
+  /* バーに丸みをもたせる*/
   left: 865px;
 }
 
 .simplebar-track .simplebar-scrollbar.simplebar-visible::before {
-  opacity: 1; /* デフォルトだと薄くなっています。*/
+  opacity: 1;
+  /* デフォルトだと薄くなっています。*/
 }
 
 .simplebar-track .simplebar-scrollbar::before {
-  background: #abbdda; /* ここでバーの色を設定 */
+  background: #abbdda;
+  /* ここでバーの色を設定 */
 }
+
 .scroll-area {
   height: 440px;
   width: 860px;
   left: 10px;
-  border-radius: 20px; /* バーに丸みをもたせる*/
+  border-radius: 20px;
+  /* バーに丸みをもたせる*/
   bottom: 3px;
 }
 
@@ -243,15 +250,17 @@ section {
   color: #000;
   margin-bottom: 6px;
   border-radius: 26px;
-  position: relative; /* 相対位置を指定 */
-  z-index: 1; /* 他の要素より手前に配置 */
+  position: relative;
+  /* 相対位置を指定 */
+  z-index: 1;
+  /* 他の要素より手前に配置 */
 }
 
 a.article {
   text-decoration: none;
 }
 
-.answers {
+.answers1 {
   padding-left: 500px;
 }
 
@@ -261,8 +270,14 @@ a.article {
   padding: 2px;
   margin-bottom: 6px;
   border-radius: 26px;
-  position: relative; /* 相対位置を指定 */
-  z-index: 1; /* 他の要素より手前に配置 */
+  position: relative;
+  /* 相対位置を指定 */
+  z-index: 1;
+  /* 他の要素より手前に配置 */
+}
+
+.answers2 {
+  padding-left: 657px;
 }
 
 .box3 {
@@ -271,8 +286,14 @@ a.article {
   padding: 2px;
   margin-bottom: 6px;
   border-radius: 26px;
-  position: relative; /* 相対位置を指定 */
-  z-index: 1; /* 他の要素より手前に配置 */
+  position: relative;
+  /* 相対位置を指定 */
+  z-index: 1;
+  /* 他の要素より手前に配置 */
+}
+
+.answers3 {
+  padding-left: 550px;
 }
 
 article {
@@ -374,23 +395,31 @@ aside::after {
   color: #000000;
   padding: 5px 8px 5px 8px;
 }
+
 .unsolved-category-answer,
 .Notanswered-category-answer,
 .answered-category-answer {
   bottom: 10px;
-  position: absolute; /* 絶対位置を指定 */
-  z-index: 2; /* 他の要素より手前に配置 */
+  position: absolute;
+  /* 絶対位置を指定 */
+  z-index: 2;
+  /* 他の要素より手前に配置 */
 }
+
 .unsolved-category-answer {
   margin-left: 700px;
 }
 
 .Notanswered-category-answer {
-  margin-left: 700px; /* .unsolved-category-answer と同じスタイルを持たせる */
+  margin-left: 700px;
+  /* .unsolved-category-answer と同じスタイルを持たせる */
 }
+
 .answered-category-answer {
-  margin-left: 700px; /* .unsolved-category-answer と同じスタイルを持たせる */
+  margin-left: 700px;
+  /* .unsolved-category-answer と同じスタイルを持たせる */
 }
+
 /* ここからモーダルウィンドウ */
 
 #overlay {
@@ -399,13 +428,15 @@ aside::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0); /* 背景が半透明になるように設定 */
+  background: rgba(0, 0, 0, 0);
+  /* 背景が半透明になるように設定 */
 }
 
 /* モーダルウィンドウ */
 #modal {
   display: flex;
-  flex-direction: column; /* 列方向に配置 */
+  flex-direction: column;
+  /* 列方向に配置 */
   position: fixed;
   top: 55%;
   left: 60%;
@@ -416,35 +447,47 @@ aside::after {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 2; /* 最前面に表示 */
+  z-index: 2;
+  /* 最前面に表示 */
   padding: 8px 16px;
 }
 
 .setting {
-  position: relative; /* 相対位置を指定 */
+  position: relative;
+  /* 相対位置を指定 */
   left: 280px;
   bottom: 55px;
-  cursor: pointer; /* カーソルをポインタに変更 */
+  cursor: pointer;
+  /* カーソルをポインタに変更 */
   margin-right: 280px;
 }
 
 .content {
-  position: relative; /* 相対位置を指定 */
+  position: relative;
+  /* 相対位置を指定 */
   margin-bottom: 250px;
   bottom: 70px;
 
-  margin-top: 10px; /* 適切なマージンを追加 */
-  border-top: 1px solid #000; /* ボーダーを追加 */
-  padding-top: 20px; /* 適切なパディングを追加 */
+  margin-top: 10px;
+  /* 適切なマージンを追加 */
+  border-top: 1px solid #000;
+  /* ボーダーを追加 */
+  padding-top: 20px;
+  /* 適切なパディングを追加 */
 }
 
 .list {
-  border-top: 1px solid #000; /* ボーダーを追加 */
+  border-top: 1px solid #000;
+  /* ボーダーを追加 */
   margin-top: auto;
-  text-align: center; /* 文字を中央揃えにする */
-  cursor: pointer; /* カーソルをポインタに変更 */
-  color: blue; /* リンクの色を設定 */
-  text-decoration: underline; /* 下線を表示 */
+  text-align: center;
+  /* 文字を中央揃えにする */
+  cursor: pointer;
+  /* カーソルをポインタに変更 */
+  color: blue;
+  /* リンクの色を設定 */
+  text-decoration: underline;
+  /* 下線を表示 */
   padding: 16px 0px;
 }
 
