@@ -15,30 +15,41 @@ const username = document.getElementById("username");
 const password = document.getElementById("password");
 const mailaddress = document.getElementById("mailaddress");
 const register_button = document.getElementById("register_button");
+const error_message = document.getElementById("error-message");
 
 register_button.addEventListener("click", async function(){
-    const querySnapshop = await user_register.get();
-    var document_size = querySnapshop.size;
-    var username_map = querySnapshop.docs.map(postDoc => postDoc.data().UserName);
-    var password_map = querySnapshop.docs.map(postDoc => postDoc.data().PassWord);
-    var mailaddress_map = querySnapshop.docs.map(postDoc => postDoc.data().MailAddress);
-    if(username.value !="" && password.value != "" && mailaddress.value != ""){
-        for(counter=0;counter<document_size;++counter){
-            if(username_map[counter]==username.value && password_map[counter]==password.value && mailaddress_map[counter]==mailaddress.value){
-                // ログイン失敗時の処理
-                document.getElementById("error-message").textContent = "既にそのユーザー情報は登録されています。";
-                break;
-            }else{
-                await user_register.add({
-                    UserName: username.value,
-                    PassWord: password.value,
-                    MailAddress: mailaddress.value
-                });
-
-                break;
-            };
-        };
-    }else{
-        document.getElementById("error-message").textContent = "入力してください";
+    const newUser = {
+        UserName : username.value,
+        PassWord : password.value,
+        MailAddress : mailaddress.value
     }
-});
+    // ユーザー情報の重複をチェック
+    const querySnapshotName = await user_register
+    .where("UserName", "==", newUser.UserName)
+    .get();
+
+    const querySnapshotMail = await user_register
+    .where("MailAddress", "==", newUser.MailAddress)
+    .get();
+
+    const querySnapshotPass = await user_register
+    .where("PassWord", "==", newUser.PassWord)
+    .get();
+
+    
+    if (username.value !== "" && password.value !== "" && mailaddress.value !== "") {
+        if (!querySnapshotName.empty || !querySnapshotMail.empty || !querySnapshotPass.empty) {
+          // 重複がある場合の処理
+        error_message.textContent = "既にそのユーザー情報は登録されています。";
+        } else {
+          // 重複がない場合の処理
+        await user_register.add(newUser);
+          // 成功時の処理
+        // window.location.href = './../T-CHAT-Login/T-CHAT-Login.html';
+        error_message.textContent = "成功";
+        }
+    } else {
+        // 入力が不足している場合の処理
+        error_message.textContent = "入力してください";
+    }
+    });
