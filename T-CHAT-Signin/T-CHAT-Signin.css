@@ -146,6 +146,12 @@ input {
   /* 入力フィールドの下に余白を設ける */
 }
 
+.rule {
+  font-size: 13px;
+  color: red;
+  margin-top: -10px;
+}
+
 .submit {
   font-size: 20px;
   width: 250px;
