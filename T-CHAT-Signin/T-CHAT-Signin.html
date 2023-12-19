@@ -16,6 +16,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
     rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
@@ -56,14 +61,31 @@
           required />
 
         <input type="password" id="password" placeholder="パスワード" name="password" required />
+        <i id="eye" class="fa-solid fa-eye"></i>
+
         <p class="rule">※半角英字、数字、記号を組み合わせて6文字以上で入力してください。</p>
+
+        <script>
+          let eye = document.getElementById("eye");
+          eye.addEventListener('click', function () {
+            if (this.previousElementSibling.getAttribute('type') == 'password') {
+              this.previousElementSibling.setAttribute('type', 'text');
+              this.classList.toggle('fa-eye');
+              this.classList.toggle('fa-eye-slash');
+            } else {
+              this.previousElementSibling.setAttribute('type', 'password');
+              this.classList.toggle('fa-eye');
+              this.classList.toggle('fa-eye-slash');
+            }
+          })
+        </script>
 
         <p class="signin">もしT-CHATのアカウントを持っている場合は<a href="../T-CHAT-Login/T-CHAT-Login.html">ログイン</a>から。</p>
 
         <button type="button" class="submit" id="register_button" onclick="validateLogin()">登録する</button>
       </form>
 
-      <p id="loginResult"></p>
+      <p id="loginResult" style="display: none;"></p>
 
       <script>
         function validateLogin() {
@@ -84,6 +106,7 @@
 
           // ユーザー名とメールアドレスとパスワードが正規表現に合致するかを確認
           if (usernameRegex.test(username) && mailaddressRegex.test(mailaddress) && passwordRegex.test(password)) {
+            location.href = "../T-CHAT-Home.html";
             document.getElementById("loginResult").innerText = alert("ログイン成功！");
           } else {
             document.getElementById("loginResult").innerText = alert("ユーザー名またはパスワードが無効です。");
@@ -91,7 +114,7 @@
         }
       </script>
 
-      <p id="error-message"></p>
+      <!-- <p id="error-message"></p> -->
     </div>
     <script src="T-CHAT-Signin.js"></script>
 </body>
