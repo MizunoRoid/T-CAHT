@@ -66,22 +66,6 @@
 
         <p class="rule">※半角英字、数字、記号を組み合わせて6文字以上で入力してください。</p>
 
-        <!-- パスワードの目の処理 -->
-        <script>
-          let eye = document.getElementById("eye");
-          eye.addEventListener('click', function () {
-            if (this.previousElementSibling.getAttribute('type') == 'password') {
-              this.previousElementSibling.setAttribute('type', 'text');
-              this.classList.toggle('fa-eye');
-              this.classList.toggle('fa-eye-slash');
-            } else {
-              this.previousElementSibling.setAttribute('type', 'password');
-              this.classList.toggle('fa-eye');
-              this.classList.toggle('fa-eye-slash');
-            }
-          })
-        </script>
-
         <p class="signin">もしT-CHATのアカウントを持っている場合は<a href="../T-CHAT-Login/T-CHAT-Login.html">ログイン</a>から。</p>
 
         <button type="button" class="submit" id="register_button" onclick="validateLogin()">登録する</button>
@@ -89,34 +73,6 @@
 
       <p id="loginResult" style="display: none;"></p>
       <!-- idだけ欲しかったから -->
-
-      <!-- 登録ボタン押した後の処理 -->
-      <script>
-        function validateLogin() {
-          var username = document.getElementById("username").value;
-          var mailaddress = document.getElementById("mailaddress").value;
-          var password = document.getElementById("password").value;
-
-          // ユーザー名の正規表現
-          var usernameRegex = /^[a-zA-Z0-9]{4,16}$/;
-          //4文字以上16文字以下の長さ 英大小文字、数字のいずれかの文字だけで構成されている
-
-          var mailaddressRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
-          //トップレベルドメイン(TLD)が例えば "com" や "net" のように2文字以上で構成さているか
-
-          // パスワードの正規表現
-          var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/;
-          //英字、数字、特殊文字のいずれかが6文字以上繰り返されていることを示す
-
-          // ユーザー名とメールアドレスとパスワードが正規表現に合致するかを確認
-          if (usernameRegex.test(username) && mailaddressRegex.test(mailaddress) && passwordRegex.test(password)) {
-            location.href = "../T-CHAT-Home.html";
-            document.getElementById("loginResult").innerText = alert("ログイン成功！");
-          } else {
-            document.getElementById("loginResult").innerText = alert("ユーザー名またはメールアドレスまたはパスワードが無効です。");
-          }
-        }
-      </script>
 
       <!-- <p id="error-message"></p> -->
     </div>
