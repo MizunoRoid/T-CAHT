@@ -119,7 +119,7 @@ var toolbarOptions = [
   /* ['clean']                                         // remove formatting button*/
 ];
 
-const editor1 = new Quill("#editor_area", {
+const editor = new Quill("#editor_area", {
   bounds: "#edito",
   modules: {
     toolbar: toolbarOptions,
@@ -142,17 +142,6 @@ var toolbarOptions = [
   [{ color: [] }, { background: [] }], // dropdown with defaults from theme
   /* ['clean']                                         // remove formatting button*/
 ];
-
-const editor2 = new Quill("#editor_area", {
-  bounds: "#edito",
-  modules: {
-    toolbar: toolbarOptions,
-  },
-  placeholder:
-    "ここに質問したいことを記載してください\n例）\nFirebaseのデータベースを使用してログイン画面を作っています。\nその途中で問題が発生しました。その問題とはFirebaseの構成が理解出来ないんですよ～、\nなんで教えてほしいですね～。",
-
-  theme: "snow",
-});
 
 var firebaseConfig = {
   apiKey: "AIzaSyARxI5dZXILhMkMDTDE5MyK88yJlCh-A_Y",
