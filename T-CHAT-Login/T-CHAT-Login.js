@@ -46,3 +46,17 @@ register_button.addEventListener("click", async function () {
     console.log("入力が不足しています。失敗");
   }
 });
+
+// パスワードの目の処理
+let eye = document.getElementById("eye");
+eye.addEventListener("click", function () {
+  if (this.previousElementSibling.getAttribute("type") == "password") {
+    this.previousElementSibling.setAttribute("type", "text");
+    this.classList.toggle("fa-eye");
+    this.classList.toggle("fa-eye-slash");
+  } else {
+    this.previousElementSibling.setAttribute("type", "password");
+    this.classList.toggle("fa-eye");
+    this.classList.toggle("fa-eye-slash");
+  }
+});

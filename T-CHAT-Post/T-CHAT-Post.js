@@ -103,9 +103,58 @@ function closeModal() {
 }
 // ここまでがモーダルウィンドウのjs
 
+const save_button = document.getElementById("save");
+
+save_button.addEventListener("click", async function () {});
+// ここのツールバーはカスタムできます。
+var toolbarOptions = [
+  [{ header: [2, 3, false] }],
+  ["bold", "italic", "underline"], // toggled buttons
+  /* [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown　*/
+  ["blockquote"],
+  ["image"],
+  [{ list: "ordered" }, { list: "bullet" }], // superscript/subscript
+  [{ align: [] }],
+  [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+  /* ['clean']                                         // remove formatting button*/
+];
+
+const editor = new Quill("#editor_area", {
+  bounds: "#edito",
+  modules: {
+    toolbar: toolbarOptions,
+  },
+  placeholder:
+    "ここに質問したいことを記載してください\n例）\nFirebaseのデータベースを使用してログイン画面を作っています。\nその途中で問題が発生しました。その問題とはFirebaseの構成が理解出来ないんですよ～、\nなんで教えてほしいですね～。",
+
+  theme: "snow",
+});
 const format_content = document.getElementById("format");
 const title_content = document.getElementById("title");
 const post_button = document.getElementById("post");
 const question_tag_content = document.getElementById("question_tag");
 const textarea_content = document.getElementById("textarea");
 post_button.addEventListener("click", async function () {});
+// ここのツールバーはカスタムできます。
+var toolbarOptions = [
+  [{ header: [2, 3, false] }],
+  ["bold", "italic", "underline"], // toggled buttons
+  /* [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown　*/
+  ["blockquote"],
+  ["image"],
+  [{ list: "ordered" }, { list: "bullet" }], // superscript/subscript
+  [{ align: [] }],
+  [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+  /* ['clean']                                         // remove formatting button*/
+];
+
+const editor = new Quill("#editor_area", {
+  bounds: "#edito",
+  modules: {
+    toolbar: toolbarOptions,
+  },
+  placeholder:
+    "ここに質問したいことを記載してください\n例）\nFirebaseのデータベースを使用してログイン画面を作っています。\nその途中で問題が発生しました。その問題とはFirebaseの構成が理解出来ないんですよ～、\nなんで教えてほしいですね～。",
+
+  theme: "snow",
+});

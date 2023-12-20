@@ -88,11 +88,14 @@ header {
 }
 
 .list {
-  width: 15%;
+  /* width: 15%; */
+  position: relative;
+  width: 200px;
   font-size: 15px;
   min-height: 50px;
   max-height: 200px;
   margin-left: 20px;
+
   border: 2px solid #c0c0c0;
   border-radius: 8px 8px 8px 8px;
   font-size: 16px;
@@ -100,10 +103,12 @@ header {
 }
 
 .text {
-  width: 85%;
+  /* width: 85%; */
+  position: relative;
+  width: 1100px;
   font-size: 24px;
   border: 2px solid #c0c0c0;
-  margin-right: 13px;
+  /* margin-right: 13px; */
   border-radius: 8px 8px 8px 8px;
 }
 
@@ -128,24 +133,23 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: -15px;
+  position: relative;
+  left: 33px;
 }
 
 /*タグアイコン*/
 .fa-solid.fa-tags {
   padding: 10px;
-  margin-left: 20px;
   border: 2px solid #c0c0c0;
   /* 例: 枠線をオレンジ色に設定 */
   z-index: -1;
-
+  border-radius: 8px 0 0 8px;
   right: 22px;
   color: #a8a7a7;
   /* アイコンの色を緑に変更 */
   position: relative;
   top: 5px;
   border-right: none;
-  border-left: none;
 }
 
 /*タグ関連*/
@@ -168,20 +172,6 @@ button.ms-choice {
 
 div.icon-caret {
   margin: 20px;
-}
-
-/*鉛筆とか*/
-.fa-solid.fa-border {
-  border: 2px solid #c0c0c0;
-  /* 例: 枠線をオレンジ色に設定 */
-
-  padding: 10px;
-  color: #a8a7a7;
-  /* アイコンの色を緑に変更 */
-  position: relative;
-  top: 5px;
-  left: 15px;
-  border-radius: 8px 8px 8px 8px;
 }
 
 /* .pencil {
@@ -210,205 +200,42 @@ div.icon-caret {
   font-size: 16px;
 } */
 
-.textarea {
-  width: 97.5%;
-  height: 100vh;
-  font-size: 28px;
-  /* 例: フォントサイズを16ピクセルに設定 */
-  box-sizing: border-box;
-  /* ボックスモデルを調整 */
-  margin: 10px 0;
-  /* 上下に10pxのマージンを設定 */
-  border: 2px solid #c0c0c0;
-  border-radius: 8px 8px 8px 8px;
-  margin-left: 20px;
-}
-
-.tooltip-container {
-  position: relative;
-  display: inline-block;
-  margin-left: 5px;
-  /* 左の余白 */
-  margin-right: 5px;
-  /* 右の余白 */
-}
-
-.tooltip-container .tooltip {
-  visibility: hidden;
-  background-color: #fff;
-  border: 2px solid #c0c0c0;
-
-  color: #000000;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-
-  transform: translateX(-50%) translateY(-5px);
-  opacity: 0;
-  transition: opacity 0.3s, transform 0.3s;
-  width: auto;
-  white-space: nowrap;
-}
-
-.tooltip-container:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-.button1 .fas {
-  background: none;
-  cursor: pointer;
-  border: 2px solid #c0c0c0;
-  padding: 9.5px;
-  color: #a8a7a7;
-  position: relative;
-  top: 5px;
-  left: 3px;
-  font-size: 33px;
-  border-radius: 8px 0 0 8px;
-}
-
-.button1 .tooltip {
-  left: 100%;
-  bottom: 80%;
-}
-
-.button2 .fas {
-  color: #a8a7a7;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.button2 .tooltip {
-  bottom: 120%;
-  left: 50%;
-  font-weight: normal;
-}
-
-.button3 .fas {
-  color: #a8a7a7;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.button3 .tooltip {
-  bottom: 120%;
-  left: 50%;
-  font-weight: normal;
-}
-
-.button4 .fas {
-  color: #a8a7a7;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.button4 .tooltip {
-  bottom: 120%;
-  left: 50%;
-  font-weight: normal;
-}
-
-/* ここからがモーダルウィンドウのcss */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 50px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-/* Style for the modal content */
-.modal-content {
-  margin: auto;
+/* wysiwygのコードここから */
+#app {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Style for the close button */
-.close {
-  color: #fff;
-  position: absolute;
+  position: relative;
+  left: 18px;
   top: 10px;
-  right: 25px;
-  font-size: 30px;
-  font-weight: bold;
-  cursor: pointer;
 }
 
-.close:hover {
-  color: #bbb;
+#editor_area {
+  display: block;
+  width: 1230px;
+  min-width: 300px;
+  min-height: 300px;
+  clear: none;
+  margin-bottom: 1rem;
+  position: relative;
+  top: 10px;
+  border: 2px solid #ccc; /* 線の太さを調整 */
+  border-radius: 5px 5px 5px 5px; /* 右下と左下だけを丸くする */
+}
+/* 調整したいツールバー項目のスタイル */
+
+.ql-container {
+  height: auto;
+  min-height: 200px;
 }
 
-/* Additional styles for the photo and modal animation */
-.modal-content img {
-  max-width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-  margin: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.modal-content img.loaded {
-  opacity: 1;
-}
-
-.modal.fade-in {
-  animation: fadeInModal 0.5s ease-in-out;
-}
-
-.modal.fade-out {
-  animation: fadeOutModal 0.5s ease-in-out;
-}
-
-@keyframes fadeInModal {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
+@media (max-width: 750px) {
+  #editor_area {
+    width: 100%;
   }
 }
-
-@keyframes fadeOutModal {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
+#editor_area {
+  font-size: 24px;
 }
-
-/* Additional styles for custom file upload button */
-#photoInput {
-  display: none;
-  /* 標準のファイル名表示を非表示にする */
-}
-
-.custom-file-upload {
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
-}
+/* wysiwygのコードここまで */
 
 /* ここまでがモーダルウィンドウのcss */
