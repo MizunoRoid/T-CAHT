@@ -119,7 +119,7 @@ var toolbarOptions = [
   /* ['clean']                                         // remove formatting button*/
 ];
 
-const editor = new Quill("#editor_area", {
+const editor1 = new Quill("#editor_area", {
   bounds: "#edito",
   modules: {
     toolbar: toolbarOptions,
@@ -148,7 +148,7 @@ var toolbarOptions = [
   /* ['clean']                                         // remove formatting button*/
 ];
 
-const editor = new Quill("#editor_area", {
+const editor2 = new Quill("#editor_area", {
   bounds: "#edito",
   modules: {
     toolbar: toolbarOptions,
