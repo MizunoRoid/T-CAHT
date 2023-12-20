@@ -1,74 +1,71 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <link rel="stylesheet" href="T-CHAT-Login.css" />
-    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha384-GLhlTQ8i7uqF1E1+eLvFIH1KRw8i/SF5+FmNDPGPLsMtkI1i66UTZvcXEUdamzjH"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Noto+Sans+JP&family=Sawarabi+Gothic&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <script
-      src="https://kit.fontawesome.com/eae95656cf.js"
-      crossorigin="anonymous"
-    ></script>
-    <div class="bordered-element">
-      <div class="background">
-        <header>
-          <div class="logo">
-            <a href="../T-CHAT-Home.html" class="home">
-              <img src="../T-CHAT-Image/T-CHAT_icon.png" alt="Your Image" />
-            </a>
-          </div>
-          
-        </header>
-      </div>
 
-      <div class="container">
-        <main>
-            <div class="title">
-              <section class="">
-                <p class="name">T-CHATにログイン</p>
-                <p class="border"></p>
-              
-              </section>
-              <section class="login"></section>
-     </div>
-          </main>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="T-CHAT-Login.css" />
+  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha384-GLhlTQ8i7uqF1E1+eLvFIH1KRw8i/SF5+FmNDPGPLsMtkI1i66UTZvcXEUdamzjH" crossorigin="anonymous" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Noto+Sans+JP&family=Sawarabi+Gothic&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <script src="https://kit.fontawesome.com/eae95656cf.js" crossorigin="anonymous"></script>
+  <div class="bordered-element">
+    <div class="background">
+      <header>
+        <div class="logo">
+          <a href="../T-CHAT-Home.html" class="home">
+            <img src="../T-CHAT-Image/T-CHAT_icon.png" alt="Your Image" />
+          </a>
+        </div>
+
+      </header>
+    </div>
+
+    <div class="container">
+      <main>
+        <div class="title">
+          <section class="">
+            <p class="name">T-CHATにログイン</p>
+            <p class="border"></p>
+
+          </section>
+          <section class="login"></section>
+        </div>
+      </main>
     </div>
 
     <div class="login-container">
       <form id="loginForm">
-        <input type="text" id="username_or_mail" placeholder="ユーザー名 または メールアドレス"
-        name="username_or_mail" required />
+        <input type="text" id="username_or_mail" placeholder="ユーザー名 または メールアドレス" name="username_or_mail" required />
 
         <input type="password" id="password" placeholder="パスワード" name="password" required />
+        <i id="eye" class="fa-solid fa-eye"></i> 
+        <!-- 目のアイコン -->
 
         <p class="signin">T-CHATのアカウントを持っていない場合は<a href="../T-CHAT-Signin/T-CHAT-Signin.html">新規登録</a>から。</p>
 
-        <button type="button" class="submit" id="register_button">T-CHATにログイン</button>
+        <button type="button" class="submit" id="register_button" onclick="Login()">T-CHATにログイン</button>
       </form>
       <p id="error-message"></p>
     </div>
     <script src="T-CHAT-Login.js"></script>
-  </body>
+</body>
+
 </html>
