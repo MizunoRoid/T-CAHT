@@ -39,7 +39,6 @@ header {
   margin-top: 1px;
   margin-bottom: 1px;
   font-size: 50px;
-
   margin-left: 190px;
 }
 
@@ -86,10 +85,10 @@ button:hover {
   background-color: #45a049;
 }
 
-#error-message {
+/* #error-message {
   color: red;
   margin-top: 10px;
-}
+} */
 
 label {
   display: block;
@@ -144,6 +143,23 @@ input {
   /* パディングを変更して高さを調整 */
   margin-bottom: 15px;
   /* 入力フィールドの下に余白を設ける */
+}
+
+/* 目マークのとこ */
+#eye {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  bottom: 44px;
+  left: 490px;
+  color: #576070;
+}
+
+/* ※マークのとこ */
+.rule {
+  font-size: 13px;
+  color: red;
+  margin-top: -40px;
 }
 
 .submit {
