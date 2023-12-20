@@ -65,7 +65,7 @@
       <div class="container">
         <main>
           <div class="box1">
-            <select class="list" name="名前" size="1">
+            <select class="list" name="名前" id="format" size="1">
               <option selected="selected" hidden>選択して下さい</option>
 
               <option value="private">プライベート</option>
@@ -75,6 +75,7 @@
               <option value="QA">Q & A</option>
             </select>
             <input
+              id="title"
               class="text"
               type="text"
               name="名前"
@@ -106,6 +107,7 @@
 
             <!-- 追加 -->
             <select
+              id="question_tag"
               multiple
               class="tag"
               name="タグ"
@@ -181,6 +183,7 @@
 
           <div class="box3">
             <textarea
+              id="textarea"
               class="textarea"
               rows="4"
               cols="50"
