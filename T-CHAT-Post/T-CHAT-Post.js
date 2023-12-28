@@ -2,7 +2,7 @@
 
 const save_button = document.getElementById("save");
 
-save_button.addEventListener("click", async function () {});
+save_button.addEventListener("click", async function () { });
 // ここのツールバーはカスタムできます。
 var toolbarOptions = [
   [{ header: [2, 3, false] }],
