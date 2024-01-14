@@ -1,119 +1,147 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <head>
+    <link rel="stylesheet" type="text/css" href="T-CHAT-Post.css" />
 
-<head>
-  <link rel="stylesheet" type="text/css" href="T-CHAT-Post.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- textareaのコード ここから-->
+    <link rel="stylesheet" href="quill.snow.css" />
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- textareaのコード ここから-->
-  <link rel="stylesheet" href="quill.snow.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.min.js"
+    ></script>
+    <!-- textareaのコード ここまで-->
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.min.js"></script>
-  <!-- textareaのコード ここまで-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha384-GLhlTQ8i7uqF1E1+eLvFIH1KRw8i/SF5+FmNDPGPLsMtkI1i66UTZvcXEUdamzjH"
+      crossorigin="anonymous"
+    />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha384-GLhlTQ8i7uqF1E1+eLvFIH1KRw8i/SF5+FmNDPGPLsMtkI1i66UTZvcXEUdamzjH" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Noto+Sans+JP&family=Sawarabi+Gothic&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
+      rel="stylesheet"
+    />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Noto+Sans+JP&family=Sawarabi+Gothic&display=swap"
-    rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
-    rel="stylesheet" />
+    <!-- 参考 https://qiita.com/yoyoyo_pg/items/4859dfbbc512ef653828 -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-  <!-- 参考 https://qiita.com/yoyoyo_pg/items/4859dfbbc512ef653828 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="multiple-select.min.css" />
+  </head>
 
-  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="multiple-select.min.css" />
-</head>
+  <body>
+    <script
+      src="https://kit.fontawesome.com/eae95656cf.js"
+      crossorigin="anonymous"
+    ></script>
+    <div class="bordered-element">
+      <div class="background">
+        <header>
+          <div class="logo">
+            <a href="../T-CHAT-Home.html" class="home">
+              <img src="../T-CHAT-Image/T-CHAT_icon.png" alt="Your Image" />
+            </a>
+          </div>
+          <button class="save" id="save">
+            <i class="fa-solid fa-floppy-disk"></i>
+            Save
+          </button>
+          <button class="post">
+            <i class="fa-solid fa-file-import"></i>
+            Post
+          </button>
+        </header>
+      </div>
 
-<body>
-  <script src="https://kit.fontawesome.com/eae95656cf.js" crossorigin="anonymous"></script>
-  <div class="bordered-element">
-    <div class="background">
-      <header>
-        <div class="logo">
-          <a href="../T-CHAT-Home.html" class="home">
-            <img src="../T-CHAT-Image/T-CHAT_icon.png" alt="Your Image" />
-          </a>
-        </div>
-        <button class="save" id="save">
-          <i class="fa-solid fa-floppy-disk"></i>
-          Save
-        </button>
-        <button class="post">
-          <i class="fa-solid fa-file-import"></i>
-          Post
-        </button>
-      </header>
-    </div>
+      <div class="container">
+        <main>
+          <div class="box1">
+            <select class="list" name="名前" id="format" size="1">
+              <option selected="selected" hidden>選択して下さい</option>
 
-    <div class="container">
-      <main>
-        <div class="box1">
-          <select class="list" name="名前" id="format" size="1">
-            <option selected="selected" hidden>選択して下さい</option>
+              <option value="private">プライベート</option>
 
-            <option value="private">プライベート</option>
+              <option value="change">意見交換</option>
 
-            <option value="change">意見交換</option>
+              <option value="QA">Q & A</option>
+            </select>
+            <input
+              id="title"
+              class="text"
+              type="text"
+              name="名前"
+              value=""
+              placeholder="質問タイトル"
+            />
+          </div>
 
-            <option value="QA">Q & A</option>
-          </select>
-          <input id="title" class="text" type="text" name="名前" value="" placeholder="質問タイトル" />
-        </div>
+          <div class="box2">
+            <i class="fa-solid fa-tags fa-2x"></i>
 
-        <div class="box2">
-          <i class="fa-solid fa-tags fa-2x"></i>
+            <!-- 追加 -->
+            <select
+              id="question_tag"
+              multiple
+              class="tag"
+              name="タグ"
+              placeholder="タグを選択してください"
+            >
+              <option value="1">アプリ案</option>
+              <option value="2">Firebase</option>
+              <option value="3">Bug</option>
+              <option value="4">Java</option>
+              <option value="5">Android</option>
+              <option value="6">News</option>
+              <option value="7">HTML</option>
+              <option value="8">If文</option>
+              <option value="9">For文</option>
+              <option value="10">10月</option>
+              <option value="11">11月</option>
+              <option value="12">12月</option>
+            </select>
 
-          <!-- 追加 -->
-          <select id="question_tag" multiple class="tag" name="タグ" placeholder="タグを選択してください">
-            <option value="1">アプリ案</option>
-            <option value="2">Firebase</option>
-            <option value="3">Bug</option>
-            <option value="4">Java</option>
-            <option value="5">Android</option>
-            <option value="6">News</option>
-            <option value="7">HTML</option>
-            <option value="8">If文</option>
-            <option value="9">For文</option>
-            <option value="10">10月</option>
-            <option value="11">11月</option>
-            <option value="12">12月</option>
-          </select>
-
-          <script>
-            $(function () {
-              $("select.tag").multipleSelect({
-                width: 1180,
-                formatSelectAll: function () {
-                  return "すべて";
-                },
-                formatAllSelected: function () {
-                  return "全て選択されています";
-                },
+            <script>
+              $(function () {
+                $("select.tag").multipleSelect({
+                  width: 1180,
+                  formatSelectAll: function () {
+                    return "すべて";
+                  },
+                  formatAllSelected: function () {
+                    return "全て選択されています";
+                  },
+                });
               });
-            });
-          </script>
-        </div>
+            </script>
+          </div>
 
-        <div id="app">
-          <form method="post" action="">
-            <div id="editor_area"></div>
-            <input type="hidden" name="main" id="project_contents_inner" />
-          </form>
-        </div>
-      </main>
+          <div id="app">
+            <form method="post" action="">
+              <div id="editor_area"></div>
+              <input type="hidden" name="main" id="project_contents_inner" />
+            </form>
+          </div>
+        </main>
+      </div>
     </div>
-  </div>
-</body>
-<script src="T-CHAT-Post.js"></script>
-
+  </body>
+  <script src="T-CHAT-Post.js"></script>
 </html>
