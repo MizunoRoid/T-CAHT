@@ -85,13 +85,23 @@ post_button.addEventListener("click", async function () {
     ":" +
     seconds;
 
+  var selectedOptions = [];
+  var selectElement = document.getElementById("question_tag");
+
+  // 選択されたオプションを取得
+  for (var i = 0; i < selectElement.options.length; i++) {
+    if (selectElement.options[i].selected) {
+      selectedOptions.push(selectElement.options[i].text);
+    }
+  }
+
   const postContent = {
     UserID: "", // 一旦空の状態で追加します
     AnswerNum: 0,
     Format: format_content.value,
     Image: "",
     PostDay: formattedDateTime,
-    Tag: question_tag_content.value,
+    Tag: selectedOptions.join(", "),
     Title: title_content.value,
     UserName: "",
   };
