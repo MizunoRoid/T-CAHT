@@ -57,10 +57,57 @@ const title_content = document.getElementById("title");
 const post_button = document.getElementById("post");
 const question_tag_content = document.getElementById("question_tag");
 const textarea_content = document.getElementById("textarea");
+
 post_button.addEventListener("click", async function () {
+  // 現在日時を取得
+  var now = new Date();
+  // 日付をフォーマット
+  var year = now.getFullYear();
+  var month = padZero(now.getMonth() + 1); // 月は0-indexedなので+1する
+  var day = padZero(now.getDate());
+
+  // 時刻をフォーマット
+  var hours = padZero(now.getHours());
+  var minutes = padZero(now.getMinutes());
+  var seconds = padZero(now.getSeconds());
+
+  // 結果をHTMLに表示
+  var formattedDateTime =
+    year +
+    "/" +
+    month +
+    "/" +
+    day +
+    " " +
+    hours +
+    ":" +
+    minutes +
+    ":" +
+    seconds;
+
   const postContent = {
-    Title: title_content,
-    Content: textarea_content,
-    Format: format_content,
+    UserID: "", // 一旦空の状態で追加します
+    AnswerNum: 0,
+    Format: format_content.value,
+    Image: "",
+    PostDay: formattedDateTime,
+    Tag: question_tag_content.value,
+    Title: title_content.value,
+    UserName: "",
   };
+
+  // 新しいPostドキュメントを追加し、対応するUserIDを設定
+  const postDocRef = await post_register.add(postContent);
+  const userId = postDocRef.id;
+
+  // 対応するドキュメントのUserIDを更新
+  await postDocRef.update({
+    UserID: userId,
+  });
+
+  console.log("Postが追加されました。");
 });
+
+function padZero(num) {
+  return num < 10 ? "0" + num : num;
+}
