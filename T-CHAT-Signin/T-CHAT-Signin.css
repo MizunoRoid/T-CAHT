@@ -162,6 +162,12 @@ input {
   margin-top: -40px;
 }
 
+.rule2 {
+  font-size: 13px;
+  color: red;
+  margin-top: -10px;
+}
+
 .submit {
   font-size: 20px;
   width: 250px;
