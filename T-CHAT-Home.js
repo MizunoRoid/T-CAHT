@@ -42,9 +42,8 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 const search_button = document.getElementById("search_button");
+const post_button = document.getElementById("post_button");
 const post = db.collection("Post");
-var min = 1;
-var max = 3;
 //var randam_num = String(Math.floor(Math.random()*(max + 1 - min )) + min) ;
 
 getData();
@@ -53,6 +52,22 @@ search_button.addEventListener("click", function () {
   let result = document.getElementById("search_text");
   location.href = `./`;
   result.value = "";
+});
+
+post_button.addEventListener("click", function (event) {
+  // 特定のパラメータ名
+  const targetParameter1 = "UserName";
+  const targetParameter2 = "UserID";
+
+  // URLからパラメータを取得
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // 特定のパラメータが存在しない場合、アラートを表示
+  if (!urlParams.has(targetParameter1) || !urlParams.has(targetParameter2)) {
+    alert("ログインしてください");
+    // デフォルトのイベントをキャンセルして遷移を防止
+    event.preventDefault();
+  }
 });
 
 function getData() {
