@@ -218,12 +218,9 @@ div.icon-caret {
   margin-bottom: 1rem;
   position: relative;
   top: 10px;
-  border: 2px solid #ccc;
-  /* 線の太さを調整 */
-  border-radius: 5px 5px 5px 5px;
-  /* 右下と左下だけを丸くする */
+  border: 2px solid #ccc; /* 線の太さを調整 */
+  border-radius: 5px 5px 5px 5px; /* 右下と左下だけを丸くする */
 }
-
 /* 調整したいツールバー項目のスタイル */
 
 .ql-container {
@@ -236,9 +233,7 @@ div.icon-caret {
     width: 100%;
   }
 }
-
 #editor_area {
   font-size: 24px;
 }
-
 /* wysiwygのコードここまで */
