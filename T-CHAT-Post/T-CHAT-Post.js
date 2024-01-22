@@ -111,9 +111,14 @@ post_button.addEventListener("click", async function () {
       UserName: userName,
     };
 
-    // 新しいPostドキュメントを追加
-    await post_register.add(postContent);
+    // 新しいPostドキュメントを追加し、ドキュメントIDを取得
+    const postDocRef = await post_register.add(postContent);
+    const postDocId = postDocRef.id;
 
+    // 対応するドキュメントのUserIDを更新
+    await post_register.doc(postDocId).update({
+      UserID: postDocId, // ドキュメントIDをuserIDとして使用
+    });
     console.log("Postが追加されました。");
   } else {
     // パラメータが存在しない場合の処理
