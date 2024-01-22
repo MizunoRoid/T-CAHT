@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="T-CHAT-tome.css" />
+  <meta charset="utf-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Sawarabi+Gothic&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <script src="https://kit.fontawesome.com/eae95656cf.js" crossorigin="anonymous"></script>
+  <div class="background">
+    <header>
+      <div class="logo">
+        <a href="../T-CHAT-Home.html" class="home"><img src="../T-CHAT-Image/T-CHAT_icon.png" /></a>
+      </div>
+
+      <nav>
+        <ul>
+          <a href="../T-CHAT-Home.html" class="home">🏡Home</a>
+          <a href="../T-CHAT-Question/T-CHAT-Question.html" class="question">💡Question</a>
+          <div class="search-form">
+            <input type="text" class="search" placeholder="Search" />
+            <button type="submit" aria-label="検索"></button>
+          </div>
+        </ul>
+      </nav>
+      <a href="xxx" class="notification">🔔</a>
+      <a href="xxx" class="login">👤Login</a>
+      <a href="../T-CHAT-Post/T-CHAT-Post.html" class="post">📪Post</a>
+    </header>
+
+    <main>
+      <div class="box1">
+        <section class="">
+          <p class="name">tomioka</p>
+          <p class="date">2023年10月25日</p>
+          <p class="large">Firebaseのバグが消えません 助けてください</p>
+          <span class="article-category">Firebase</span>
+          <span class="article-category">Android</span>
+          <span class="article-category">Bug</span>
+          <span class="article-category">Java</span>
+          <span class="Notanswered-category">未解決</span>
+          <div class="answer5">
+            <span class="total">回答数１</span>
+          </div>
+          <p class="border"></p>
+          <p class="text-medium">1.Firebaseのバグが消えない</p>
+          <p class="text-Extremely-small">
+            エラーについて調べましたがよくわかりませんでした。
+          </p>
+          <p class="border"></p>
+          <p class="text-medium">2.Firebaseの使い方があっているのか</p>
+          <p class="text-Extremely-small">
+            説明通りにやりましたが動きません
+          </p>
+          <p class="text-small">2.1何か参考になりそうなサイトありませんか</p>
+          <p class="text-Extremely-small">
+            参考になりそうなサイトがあるならリンクを貼ってほしいです
+          </p>
+          <p class="large">3.回答者へのお願い</p>
+          <p class="text-Extremely-small">
+            前述した質問内容を答えていただきたいです。よろしくお願いいたします。
+          </p>
+          <p class="border"></p>
+          <p class="large">1件の回答</p>
+        </section>
+        <section class="response">
+          <p class="name">Todo</p>
+          <p class="date">2023年12月2日</p>
+          <p class="reply">
+            まず、どのようなエラーが出ているのか教えてください。
+          </p>
+        </section>
+
+        <section class="answer">
+          <input class="text" type="text" name="名前" value="" placeholder="名前を入力してください" />
+
+          <section class="answer">
+            <div class="element">
+              <!-- カスタムファイルアップロードボタンのラッパー -->
+              <div class="custom-upload-button">
+                <!-- カスタムスタイルのボタン -->
+                <span onclick="document.getElementById('imageInput').click()">ファイルを選択</span>
+              </div>
+              <!-- ファイル名と拡張子を表示するための要素 -->
+              <span id="fileNameExtension"></span>
+              <div id="fileDetails">
+                <!-- プレビューボタン -->
+                <button id="previewButton" onclick="toggleImage()">
+                  プレビュー
+                </button>
+              </div>
+              <!-- 選択された画像を表示するための要素 -->
+              <div id="imageContainer">
+                <img id="selectedImage" alt="Selected Image" />
+                <!-- 閉じるボタン -->
+                <button id="closeButton" onclick="closeImage()">
+                  閉じる
+                </button>
+              </div>
+              <!-- 実際のファイルインプット -->
+              <input type="file" id="imageInput" accept="image/*" onchange="updateFileDetails()" />
+
+              <script src="T-CHAT-tome.js"></script>
+            </div>
+
+            <section class="answer2">
+              <textarea class="textarea" rows="10" cols="50" placeholder="テキストを入力"></textarea>
+            </section>
+
+            <section class="background-color">
+              <button id="answer-button">投稿する</button>
+            </section>
+          </section>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

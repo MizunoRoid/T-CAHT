@@ -1,0 +1,606 @@
+body {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  background: #fff;
+  max-width: 1980px;
+}
+
+h2 {
+  margin: 10px 0;
+  background-color: #fff;
+}
+
+h3 {
+  margin: 2px 0;
+}
+
+h4 {
+  vertical-align: bottom;
+  margin: 0;
+  padding: 0;
+}
+
+.background {
+  background-color: #f2f2f2;
+  border: 10px solid #e3e9ee;
+  /* ページ全体に10pxの灰色のボーダーを設定 */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+header {
+  background-color: #f2f2f2;
+  /* ヘッダーの背景色を設定 */
+  color: #fff;
+  /* テキストの色を設定 */
+  padding: 10px;
+  /* 内側の余白を設定 */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 98.3%;
+  border: 2px solid white;
+  margin-bottom: 10px;
+}
+
+.home {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #000000;
+  font-family: "Arial Black";
+  text-decoration: none;
+  margin-right: 5px;
+  margin-left: 15px;
+  font-size: 25px;
+}
+
+.question {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #000000;
+  font-family: "Arial Black";
+  text-decoration: none;
+  margin-right: 15px;
+  font-size: 25px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.search {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 8px 0 0 8px;
+  width: 250px;
+  background-color: #f8f8f8;
+  border: 2px solid #7f7f7f;
+  font-size: 25px;
+}
+
+::placeholder {
+  color: #e6e6e6;
+  text-align: left;
+  font-family: "Arial Black", "MS Gothic";
+  padding-left: 3px;
+}
+
+.search-form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 35px;
+  margin-right: 7px;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  background-color: #2589d0;
+  cursor: pointer;
+}
+
+.search-form button::after {
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%20%3Cpath%20d%3D%22M23.7%2020.8%2019%2016.1c-.2-.2-.5-.3-.8-.3h-.8c1.3-1.7%202-3.7%202-6C19.5%204.4%2015.1%200%209.7%200S0%204.4%200%209.7s4.4%209.7%209.7%209.7c2.3%200%204.3-.8%206-2v.8c0%20.3.1.6.3.8l4.7%204.7c.4.4%201.2.4%201.6%200l1.3-1.3c.5-.5.5-1.2.1-1.6zm-14-5.1c-3.3%200-6-2.7-6-6s2.7-6%206-6%206%202.7%206%206-2.6%206-6%206z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%20%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  content: "";
+}
+
+.notification {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 29px;
+}
+
+.login {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 3px;
+  padding-right: 8px;
+  font-family: "Arial Black";
+  color: white;
+  background-color: #afdfe4;
+  border: #afdfe4;
+  border-radius: 8px 8px 8px 8px;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.post {
+  margin-left: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 3px;
+  padding-right: 10px;
+  font-family: "Arial Black";
+  color: white;
+  background-color: #92d050;
+  border: #92d050;
+  border-radius: 8px 8px 8px 8px;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.logo img {
+  margin-left: 5px;
+  margin-right: 40px;
+  max-width: 150px;
+  /* ロゴ画像の
+最大幅を設定 */
+}
+
+nav ul {
+  list-style: none;
+  /* リストのマーカーを非表示に */
+  padding: 0;
+  display: flex;
+  gap: 30px;
+  background-color: #fff;
+  border-radius: 8px 8px 8px 8px;
+}
+
+main {
+  /* 上、右、下、左の順に指定 */
+  float: right;
+  width: calc(98.3% - 20px);
+  height: 100%;
+  margin-left: 38px;
+  box-sizing: border-box;
+  padding-top: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  /* 右側に20pxのパディングを設定 */
+  /* 右側に20pxのパディングを設定 */
+  overflow: auto;
+  scroll-snap-align: start;
+}
+
+main::-webkit-scrollbar {
+  width: 13px;
+}
+
+main::-webkit-scrollbar-track {
+  background-color: #eff2f7;
+  border-radius: 100px;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: #abbdda;
+  border-radius: 100px;
+  width: 130px;
+}
+
+.box1 {
+  border: 2px solid #8faadc;
+  color: #000;
+  margin-bottom: 6px;
+  border-radius: 26px;
+  background: #fdf6e9;
+  padding: 11px;
+  border-radius: 8px 8px 8px 8px;
+}
+
+h3 {
+  margin: 2px 0;
+}
+
+h1 {
+  margin: 2px 0;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.article-category {
+  background-color: #f2f2f2;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 15px;
+}
+
+.Notanswered-category {
+  background-color: #ffd966;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
+}
+
+.total {
+  margin-left: 1000px;
+  /* .unsolved-category-answer と同じスタイルを持たせる */
+  position: absolute;
+  /* 絶対位置を指定 */
+  z-index: 2;
+  /* 他の要素より手前に配置 */
+  bottom: 1px;
+}
+
+.answer5 {
+  position: relative;
+  /* 相対位置を指定 */
+  z-index: 1;
+  /* 他の要素より手前に配置 */
+}
+
+.name {
+  font-weight: bolder;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.date {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 15px;
+}
+
+.name {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 15px;
+}
+
+.large {
+  background: #fdf6e9;
+  color: #000;
+  padding: 3px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  margin-left: 15px;
+  font-size: 28px;
+  font-weight: bolder;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.border {
+  border-top: 1px solid #000;
+  /* 線の色と太さを指定 */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.text-medium {
+  font-size: 20px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 15px;
+  font-weight: bolder;
+}
+
+.text-small {
+  margin-left: 15px;
+
+  font-size: 18px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.text-Extremely-small {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 40px;
+}
+
+.response {
+  background-color: #fff;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.reply {
+  margin-left: 15px;
+}
+
+.text {
+  font-size: 16px;
+  margin: 10px;
+  width: 20%;
+  height: 20px;
+  background-color: #f2f2f2;
+  font-weight: bold;
+  /* または font-weight: 700; */
+
+  border-radius: 8px 8px 8px 8px;
+}
+
+.text::placeholder {
+  color: #a6a6a6;
+}
+
+.answer {
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.answer2 {
+  display: flex;
+  overflow: hidden;
+  /* float要素の後にくる要素が影響を受けないようにするために使用 */
+  flex-direction: column;
+}
+
+.element {
+  border: 1px solid #000;
+  border-radius: 8px 8px 0 0;
+}
+
+.textarea {
+  border-top: none;
+  /* 上辺に線を引かない */
+  border-bottom: none;
+  /* 上辺に線を引かない */
+  font-size: 20px;
+}
+
+.textarea::placeholder {
+  color: #a8a7a7;
+  /* アイコンの色を緑に変更 */
+  font-size: 20px;
+}
+
+#answer-button {
+  cursor: pointer;
+
+  margin-left: 1200px;
+  /* ボタンとテキストエリアの間に余白を追加 */
+  background-color: #55c500;
+  border: none;
+  right: 20px;
+  /* 任意の値を指定して調整 */
+  position: relative;
+  margin-bottom: 10px;
+  width: 120px;
+  /* 任意の幅を指定 */
+  height: 40px;
+  /* 任意の高さを指定 */
+  font-size: 18px;
+  color: #fff;
+  /* 黒色の文字色 */
+  font-weight: bold;
+  /* または font-weight: 700; */
+
+  margin-left: auto;
+  border-radius: 8px 8px 8px 8px;
+  display: block;
+  /* 要素をブロック要素に変更 */
+  margin-right: 0;
+  /* 右側のマージンを0に設定 */
+  transition: background-color 0.3s ease;
+  /* 背景色の変化をアニメーション化 */
+
+  &:hover {
+    background-color: #3f9d00;
+    /* ホバー時の背景色 */
+  }
+}
+
+.file-upload {
+  background-color: #ffffff;
+  /* 白色の背景色 */
+  color: #000000;
+  /* 黒色の文字色 */
+  display: inline-block;
+  /* インラインブロック要素にすることで横幅がコンテンツに合わせられる */
+  cursor: pointer;
+  /* マウスが重なるとポインターを表示 */
+  border-radius: 5px;
+  /* 任意の角丸を追加 */
+  margin-top: 10px;
+}
+
+.file-upload i {
+  color: #808080;
+  /* 灰色のアイコン色 */
+}
+
+.file-upload:hover {
+  background-color: #f0f0f0;
+  /* ホバー時の背景色 */
+}
+
+.background-color {
+  border-top: none;
+  /* 上辺に線を引かない */
+  border-right: 1px solid #000;
+  /* 右辺に1pxの黒い線を引く */
+  border-bottom: 1px solid #000;
+  /* 下辺に1pxの黒い線を引く */
+  border-left: 1px solid #000;
+  border-radius: 0 0 8px 8px;
+}
+
+/* ここからプレビューのプログラム */
+
+/* 実際のファイルインプットを隠す */
+input[type="file"] {
+  display: none;
+}
+
+/* カスタムファイルアップロードボタンのスタイル */
+/* .custom-upload-button {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  font-weight: bold; 
+}
+
+.custom-upload-button span {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #e87400;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px; 
+} */
+
+/* ここからがbuttonを押し込む設定 */
+.custom-upload-button {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.custom-upload-button span {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #e87400;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  /* 背景色の変化をアニメーション化 */
+
+  /* ホバー時のスタイル */
+  &:hover {
+    background-color: #d36200;
+    /* ホバー時の色 */
+  }
+}
+
+/* ここまでがbuttonを押し込む設定 */
+/* ファイルインプットのスタイルを変更 */
+input[type="file"]+span {
+  background-color: #3498db;
+  /* ブルーの背景色 */
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  /* ボーダーラジアスを設定 */
+}
+
+/* 選択されたファイル名表示用のスタイル */
+#fileDetails {
+  margin-top: 10px;
+  /* 適宜調整 */
+  text-align: right;
+  /* テキストを右寄せにする */
+  font-size: 14px;
+  /* 適宜調整 */
+  color: white;
+  /* テキストカラーを白に設定 */
+  background-color: #fff;
+  /* 背景色を白に設定 */
+  padding: 5px;
+  /* 適宜調整 */
+  display: inline-block;
+  /* インラインブロック要素に設定 */
+  border-radius: 5px;
+  /* ボーダーラジアスを設定 */
+}
+
+/* ファイル名と拡張子を表示するためのスタイル */
+#fileNameExtension {
+  display: inline-block;
+  margin-right: auto;
+  /* ボタンとの間隔を調整 */
+  color: black;
+  /* 拡張子のカラーをブラックに設定 */
+  background-color: #fff;
+  /* 背景色を白に設定 */
+  border-radius: 5px;
+  /* ボーダーラジアスを設定 */
+}
+
+/* プレビューボタンのスタイル */
+#previewButton {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  position: relative;
+  /* 相対配置を指定 */
+  cursor: pointer;
+  margin-left: auto;
+  display: inline-block;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #2567a7;
+  }
+}
+
+/* 画像表示用のスタイル */
+#imageContainer {
+  display: none;
+  /* 初期状態では非表示 */
+  text-align: center;
+  /* 画像を中央揃えにする */
+}
+
+#selectedImage {
+  max-width: 50%;
+  /* 画像の最大幅を設定 */
+  max-height: 50%;
+  /* 画像の最大高さを設定 */
+  margin-top: 10px;
+  /* 適宜調整 */
+  border-radius: 5px;
+  /* ボーダーラジアスを設定 */
+  border: 3px solid #bfbfbf;
+}
+
+/* 閉じるボタンのスタイル */
+#closeButton {
+  display: none;
+  /* 初期状態では非表示 */
+  background-color: #e74c3c;
+  /* レッドの背景色 */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  /* 適宜調整 */
+  border-radius: 5px;
+  /* ボーダーラジアスを設定 */
+  font-weight: bold;
+  /* または font-weight: 700; */
+  transition: background-color 0.3s ease;
+  /* 背景色の変化をアニメーション化 */
+
+  /* ホバー時のスタイル */
+  &:hover {
+    background-color: #c0392b;
+    /* ホバー時の背景色 */
+  }
+}
+
+/* ここまでがプレビューのプログラム */
