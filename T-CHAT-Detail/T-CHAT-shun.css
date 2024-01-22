@@ -202,8 +202,8 @@ main::-webkit-scrollbar-thumb {
   width: 130px;
 }
 
-.box1 {
-  border: 2px solid #8faadc;
+.box3 {
+  border: 2px solid #ff6969;
   color: #000;
   margin-bottom: 6px;
   border-radius: 26px;

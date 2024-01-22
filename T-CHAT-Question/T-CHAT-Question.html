@@ -41,7 +41,20 @@
           </div>
         </ul>
       </nav>
-      <a href="xxx" class="notification">🔔</a>
+      <!-- ここからモーダルウィンドウ -->
+      <a href="javascript:void(0);" class="notification" onclick="showModal()">🔔</a>
+
+      <!-- 半透明のオーバーレイ -->
+      <div id="overlay" onclick="closeModal()"></div>
+
+      <!-- モーダルウィンドウ -->
+      <div id="modal" style="display: none">
+        <p class="notification2">通知</p>
+        <p class="setting" onclick="openSettings()">通知設定</p>
+        <div class="content">「1Contribution」のバッジを獲得しました</div>
+        <div class="list">通知一覧を見る</div>
+      </div>
+      <!-- ここまでがモーダルウィンドウ -->
       <a href="../T-CHAT-Login/T-CHAT-Login.html" class="login">👤Login</a>
       <a href="../T-CHAT-Post/T-CHAT-Post.html" class="post">📪Post</a>
     </header>
@@ -74,7 +87,7 @@
             <section>
               <h3>MIZUNO</h3>
               <h1>投稿日：2023年10月25日</h1>
-              <a href="../T-CHAT-Detail/T-CAHT-Detail.html" class="article">
+              <a href="../T-CHAT-Detail/T-CHAT-Detail.html" class="article">
                 <article>アプリ案が思いつかなくて困っています</article>
               </a>
               <span class="article-category">アプリ案</span>
@@ -88,7 +101,9 @@
             <section>
               <h3>tomioka</h3>
               <h1>投稿日：2023年10月25日</h1>
-              <article>Firebaseのバグが消えません 助けてください</article>
+              <a href="../T-CHAT-Detail/T-CHAT-tome.html" class="article">
+                <article>Firebaseのバグが消えません 助けてください</article>
+              </a>
               <span class="article-category">Firebase</span>
               <span class="article-category">Android</span>
               <span class="article-category">Bug</span>
@@ -103,9 +118,11 @@
             <section>
               <h3>shunsuke</h3>
               <h1>投稿日：2023年10月25日</h1>
-              <article>
-                トライデントコンピュータの校舎が変わるってほんと？
-              </article>
+              <a href="../T-CHAT-Detail/T-CHAT-shun.html" class="article">
+                <article>
+                  トライデントコンピュータの校舎が変わるってほんと？
+                </article>
+              </a>
               <span class="article-category">Java</span>
               <span class="answered-category">解決</span>
               <span class="answered-category-answer">回答数：1件</span>
