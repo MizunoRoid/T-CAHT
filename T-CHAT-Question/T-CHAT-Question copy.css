@@ -259,9 +259,11 @@ section {
   font-size: 25px;
 }
 
-a.unsolved {
+.unsolved {
+  background-color: #86a4dc;
   color: #000000;
-  text-decoration: none;
+  border: none;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -288,9 +290,11 @@ a.unsolved {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
-a.Notanswered {
+.Notanswered {
+  background-color: #ffd966;
   color: #000000;
-  text-decoration: none;
+  border: none;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -318,9 +322,11 @@ a.Notanswered {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
-a.answered {
+.answered {
+  background-color: #ff6969;
   color: #000000;
-  text-decoration: none;
+  border: none;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -344,6 +350,38 @@ a.answered {
 }
 
 .category3 {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.full {
+  background-color: #bdb5b5;
+  color: #000000;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.category4 {
+  margin-top: 210px;
+  margin-bottom: 50px;
+  margin-left: 53px;
+  background-color: #bdb5b5;
+  border-bottom: 5px solid #928f8f;
+  border-radius: 13px;
+  font-size: 20px;
+  padding: 5px 17px 5px 17px;
+  position: absolute;
+}
+
+.category4:hover {
+  margin-top: 213px;
+  color: #fff;
+  background: #bdb5b5;
+  border-bottom: 2px solid #928f8f;
+}
+
+.category4 {
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
