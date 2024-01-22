@@ -203,7 +203,7 @@ main::-webkit-scrollbar-thumb {
 }
 
 .box1 {
-  border: 2px solid #ffd966;
+  border: 2px solid #8faadc;
   color: #000;
   margin-bottom: 6px;
   border-radius: 26px;
@@ -604,3 +604,64 @@ input[type="file"]+span {
 }
 
 /* ここまでがプレビューのプログラム */
+
+/* モーダルウィンドウ */
+#modal {
+  display: flex;
+  flex-direction: column;
+  /* 列方向に配置 */
+  position: fixed;
+  top: 55%;
+  left: 60%;
+  width: 350px;
+  color: #000000;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  /* 最前面に表示 */
+  padding: 8px 16px;
+}
+
+.setting {
+  position: relative;
+  /* 相対位置を指定 */
+  left: 280px;
+  bottom: 55px;
+  cursor: pointer;
+  /* カーソルをポインタに変更 */
+  margin-right: 280px;
+}
+
+.content {
+  position: relative;
+  /* 相対位置を指定 */
+  margin-bottom: 250px;
+  bottom: 70px;
+
+  margin-top: 10px;
+  /* 適切なマージンを追加 */
+  border-top: 1px solid #000;
+  /* ボーダーを追加 */
+  padding-top: 20px;
+  /* 適切なパディングを追加 */
+}
+
+.list {
+  border-top: 1px solid #000;
+  /* ボーダーを追加 */
+  margin-top: auto;
+  text-align: center;
+  /* 文字を中央揃えにする */
+  cursor: pointer;
+  /* カーソルをポインタに変更 */
+  color: blue;
+  /* リンクの色を設定 */
+  text-decoration: underline;
+  /* 下線を表示 */
+  padding: 16px 0px;
+}
+
+/* ここまでがモーダルウィンドウ */
