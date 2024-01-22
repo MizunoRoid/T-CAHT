@@ -5,23 +5,19 @@
     <link rel="stylesheet" href="quill.snow.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha384-GLhlTQ8i7uqF1E1+eLvFIH1KRw8i/SF5+FmNDPGPLsMtkI1i66UTZvcXEUdamzjH"
-      crossorigin="anonymous"
-    />
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
     <link rel="stylesheet" href="fonts/icomoon/style.css" />
 
     <link rel="stylesheet" href="css/jquery.multiselect.css" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css.map" />
 
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css" />
@@ -73,7 +69,7 @@
             <i class="fa-solid fa-floppy-disk"></i>
             Save
           </button>
-          <button class="post">
+          <button class="post" id="post">
             <i class="fa-solid fa-file-import"></i>
             Post
           </button>
@@ -83,7 +79,7 @@
       <div class="container">
         <main>
           <div class="box1">
-            <select class="list" name="名前" size="1">
+            <select class="list" name="名前" size="1" id="format">
               <option selected="selected" hidden>選択して下さい</option>
 
               <option value="private">プライベート</option>
@@ -98,6 +94,7 @@
               name="名前"
               value=""
               placeholder="質問タイトル"
+              id="title"
             />
           </div>
 
@@ -113,6 +110,7 @@
                       name="basic[]"
                       multiple="multiple"
                       class="3col active form-control"
+                      id="question_tag"
                     >
                       <option value="AL">アプリ案</option>
                       <option value="AM">初心者</option>

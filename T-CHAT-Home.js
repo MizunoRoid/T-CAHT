@@ -67,6 +67,10 @@ post_button.addEventListener("click", function (event) {
     alert("ログインしてください");
     // デフォルトのイベントをキャンセルして遷移を防止
     event.preventDefault();
+  } else {
+    const userName = urlParams.get(targetParameter1);
+    const userId = urlParams.get(targetParameter2);
+    window.location.href = `./T-CHAT-Post/T-CHAT-Post.html?UserName=${userName}&UserID=${userId}`;
   }
 });
 

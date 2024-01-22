@@ -4,22 +4,23 @@ save_button.addEventListener("click", async function () {});
 // ここのツールバーはカスタムできます。
 var toolbarOptions = [
   [{ header: [2, 3, false] }],
-  ['bold', 'italic', 'underline'], // toggled buttons
+  ["bold", "italic", "underline"], // toggled buttons
   /* [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown　*/
-  ['blockquote'],
-  ['image'],
-  [{ 'list': 'ordered' }, { 'list': 'bullet' }], // superscript/subscript
-  [{ 'align': [] }],
-  [{ 'color': [] }, { 'background': [] }], // dropdown with defaults from theme
+  ["blockquote"],
+  ["image"],
+  [{ list: "ordered" }, { list: "bullet" }], // superscript/subscript
+  [{ align: [] }],
+  [{ color: [] }, { background: [] }], // dropdown with defaults from theme
   /* ['clean']                                         // remove formatting button*/
 ];
 
-const editor = new Quill('#editor_area', {
-  bounds: '#edito',
+const editor = new Quill("#editor_area", {
+  bounds: "#edito",
   modules: {
-      toolbar: toolbarOptions
+    toolbar: toolbarOptions,
   },
-  placeholder: 'ここに質問したいことを記載してください\n例）\nFirebaseのデータベースを使用してログイン画面を作っています。\nその途中で問題が発生しました。その問題とはFirebaseの構成が理解出来ないんですよ～、\nなんで教えてほしいですね～。',
+  placeholder:
+    "ここに質問したいことを記載してください\n例）\nFirebaseのデータベースを使用してログイン画面を作っています。\nその途中で問題が発生しました。その問題とはFirebaseの構成が理解出来ないんですよ～、\nなんで教えてほしいですね～。",
 
   theme: "snow",
 });
@@ -58,65 +59,75 @@ const question_tag_content = document.getElementById("question_tag");
 const textarea_content = document.getElementById("textarea");
 
 post_button.addEventListener("click", async function () {
-  // 現在日時を取得
-  var now = new Date();
-  // 日付をフォーマット
-  var year = now.getFullYear();
-  var month = padZero(now.getMonth() + 1); // 月は0-indexedなので+1する
-  var day = padZero(now.getDate());
+  // パラメータを取得
+  const { userName, userId } = getParameters();
 
-  // 時刻をフォーマット
-  var hours = padZero(now.getHours());
-  var minutes = padZero(now.getMinutes());
-  var seconds = padZero(now.getSeconds());
+  // パラメータが存在するかチェック
+  if (userName && userId) {
+    // パラメータが存在する場合の処理
+    // 現在日時を取得
+    var now = new Date();
+    // 日付をフォーマット
+    var year = now.getFullYear();
+    var month = padZero(now.getMonth() + 1); // 月は0-indexedなので+1する
+    var day = padZero(now.getDate());
 
-  // 結果をHTMLに表示
-  var formattedDateTime =
-    year +
-    "/" +
-    month +
-    "/" +
-    day +
-    " " +
-    hours +
-    ":" +
-    minutes +
-    ":" +
-    seconds;
+    // 時刻をフォーマット
+    var hours = padZero(now.getHours());
+    var minutes = padZero(now.getMinutes());
+    var seconds = padZero(now.getSeconds());
 
-  var selectedOptions = [];
-  var selectElement = document.getElementById("question_tag");
+    // 結果をHTMLに表示
+    var formattedDateTime =
+      year +
+      "/" +
+      month +
+      "/" +
+      day +
+      " " +
+      hours +
+      ":" +
+      minutes +
+      ":" +
+      seconds;
 
-  // 選択されたオプションを取得
-  for (var i = 0; i < selectElement.options.length; i++) {
-    if (selectElement.options[i].selected) {
-      selectedOptions.push(selectElement.options[i].text);
+    var selectedOptions = [];
+    var selectElement = document.getElementById("question_tag");
+
+    // 選択されたオプションを取得
+    for (var i = 0; i < selectElement.options.length; i++) {
+      if (selectElement.options[i].selected) {
+        selectedOptions.push(selectElement.options[i].text);
+      }
     }
+    const postContent = {
+      UserID: userId,
+      AnswerNum: 0,
+      Format: format_content.value,
+      Image: "",
+      PostDay: formattedDateTime,
+      Tag: selectedOptions.join(", "),
+      Title: title_content.value,
+      UserName: userName,
+    };
+
+    // 新しいPostドキュメントを追加
+    await post_register.add(postContent);
+
+    console.log("Postが追加されました。");
+  } else {
+    // パラメータが存在しない場合の処理
+    alert("本当にログインしましたか？");
   }
-
-  const postContent = {
-    UserID: "", // 一旦空の状態で追加します
-    AnswerNum: 0,
-    Format: format_content.value,
-    Image: "",
-    PostDay: formattedDateTime,
-    Tag: selectedOptions.join(", "),
-    Title: title_content.value,
-    UserName: "",
-  };
-
-  // 新しいPostドキュメントを追加し、対応するUserIDを設定
-  const postDocRef = await post_register.add(postContent);
-  const userId = postDocRef.id;
-
-  // 対応するドキュメントのUserIDを更新
-  await postDocRef.update({
-    UserID: userId,
-  });
-
-  console.log("Postが追加されました。");
 });
 
 function padZero(num) {
   return num < 10 ? "0" + num : num;
+}
+
+function getParameters() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = urlParams.get("UserName");
+  const userId = urlParams.get("UserID");
+  return { userName, userId };
 }
