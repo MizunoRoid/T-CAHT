@@ -6,6 +6,7 @@ print("Hello World") print("Good night World") 2.参考 Web サイトのリン�
 例　こうしたほうがいいんじゃないか？　みたいな？ 5.やってほしいこと、仕事内容
 　仕事内容も記載するんで、これ見て作業してくださいな～
 
+サーバーアドレス https://mz-server-tr.com/T-CHAT-Home.html
 共有の gmail tchat1211@gmail.com
 パスワード t-chat1211??
 
