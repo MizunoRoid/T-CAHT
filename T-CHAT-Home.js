@@ -85,8 +85,6 @@ function getData() {
         addData += `<h1>投稿日:${docData.data().PostDay}</h1>`;
         // 既存のパラメータを取得
         const existingParams = new URLSearchParams(window.location.search);
-        // PostIDパラメータを追加
-        const postIdParam = `PostID=${docData.data().UserID}`;
         // 既存のパラメータにPostIDが含まれていない場合に追加
         if (!existingParams.has("PostID")) {
           existingParams.append("PostID", docData.id);
