@@ -13,6 +13,8 @@
       href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Sawarabi+Gothic&display=swap"
       rel="stylesheet"
     />
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
   </head>
 
   <body>
@@ -62,7 +64,7 @@
 
       <main>
         <div class="box1">
-          <section class=""><div id="display-container"></div></section>
+          <div id="display-container"></div>
             <section class="answer">
               <div class="element">
                 <!-- カスタムファイルアップロードボタンのラッパー -->
@@ -95,8 +97,7 @@
                   accept="image/*"
                   onchange="updateFileDetails()"
                 />
-
-                <script src="T-CHAT-Detail.js"></script>
+                <script src="T-CHAT-Temp.js"></script>
               </div>
 
               <section class="answer2">

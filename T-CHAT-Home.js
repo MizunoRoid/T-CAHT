@@ -90,7 +90,7 @@ function getData() {
           existingParams.append("PostID", docData.id);
         }
         // Detail.htmlへのリンク
-        const detailLink = `T-CHAT-Detail/T-CHAT-Detail.html?${existingParams.toString()}`;
+        const detailLink = `T-CHAT-Detail/T-CHAT-Temp.html?${existingParams.toString()}`;
         addData += `<a href="${detailLink}" class="article"> <article>${
           docData.data().Title
         }</article> </a>`;

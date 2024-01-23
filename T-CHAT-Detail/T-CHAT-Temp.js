@@ -60,7 +60,6 @@ function toggleImage() {
   imageContainer.style.display =
     imageContainer.style.display === "none" ? "block" : "none";
 }
-
 var firebaseConfig = {
   apiKey: "AIzaSyARxI5dZXILhMkMDTDE5MyK88yJlCh-A_Y",
   authDomain: "t-chat-d4c62.firebaseapp.com",
@@ -70,8 +69,56 @@ var firebaseConfig = {
   appId: "1:276479107458:web:329742b4d052a975d16f9b",
   measurementId: "G-WPZGDY4H0F",
 };
+
+// Firebaseの初期化
 firebase.initializeApp(firebaseConfig);
-const firestore = firebase.firestore();
-const user_register = firestore.collection("UserRegister");
-const display_container = document.getElementById("display-container");
-const post = db.collection("Post");
+
+// Firestoreの参照取得
+const db = firebase.firestore();
+
+// URLからPostIDを取得する関数
+function getPostIDFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("PostID");
+}
+
+// PostIDでデータを検索する関数
+async function findDocumentByPostID(postID) {
+  try {
+    console.log("Searching for PostID:", postID);
+    const collectionRef = await db
+      .collection("Post")
+      .where("UserID", "==", postID)
+      .get();
+
+    if (!collectionRef.empty) {
+      // 一致するドキュメントが見つかった場合
+      const doc = collectionRef.docs[0];
+      const data = doc.data();
+      const displayContainer = document.getElementById("display-container");
+      if (Array.isArray(data.Content)) {
+        const htmlContent = data.Content.map(
+          (item) => `<${item.tagName}>${item.content}</${item.tagName}>`
+        ).join("");
+        displayContainer.innerHTML = `<div id="content">${htmlContent}</div>`;
+      } else {
+        // Contentが配列でない場合は通常の表示
+        displayContainer.innerHTML = `<div id="content">${data.content}</div>`;
+      }
+    } else {
+      // 一致するドキュメントが見つからなかった場合
+      console.error("Document not found in Firestore with PostID:", postID);
+    }
+  } catch (error) {
+    console.error("Error fetching data from Firestore:", error);
+  }
+}
+
+// PostIDを取得して検索
+const postID = getPostIDFromURL();
+console.log("PostID:", postID);
+if (postID) {
+  findDocumentByPostID(postID);
+} else {
+  console.error("PostID not provided in the URL parameters.");
+}
