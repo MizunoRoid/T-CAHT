@@ -504,6 +504,13 @@
     padding: 0;
     background: #fff;
     max-width: 300px;
+    background-color: #f2f2f2;
+  }
+
+  #body {
+    background-image: url("./T-CHAT-Image/T-CHAT_icon.png");
+    background-repeat: no-repeat;
+    background-size: 120px;
   }
 
   main {
@@ -515,14 +522,12 @@
     float: right;
     width: auto;
     height: auto;
-    margin-left: 70px;
+    margin-right: -5px;
     box-sizing: border-box;
     border: 2px solid black;
     /* 2pxの幅で黒い縁線を追加 */
     padding-top: 6px;
-    padding-left: 2px;
-    padding-right: 8px;
-    /* 右側に20pxのパディングを設定 */
+    padding-right: 20px;
     /* 右側に20pxのパディングを設定 */
     /* scroll-snap-align: start; */
   }
@@ -532,7 +537,7 @@
     /* バーの背景色を設定できます*/
     border-radius: 10px;
     /* バーに丸みをもたせる*/
-    left: 865px;
+    left: 360px;
   }
 
   .simplebar-track .simplebar-scrollbar.simplebar-visible::before {
@@ -580,7 +585,7 @@
   }
 
   .answers1 {
-    padding-left: 500px;
+    padding-left: 97px;
   }
 
   .box2 {
@@ -596,7 +601,7 @@
   }
 
   .answers2 {
-    padding-left: 657px;
+    padding-left: 220px;
   }
 
   .box3 {
@@ -612,7 +617,7 @@
   }
 
   .answers3 {
-    padding-left: 550px;
+    padding-left: 140px;
   }
 
   article {
@@ -647,6 +652,7 @@
     align-items: center;
     overflow: hidden;
     border-radius: 3px;
+    margin-left: 45px;
   }
 
   .search-form button {
