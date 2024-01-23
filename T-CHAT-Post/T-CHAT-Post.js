@@ -56,7 +56,7 @@ const format_content = document.getElementById("format");
 const title_content = document.getElementById("title");
 const post_button = document.getElementById("post");
 const question_tag_content = document.getElementById("question_tag");
-const textarea_content = document.getElementById("textarea");
+const textarea_content = document.getElementsByClassName("");
 
 post_button.addEventListener("click", async function () {
   // パラメータを取得
@@ -104,6 +104,7 @@ post_button.addEventListener("click", async function () {
       UserID: userId,
       AnswerNum: 0,
       Format: format_content.value,
+      Content: textarea_content.value,
       Image: "",
       PostDay: formattedDateTime,
       Tag: selectedOptions.join(", "),

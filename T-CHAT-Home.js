@@ -44,7 +44,6 @@ const db = firebase.firestore();
 const search_button = document.getElementById("search_button");
 const post_button = document.getElementById("post_button");
 const post = db.collection("Post");
-//var randam_num = String(Math.floor(Math.random()*(max + 1 - min )) + min) ;
 
 getData();
 
@@ -84,7 +83,19 @@ function getData() {
         addData += `<section>`;
         addData += `<h3>${docData.data().UserName}</h3>`;
         addData += `<h1>投稿日:${docData.data().PostDay}</h1>`;
-        addData += `<article>${docData.data().Title}</article>`;
+        // 既存のパラメータを取得
+        const existingParams = new URLSearchParams(window.location.search);
+        // PostIDパラメータを追加
+        const postIdParam = `PostID=${docData.data().UserID}`;
+        // 既存のパラメータにPostIDが含まれていない場合に追加
+        if (!existingParams.has("PostID")) {
+          existingParams.append("PostID", docData.id);
+        }
+        // Detail.htmlへのリンク
+        const detailLink = `T-CHAT-Detail/T-CHAT-Detail.html?${existingParams.toString()}`;
+        addData += `<a href="${detailLink}" class="article"> <article>${
+          docData.data().Title
+        }</article> </a>`;
         // タグを区切り文字「,」で分割
         const tags = docData.data().Tag.split(",");
         // 各タグに対してHTML要素を生成
