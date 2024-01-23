@@ -2,26 +2,29 @@
 <html lang="ja">
   <head>
     <link rel="stylesheet" type="text/css" href="T-CHAT-Post.css" />
-
+    <link rel="stylesheet" href="quill.snow.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- textareaのコード ここから-->
-    <link rel="stylesheet" href="quill.snow.css" />
 
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
+
+    <link rel="stylesheet" href="css/jquery.multiselect.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css.map" />
+
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css" />
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.min.js"
     ></script>
-    <!-- textareaのコード ここまで-->
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha384-GLhlTQ8i7uqF1E1+eLvFIH1KRw8i/SF5+FmNDPGPLsMtkI1i66UTZvcXEUdamzjH"
-      crossorigin="anonymous"
-    />
-    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Noto+Sans+JP&family=Sawarabi+Gothic&display=swap"
       rel="stylesheet"
@@ -43,7 +46,10 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="multiple-select.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css"
+    />
   </head>
 
   <body>
@@ -63,7 +69,7 @@
             <i class="fa-solid fa-floppy-disk"></i>
             Save
           </button>
-          <button class="post">
+          <button class="post" id="post">
             <i class="fa-solid fa-file-import"></i>
             Post
           </button>
@@ -73,22 +79,19 @@
       <div class="container">
         <main>
           <div class="box1">
-            <select class="list" name="名前" id="format" size="1">
+            <select class="list" name="名前" size="1" id="format">
               <option selected="selected" hidden>選択して下さい</option>
-
               <option value="private">プライベート</option>
-
               <option value="change">意見交換</option>
-
               <option value="QA">Q & A</option>
             </select>
             <input
-              id="title"
               class="text"
               type="text"
               name="名前"
               value=""
               placeholder="質問タイトル"
+              id="title"
             />
           </div>
 
@@ -96,40 +99,73 @@
             <i class="fa-solid fa-tags fa-2x"></i>
 
             <!-- 追加 -->
-            <select
-              id="question_tag"
-              multiple
-              class="tag"
-              name="タグ"
-              placeholder="タグを選択してください"
-            >
-              <option value="1">アプリ案</option>
-              <option value="2">Firebase</option>
-              <option value="3">Bug</option>
-              <option value="4">Java</option>
-              <option value="5">Android</option>
-              <option value="6">News</option>
-              <option value="7">HTML</option>
-              <option value="8">If文</option>
-              <option value="9">For文</option>
-              <option value="10">10月</option>
-              <option value="11">11月</option>
-              <option value="12">12月</option>
-            </select>
-
-            <script>
-              $(function () {
-                $("select.tag").multipleSelect({
-                  width: 1180,
-                  formatSelectAll: function () {
-                    return "すべて";
-                  },
-                  formatAllSelected: function () {
-                    return "全て選択されています";
-                  },
-                });
-              });
-            </script>
+            <div class="content">
+              <div class="container text-left">
+                <div class="row justify-content-center">
+                  <div class="col-md-5">
+                    <select
+                      name="basic[]"
+                      multiple="multiple"
+                      class="3col active form-control"
+                      id="question_tag"
+                    >
+                      <option value="AL">アプリ案</option>
+                      <option value="AM">初心者</option>
+                      <option value="AN">初心者向け</option>
+                      <option value="AK">Android</option>
+                      <option value="AZ">Bug</option>
+                      <option value="AR">Firebase</option>
+                      <option value="CA">For文</option>
+                      <option value="CO">HTML</option>
+                      <option value="CT">If文</option>
+                      <option value="DE">Java</option>
+                      <option value="FL">News</option>
+                      <option value="GA">1月</option>
+                      <option value="HI">2月</option>
+                      <option value="ID">3月</option>
+                      <option value="IL">4月</option>
+                      <option value="IN">5月</option>
+                      <option value="IA">6月</option>
+                      <option value="KS">7月</option>
+                      <option value="KY">8月</option>
+                      <option value="LA">9月</option>
+                      <option value="ME">10月</option>
+                      <option value="MD">11月</option>
+                      <option value="MA">12月</option>
+                      <!-- <option value="MI">Michigan</option>
+                      <option value="MN">Minnesota</option>
+                      <option value="MS">Mississippi</option>
+                      <option value="MO">Missouri</option>
+                      <option value="MT">Montana</option>
+                      <option value="NE">Nebraska</option>
+                      <option value="NV">Nevada</option>
+                      <option value="NH">New Hampshire</option>
+                      <option value="NJ">New Jersey</option>
+                      <option value="NM">New Mexico</option>
+                      <option value="NY">New York</option>
+                      <option value="NC">North Carolina</option>
+                      <option value="ND">North Dakota</option>
+                      <option value="OH">Ohio</option>
+                      <option value="OK">Oklahoma</option>
+                      <option value="OR">Oregon</option>
+                      <option value="PA">Pennsylvania</option>
+                      <option value="RI">Rhode Island</option>
+                      <option value="SC">South Carolina</option>
+                      <option value="SD">South Dakota</option>
+                      <option value="TN">Tennessee</option>
+                      <option value="TX">Texas</option>
+                      <option value="UT">Utah</option>
+                      <option value="VT">Vermont</option>
+                      <option value="VA">Virginia</option>
+                      <option value="WA">Washington</option>
+                      <option value="WV">West Virginia</option>
+                      <option value="WI">Wisconsin</option>
+                      <option value="WY">Wyoming</option> -->
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div id="app">
@@ -143,4 +179,9 @@
     </div>
   </body>
   <script src="T-CHAT-Post.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.multiselect.js"></script>
+  <script src="js/main.js"></script>
 </html>

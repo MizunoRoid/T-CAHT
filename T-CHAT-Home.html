@@ -18,9 +18,12 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/6.2.5/simplebar.min.css" />
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/6.2.5/simplebar.min.js"></script>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- PCやモバイル（スマホ、タブレット）などデバイスごとにコンテンツの表示領域を設定するためのHTML属性値 -->
 </head>
 
-<body>
+<body id="body">
   <div class="background">
     <header>
       <div class="logo">
@@ -52,7 +55,7 @@
       </div>
       <!-- ここまでがモーダルウィンドウ -->
       <a href="./T-CHAT-Login/T-CHAT-Login.html" class="login">👤Login</a>
-      <a href="./T-CHAT-Post/T-CHAT-Post.html" class="post">📪Post</a>
+      <a class="post" id="post_button">📪Post</a>
     </header>
 
     <div class="container">
@@ -115,7 +118,7 @@
             <section>
               <h3>MIZUNO</h3>
               <h1>投稿日：2023年10月25日</h1>
-              <a href="T-CHAT-Detail/T-CAHT-Detail.html" class="article">
+              <a href="T-CHAT-Detail/T-CHAT-Detail.html" class="article">
                 <article>アプリ案が思いつかなくて困っています</article>
               </a>
               <span class="article-category">アプリ案</span>
@@ -127,11 +130,12 @@
             <section>
               <h3>tomioka</h3>
               <h1>投稿日：2023年10月25日</h1>
-              <article>Firebaseのバグが消えません 助けてください</article>
+              <a href="T-CHAT-Detail/T-CHAT-tome.html" class="article">
+                <article>Firebaseのバグが消えません 助けてください</article>
+              </a>
               <span class="article-category">Firebase</span>
               <span class="article-category">Android</span>
               <span class="article-category">Bug</span>
-              <span class="article-category">Java</span>
               <span class="Notanswered-category">未解決</span>
               <span class="answers2">回答数：1件</span>
             </section>
@@ -140,9 +144,11 @@
             <section>
               <h3>shunsuke</h3>
               <h1>投稿日：2023年10月25日</h1>
-              <article>
-                トライデントコンピュータの校舎が変わるってほんと？
-              </article>
+              <a href="T-CHAT-Detail/T-CHAT-shun.html" class="article">
+                <article>
+                  トライデントコンピュータの校舎が変わるってほんとなの？
+                </article>
+              </a>
               <span class="article-category">Java</span>
               <span class="answered-category">解決</span>
               <span class="answers3">回答数：1件</span>

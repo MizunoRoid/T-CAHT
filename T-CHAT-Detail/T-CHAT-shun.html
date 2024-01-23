@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="T-CHAT-Detail.css" />
+  <link rel="stylesheet" type="text/css" href="T-CHAT-shun.css" />
   <meta charset="utf-8" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,43 +31,48 @@
           </div>
         </ul>
       </nav>
-      <a href="xxx" class="notification">🔔</a>
-      <a href="xxx" class="login">👤Login</a>
+      <!-- ここからモーダルウィンドウ -->
+      <a href="javascript:void(0);" class="notification" onclick="showModal()">🔔</a>
+
+      <!-- 半透明のオーバーレイ -->
+      <div id="overlay" onclick="closeModal()"></div>
+
+      <!-- モーダルウィンドウ -->
+      <div id="modal" style="display: none">
+        <p class="notification2">通知</p>
+        <p class="setting" onclick="openSettings()">通知設定</p>
+        <div class="content">「1Contribution」のバッジを獲得しました</div>
+        <div class="list">通知一覧を見る</div>
+      </div>
+      <!-- ここまでがモーダルウィンドウ -->
+      <a href="../T-CHAT-Login/T-CHAT-Login.html" class="login">👤Login</a>
       <a href="../T-CHAT-Post/T-CHAT-Post.html" class="post">📪Post</a>
     </header>
 
     <main>
-      <div class="box1">
+      <div class="box3">
         <section class="">
-          <p class="name">MIZUNO</p>
+          <p class="name">shunsuke</p>
           <p class="date">2023年10月25日</p>
-          <p class="large">アプリ案が思いつかなくて困っています</p>
-          <span class="article-category">アプリ案</span>
-          <span class="unsolved-category">未解決</span>
+          <p class="large">トライデントコンピュータの校舎が変わるってほんと？</p>
+          <span class="article-category">Java</span>
+          <span class="answered-category">解決</span>
           <div class="answer5">
             <span class="total">回答数１</span>
           </div>
           <p class="border"></p>
-          <p class="text-medium">1.アプリ案が思いつかない</p>
+          <p class="text-medium">1.校舎どこに移動するの？</p>
           <p class="text-Extremely-small">
-            授業内でアプリ企画を二つ考えなければいけません正直無理です。助けてほしいです。
-          </p>
-          <p class="text-small">1.1候補案</p>
-          <p class="text-Extremely-small">
-            一応候補となる案は出ています。ルーレットを回し行きたい店を決めるアプリやchatbotを活用したアプリです。
-          </p>
-          <p class="text-small">1.必須要綱</p>
-          <p class="text-Extremely-small">
-            androidアプリかつWEB APIを必ず使うこと。
+            どこら辺になるのか気になります
           </p>
           <p class="border"></p>
-          <p class="text-medium">2.疑問点</p>
+          <p class="text-medium">2.いつ頃変わるんですか？</p>
           <p class="text-Extremely-small">
-            アプリ開発で大量の疑問点を抱えています。タスケテ....
+            具体的な日にちを教えてください
           </p>
-          <p class="text-small">2.1企画発表は2案か</p>
+          <p class="text-small">2.1なんでもっと早く移動してくれなかったんですか？</p>
           <p class="text-Extremely-small">
-            実際に企画発表をする案は二ついるのでしょうか。そこをお聞きしたいです。
+            もう卒業しちゃうよ
           </p>
           <p class="large">3.回答者へのお願い</p>
           <p class="text-Extremely-small">
@@ -77,10 +82,10 @@
           <p class="large">1件の回答</p>
         </section>
         <section class="response">
-          <p class="name">Tomi</p>
-          <p class="date">2023年11月25日</p>
+          <p class="name">miya</p>
+          <p class="date">2024年1月10日</p>
           <p class="reply">
-            2.1企画発表は2案か<br />実際に企画発表をする案は二ついるのでしょうか。そこをお聞きしたいです。
+            2.1なんでもっと早く移動してくれなかったんですか？<br />そんなこと言われても…
           </p>
         </section>
 
@@ -113,7 +118,7 @@
               <!-- 実際のファイルインプット -->
               <input type="file" id="imageInput" accept="image/*" onchange="updateFileDetails()" />
 
-              <script src="T-CHAT-Detail.js"></script>
+              <script src="T-CHAT-shun.js"></script>
             </div>
 
             <section class="answer2">
