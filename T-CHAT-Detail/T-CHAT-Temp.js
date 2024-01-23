@@ -73,3 +73,5 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const firestore = firebase.firestore();
 const user_register = firestore.collection("UserRegister");
+const display_container = document.getElementById("display-container");
+const post = db.collection("Post");
