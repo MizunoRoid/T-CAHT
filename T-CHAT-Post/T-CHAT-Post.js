@@ -59,8 +59,9 @@ const question_tag_content = document.getElementById("question_tag");
 const textarea_content = document.getElementById("textarea");
 post_button.addEventListener("click", async function () {
   const postContent = {
-    Title: title_content,
-    Content: textarea_content,
-    Format: format_content,
+    Title: title_content.value,
+    Content: textarea_content.value,
+    Format: format_content.value,
   };
+  await user_register.add(postContent);
 });
