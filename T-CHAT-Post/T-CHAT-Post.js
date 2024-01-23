@@ -56,7 +56,7 @@ const format_content = document.getElementById("format");
 const title_content = document.getElementById("title");
 const post_button = document.getElementById("post");
 const question_tag_content = document.getElementById("question_tag");
-const textarea_content = document.getElementsByClassName("");
+const qlEditorDiv = document.querySelector(".ql-editor");
 
 post_button.addEventListener("click", async function () {
   // パラメータを取得
@@ -100,11 +100,25 @@ post_button.addEventListener("click", async function () {
         selectedOptions.push(selectElement.options[i].text);
       }
     }
+    // ql-editorの直下にある全てのタグの情報を取得
+    const tagsInfo = [];
+
+    qlEditorDiv.childNodes.forEach((node) => {
+      if (node.nodeType === 1) {
+        // ノードが要素ノードである場合
+        const tagInfo = {
+          tagName: node.tagName.toLowerCase(), // タグ名を小文字で取得
+          content: node.innerHTML, // タグの中のHTMLコンテンツを取得
+        };
+        tagsInfo.push(tagInfo);
+      }
+    });
+
     const postContent = {
       UserID: userId,
       AnswerNum: 0,
       Format: format_content.value,
-      Content: textarea_content.value,
+      Content: tagsInfo,
       Image: "",
       PostDay: formattedDateTime,
       Tag: selectedOptions.join(", "),
