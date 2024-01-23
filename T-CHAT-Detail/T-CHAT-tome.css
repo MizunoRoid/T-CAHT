@@ -232,13 +232,11 @@ h1 {
   margin-left: 15px;
 }
 
-.unsolved-category {
-  background-color: #8faadc;
+.Notanswered-category {
+  background-color: #ffd966;
   border-radius: 15px;
   color: #000000;
   padding: 5px 8px 5px 8px;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
 .total {
