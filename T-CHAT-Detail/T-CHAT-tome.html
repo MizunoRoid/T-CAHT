@@ -31,13 +31,26 @@
           </div>
         </ul>
       </nav>
-      <a href="xxx" class="notification">🔔</a>
-      <a href="xxx" class="login">👤Login</a>
+      <!-- ここからモーダルウィンドウ -->
+      <a href="javascript:void(0);" class="notification" onclick="showModal()">🔔</a>
+
+      <!-- 半透明のオーバーレイ -->
+      <div id="overlay" onclick="closeModal()"></div>
+
+      <!-- モーダルウィンドウ -->
+      <div id="modal" style="display: none">
+        <p class="notification2">通知</p>
+        <p class="setting" onclick="openSettings()">通知設定</p>
+        <div class="content">「1Contribution」のバッジを獲得しました</div>
+        <div class="list">通知一覧を見る</div>
+      </div>
+      <!-- ここまでがモーダルウィンドウ -->
+      <a href="../T-CHAT-Login/T-CHAT-Login.html" class="login">👤Login</a>
       <a href="../T-CHAT-Post/T-CHAT-Post.html" class="post">📪Post</a>
     </header>
 
     <main>
-      <div class="box1">
+      <div class="box2">
         <section class="">
           <p class="name">tomioka</p>
           <p class="date">2023年10月25日</p>
