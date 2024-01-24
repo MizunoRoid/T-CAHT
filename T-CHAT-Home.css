@@ -262,7 +262,8 @@
   }
 
   .answers1 {
-    padding-left: 500px;
+    left: 500px;
+    position: relative;
   }
 
   .box2 {
@@ -278,7 +279,8 @@
   }
 
   .answers2 {
-    padding-left: 310px;
+    position: relative;
+    left: 310px;
   }
 
   .box3 {
@@ -294,7 +296,9 @@
   }
 
   .answers3 {
-    padding-left: 550px;
+    position: relative;
+
+    left: 550px;
   }
 
   article {
