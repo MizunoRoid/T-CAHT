@@ -25,19 +25,6 @@ const editor = new Quill("#editor_area", {
   theme: "snow",
 });
 
-// ここのツールバーはカスタムできます。
-var toolbarOptions = [
-  [{ header: [2, 3, false] }],
-  ["bold", "italic", "underline"], // toggled buttons
-  /* [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown　*/
-  ["blockquote"],
-  ["image"],
-  [{ list: "ordered" }, { list: "bullet" }], // superscript/subscript
-  [{ align: [] }],
-  [{ color: [] }, { background: [] }], // dropdown with defaults from theme
-  /* ['clean']                                         // remove formatting button*/
-];
-
 var firebaseConfig = {
   apiKey: "AIzaSyARxI5dZXILhMkMDTDE5MyK88yJlCh-A_Y",
   authDomain: "t-chat-d4c62.firebaseapp.com",

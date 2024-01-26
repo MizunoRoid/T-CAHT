@@ -95,15 +95,30 @@ async function findDocumentByPostID(postID) {
       // 一致するドキュメントが見つかった場合
       const doc = collectionRef.docs[0];
       const data = doc.data();
+      const postElement = document.getElementById("post-element");
       const displayContainer = document.getElementById("display-container");
+      var add_element_data = "";
+      add_element_data += `<p class="name">${data.UserName}</p>`;
+      add_element_data += `<p class="date">投稿日:${data.PostDay}</p>`;
+      add_element_data += `<p class="large">${data.Title}</p>`;
+      // タグを区切り文字「,」で分割
+      const tags = data.Tag.split(",");
+      // 各タグに対してHTML要素を生成
+      tags.forEach((tag, index) => {
+        add_element_data += `<span class="article-category">${tag.trim()}</span>`;
+        if (index < tags.length - 1) {
+          add_element_data += " "; // ここで適切なスペースを追加する
+        }
+      });
+      postElement.innerHTML = add_element_data;
       if (Array.isArray(data.Content)) {
         const htmlContent = data.Content.map(
           (item) => `<${item.tagName}>${item.content}</${item.tagName}>`
         ).join("");
-        displayContainer.innerHTML = `<div id="content">${htmlContent}</div>`;
+        displayContainer.innerHTML = htmlContent;
       } else {
         // Contentが配列でない場合は通常の表示
-        displayContainer.innerHTML = `<div id="content">${data.content}</div>`;
+        displayContainer.innerHTML = data.content;
       }
     } else {
       // 一致するドキュメントが見つからなかった場合
