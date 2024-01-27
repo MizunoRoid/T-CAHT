@@ -27,6 +27,11 @@ function getParam(name, url) {
   }
   return decodeURIComponent(results[2].replace(/\+/g, ` `));
 }
+// URLからタグ名を取得する関数
+function getTagFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("tag");
+}
 
 var firebaseConfig = {
   apiKey: "AIzaSyARxI5dZXILhMkMDTDE5MyK88yJlCh-A_Y",
@@ -44,8 +49,6 @@ const db = firebase.firestore();
 const search_button = document.getElementById("search_button");
 const post_button = document.getElementById("post_button");
 const post = db.collection("Post");
-
-getData();
 
 search_button.addEventListener("click", function () {
   let result = document.getElementById("search_text");
@@ -73,43 +76,94 @@ post_button.addEventListener("click", function (event) {
   }
 });
 
-function getData() {
-  post
+function getData(postCollection, selectedTag) {
+  var add_element = document.getElementById("add-element");
+  // 既存の要素をクリア
+  add_element.innerHTML = "";
+
+  postCollection
     .get()
     .then((doc) => {
       let addData = "";
       doc.forEach((docData) => {
-        addData += `<div class="box1">`;
-        addData += `<section>`;
-        addData += `<h3>${docData.data().UserName}</h3>`;
-        addData += `<h1>投稿日:${docData.data().PostDay}</h1>`;
-        // 既存のパラメータを取得
-        const existingParams = new URLSearchParams(window.location.search);
-        // 既存のパラメータにPostIDが含まれていない場合に追加
-        if (!existingParams.has("PostID")) {
-          existingParams.append("PostID", docData.id);
-        }
-        // Detail.htmlへのリンク
-        const detailLink = `T-CHAT-Detail/T-CHAT-Temp.html?${existingParams.toString()}`;
-        addData += `<a href="${detailLink}" class="article"> <article>${
-          docData.data().Title
-        }</article> </a>`;
-        // タグを区切り文字「,」で分割
         const tags = docData.data().Tag.split(",");
-        // 各タグに対してHTML要素を生成
-        tags.forEach((tag, index) => {
-          addData += `<span class="article-category">${tag.trim()}</span>`;
-          if (index < tags.length - 1) {
-            addData += " "; // ここで適切なスペースを追加する
+        // タグが指定されている場合、一致するもののみ表示
+        if (!selectedTag || tags.includes(selectedTag)) {
+          addData += `<div class="box1">`;
+          addData += `<section>`;
+          addData += `<h3>${docData.data().UserName}</h3>`;
+          addData += `<h1>投稿日:${docData.data().PostDay}</h1>`;
+          const existingParams = new URLSearchParams(window.location.search);
+          if (!existingParams.has("PostID")) {
+            existingParams.append("PostID", docData.id);
           }
-        });
-        addData += `</section>`;
-        addData += `</div>`;
+          const detailLink = `T-CHAT-Detail/T-CHAT-Temp.html?${existingParams.toString()}`;
+          addData += `<a href="${detailLink}" class="article"> <article>${
+            docData.data().Title
+          }</article> </a>`;
+          tags.forEach((tag, index) => {
+            addData += `<span class="article-category">${tag.trim()}</span>`;
+            if (index < tags.length - 1) {
+              addData += " ";
+            }
+          });
+          addData += `</section>`;
+          addData += `</div>`;
+        }
       });
-      var add_element = document.getElementById("add-element");
-      add_element.innerHTML += addData;
+      // 既存の要素をクリア
+      add_element.innerHTML = addData;
+      setTagClickEvent();
     })
     .catch((error) => {
       console.log("データ取得失敗:", error);
     });
+}
+
+function setTagClickEvent() {
+  const tagElements = document.querySelectorAll(".article-category");
+
+  tagElements.forEach((tagElement) => {
+    tagElement.addEventListener("click", function (event) {
+      const clickedTag = event.target.textContent.trim();
+      console.log("Clicked Tag:", clickedTag);
+      const currentURL = window.location.href;
+      const updatedURL = updateQueryStringParameter(
+        currentURL,
+        "tag",
+        clickedTag
+      );
+      window.location.href = updatedURL;
+
+      const tag = getTagFromURL();
+      console.log("Tag:", tag);
+      if (tag) {
+        getData(post, tag);
+      } else {
+        getData(post);
+      }
+    });
+  });
+}
+
+window.onload = function () {
+  setTagClickEvent();
+  // 最初の読み込み時にデータを取得
+  const tag = getTagFromURL();
+  console.log("Tag:", tag);
+  if (tag) {
+    getData(post, tag);
+  } else {
+    getData(post);
+  }
+};
+
+function updateQueryStringParameter(uri, key, value) {
+  const re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+  const separator = uri.indexOf("?") !== -1 ? "&" : "?";
+  if (uri.match(re)) {
+    return uri.replace(re, "$1" + key + "=" + value + "$2");
+  } else {
+    return uri + separator + key + "=" + value;
+  }
 }
