@@ -97,19 +97,40 @@ async function findDocumentByPostID(postID) {
       const data = doc.data();
       const postElement = document.getElementById("post-element");
       const displayContainer = document.getElementById("display-container");
+      const boxParent = document.getElementsByClassName("box")[0]; // "box" クラスの要素を取得
+      if (!boxParent) {
+        console.error("Element with class 'box' not found.");
+        return;
+      }
+
       var add_element_data = "";
       add_element_data += `<p class="name">${data.UserName}</p>`;
       add_element_data += `<p class="date">投稿日:${data.PostDay}</p>`;
       add_element_data += `<p class="large">${data.Title}</p>`;
       // タグを区切り文字「,」で分割
       const tags = data.Tag.split(",");
-      // 各タグに対してHTML要素を生成
-      tags.forEach((tag, index) => {
-        add_element_data += `<span class="article-category">${tag.trim()}</span>`;
-        if (index < tags.length - 1) {
-          add_element_data += " "; // ここで適切なスペースを追加する
+
+      let boxClass = ""; // ボックスのクラスを格納する変数
+      tags.forEach((tag) => {
+        let articleCategoryClass = "";
+        if (tag.trim() === "未回答") {
+          articleCategoryClass = "unsolved-category";
+          boxClass = "box1";
+        } else if (tag.trim() === "未解決") {
+          articleCategoryClass = "Notanswered-category";
+          boxClass = "box2";
+        } else if (tag.trim() === "解決") {
+          articleCategoryClass = "answered-category";
+          boxClass = "box3";
         }
+
+        add_element_data += `<span class="article-category ${articleCategoryClass}" style="cursor: pointer;">${tag.trim()}</span>`;
+        add_element_data += " "; // ここで適切なスペースを追加する
       });
+
+      // boxのクラスを適用
+      boxParent.className = boxClass;
+
       postElement.innerHTML = add_element_data;
       if (Array.isArray(data.Content)) {
         const htmlContent = data.Content.map(

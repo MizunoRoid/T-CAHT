@@ -201,8 +201,38 @@ main::-webkit-scrollbar-thumb {
   width: 130px;
 }
 
+.box {
+  border: 2px solid #000;
+  color: #000;
+  margin-bottom: 6px;
+  border-radius: 26px;
+  background: #fdf6e9;
+  padding: 11px;
+  border-radius: 8px 8px 8px 8px;
+}
+
 .box1 {
   border: 2px solid #8faadc;
+  color: #000;
+  margin-bottom: 6px;
+  border-radius: 26px;
+  background: #fdf6e9;
+  padding: 11px;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.box2 {
+  border: 2px solid #ffd966;
+  color: #000;
+  margin-bottom: 6px;
+  border-radius: 26px;
+  background: #fdf6e9;
+  padding: 11px;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.box3 {
+  border: 2px solid #ff6969;
   color: #000;
   margin-bottom: 6px;
   border-radius: 26px;
@@ -250,6 +280,20 @@ blockquote {
   padding: 5px 8px 5px 8px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.Notanswered-category {
+  background-color: #ffd966;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
+}
+
+.answered-category {
+  background-color: #ff6969;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
 }
 
 .total {
