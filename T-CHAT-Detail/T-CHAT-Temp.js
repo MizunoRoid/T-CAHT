@@ -141,12 +141,54 @@ async function findDocumentByPostID(postID) {
         // Contentが配列でない場合は通常の表示
         displayContainer.innerHTML = data.content;
       }
+      // Post/PostID ドキュメント内にViewフィールドが存在するか確認
+      if (!data.hasOwnProperty("View")) {
+        // View フィールドが存在しない場合は新たに作成
+        await doc.ref.update({
+          View: 1,
+        });
+      } else {
+        // View フィールドが存在する場合はインクリメント
+        await doc.ref.update({
+          View: firebase.firestore.FieldValue.increment(1),
+        });
+      }
+
+      // 更新された投稿のタグに対してTrend/TagのViewを更新
+      await updateTrendTags(tags);
     } else {
       // 一致するドキュメントが見つからなかった場合
       console.error("Document not found in Firestore with PostID:", postID);
     }
   } catch (error) {
     console.error("Error fetching data from Firestore:", error);
+  }
+}
+
+// Trend/TagのViewを更新する関数
+async function updateTrendTags(tags) {
+  try {
+    const trendTagCollection = db.collection("Trend");
+
+    // 各タグに対して処理を行う
+    tags.forEach(async (tag) => {
+      // Trend/Tag内にタグが存在するか確認
+      const tagDoc = await trendTagCollection.doc(tag.trim()).get();
+
+      if (tagDoc.exists) {
+        // タグが存在する場合はViewを更新
+        trendTagCollection.doc(tag.trim()).update({
+          View: firebase.firestore.FieldValue.increment(1),
+        });
+      } else {
+        // タグが存在しない場合は新たにドキュメントを作成
+        trendTagCollection.doc(tag.trim()).set({
+          View: 1,
+        });
+      }
+    });
+  } catch (error) {
+    console.error("Error updating Trend/Tag:", error);
   }
 }
 
