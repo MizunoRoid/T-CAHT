@@ -27,7 +27,15 @@ function getParam(name, url) {
   }
   return decodeURIComponent(results[2].replace(/\+/g, ` `));
 }
-
+// URLからタグ名を取得する関数
+function getTagFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("tag");
+}
+function getSearchWordFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("searchWord") || null;
+}
 var firebaseConfig = {
   apiKey: "AIzaSyARxI5dZXILhMkMDTDE5MyK88yJlCh-A_Y",
   authDomain: "t-chat-d4c62.firebaseapp.com",
@@ -41,16 +49,47 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
-const search_button = document.getElementById("search_button");
 const post_button = document.getElementById("post_button");
+const searchTextInput = document.getElementById("search_text");
+const searchButton = document.getElementById("search_button");
+
 const post = db.collection("Post");
 
-getData();
+function clearSearchWordParameter() {
+  const currentURL = new URL(window.location.href);
+  currentURL.searchParams.delete("searchWord");
+  window.history.replaceState({}, document.title, currentURL.toString());
+}
 
-search_button.addEventListener("click", function () {
-  let result = document.getElementById("search_text");
-  location.href = `./`;
-  result.value = "";
+function clearTagParameter() {
+  const currentURL = new URL(window.location.href);
+  currentURL.searchParams.delete("tag");
+  window.history.replaceState({}, document.title, currentURL.toString());
+}
+
+searchButton.addEventListener("click", function (event) {
+  clearTagParameter();
+  const searchWord = searchTextInput.value.trim();
+  console.log("Search Word:", searchWord);
+
+  const currentURL = window.location.href;
+  const updatedURL = updateQueryStringParameter(
+    currentURL,
+    "searchWord",
+    searchWord
+  );
+  window.location.href = updatedURL;
+
+  const tag = getTagFromURL();
+  const searchWordFromURL = getSearchWordFromURL();
+  console.log("Tag:", tag);
+  console.log("Search Word from URL:", searchWordFromURL);
+
+  if (tag) {
+    getData(post, [tag], searchWordFromURL);
+  } else {
+    getData(post, null, searchWordFromURL);
+  }
 });
 
 post_button.addEventListener("click", function (event) {
@@ -73,45 +112,146 @@ post_button.addEventListener("click", function (event) {
   }
 });
 
-function getData() {
-  post
+function getData(postCollection, selectedTags, searchWord) {
+  var add_element = document.getElementById("add-element");
+  // 既存の要素をクリア
+  add_element.innerHTML = "";
+
+  postCollection
     .get()
     .then((doc) => {
       let addData = "";
       doc.forEach((docData) => {
-        addData += `<div class="box1">`;
-        addData += `<section>`;
-        addData += `<h3>${docData.data().UserName}</h3>`;
-        addData += `<h1>投稿日:${docData.data().PostDay}</h1>`;
-        // 既存のパラメータを取得
-        const existingParams = new URLSearchParams(window.location.search);
-        // PostIDパラメータを追加
-        const postIdParam = `PostID=${docData.data().UserID}`;
-        // 既存のパラメータにPostIDが含まれていない場合に追加
-        if (!existingParams.has("PostID")) {
-          existingParams.append("PostID", docData.id);
-        }
-        // Detail.htmlへのリンク
-        const detailLink = `T-CHAT-Detail/T-CHAT-Detail.html?${existingParams.toString()}`;
-        addData += `<a href="${detailLink}" class="article"> <article>${
-          docData.data().Title
-        }</article> </a>`;
-        // タグを区切り文字「,」で分割
-        const tags = docData.data().Tag.split(",");
-        // 各タグに対してHTML要素を生成
-        tags.forEach((tag, index) => {
-          addData += `<span class="article-category">${tag.trim()}</span>`;
-          if (index < tags.length - 1) {
-            addData += " "; // ここで適切なスペースを追加する
+        const tags = docData
+          .data()
+          .Tag.split(",")
+          .map((tag) => tag.trim());
+        let boxClass = "";
+        const titleContainsSearchWord =
+          !searchWord || docData.data().Title.includes(searchWord);
+        const tagsContainSearchWord = tags.some((tag) =>
+          tag.includes(searchWord)
+        );
+        const tagsMatch =
+          !selectedTags ||
+          selectedTags.every((selectedTag) => tags.includes(selectedTag));
+
+        if ((titleContainsSearchWord || tagsContainSearchWord) && tagsMatch) {
+          const hasUnsolvedTag = tags.includes("未回答");
+          const hasNotansweredTag = tags.includes("未解決");
+          const hasAnsweredTag = tags.includes("解決");
+
+          if (hasUnsolvedTag || hasNotansweredTag || hasAnsweredTag) {
+            boxClass = hasUnsolvedTag
+              ? "box1"
+              : hasNotansweredTag
+              ? "box2"
+              : "box3";
           }
-        });
-        addData += `</section>`;
-        addData += `</div>`;
+
+          addData += `<div class="${boxClass}">`;
+          addData += `<section>`;
+          addData += `<h3>${docData.data().UserName}</h3>`;
+          addData += `<h1>投稿日:${docData.data().PostDay}</h1>`;
+          const existingParams = new URLSearchParams(window.location.search);
+          if (!existingParams.has("PostID")) {
+            existingParams.append("PostID", docData.id);
+          }
+          const detailLink = `T-CHAT-Detail/T-CHAT-Temp.html?${existingParams.toString()}`;
+          addData += `<a href="${detailLink}" class="article"> <article>${
+            docData.data().Title
+          }</article> </a>`;
+          tags.forEach((tag, index) => {
+            let articleCategoryClass = "";
+            if (tag === "未回答" && hasUnsolvedTag) {
+              articleCategoryClass = "unsolved-category";
+            } else if (tag === "未解決" && hasNotansweredTag) {
+              articleCategoryClass = "Notanswered-category";
+            } else if (tag === "解決" && hasAnsweredTag) {
+              articleCategoryClass = "answered-category";
+            }
+
+            addData += `<span class="article-category ${articleCategoryClass}">${tag}</span>`;
+
+            if (index < tags.length - 1) {
+              addData += " ";
+            }
+          });
+          addData += `</section>`;
+          addData += `</div>`;
+        }
       });
-      var add_element = document.getElementById("add-element");
-      add_element.innerHTML += addData;
+      // 既存の要素をクリア
+      add_element.innerHTML = addData;
+      setTagClickEvent();
     })
     .catch((error) => {
       console.log("データ取得失敗:", error);
     });
+}
+
+// ページの読み込みが完了したら実行
+window.onload = function () {
+  setTagClickEvent();
+  // 最初の読み込み時にデータを取得
+  const tag = getTagFromURL();
+  const searchWordFromURL = getSearchWordFromURL();
+  console.log("Tag:", tag);
+  console.log("Search Word from URL:", searchWordFromURL);
+  if (tag) {
+    getData(post, [tag], searchWordFromURL);
+  } else if (searchWordFromURL) {
+    getData(post, null, searchWordFromURL);
+  } else {
+    getData(post);
+  }
+};
+
+// URLにパラメータを追加または更新する関数
+function updateQueryStringParameter(uri, key, value) {
+  const re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+  const separator = uri.indexOf("?") !== -1 ? "&" : "?";
+  if (uri.match(re)) {
+    return uri.replace(re, "$1" + key + "=" + value + "$2");
+  } else {
+    return uri + separator + key + "=" + value;
+  }
+}
+
+// 2つの配列が等しいかどうかを判定する関数
+function areArraysEqual(arr1, arr2) {
+  return (
+    arr1.length === arr2.length &&
+    arr1.every((value, index) => value === arr2[index])
+  );
+}
+
+function setTagClickEvent() {
+  const tagElements = document.querySelectorAll(".article-category");
+
+  tagElements.forEach((tagElement) => {
+    tagElement.addEventListener("click", function (event) {
+      clearSearchWordParameter();
+      const clickedTag = event.target.textContent.trim();
+      console.log("Clicked Tag:", clickedTag);
+      const currentURL = window.location.href;
+      const updatedURL = updateQueryStringParameter(
+        currentURL,
+        "tag",
+        clickedTag
+      );
+      window.location.href = updatedURL;
+
+      const tag = getTagFromURL();
+      const searchWordFromURL = getSearchWordFromURL();
+      console.log("Tag:", tag);
+      console.log("Search Word from URL:", searchWordFromURL);
+
+      if (tag) {
+        getData(post, [tag], searchWordFromURL);
+      } else {
+        getData(post, null, searchWordFromURL);
+      }
+    });
+  });
 }

@@ -6,6 +6,7 @@ print("Hello World") print("Good night World") 2.参考 Web サイトのリン�
 例　こうしたほうがいいんじゃないか？　みたいな？ 5.やってほしいこと、仕事内容
 　仕事内容も記載するんで、これ見て作業してくださいな～
 
+サーバーアドレス https://mz-server-tr.com/T-CHAT/T-CHAT-Home.html
 共有の gmail tchat1211@gmail.com
 パスワード t-chat1211??
 
@@ -57,6 +58,16 @@ LINE Chatbot のリッチメニュー作成
 ChatGPT のロールを編集する　条件トライデントコンピュータ専門学校　講師　就職の情報や、学内の情報、アプリ開発の役立つ情報を教えてくれるくれる
 
 携帯画面の実装　 Header を検索のみに絞る　 Header 下部は投稿内容だけに絞る
+
+投稿した Detail 画面に投稿内容を載せる
+
+回答機能を作成する
+
+Trend 機能
+
+タグを押したらそのタグが付いた投稿だけになる
+
+回答数カウント
 
 htmlspecialchars の追加　
 ----Web Design 参考集 -----

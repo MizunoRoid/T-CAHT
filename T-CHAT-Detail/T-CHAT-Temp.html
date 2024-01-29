@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <link rel="stylesheet" type="text/css" href="T-CHAT-Detail.css" />
+    <link rel="stylesheet" type="text/css" href="T-CHAT-Temp.css" />
     <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -63,64 +63,20 @@
       </header>
 
       <main>
-        <div class="box1">
-          <section class="">
-            <p class="name">MIZUNO</p>
-            <p class="date">2023年10月25日</p>
-            <p class="large">アプリ案が思いつかなくて困っています</p>
-            <span class="article-category">アプリ案</span>
-            <span class="unsolved-category">未解決</span>
-            <div class="answer5">
-              <span class="total">回答数１</span>
-            </div>
-
-            <p class="border"></p>
-            <p class="text-medium">1.アプリ案が思いつかない</p>
-            <p class="text-Extremely-small">
-              授業内でアプリ企画を二つ考えなければいけません正直無理です。助けてほしいです。
-            </p>
-            <p class="text-small">1.1候補案</p>
-            <p class="text-Extremely-small">
-              一応候補となる案は出ています。ルーレットを回し行きたい店を決めるアプリやchatbotを活用したアプリです。
-            </p>
-            <p class="text-small">1.必須要綱</p>
-            <p class="text-Extremely-small">
-              androidアプリかつWEB APIを必ず使うこと。
-            </p>
-            <p class="border"></p>
-            <p class="text-medium">2.疑問点</p>
-            <p class="text-Extremely-small">
-              アプリ開発で大量の疑問点を抱えています。タスケテ....
-            </p>
-            <p class="text-small">2.1企画発表は2案か</p>
-            <p class="text-Extremely-small">
-              実際に企画発表をする案は二ついるのでしょうか。そこをお聞きしたいです。
-            </p>
-            <p class="large">3.回答者へのお願い</p>
-            <p class="text-Extremely-small">
-              前述した質問内容を答えていただきたいです。よろしくお願いいたします。
-            </p>
-            <p class="border"></p>
-            <p class="large">1件の回答</p>
-          </section>
+        <div class="box">
+          <div id = "post-element"></div>
+          <p class="border"></p>
+          <div id="display-container"></div>
+          <p class="border"></p>
+          <p class="large">0件の回答</p>
           <section class="response">
-            <p class="name">Tomi</p>
-            <p class="date">2023年11月25日</p>
+            <!-- <p class="name"></p>
+            <p class="date"></p>
             <p class="reply">
-              2.1企画発表は2案か<br />実際に企画発表をする案は二ついるのでしょうか。そこをお聞きしたいです。
-            </p>
+            </p> -->
           </section>
-
-          <section class="answer">
-            <input
-              class="text"
-              type="text"
-              name="名前"
-              value=""
-              placeholder="名前を入力してください"
-            />
-
-            <section class="answer">
+          <p class="border"></p>
+            <section class="answer-form">
               <div class="element">
                 <!-- カスタムファイルアップロードボタンのラッパー -->
                 <div class="custom-upload-button">
@@ -152,8 +108,7 @@
                   accept="image/*"
                   onchange="updateFileDetails()"
                 />
-
-                <script src="T-CHAT-Detail.js"></script>
+                <script src="T-CHAT-Temp.js"></script>
               </div>
 
               <section class="answer2">
