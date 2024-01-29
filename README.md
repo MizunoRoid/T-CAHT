@@ -20,6 +20,21 @@ messagingSenderId: "276479107458",
 appId: "1:276479107458:web:329742b4d052a975d16f9b",
 measurementId: "G-WPZGDY4H0F"
 };
+{
+UserRegister(Collection)
+documentID(ランダムな値)(Document)
+MailAddress(Field)PassWord(Filed)UserName(Field)
+}
+{
+Post(Collection)
+PostID(ランダムな値)(Document)
+AnswerNum(回答数を記録するため)(Field)Content(投稿内容)(Filed)Format(投稿フォーマット)(Filed)PostDay(投稿日)(Filed)Tag(投稿に付与されるタグ)(Field)Title(投稿のタイトル)(Field)UserID(PostID と同じ値 一意にするために使用)UserName(UserRegister のユーザ名)View(ユーザーの投稿ごとの View 数格納)
+}
+{
+Trend(Collection)
+Tag 名(Document)
+View(Post ので記録された View 数を加算)(Field)
+}
 
 ---- AWS コンソールログイン-----
 https://056445715636.signin.aws.amazon.com/console
