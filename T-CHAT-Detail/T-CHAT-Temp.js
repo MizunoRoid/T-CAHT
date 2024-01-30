@@ -56,6 +56,100 @@ function getPostIDFromURL() {
   return urlParams.get("PostID");
 }
 
+document
+  .getElementById("answer-button")
+  .addEventListener("click", async function (event) {
+    // URLパラメータからUserNameとUserIDを取得
+    const urlParams = new URLSearchParams(window.location.search);
+    const userName = urlParams.get("UserName");
+    const userID = urlParams.get("UserID");
+
+    // UserNameまたはUserIDが存在しない場合、アラートを表示して処理を中断
+    if (!userName || !userID) {
+      alert("ログインしてください");
+      event.preventDefault();
+      return;
+    }
+
+    // ql-editorからHTMLコンテンツを取得
+    const qlEditorDiv = document.querySelector(".ql-editor");
+    const tagsInfo = [];
+
+    qlEditorDiv.childNodes.forEach((node) => {
+      if (node.nodeType === 1) {
+        // ノードが要素ノードである場合
+        const tagInfo = {
+          tagName: node.tagName.toLowerCase(), // タグ名を小文字で取得
+          content: node.innerHTML, // タグの中のHTMLコンテンツを取得
+        };
+        tagsInfo.push(tagInfo);
+      }
+    });
+
+    // Firestoreに回答を追加
+    try {
+      const postID = getPostIDFromURL(); // URLからPostIDを取得
+      await db.collection("Post").doc(postID).collection("Answers").add({
+        Content: tagsInfo,
+        UserID: userID,
+        UserName: userName,
+        PostDay: new Date(), // 現在の日付
+      });
+
+      // 回答追加後、ページをリロード
+      window.location.reload();
+    } catch (error) {
+      console.error("Error adding answer:", error);
+    }
+  });
+
+async function displayAnswers(postID) {
+  try {
+    const answersSnapshot = await db
+      .collection("Post")
+      .doc(postID)
+      .collection("Answers")
+      .get();
+    if (answersSnapshot.empty) {
+      console.log("回答はまだありません。");
+      return;
+    }
+
+    answersSnapshot.forEach((doc) => {
+      const answer = doc.data();
+      const formattedDate = formatTimestamp(answer.PostDay); // タイムスタンプのフォーマット
+
+      const responseSection = document.createElement("section");
+      responseSection.classList.add("response");
+
+      // 回答内容がオブジェクトの場合、HTML文字列に変換
+      let contentHtml = "";
+      if (Array.isArray(answer.Content)) {
+        contentHtml = answer.Content.map(
+          (item) => `<${item.tagName}>${item.content}</${item.tagName}>`
+        ).join("");
+      } else {
+        contentHtml = answer.Content; // 文字列の場合はそのまま使用
+      }
+
+      responseSection.innerHTML = `
+          <p class="name">${answer.UserName}</p>
+          <p class="date">${formattedDate}</p>
+          <p class="reply">${contentHtml}</p>
+        `;
+
+      const responseContainer = document.querySelector(".response"); // responseセクションを取得
+      if (responseContainer) {
+        responseContainer.appendChild(responseSection);
+      } else {
+        console.error("Response container not found.");
+      }
+    });
+  } catch (error) {
+    console.error("Error displaying answers:", error);
+  }
+}
+
 // PostIDでデータを検索する関数
 async function findDocumentByPostID(postID) {
   try {
@@ -134,6 +228,7 @@ async function findDocumentByPostID(postID) {
       // 一致するドキュメントが見つからなかった場合
       console.error("Document not found in Firestore with PostID:", postID);
     }
+    await displayAnswers(postID);
   } catch (error) {
     console.error("Error fetching data from Firestore:", error);
   }
@@ -164,6 +259,23 @@ async function updateTrendTags(tags) {
   } catch (error) {
     console.error("Error updating Trend/Tag:", error);
   }
+}
+
+// タイムスタンプをフォーマットする関数
+function formatTimestamp(timestamp) {
+  const date = timestamp.toDate(); // TimestampをDateオブジェクトに変換
+  const year = date.getFullYear();
+  const month = padZero(date.getMonth() + 1);
+  const day = padZero(date.getDate());
+  const hours = padZero(date.getHours());
+  const minutes = padZero(date.getMinutes());
+  const seconds = padZero(date.getSeconds());
+
+  return `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
+}
+
+function padZero(num) {
+  return num < 10 ? "0" + num : num;
 }
 
 // PostIDを取得して検索

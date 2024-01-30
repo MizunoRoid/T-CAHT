@@ -106,7 +106,6 @@ post_button.addEventListener("click", async function () {
       AnswerNum: 0,
       Format: format_content.value,
       Content: tagsInfo,
-      Image: "",
       PostDay: formattedDateTime,
       Tag: selectedOptions.join(", "),
       Title: title_content.value,
