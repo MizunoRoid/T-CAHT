@@ -87,6 +87,8 @@ post_button.addEventListener("click", async function () {
         selectedOptions.push(selectElement.options[i].text);
       }
     }
+    // '未回答' タグを選択されたオプションに追加
+    selectedOptions.push("未回答");
     // ql-editorの直下にある全てのタグの情報を取得
     const tagsInfo = [];
 
