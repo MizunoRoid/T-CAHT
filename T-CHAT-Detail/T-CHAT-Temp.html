@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="quill.snow.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@0,500;1,100&display=swap"
       rel="stylesheet"
@@ -13,6 +15,10 @@
       href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Sawarabi+Gothic&display=swap"
       rel="stylesheet"
     />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.min.js"
+    ></script>
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
   </head>
@@ -68,58 +74,30 @@
           <p class="border"></p>
           <div id="display-container"></div>
           <p class="border"></p>
-          <p class="large">0件の回答</p>
-          <section class="response">
-            <!-- <p class="name"></p>
+          <p class="ans-count"></p>
+          <section class="responses">
+            <!-- ここに動的に回答が追加されます -->
+          </section>          
+          <!-- <section class="response">
+            <p class="name"></p>
             <p class="date"></p>
             <p class="reply">
-            </p> -->
-          </section>
+            </p>
+          </section> -->
           <p class="border"></p>
+          <p class="comment">コメントする</p>
             <section class="answer-form">
               <div class="element">
-                <!-- カスタムファイルアップロードボタンのラッパー -->
-                <div class="custom-upload-button">
-                  <!-- カスタムスタイルのボタン -->
-                  <span onclick="document.getElementById('imageInput').click()"
-                    >ファイルを選択</span
-                  >
-                </div>
-                <!-- ファイル名と拡張子を表示するための要素 -->
-                <span id="fileNameExtension"></span>
-                <div id="fileDetails">
-                  <!-- プレビューボタン -->
-                  <button id="previewButton" onclick="toggleImage()">
-                    プレビュー
-                  </button>
-                </div>
-                <!-- 選択された画像を表示するための要素 -->
-                <div id="imageContainer">
-                  <img id="selectedImage" alt="Selected Image" />
-                  <!-- 閉じるボタン -->
-                  <button id="closeButton" onclick="closeImage()">
-                    閉じる
-                  </button>
-                </div>
-                <!-- 実際のファイルインプット -->
-                <input
-                  type="file"
-                  id="imageInput"
-                  accept="image/*"
-                  onchange="updateFileDetails()"
-                />
-                <script src="T-CHAT-Temp.js"></script>
+                <div id="app">
+                  <form method="post" action="">
+                    <div id="editor_area"></div>
+                    <input
+                      type="hidden"
+                      name="main"
+                      id="project_contents_inner"
+                    />
+                  </form>
               </div>
-
-              <section class="answer2">
-                <textarea
-                  class="textarea"
-                  rows="10"
-                  cols="50"
-                  placeholder="テキストを入力"
-                ></textarea>
-              </section>
-
               <section class="background-color">
                 <button id="answer-button">投稿する</button>
               </section>
@@ -128,5 +106,6 @@
         </div>
       </main>
     </div>
+    <script src="T-CHAT-Temp.js"></script>
   </body>
 </html>

@@ -36,6 +36,8 @@ Tag 名(Document)
 View(Post ので記録された View 数を加算)(Field)
 }
 
+現在のアプリのフローとしては ①T-CHAT-Home.html を起動する。②T-CHAT-Temp.html に遷移する。その際に url パラメータにクリックした投稿の PostID(Post の中にあるドキュメント ランダムな値で一意)が付与される ③url パラメータ PostID とコレクション Post のドキュメント名とが合致するものを探し出して、その投稿内容を表示
+
 ---- AWS コンソールログイン-----
 https://056445715636.signin.aws.amazon.com/console
 

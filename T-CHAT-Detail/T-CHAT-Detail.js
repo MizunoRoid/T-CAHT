@@ -59,3 +59,24 @@ function toggleImage() {
   // Toggle the visibility of the image container
   imageContainer.style.display = imageContainer.style.display === "none" ? "block" : "none";
 }
+var toolbarOptions = [
+  [{ header: [2, 3, false] }],
+  ['bold', 'italic', 'underline'], // toggled buttons
+  /* [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown　*/
+  ['blockquote'],
+  ['image'],
+  [{ 'list': 'ordered' }, { 'list': 'bullet' }], // superscript/subscript
+  [{ 'align': [] }],
+  [{ 'color': [] }, { 'background': [] }], // dropdown with defaults from theme
+  /* ['clean']                                         // remove formatting button*/
+];
+
+const editor = new Quill('#editor_area', {
+  bounds: '#edito',
+  modules: {
+      toolbar: toolbarOptions
+  },
+  placeholder: 'テキストを入力',
+  theme: 'snow'
+});
+
