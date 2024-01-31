@@ -245,6 +245,7 @@ async function findDocumentByPostID(postID) {
       console.error("Answer count element not found.");
     }
     await displayAnswers(postID);
+    await updatePostTagIfNeeded(postID);
   } catch (error) {
     console.error("Error fetching data from Firestore:", error);
   }
@@ -274,6 +275,32 @@ async function updateTrendTags(tags) {
     });
   } catch (error) {
     console.error("Error updating Trend/Tag:", error);
+  }
+}
+
+async function updatePostTagIfNeeded(postID) {
+  // 投稿の回答数を取得
+  const answersSnapshot = await db
+    .collection("Post")
+    .doc(postID)
+    .collection("Answers")
+    .get();
+  if (answersSnapshot.size > 0) {
+    // 回答が存在する場合はタグを更新
+    const postDoc = await db.collection("Post").doc(postID).get();
+    if (postDoc.exists) {
+      let tags = postDoc.data().Tag.split(", ");
+      if (tags.includes("未回答")) {
+        // タグの末尾にある「未回答」を「未解決」に変更
+        tags = tags.map((tag) => (tag === "未回答" ? "未解決" : tag));
+        // 更新したタグをデータベースに保存
+        await db
+          .collection("Post")
+          .doc(postID)
+          .update({ Tag: tags.join(", ") });
+        console.log("タグを未解決に更新しました。");
+      }
+    }
   }
 }
 
