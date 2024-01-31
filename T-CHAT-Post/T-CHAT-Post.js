@@ -103,10 +103,8 @@ post_button.addEventListener("click", async function () {
 
     const postContent = {
       UserID: userId,
-      AnswerNum: 0,
       Format: format_content.value,
       Content: tagsInfo,
-      Image: "",
       PostDay: formattedDateTime,
       Tag: selectedOptions.join(", "),
       Title: title_content.value,
