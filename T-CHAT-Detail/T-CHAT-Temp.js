@@ -115,12 +115,15 @@ async function displayAnswers(postID) {
       return;
     }
 
+    const responsesContainer = document.querySelector(".responses"); // 複数回答を格納するコンテナを取得
+    if (!responsesContainer) {
+      console.error("Responses container not found.");
+      return;
+    }
+
     answersSnapshot.forEach((doc) => {
       const answer = doc.data();
       const formattedDate = formatTimestamp(answer.PostDay); // タイムスタンプのフォーマット
-
-      const responseSection = document.createElement("section");
-      responseSection.classList.add("response");
 
       // 回答内容がオブジェクトの場合、HTML文字列に変換
       let contentHtml = "";
@@ -132,18 +135,16 @@ async function displayAnswers(postID) {
         contentHtml = answer.Content; // 文字列の場合はそのまま使用
       }
 
+      const responseSection = document.createElement("section");
+      responseSection.classList.add("response");
+
       responseSection.innerHTML = `
           <p class="name">${answer.UserName}</p>
           <p class="date">${formattedDate}</p>
           <p class="reply">${contentHtml}</p>
         `;
 
-      const responseContainer = document.querySelector(".response"); // responseセクションを取得
-      if (responseContainer) {
-        responseContainer.appendChild(responseSection);
-      } else {
-        console.error("Response container not found.");
-      }
+      responsesContainer.appendChild(responseSection); // 各回答を個別のセクションとして追加
     });
   } catch (error) {
     console.error("Error displaying answers:", error);
@@ -228,6 +229,21 @@ async function findDocumentByPostID(postID) {
       // 一致するドキュメントが見つからなかった場合
       console.error("Document not found in Firestore with PostID:", postID);
     }
+    // 回答数を取得
+    const answersCountSnapshot = await db
+      .collection("Post")
+      .doc(postID)
+      .collection("Answers")
+      .get();
+    const answersCount = answersCountSnapshot.size; // 回答数
+
+    // 回答数をHTMLに表示
+    const answerCountElement = document.querySelector(".ans-count");
+    if (answerCountElement) {
+      answerCountElement.textContent = `${answersCount}件の回答`;
+    } else {
+      console.error("Answer count element not found.");
+    }
     await displayAnswers(postID);
   } catch (error) {
     console.error("Error fetching data from Firestore:", error);
@@ -278,11 +294,11 @@ function padZero(num) {
   return num < 10 ? "0" + num : num;
 }
 
-// PostIDを取得して検索
-const postID = getPostIDFromURL();
-console.log("PostID:", postID);
-if (postID) {
-  findDocumentByPostID(postID);
-} else {
-  console.error("PostID not provided in the URL parameters.");
-}
+window.addEventListener("load", function () {
+  const postID = getPostIDFromURL();
+  if (postID) {
+    findDocumentByPostID(postID);
+  } else {
+    console.error("PostID not provided in the URL parameters.");
+  }
+});
