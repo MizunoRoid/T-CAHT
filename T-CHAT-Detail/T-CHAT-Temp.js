@@ -95,7 +95,7 @@ document
         UserName: userName,
         PostDay: new Date(), // 現在の日付
       });
-
+      await updatePostTagIfNeeded(postID);
       // 回答追加後、ページをリロード
       window.location.reload();
     } catch (error) {
@@ -278,27 +278,31 @@ async function updateTrendTags(tags) {
   }
 }
 
+// 回答の有無に基づいてタグを更新する関数
 async function updatePostTagIfNeeded(postID) {
-  // 投稿の回答数を取得
   const answersSnapshot = await db
     .collection("Post")
     .doc(postID)
     .collection("Answers")
     .get();
   if (answersSnapshot.size > 0) {
-    // 回答が存在する場合はタグを更新
     const postDoc = await db.collection("Post").doc(postID).get();
     if (postDoc.exists) {
-      let tags = postDoc.data().Tag.split(", ");
+      let tags = postDoc
+        .data()
+        .Tag.split(",")
+        .map((tag) => tag.trim());
+      console.log(`タグ配列: ${tags}`); // タグ配列を出力して確認
+
       if (tags.includes("未回答")) {
-        // タグの末尾にある「未回答」を「未解決」に変更
         tags = tags.map((tag) => (tag === "未回答" ? "未解決" : tag));
-        // 更新したタグをデータベースに保存
         await db
           .collection("Post")
           .doc(postID)
           .update({ Tag: tags.join(", ") });
         console.log("タグを未解決に更新しました。");
+      } else {
+        console.log("タグに未回答が含まれていません。");
       }
     }
   }
