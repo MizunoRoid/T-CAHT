@@ -112,82 +112,84 @@ post_button.addEventListener("click", function (event) {
   }
 });
 
-function getData(postCollection, selectedTags, searchWord) {
+async function getData(postCollection, selectedTags, searchWord) {
   var add_element = document.getElementById("add-element");
   // 既存の要素をクリア
   add_element.innerHTML = "";
 
-  postCollection
-    .get()
-    .then((doc) => {
-      let addData = "";
-      doc.forEach((docData) => {
-        const tags = docData
-          .data()
-          .Tag.split(",")
-          .map((tag) => tag.trim());
-        let boxClass = "";
-        const titleContainsSearchWord =
-          !searchWord || docData.data().Title.includes(searchWord);
-        const tagsContainSearchWord = tags.some((tag) =>
-          tag.includes(searchWord)
-        );
-        const tagsMatch =
-          !selectedTags ||
-          selectedTags.every((selectedTag) => tags.includes(selectedTag));
+  try {
+    const querySnapshot = await postCollection.get();
+    let addData = "";
+    for (const doc of querySnapshot.docs) {
+      const postID = doc.id;
+      const docData = doc.data();
+      const answersSnapshot = await db
+        .collection("Post")
+        .doc(postID)
+        .collection("Answers")
+        .get();
+      const answerCount = answersSnapshot.size; // 回答数を取得
 
-        if ((titleContainsSearchWord || tagsContainSearchWord) && tagsMatch) {
-          const hasUnsolvedTag = tags.includes("未回答");
-          const hasNotansweredTag = tags.includes("未解決");
-          const hasAnsweredTag = tags.includes("解決");
+      const tags = docData.Tag.split(",").map((tag) => tag.trim());
+      let boxClass = "";
+      const titleContainsSearchWord =
+        !searchWord || docData.Title.includes(searchWord);
+      const tagsContainSearchWord = tags.some((tag) =>
+        tag.includes(searchWord)
+      );
+      const tagsMatch =
+        !selectedTags ||
+        selectedTags.every((selectedTag) => tags.includes(selectedTag));
 
-          if (hasUnsolvedTag || hasNotansweredTag || hasAnsweredTag) {
-            boxClass = hasUnsolvedTag
-              ? "box1"
-              : hasNotansweredTag
-              ? "box2"
-              : "box3";
-          }
+      if ((titleContainsSearchWord || tagsContainSearchWord) && tagsMatch) {
+        const hasUnsolvedTag = tags.includes("未回答");
+        const hasNotansweredTag = tags.includes("未解決");
+        const hasAnsweredTag = tags.includes("解決");
 
-          addData += `<div class="${boxClass}">`;
-          addData += `<section>`;
-          addData += `<h3>${docData.data().UserName}</h3>`;
-          addData += `<h1>投稿日:${docData.data().PostDay}</h1>`;
-          const existingParams = new URLSearchParams(window.location.search);
-          if (!existingParams.has("PostID")) {
-            existingParams.append("PostID", docData.id);
-          }
-          const detailLink = `T-CHAT-Detail/T-CHAT-Temp.html?${existingParams.toString()}`;
-          addData += `<a href="${detailLink}" class="article"> <article>${
-            docData.data().Title
-          }</article> </a>`;
-          tags.forEach((tag, index) => {
-            let articleCategoryClass = "";
-            if (tag === "未回答" && hasUnsolvedTag) {
-              articleCategoryClass = "unsolved-category";
-            } else if (tag === "未解決" && hasNotansweredTag) {
-              articleCategoryClass = "Notanswered-category";
-            } else if (tag === "解決" && hasAnsweredTag) {
-              articleCategoryClass = "answered-category";
-            }
-
-            addData += `<span class="article-category ${articleCategoryClass}">${tag}</span>`;
-
-            if (index < tags.length - 1) {
-              addData += " ";
-            }
-          });
-          addData += `</section>`;
-          addData += `</div>`;
+        if (hasUnsolvedTag || hasNotansweredTag || hasAnsweredTag) {
+          boxClass = hasUnsolvedTag
+            ? "box1"
+            : hasNotansweredTag
+            ? "box2"
+            : "box3";
         }
-      });
-      // 既存の要素をクリア
-      add_element.innerHTML = addData;
-      setTagClickEvent();
-    })
-    .catch((error) => {
-      console.log("データ取得失敗:", error);
-    });
+
+        addData += `<div class="${boxClass}">`;
+        addData += `<section>`;
+        addData += `<h3>${docData.UserName}</h3>`;
+        addData += `<h1>投稿日:${docData.PostDay}</h1>`;
+        const existingParams = new URLSearchParams(window.location.search);
+        if (!existingParams.has("PostID")) {
+          existingParams.append("PostID", postID);
+        }
+        const detailLink = `T-CHAT-Detail/T-CHAT-Temp.html?${existingParams.toString()}`;
+        addData += `<a href="${detailLink}" class="article"> <article>${docData.Title}</article> </a>`;
+        tags.forEach((tag, index) => {
+          let articleCategoryClass = "";
+          if (tag === "未回答" && hasUnsolvedTag) {
+            articleCategoryClass = "unsolved-category";
+          } else if (tag === "未解決" && hasNotansweredTag) {
+            articleCategoryClass = "Notanswered-category";
+          } else if (tag === "解決" && hasAnsweredTag) {
+            articleCategoryClass = "answered-category";
+          }
+
+          addData += `<span class="article-category ${articleCategoryClass}">${tag}</span>`;
+          if (index < tags.length - 1) {
+            addData += " ";
+          }
+        });
+        addData += `<span class="answers-num">回答数：${answerCount}</span>`; // 回答数を表示
+        addData += `</section>`;
+        addData += `</div>`;
+        // 既存の要素をクリア
+      }
+    }
+    add_element.innerHTML = addData;
+    setTagClickEvent();
+  } catch (error) {
+    console.log("データ取得失敗:", error);
+  }
 }
 
 window.onload = async function () {
@@ -231,7 +233,18 @@ window.onload = async function () {
     getData(post);
   }
 };
+async function initPage() {
+  try {
+    const selectedTags = getTagFromURL(); // URLから選択されたタグを取得
+    const searchWord = getSearchWordFromURL(); // URLから検索ワードを取得
+    await getData(post, selectedTags, searchWord); // データ取得処理
+    document.getElementById("body").style.display = "block"; // データ取得後に表示
+  } catch (error) {
+    console.error("Error initializing page:", error);
+  }
+}
 
+document.addEventListener("DOMContentLoaded", initPage);
 // ランキングの表示
 function displayRanking(rankingData) {
   console.log("Displaying Trend Tags:", rankingData);
@@ -292,7 +305,7 @@ function setTagClickEvent() {
   const tagElements = document.querySelectorAll(".article-category");
 
   tagElements.forEach((tagElement) => {
-    tagElement.addEventListener("click", function (event) {
+    tagElement.addEventListener("click", async function (event) {
       clearSearchWordParameter();
       const clickedTag = event.target.textContent.trim();
       console.log("Clicked Tag:", clickedTag);
@@ -308,11 +321,13 @@ function setTagClickEvent() {
       const searchWordFromURL = getSearchWordFromURL();
       console.log("Tag:", tag);
       console.log("Search Word from URL:", searchWordFromURL);
-
-      if (tag) {
-        getData(post, [tag], searchWordFromURL);
-      } else {
-        getData(post, null, searchWordFromURL);
+      try {
+        // データ取得が完了するまで待つ
+        await getData(post, [tag], searchWordFromURL);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // エラーが発生した場合もボタンを有効にする
+        tagElement.disabled = false;
       }
     });
   });

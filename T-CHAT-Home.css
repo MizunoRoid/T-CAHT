@@ -261,9 +261,9 @@
     text-decoration: none;
   }
 
-  .answers1 {
-    left: 500px;
-    position: relative;
+  .answers-num {
+    float: right;
+    padding-right: 80px;
   }
 
   .box2 {
@@ -278,11 +278,6 @@
     /* 他の要素より手前に配置 */
   }
 
-  .answers2 {
-    position: relative;
-    left: 310px;
-  }
-
   .box3 {
     background: #ff6969;
     color: #000;
@@ -293,12 +288,6 @@
     /* 相対位置を指定 */
     z-index: 1;
     /* 他の要素より手前に配置 */
-  }
-
-  .answers3 {
-    position: relative;
-
-    left: 550px;
   }
 
   article {
