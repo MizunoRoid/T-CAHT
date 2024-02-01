@@ -179,7 +179,7 @@ async function getData(postCollection, selectedTags, searchWord) {
             addData += " ";
           }
         });
-        addData += `<span class="answers-num">回答数：${answerCount}</span>`; // 回答数を表示
+        addData += `<span class="answers-num">回答数：${answerCount}件</span>`; // 回答数を表示
         addData += `</section>`;
         addData += `</div>`;
         // 既存の要素をクリア
