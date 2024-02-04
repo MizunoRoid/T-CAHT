@@ -14,7 +14,6 @@
       href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&family=Sawarabi+Gothic&display=swap"
       rel="stylesheet"
     />
-
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -29,7 +28,7 @@
     ></script>
   </head>
 
-  <body>
+  <body id="body" style="display: none">
     <!-- 絵文字使うためのサイト -->
     <script
       src="https://kit.fontawesome.com/0342a7eaf5.js"
@@ -49,8 +48,17 @@
             <a href="../T-CHAT-Home.html" class="home">🏡Home</a>
             <a href="T-CHAT-Question.html" class="question">💡Question</a>
             <div class="search-form">
-              <input type="text" class="search" placeholder="Search" />
-              <button type="submit" aria-label="検索"></button>
+              <input
+                type="text"
+                class="search"
+                placeholder="Search"
+                id="search_text"
+              />
+              <button
+                type="submit"
+                aria-label="検索"
+                id="search_button"
+              ></button>
             </div>
           </ul>
         </nav>
@@ -71,7 +79,9 @@
         </div>
         <!-- ここまでがモーダルウィンドウ -->
         <a href="../T-CHAT-Login/T-CHAT-Login.html" class="login">👤Login</a>
-        <a href="../T-CHAT-Post/T-CHAT-Post.html" class="post">📪Post</a>
+        <a href="../T-CHAT-Post/T-CHAT-Post.html" class="post" id="post_button"
+          >📪Post</a
+        >
       </header>
 
       <div class="container">
@@ -113,9 +123,7 @@
                 </a>
                 <span class="article-category">アプリ案</span>
                 <span class="unsolved-category">未回答</span>
-                <div>
-                  <span class="unsolved-category-answer">回答数：1件</span>
-                </div>
+                <span class="answers-num">回答数：1件</span>
               </section>
             </div>
             <div id="box2" class="box2">
@@ -129,9 +137,7 @@
                 <span class="article-category">Android</span>
                 <span class="article-category">Bug</span>
                 <span class="Notanswered-category">未解決</span>
-                <div>
-                  <span class="Notanswered-category-answer">回答数：1件</span>
-                </div>
+                <span class="answers-num">回答数：1件</span>
               </section>
             </div>
             <div id="box3" class="box3">
@@ -145,9 +151,10 @@
                 </a>
                 <span class="article-category">Java</span>
                 <span class="answered-category">解決</span>
-                <span class="answered-category-answer">回答数：1件</span>
+                <span class="answers-num">回答数：1件</span>
               </section>
             </div>
+            <div id="add-element"></div>
           </div>
         </main>
       </div>

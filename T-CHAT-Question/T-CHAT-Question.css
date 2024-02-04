@@ -425,6 +425,11 @@ a.article {
   /* 他の要素より手前に配置 */
 }
 
+.answers-num {
+  float: right;
+  padding-right: 80px;
+}
+
 article {
   background: #fdf6e9;
   color: #000;

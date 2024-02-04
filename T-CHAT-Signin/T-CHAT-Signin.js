@@ -52,8 +52,7 @@ register_button.addEventListener("click", async function () {
       // 重複がない場合の処理
       await user_register.add(newUser);
       // 成功時の処理
-      // window.location.href = './../T-CHAT-Login/T-CHAT-Login.html';
-      error_message.textContent = "成功";
+      window.location.href = "./../T-CHAT-Login/T-CHAT-Login.html";
     }
   } else {
     // 入力が不足している場合の処理
