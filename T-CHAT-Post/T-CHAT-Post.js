@@ -122,6 +122,7 @@ post_button.addEventListener("click", async function () {
       UserID: postDocId, // ドキュメントIDをuserIDとして使用
     });
     console.log("Postが追加されました。");
+    window.location.href = `./../T-CHAT-Home.html?UserName=${userName}&UserID=${userId}`;
   } else {
     // パラメータが存在しない場合の処理
     alert("本当にログインしましたか？");
