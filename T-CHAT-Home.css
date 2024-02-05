@@ -399,21 +399,22 @@
   }
 
   .format-private{
-    background-color: #92d050;
+    background-color: #191970;
     border-radius: 15px;
-    color: #000000;
+    color: #ffffff;
+    font-family: bold;
     padding: 5px 8px 5px 8px;
   }
   .format-exchange{
-    background-color: #ff6969;
+    background-color: #87ceeb;
     border-radius: 15px;
-    color: #000000;
+    color: #ffffff;
     padding: 5px 8px 5px 8px;
   }
   .format-qa{    
-    background-color: #afdfe4;
+    background-color: #ffa500;
     border-radius: 15px;
-    color: #000000;
+    color: #ffffff;
     padding: 5px 8px 5px 8px;
   }
 

@@ -138,3 +138,13 @@ function getParameters() {
   const userId = urlParams.get("UserID");
   return { userName, userId };
 }
+
+document.querySelector(".logo").addEventListener("click", function () {
+  const { userName, userId } = getParameters();
+  if (userName !== null && userId !== null) {
+    window.location.href = `./../T-CHAT-Home.html?UserName=${userName}&UserID=${userId}`;
+  } else {
+    // パラメータが不適切な場合は、遷移せずにユーザーに通知するなどの処理を行う
+    console.log("ユーザー名またはユーザーIDのパラメータが不足しています。");
+  }
+});

@@ -83,23 +83,21 @@ searchButton.addEventListener("click", function (event) {
   window.location.href = updatedURL;
 });
 
-post_button.addEventListener("click", function (event) {
-  // 特定のパラメータ名
-  const targetParameter1 = "UserName";
-  const targetParameter2 = "UserID";
-
-  // URLからパラメータを取得
+post_button.addEventListener("click", async function () {
+  // 現在のURLからパラメータを取得する
   const urlParams = new URLSearchParams(window.location.search);
-
-  // 特定のパラメータが存在しない場合、アラートを表示
-  if (!urlParams.has(targetParameter1) || !urlParams.has(targetParameter2)) {
-    alert("ログインしてください");
-    // デフォルトのイベントをキャンセルして遷移を防止
-    event.preventDefault();
+  const userName = urlParams.get("UserName");
+  const userId = urlParams.get("UserID");
+  console.log(userName, userId);
+  // パラメータが存在するかチェック
+  if (userName && userId) {
+    // パラメータを引き継いでT-CHAT-Postへ遷移
+    window.location.href = `./T-CHAT-Post/T-CHAT-Post.html?UserName=${encodeURIComponent(
+      userName
+    )}&UserID=${encodeURIComponent(userId)}`;
   } else {
-    const userName = urlParams.get(targetParameter1);
-    const userId = urlParams.get(targetParameter2);
-    window.location.href = `./T-CHAT-Post/T-CHAT-Post.html?UserName=${userName}&UserID=${userId}`;
+    // パラメータが存在しない場合は、遷移せずに何らかの通知や処理を行う
+    alert("パラメータがURLに含まれていません。");
   }
 });
 
