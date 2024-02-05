@@ -95,7 +95,7 @@ document
         UserName: userName,
         PostDay: new Date(), // 現在の日付
       });
-
+      await updatePostTagIfNeeded(postID);
       // 回答追加後、ページをリロード
       window.location.reload();
     } catch (error) {
@@ -245,6 +245,7 @@ async function findDocumentByPostID(postID) {
       console.error("Answer count element not found.");
     }
     await displayAnswers(postID);
+    await updatePostTagIfNeeded(postID);
   } catch (error) {
     console.error("Error fetching data from Firestore:", error);
   }
@@ -274,6 +275,36 @@ async function updateTrendTags(tags) {
     });
   } catch (error) {
     console.error("Error updating Trend/Tag:", error);
+  }
+}
+
+// 回答の有無に基づいてタグを更新する関数
+async function updatePostTagIfNeeded(postID) {
+  const answersSnapshot = await db
+    .collection("Post")
+    .doc(postID)
+    .collection("Answers")
+    .get();
+  if (answersSnapshot.size > 0) {
+    const postDoc = await db.collection("Post").doc(postID).get();
+    if (postDoc.exists) {
+      let tags = postDoc
+        .data()
+        .Tag.split(",")
+        .map((tag) => tag.trim());
+      console.log(`タグ配列: ${tags}`); // タグ配列を出力して確認
+
+      if (tags.includes("未回答")) {
+        tags = tags.map((tag) => (tag === "未回答" ? "未解決" : tag));
+        await db
+          .collection("Post")
+          .doc(postID)
+          .update({ Tag: tags.join(", ") });
+        console.log("タグを未解決に更新しました。");
+      } else {
+        console.log("タグに未回答が含まれていません。");
+      }
+    }
   }
 }
 
@@ -309,8 +340,10 @@ function replyToComment(commentId) {
   hideReplyForm(commentId);
 
   // リプライフォームを作成し表示する
-  const replyFormContainer = document.getElementById(`replyFormContainer${commentId}`);
-  const replyForm = document.createElement('div');
+  const replyFormContainer = document.getElementById(
+    `replyFormContainer${commentId}`
+  );
+  const replyForm = document.createElement("div");
   replyForm.innerHTML = `
  
  
@@ -333,19 +366,21 @@ function replyToComment(commentId) {
   // テキストボックスを非表示にする
   const replyButton = document.getElementById(`replyButton${commentId}`);
   if (replyButton) {
-    replyButton.style.display = 'none';
+    replyButton.style.display = "none";
   }
 }
 
 function hideReplyForm(commentId) {
-  const replyFormContainer = document.getElementById(`replyFormContainer${commentId}`);
-  replyFormContainer.innerHTML = ''; // 内容をクリア
+  const replyFormContainer = document.getElementById(
+    `replyFormContainer${commentId}`
+  );
+  replyFormContainer.innerHTML = ""; // 内容をクリア
 }
 
 function submitReply(commentId) {
   const replyInput = document.getElementById(`replyInput${commentId}`);
   const replyText = replyInput.value;
-  
+
   // ここでリプライをサーバーに送信したり、表示したりする処理を追加
 
   // 送信が完了したら、リプライフォームを非表示にする
@@ -354,7 +389,7 @@ function submitReply(commentId) {
   // テキストボックスを再表示する
   const replyButton = document.getElementById(`replyButton${commentId}`);
   if (replyButton) {
-    replyButton.style.display = 'inline-block';
+    replyButton.style.display = "inline-block";
   }
 }
 
@@ -365,7 +400,7 @@ function cancelReply(commentId) {
   // テキストボックスを再表示する
   const replyButton = document.getElementById(`replyButton${commentId}`);
   if (replyButton) {
-    replyButton.style.display = 'inline-block';
+    replyButton.style.display = "inline-block";
   }
 }
 

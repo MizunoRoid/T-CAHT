@@ -162,7 +162,20 @@ async function getData(postCollection, searchWord) {
         const detailLink = `T-CHAT-Detail/T-CHAT-Temp.html?${existingParams.toString()}`;
         addData += `<a href="${detailLink}" class="article"> <article>${docData.Title}</article> </a>`;
         if (tags.length > 0) {
-          addData += `<span class="format-category">${format}</span>`;
+          let formatClass = "";
+          switch (format) {
+            case "プライベート":
+              formatClass = "format-private";
+              break;
+            case "意見交換":
+              formatClass = "format-exchange";
+              break;
+            case "Q＆A":
+              formatClass = "format-qa";
+              break;
+          }
+          // formatに応じたクラスを追加
+          addData += `<span class="${formatClass}">${format}</span>`;
           addData += " ";
         }
 
