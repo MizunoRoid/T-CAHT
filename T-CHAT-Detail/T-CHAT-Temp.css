@@ -202,6 +202,7 @@ main::-webkit-scrollbar-thumb {
   width: 130px;
 }
 
+
 .box1 {
   border: 2px solid #8faadc;
   color: #000;
@@ -239,6 +240,18 @@ h1 {
   padding: 5px 8px 5px 8px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0;
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+blockquote {
+  border-left: 4px solid #ccc;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-left: 16px;
 }
 
 .total {
