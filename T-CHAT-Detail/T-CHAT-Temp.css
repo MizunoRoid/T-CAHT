@@ -88,7 +88,7 @@ header {
 }
 
 ::placeholder {
-  color: #e6e6e6;
+  color: #666666;
   text-align: left;
   font-family: "Arial Black", "MS Gothic";
   padding-left: 3px;
@@ -356,7 +356,6 @@ h1 {
   border-radius: 8px 8px 8px 8px;
 }
 
-
 .reply {
   margin-left: 15px;
 }
@@ -374,7 +373,7 @@ h1 {
 }
 
 .text::placeholder {
-  color: #a6a6a6;
+  color: #666666;
 }
 
 #editor_area {
@@ -476,7 +475,7 @@ h1 {
   border-radius: 8px 8px 8px 8px;
 }
 
-blockquote{
+blockquote {
   margin: 0;
   padding: 0;
   counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
@@ -519,4 +518,26 @@ blockquote {
   border-radius: 15px;
   color: #000000;
   padding: 5px 8px 5px 8px;
+}
+.comment {
+  margin-bottom: 10px;
+}
+#replyButton1 {
+  display: block;
+  min-width: 1140px;
+  min-height: 50px;
+  clear: none;
+  margin-bottom: 1rem;
+  position: relative;
+
+  background: #fff;
+
+  border: 2px solid #ccc; /* 線の太さを調整 */
+  border-radius: 5px 5px 5px 5px; /* 右下と左下だけを丸くする */
+  font-family: "あおとゴシック R";
+}
+
+#replyButton1::placeholder {
+  color: #666666;
+  font-weight: bold;
 }

@@ -95,7 +95,7 @@ document
         UserName: userName,
         PostDay: new Date(), // 現在の日付
       });
-      await updatePostTagIfNeeded(postID);
+
       // 回答追加後、ページをリロード
       window.location.reload();
     } catch (error) {
@@ -245,7 +245,6 @@ async function findDocumentByPostID(postID) {
       console.error("Answer count element not found.");
     }
     await displayAnswers(postID);
-    await updatePostTagIfNeeded(postID);
   } catch (error) {
     console.error("Error fetching data from Firestore:", error);
   }
@@ -278,36 +277,6 @@ async function updateTrendTags(tags) {
   }
 }
 
-// 回答の有無に基づいてタグを更新する関数
-async function updatePostTagIfNeeded(postID) {
-  const answersSnapshot = await db
-    .collection("Post")
-    .doc(postID)
-    .collection("Answers")
-    .get();
-  if (answersSnapshot.size > 0) {
-    const postDoc = await db.collection("Post").doc(postID).get();
-    if (postDoc.exists) {
-      let tags = postDoc
-        .data()
-        .Tag.split(",")
-        .map((tag) => tag.trim());
-      console.log(`タグ配列: ${tags}`); // タグ配列を出力して確認
-
-      if (tags.includes("未回答")) {
-        tags = tags.map((tag) => (tag === "未回答" ? "未解決" : tag));
-        await db
-          .collection("Post")
-          .doc(postID)
-          .update({ Tag: tags.join(", ") });
-        console.log("タグを未解決に更新しました。");
-      } else {
-        console.log("タグに未回答が含まれていません。");
-      }
-    }
-  }
-}
-
 // タイムスタンプをフォーマットする関数
 function formatTimestamp(timestamp) {
   const date = timestamp.toDate(); // TimestampをDateオブジェクトに変換
@@ -333,3 +302,71 @@ window.addEventListener("load", function () {
     console.error("PostID not provided in the URL parameters.");
   }
 });
+
+//ここからコメント返信の処理
+function replyToComment(commentId) {
+  // リプライフォームが既に表示されている場合は非表示にする
+  hideReplyForm(commentId);
+
+  // リプライフォームを作成し表示する
+  const replyFormContainer = document.getElementById(`replyFormContainer${commentId}`);
+  const replyForm = document.createElement('div');
+  replyForm.innerHTML = `
+ 
+ 
+  <input type="text" id="replyInput${commentId}" placeholder="テキストを入力" style="width: 1140px; height: 50px;border: 2px solid #ccc; /* 線の太さを調整 */
+  border-radius: 5px 5px 5px 5px;   font-weight: bold; font-family: あおとゴシック R;">
+   
+    
+
+    <div style="text-align: right; margin-top: 10px; font-family: "あおとゴシック R";">
+    <button onclick="cancelReply(${commentId})" style="  height: 35px; width: 100px; background: #f5f6f6;   font-size:15px;  font-weight: bold;border: 2px solid #ccc; /* 線の太さを調整 */
+    border-radius: 5px 5px 5px 5px; /* 右下と左下だけを丸くする */">キャンセル</button>
+    <button onclick="submitReply(${commentId})"  style="width: 100px; height: 35px;   color:#fff; font-size:15px; font-weight: bold; background: #55c500;  border: 2px solid #ccc; /* 線の太さを調整 */
+    border-radius: 5px 5px 5px 5px; /* 右下と左下だけを丸くする */
+    ">送信</button>
+    
+    </div>
+  `;
+  replyFormContainer.appendChild(replyForm);
+
+  // テキストボックスを非表示にする
+  const replyButton = document.getElementById(`replyButton${commentId}`);
+  if (replyButton) {
+    replyButton.style.display = 'none';
+  }
+}
+
+function hideReplyForm(commentId) {
+  const replyFormContainer = document.getElementById(`replyFormContainer${commentId}`);
+  replyFormContainer.innerHTML = ''; // 内容をクリア
+}
+
+function submitReply(commentId) {
+  const replyInput = document.getElementById(`replyInput${commentId}`);
+  const replyText = replyInput.value;
+  
+  // ここでリプライをサーバーに送信したり、表示したりする処理を追加
+
+  // 送信が完了したら、リプライフォームを非表示にする
+  hideReplyForm(commentId);
+
+  // テキストボックスを再表示する
+  const replyButton = document.getElementById(`replyButton${commentId}`);
+  if (replyButton) {
+    replyButton.style.display = 'inline-block';
+  }
+}
+
+function cancelReply(commentId) {
+  // リプライフォームを非表示にする
+  hideReplyForm(commentId);
+
+  // テキストボックスを再表示する
+  const replyButton = document.getElementById(`replyButton${commentId}`);
+  if (replyButton) {
+    replyButton.style.display = 'inline-block';
+  }
+}
+
+//ここまでがコメント返信の処理
