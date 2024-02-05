@@ -8,6 +8,11 @@ body {
   max-width: 1980px;
 }
 
+a {
+  position: relative;
+  z-index: 10;
+}
+
 h1 {
   margin: 2px 0;
   font-size: 15px;
@@ -77,6 +82,8 @@ header {
 }
 
 .search-form {
+  position: relative;
+  z-index: 10;
   display: flex;
   align-items: center;
   overflow: hidden;
