@@ -377,6 +377,13 @@
     margin-right: 5px;
   }
 
+  .format-category {
+    background-color: #f2f2f2;
+    border-radius: 15px;
+    color: #000000;
+    padding: 5px 8px 5px 8px;
+  }
+
   .unsolved-category {
     background-color: #8faadc;
     border-radius: 15px;
@@ -686,6 +693,13 @@
     padding: 5px 8px 5px 8px;
   }
 
+  .format-category {
+    background-color: #f2f2f2;
+    border-radius: 15px;
+    color: #000000;
+    padding: 5px 8px 5px 8px;
+  }
+
   .unsolved-category {
     background-color: #8faadc;
     border-radius: 15px;
@@ -706,7 +720,7 @@
     color: #000000;
     padding: 5px 8px 5px 8px;
   }
-
+  
   .notification {
     display: none;
   }

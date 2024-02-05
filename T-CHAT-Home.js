@@ -162,7 +162,7 @@ async function getData(postCollection, searchWord) {
         const detailLink = `T-CHAT-Detail/T-CHAT-Temp.html?${existingParams.toString()}`;
         addData += `<a href="${detailLink}" class="article"> <article>${docData.Title}</article> </a>`;
         if (tags.length > 0) {
-          addData += `<span class="article-category format-category">${format}</span>`;
+          addData += `<span class="format-category">${format}</span>`;
           addData += " ";
         }
 
@@ -191,7 +191,6 @@ async function getData(postCollection, searchWord) {
     console.log("データ取得失敗:", error);
   }
 }
-
 window.onload = async function () {
   setTagClickEvent();
   try {
