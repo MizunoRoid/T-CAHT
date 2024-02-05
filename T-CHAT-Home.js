@@ -162,9 +162,10 @@ async function getData(postCollection, searchWord) {
         const detailLink = `T-CHAT-Detail/T-CHAT-Temp.html?${existingParams.toString()}`;
         addData += `<a href="${detailLink}" class="article"> <article>${docData.Title}</article> </a>`;
         if (tags.length > 0) {
-          addData += `<span class="article-category">${format}</span>`;
+          addData += `<span class="article-category format-category">${format}</span>`;
           addData += " ";
         }
+
         tags.forEach((tag) => {
           let articleCategoryClass = "";
           if (tag === "未回答" && hasUnsolvedTag) {
