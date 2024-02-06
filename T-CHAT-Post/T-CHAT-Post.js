@@ -1,6 +1,6 @@
 const save_button = document.getElementById("save");
 
-save_button.addEventListener("click", async function () {});
+save_button.addEventListener("click", async function () { });
 // ここのツールバーはカスタムできます。
 var toolbarOptions = [
   [{ header: [2, 3, false] }],
@@ -46,86 +46,97 @@ const question_tag_content = document.getElementById("question_tag");
 const qlEditorDiv = document.querySelector(".ql-editor");
 
 post_button.addEventListener("click", async function () {
-  // パラメータを取得
-  const { userName, userId } = getParameters();
 
-  // パラメータが存在するかチェック
-  if (userName && userId) {
-    // パラメータが存在する場合の処理
-    // 現在日時を取得
-    var now = new Date();
-    // 日付をフォーマット
-    var year = now.getFullYear();
-    var month = padZero(now.getMonth() + 1); // 月は0-indexedなので+1する
-    var day = padZero(now.getDate());
-
-    // 時刻をフォーマット
-    var hours = padZero(now.getHours());
-    var minutes = padZero(now.getMinutes());
-    var seconds = padZero(now.getSeconds());
-
-    // 結果をHTMLに表示
-    var formattedDateTime =
-      year +
-      "/" +
-      month +
-      "/" +
-      day +
-      " " +
-      hours +
-      ":" +
-      minutes +
-      ":" +
-      seconds;
-
-    var selectedOptions = [];
-    var selectElement = document.getElementById("question_tag");
-
-    // 選択されたオプションを取得
-    for (var i = 0; i < selectElement.options.length; i++) {
-      if (selectElement.options[i].selected) {
-        selectedOptions.push(selectElement.options[i].text);
-      }
-    }
-    // '未回答' タグを選択されたオプションに追加
-    selectedOptions.push("未回答");
-    // ql-editorの直下にある全てのタグの情報を取得
-    const tagsInfo = [];
-
-    qlEditorDiv.childNodes.forEach((node) => {
-      if (node.nodeType === 1) {
-        // ノードが要素ノードである場合
-        const tagInfo = {
-          tagName: node.tagName.toLowerCase(), // タグ名を小文字で取得
-          content: node.innerHTML, // タグの中のHTMLコンテンツを取得
-        };
-        tagsInfo.push(tagInfo);
-      }
-    });
-
-    const postContent = {
-      UserID: userId,
-      Format: format_content.value,
-      Content: tagsInfo,
-      PostDay: formattedDateTime,
-      Tag: selectedOptions.join(", "),
-      Title: title_content.value,
-      UserName: userName,
-    };
-
-    // 新しいPostドキュメントを追加し、ドキュメントIDを取得
-    const postDocRef = await post_register.add(postContent);
-    const postDocId = postDocRef.id;
-
-    // 対応するドキュメントのUserIDを更新
-    await post_register.doc(postDocId).update({
-      PostID: postDocId, // ドキュメントIDをuserIDとして使用
-    });
-    console.log("Postが追加されました。");
-    window.location.href = `./../T-CHAT-Home.html?UserName=${userName}&UserID=${userId}`;
+  // 空文字かnull判断
+  if (!(document.getElementById('format').value)) {
+    alert('カテゴリを選択して下さい。');
+  } else if (!(document.getElementById('title').value)) {
+    alert('質問のタイトルを入力して下さい。');
+  } else if (!(document.getElementById('question_tag').value)) {
+    alert('タグを選択して下さい。');
   } else {
-    // パラメータが存在しない場合の処理
-    alert("本当にログインしましたか？");
+
+    // パラメータを取得
+    const { userName, userId } = getParameters();
+
+    // パラメータが存在するかチェック
+    if (userName && userId) {
+      // パラメータが存在する場合の処理
+      // 現在日時を取得
+      var now = new Date();
+      // 日付をフォーマット
+      var year = now.getFullYear();
+      var month = padZero(now.getMonth() + 1); // 月は0-indexedなので+1する
+      var day = padZero(now.getDate());
+
+      // 時刻をフォーマット
+      var hours = padZero(now.getHours());
+      var minutes = padZero(now.getMinutes());
+      var seconds = padZero(now.getSeconds());
+
+      // 結果をHTMLに表示
+      var formattedDateTime =
+        year +
+        "/" +
+        month +
+        "/" +
+        day +
+        " " +
+        hours +
+        ":" +
+        minutes +
+        ":" +
+        seconds;
+
+      var selectedOptions = [];
+      var selectElement = document.getElementById("question_tag");
+
+      // 選択されたオプションを取得
+      for (var i = 0; i < selectElement.options.length; i++) {
+        if (selectElement.options[i].selected) {
+          selectedOptions.push(selectElement.options[i].text);
+        }
+      }
+      // '未回答' タグを選択されたオプションに追加
+      selectedOptions.push("未回答");
+      // ql-editorの直下にある全てのタグの情報を取得
+      const tagsInfo = [];
+
+      qlEditorDiv.childNodes.forEach((node) => {
+        if (node.nodeType === 1) {
+          // ノードが要素ノードである場合
+          const tagInfo = {
+            tagName: node.tagName.toLowerCase(), // タグ名を小文字で取得
+            content: node.innerHTML, // タグの中のHTMLコンテンツを取得
+          };
+          tagsInfo.push(tagInfo);
+        }
+      });
+
+      const postContent = {
+        UserID: userId,
+        Format: format_content.value,
+        Content: tagsInfo,
+        PostDay: formattedDateTime,
+        Tag: selectedOptions.join(", "),
+        Title: title_content.value,
+        UserName: userName,
+      };
+
+      // 新しいPostドキュメントを追加し、ドキュメントIDを取得
+      const postDocRef = await post_register.add(postContent);
+      const postDocId = postDocRef.id;
+
+      // 対応するドキュメントのUserIDを更新
+      await post_register.doc(postDocId).update({
+        PostID: postDocId, // ドキュメントIDをuserIDとして使用
+      });
+      console.log("Postが追加されました。");
+      window.location.href = `./../T-CHAT-Home.html?UserName=${userName}&UserID=${userId}`;
+    } else {
+      // パラメータが存在しない場合の処理
+      alert("本当にログインしましたか？");
+    }
   }
 });
 
