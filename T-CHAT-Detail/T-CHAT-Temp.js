@@ -56,6 +56,71 @@ function getPostIDFromURL() {
   return urlParams.get("PostID");
 }
 
+document.querySelector(".logo").addEventListener("click", function () {
+  // 現在のURLからパラメータを取得する
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = urlParams.get("UserName");
+  const userId = urlParams.get("UserID");
+  console.log(userName, userId);
+  // パラメータが存在するかチェック
+  if (userName && userId) {
+    window.location.href = `./../T-CHAT-Home.html?UserName=${encodeURIComponent(
+      userName
+    )}&UserID=${encodeURIComponent(userId)}`;
+  } else {
+    window.location.href = `./../T-CHAT-Home.html`;
+  }
+});
+
+document.querySelector(".home").addEventListener("click", function () {
+  // 現在のURLからパラメータを取得する
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = urlParams.get("UserName");
+  const userId = urlParams.get("UserID");
+  console.log(userName, userId);
+  // パラメータが存在するかチェック
+  if (userName && userId) {
+    window.location.href = `./../T-CHAT-Home.html?UserName=${encodeURIComponent(
+      userName
+    )}&UserID=${encodeURIComponent(userId)}`;
+  } else {
+    window.location.href = `./../T-CHAT-Home.html`;
+  }
+});
+
+document.querySelector(".question").addEventListener("click", function () {
+  // 現在のURLからパラメータを取得する
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = urlParams.get("UserName");
+  const userId = urlParams.get("UserID");
+  console.log(userName, userId);
+  // パラメータが存在するかチェック
+  if (userName && userId) {
+    window.location.href = `./../T-CHAT-Question/T-CHAT-Question.html?UserName=${encodeURIComponent(
+      userName
+    )}&UserID=${encodeURIComponent(userId)}`;
+  } else {
+    window.location.href = `./../T-CHAT-Question/T-CHAT-Question.html`;
+  }
+});
+
+document.querySelector(".post").addEventListener("click", async function () {
+  // 現在のURLからパラメータを取得する
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = urlParams.get("UserName");
+  const userId = urlParams.get("UserID");
+  console.log(userName, userId);
+  // パラメータが存在するかチェック
+  if (userName && userId) {
+    window.location.href = `./../T-CHAT-Post/T-CHAT-Post.html?UserName=${encodeURIComponent(
+      userName
+    )}&UserID=${encodeURIComponent(userId)}`;
+  } else {
+    // パラメータが存在しない場合は、遷移せずに何らかの通知や処理を行う
+    alert("ログインしてください。");
+  }
+});
+
 document
   .getElementById("answer-button")
   .addEventListener("click", async function (event) {
@@ -138,10 +203,17 @@ async function displayAnswers(postID) {
       const responseSection = document.createElement("section");
       responseSection.classList.add("response");
 
+      const responseButton = document.createElement("button");
+      responseButton.innerText = "解決";
+      responseButton.classList.add("response-button");
+
       responseSection.innerHTML = `
           <p class="name">${answer.UserName}</p>
           <p class="date">${formattedDate}</p>
+          <div class="content-and-button">
           <p class="reply">${contentHtml}</p>
+          ${responseButton.outerHTML}
+          </div>
         `;
 
       responsesContainer.appendChild(responseSection); // 各回答を個別のセクションとして追加
@@ -177,7 +249,25 @@ async function findDocumentByPostID(postID) {
       add_element_data += `<p class="date">投稿日:${data.PostDay}</p>`;
       add_element_data += `<p class="large">${data.Title}</p>`;
       // タグを区切り文字「,」で分割
-      const tags = data.Tag.split(",");
+      const tags = data.Tag.split(",").map((tag) => tag.trim());
+      const format = data.Format;
+      if (tags.length > 0) {
+        let formatClass = "";
+        switch (format) {
+          case "プライベート":
+            formatClass = "format-private";
+            break;
+          case "意見交換":
+            formatClass = "format-exchange";
+            break;
+          case "Q＆A":
+            formatClass = "format-qa";
+            break;
+        }
+        // formatに応じたクラスを追加
+        add_element_data += `<span class="${formatClass}">${format}</span>`;
+        add_element_data += " ";
+      }
 
       let boxClass = ""; // ボックスのクラスを格納する変数
       tags.forEach((tag) => {

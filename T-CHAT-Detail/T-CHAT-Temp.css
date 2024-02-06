@@ -213,6 +213,27 @@ main::-webkit-scrollbar-thumb {
   border-radius: 8px 8px 8px 8px;
 }
 
+.box2 {
+  border: 2px solid #ffd966;
+  color: #000;
+  margin-bottom: 6px;
+  border-radius: 26px;
+  background: #fdf6e9;
+  padding: 11px;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.box3 {
+  border: 2px solid #ff6969;
+  color: #000;
+  margin-bottom: 6px;
+  border-radius: 26px;
+  background: #fdf6e9;
+  padding: 11px;
+  border-radius: 8px 8px 8px 8px;
+}
+
+
 h3 {
   margin: 2px 0;
 }
@@ -241,6 +262,50 @@ h1 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.unsolved-category {
+  background-color: #8faadc;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.Notanswered-category {
+  background-color: #ffd966;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
+}
+
+.answered-category {
+  background-color: #ff6969;
+  border-radius: 15px;
+  color: #000000;
+  padding: 5px 8px 5px 8px;
+}
+
+.format-private{
+  background-color: #191970;
+  border-radius: 15px;
+  color: #ffffff;
+  font-family: bold;
+  padding: 5px 8px 5px 8px;
+}
+.format-exchange{
+  background-color: #87ceeb;
+  border-radius: 15px;
+  color: #ffffff;
+  padding: 5px 8px 5px 8px;
+}
+.format-qa{    
+  background-color: #ffa500;
+  border-radius: 15px;
+  color: #ffffff;
+  padding: 5px 8px 5px 8px;
+}
+
 
 blockquote {
   margin: 0;
@@ -371,6 +436,31 @@ blockquote {
 
 .reply {
   margin-left: 15px;
+}
+
+.content-and-button {
+  display: flex;
+  align-items: center; /* コンテンツとボタンを縦方向に中央揃えにする場合 */
+  justify-content: space-between; 
+}
+
+.response-button {
+  background-color: #ff6969;
+  margin-left: auto; 
+  margin-right: 30px;
+  cursor: pointer;
+  border: none;
+  width: 80px;
+  height: 30px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px 8px 8px 8px;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #f08080;
+    /* ホバー時の背景色 */
+  }
 }
 
 .text {

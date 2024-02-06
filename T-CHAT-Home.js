@@ -83,6 +83,54 @@ searchButton.addEventListener("click", function (event) {
   window.location.href = updatedURL;
 });
 
+document.querySelector(".logo").addEventListener("click", function () {
+  // 現在のURLからパラメータを取得する
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = urlParams.get("UserName");
+  const userId = urlParams.get("UserID");
+  console.log(userName, userId);
+  // パラメータが存在するかチェック
+  if (userName && userId) {
+    window.location.href = `T-CHAT-Home.html?UserName=${encodeURIComponent(
+      userName
+    )}&UserID=${encodeURIComponent(userId)}`;
+  } else {
+    window.location.href = `T-CHAT-Home.html`;
+  }
+});
+
+document.querySelector(".home").addEventListener("click", function () {
+  // 現在のURLからパラメータを取得する
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = urlParams.get("UserName");
+  const userId = urlParams.get("UserID");
+  console.log(userName, userId);
+  // パラメータが存在するかチェック
+  if (userName && userId) {
+    window.location.href = `T-CHAT-Home.html?UserName=${encodeURIComponent(
+      userName
+    )}&UserID=${encodeURIComponent(userId)}`;
+  } else {
+    window.location.href = `T-CHAT-Home.html`;
+  }
+});
+
+document.querySelector(".question").addEventListener("click", function () {
+  // 現在のURLからパラメータを取得する
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = urlParams.get("UserName");
+  const userId = urlParams.get("UserID");
+  console.log(userName, userId);
+  // パラメータが存在するかチェック
+  if (userName && userId) {
+    window.location.href = `./T-CHAT-Question/T-CHAT-Question.html?UserName=${encodeURIComponent(
+      userName
+    )}&UserID=${encodeURIComponent(userId)}`;
+  } else {
+    window.location.href = `./T-CHAT-Question/T-CHAT-Question.html`;
+  }
+});
+
 post_button.addEventListener("click", async function () {
   // 現在のURLからパラメータを取得する
   const urlParams = new URLSearchParams(window.location.search);
@@ -97,7 +145,7 @@ post_button.addEventListener("click", async function () {
     )}&UserID=${encodeURIComponent(userId)}`;
   } else {
     // パラメータが存在しない場合は、遷移せずに何らかの通知や処理を行う
-    alert("パラメータがURLに含まれていません。");
+    alert("ログインしてください。");
   }
 });
 
