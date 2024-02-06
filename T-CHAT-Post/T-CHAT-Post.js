@@ -119,7 +119,7 @@ post_button.addEventListener("click", async function () {
 
     // 対応するドキュメントのUserIDを更新
     await post_register.doc(postDocId).update({
-      UserID: postDocId, // ドキュメントIDをuserIDとして使用
+      PostID: postDocId, // ドキュメントIDをuserIDとして使用
     });
     console.log("Postが追加されました。");
     window.location.href = `./../T-CHAT-Home.html?UserName=${userName}&UserID=${userId}`;

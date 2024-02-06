@@ -28,7 +28,7 @@ MailAddress(Field)PassWord(Filed)UserName(Field)
 {
 Post(Collection)
 PostID(ランダムな値)(Document)
-Content(投稿内容)(Filed)Format(投稿フォーマット)(Filed)PostDay(投稿日)(Filed)Tag(投稿に付与されるタグ)(Field)Title(投稿のタイトル)(Field)UserID(PostID と同じ値 一意にするために使用)UserName(UserRegister のユーザ名)View(ユーザーの投稿ごとの View 数格納)Answer(SubCollection)
+Content(投稿内容)(Filed)Format(投稿フォーマット)(Filed)PostDay(投稿日)(Filed)Tag(投稿に付与されるタグ)(Field)Title(投稿のタイトル)(Field)PostID(Field)UserID(Field)UserName(UserRegister のユーザ名)View(ユーザーの投稿ごとの View 数格納)Answer(SubCollection)
 }
 {
 Trend(Collection)

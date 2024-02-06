@@ -175,6 +175,8 @@ async function displayAnswers(postID) {
       .doc(postID)
       .collection("Answers")
       .get();
+    const postSnapshot = await db.collection("Post").doc(postID).get();
+    const post_userID = postSnapshot.data().UserID;
     if (answersSnapshot.empty) {
       console.log("回答はまだありません。");
       return;
@@ -185,6 +187,9 @@ async function displayAnswers(postID) {
       console.error("Responses container not found.");
       return;
     }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const loggedInUserID = urlParams.get("UserID");
 
     answersSnapshot.forEach((doc) => {
       const answer = doc.data();
@@ -203,18 +208,34 @@ async function displayAnswers(postID) {
       const responseSection = document.createElement("section");
       responseSection.classList.add("response");
 
-      const responseButton = document.createElement("button");
-      responseButton.innerText = "解決";
-      responseButton.classList.add("response-button");
+      if (loggedInUserID === post_userID && loggedInUserID !== answer.UserID) {
+        // ログイン中のユーザーが投稿者であり、かつ回答者ではない場合、解決ボタンを表示
+        const responseButton = document.createElement("button");
+        responseButton.innerText = "解決";
+        responseButton.classList.add("response-button");
+        responseButton.addEventListener("click", () => {
+          // "解決" ボタンがクリックされたときの処理をここに追加
+          // この部分に "解決" ボタンがクリックされた際の処理を追加して、解決されたコメントの処理を行います。
+          // 例えば、Firestoreで解決状態を更新するか、解決済みのコメントとして表示するなどの処理を追加します。
+        });
 
-      responseSection.innerHTML = `
-          <p class="name">${answer.UserName}</p>
-          <p class="date">${formattedDate}</p>
-          <div class="content-and-button">
-          <p class="reply">${contentHtml}</p>
-          ${responseButton.outerHTML}
-          </div>
-        `;
+        responseSection.innerHTML = `
+            <p class="name">${answer.UserName}</p>
+            <p class="date">${formattedDate}</p>
+            <div class="content-and-button">
+            <p class="reply">${contentHtml}</p>
+            ${responseButton.outerHTML}
+            </div>
+          `;
+      } else {
+        // ログイン中のユーザーが投稿者でない、または回答者の場合、解決ボタンは表示しない
+        responseSection.innerHTML = `
+            <p class="name">${answer.UserName}</p>
+            <p class="date">${formattedDate}</p>
+            <div class="content-and-button">
+            <p class="reply">${contentHtml}</p>
+            </div>`;
+      }
 
       responsesContainer.appendChild(responseSection); // 各回答を個別のセクションとして追加
     });
@@ -229,7 +250,7 @@ async function findDocumentByPostID(postID) {
     console.log("Searching for PostID:", postID);
     const collectionRef = await db
       .collection("Post")
-      .where("UserID", "==", postID)
+      .where("PostID", "==", postID)
       .get();
 
     if (!collectionRef.empty) {

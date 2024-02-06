@@ -41,18 +41,38 @@ register_button.addEventListener("click", async function () {
     password.value !== "" &&
     mailaddress.value !== ""
   ) {
+    // ユーザー名の正規表現
+    var usernameRegex = /^[a-zA-Z0-9]{4,16}$/;
+    //4文字以上16文字以下の長さ 英大小文字、数字のいずれかの文字だけで構成されている
+
+    var mailaddressRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
+    //トップレベルドメイン(TLD)が例えば "com" や "net" のように2文字以上で構成さているか
+
+    // パスワードの正規表現
+    var passwordRegex =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!$-?#])[A-Za-z\d!$-?#]{6,}$/;
+    //英字、数字、特殊文字のいずれかが6文字以上繰り返されていることを示す
     if (
-      !querySnapshotName.empty ||
-      !querySnapshotMail.empty ||
-      !querySnapshotPass.empty
+      usernameRegex.test(newUser.UserName) &&
+      mailaddressRegex.test(newUser.MailAddress) &&
+      passwordRegex.test(newUser.PassWord)
     ) {
-      // 重複がある場合の処理
-      error_message.textContent = "既にそのユーザー情報は登録されています。";
+      if (
+        !querySnapshotName.empty ||
+        !querySnapshotMail.empty ||
+        !querySnapshotPass.empty
+      ) {
+        // 重複がある場合の処理
+        error_message.textContent = "既にそのユーザー情報は登録されています。";
+      } else {
+        // 重複がない場合の処理
+        await user_register.add(newUser);
+        // 成功時の処理
+        window.location.href = "./../T-CHAT-Login/T-CHAT-Login.html";
+      }
     } else {
-      // 重複がない場合の処理
-      await user_register.add(newUser);
-      // 成功時の処理
-      window.location.href = "./../T-CHAT-Login/T-CHAT-Login.html";
+      error_message.textContent =
+        "ユーザー名、メールアドレス、パスワードが無効です。";
     }
   } else {
     // 入力が不足している場合の処理
@@ -79,18 +99,6 @@ function validateLogin() {
   var username = document.getElementById("username").value;
   var mailaddress = document.getElementById("mailaddress").value;
   var password = document.getElementById("password").value;
-
-  // ユーザー名の正規表現
-  var usernameRegex = /^[a-zA-Z0-9]{4,16}$/;
-  //4文字以上16文字以下の長さ 英大小文字、数字のいずれかの文字だけで構成されている
-
-  var mailaddressRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
-  //トップレベルドメイン(TLD)が例えば "com" や "net" のように2文字以上で構成さているか
-
-  // パスワードの正規表現
-  var passwordRegex =
-    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!$-?#])[A-Za-z\d!$-?#]{6,}$/;
-  //英字、数字、特殊文字のいずれかが6文字以上繰り返されていることを示す
 
   // ユーザー名とメールアドレスとパスワードが正規表現に合致するかを確認
   if (
