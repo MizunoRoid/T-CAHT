@@ -10,7 +10,6 @@ body {
 
 h2 {
   margin: 10px 0;
-  background-color: #fff;
 }
 
 h3 {
@@ -420,7 +419,8 @@ blockquote {
 
 /* 各回答のセクション */
 .response {
-  border: 1px solid #ccc;
+  border: 2px solid #ccc; /* 線の太さを調整 */
+  border-radius: 5px 5px 5px 5px; /* 右下と左下だけを丸くする */
   padding: 0.5em;
   background-color: #ffffff;
   margin-bottom: 1em; /* 下部に1emのマージンを追加 */
@@ -431,7 +431,6 @@ blockquote {
 .responses {
   background-color: transparent; /* この背景を透明にする */
   padding: 1em; /* コンテナ全体のパディングを設定 */
-  border-radius: 8px 8px 8px 8px;
 }
 
 .reply {
@@ -461,6 +460,11 @@ blockquote {
     background-color: #f08080;
     /* ホバー時の背景色 */
   }
+}
+
+.resolved-answer {
+  background-color: #e8f5e9; /* 解決された回答の背景色 */
+  border-left: 4px solid #4caf50; /* 左側のボーダー */
 }
 
 .text {
@@ -626,9 +630,8 @@ blockquote {
   margin-bottom: 10px;
 }
 #replyButton1 {
-  display: block;
-  min-width: 1140px;
-  min-height: 50px;
+  width: 1100px;
+  height: 50px;
   clear: none;
   margin-bottom: 1rem;
   position: relative;

@@ -170,74 +170,74 @@ document
 
 async function displayAnswers(postID) {
   try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const loggedInUserID = urlParams.get("UserID");
     const answersSnapshot = await db
       .collection("Post")
       .doc(postID)
       .collection("Answers")
+      .orderBy("PostDay", "desc")
       .get();
-    const postSnapshot = await db.collection("Post").doc(postID).get();
-    const post_userID = postSnapshot.data().UserID;
-    if (answersSnapshot.empty) {
-      console.log("回答はまだありません。");
-      return;
-    }
+    const post_userID = (await db.collection("Post").doc(postID).get()).data()
+      .UserID;
 
-    const responsesContainer = document.querySelector(".responses"); // 複数回答を格納するコンテナを取得
-    if (!responsesContainer) {
-      console.error("Responses container not found.");
-      return;
-    }
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const loggedInUserID = urlParams.get("UserID");
+    const responsesContainer = document.querySelector(".responses");
+    responsesContainer.innerHTML = ""; // 既存の回答をクリア
 
     answersSnapshot.forEach((doc) => {
       const answer = doc.data();
-      const formattedDate = formatTimestamp(answer.PostDay); // タイムスタンプのフォーマット
+      const formattedDate = formatTimestamp(answer.PostDay);
 
-      // 回答内容がオブジェクトの場合、HTML文字列に変換
-      let contentHtml = "";
-      if (Array.isArray(answer.Content)) {
-        contentHtml = answer.Content.map(
-          (item) => `<${item.tagName}>${item.content}</${item.tagName}>`
-        ).join("");
-      } else {
-        contentHtml = answer.Content; // 文字列の場合はそのまま使用
-      }
+      let contentHtml = Array.isArray(answer.Content)
+        ? answer.Content.map(
+            (item) => `<${item.tagName}>${item.content}</${item.tagName}>`
+          ).join("")
+        : answer.Content;
 
       const responseSection = document.createElement("section");
       responseSection.classList.add("response");
-
-      if (loggedInUserID === post_userID && loggedInUserID !== answer.UserID) {
-        // ログイン中のユーザーが投稿者であり、かつ回答者ではない場合、解決ボタンを表示
-        const responseButton = document.createElement("button");
-        responseButton.innerText = "解決";
-        responseButton.classList.add("response-button");
-        responseButton.addEventListener("click", () => {
-          // "解決" ボタンがクリックされたときの処理をここに追加
-          // この部分に "解決" ボタンがクリックされた際の処理を追加して、解決されたコメントの処理を行います。
-          // 例えば、Firestoreで解決状態を更新するか、解決済みのコメントとして表示するなどの処理を追加します。
-        });
-
-        responseSection.innerHTML = `
-            <p class="name">${answer.UserName}</p>
-            <p class="date">${formattedDate}</p>
-            <div class="content-and-button">
-            <p class="reply">${contentHtml}</p>
-            ${responseButton.outerHTML}
-            </div>
-          `;
-      } else {
-        // ログイン中のユーザーが投稿者でない、または回答者の場合、解決ボタンは表示しない
-        responseSection.innerHTML = `
-            <p class="name">${answer.UserName}</p>
-            <p class="date">${formattedDate}</p>
-            <div class="content-and-button">
-            <p class="reply">${contentHtml}</p>
-            </div>`;
+      if (answer.situation === "解決") {
+        responseSection.classList.add("resolved-answer");
       }
 
-      responsesContainer.appendChild(responseSection); // 各回答を個別のセクションとして追加
+      const namePara = document.createElement("p");
+      namePara.classList.add("name");
+      namePara.textContent = answer.UserName;
+
+      const datePara = document.createElement("p");
+      datePara.classList.add("date");
+      datePara.textContent = formattedDate;
+
+      const replyContent = document.createElement("p");
+      replyContent.classList.add("reply");
+      replyContent.innerHTML = contentHtml;
+
+      const contentAndButtonDiv = document.createElement("div");
+      contentAndButtonDiv.classList.add("content-and-button");
+      contentAndButtonDiv.appendChild(replyContent);
+
+      responseSection.appendChild(namePara);
+      responseSection.appendChild(datePara);
+      responseSection.appendChild(contentAndButtonDiv);
+
+      if (
+        loggedInUserID === post_userID &&
+        loggedInUserID !== answer.UserID &&
+        answer.situation !== "解決"
+      ) {
+        const resolveButton = document.createElement("button");
+        resolveButton.innerText = "解決";
+        resolveButton.classList.add("response-button");
+        resolveButton.addEventListener("click", async () => {
+          await markAnswerAsResolved(postID, doc.id);
+          resolveButton.style.display = "none";
+          responseSection.classList.add("resolved-answer");
+          updatePostTag(postID);
+        });
+        contentAndButtonDiv.appendChild(resolveButton);
+      }
+
+      responsesContainer.appendChild(responseSection);
     });
   } catch (error) {
     console.error("Error displaying answers:", error);
@@ -419,6 +419,47 @@ async function updatePostTagIfNeeded(postID) {
   }
 }
 
+async function updatePostTag(postID) {
+  const postRef = db.collection("Post").doc(postID);
+
+  db.runTransaction(async (transaction) => {
+    const postDoc = await transaction.get(postRef);
+    if (!postDoc.exists) {
+      throw "Document does not exist!";
+    }
+    const data = postDoc.data();
+    const tags = data.Tag.split(",").map((tag) => tag.trim()); // タグを配列に変換
+
+    // "未解決"タグを"解決"に変更
+    const updatedTags = tags.map((tag) => (tag === "未解決" ? "解決" : tag));
+    transaction.update(postRef, { Tag: updatedTags.join(", ") }); // 更新されたタグを保存
+  })
+    .then(() => {
+      console.log("Document successfully updated");
+      window.location.reload(); // データ更新後にページをリロード
+    })
+    .catch((error) => console.error("Error updating document: ", error));
+}
+
+async function markAnswerAsResolved(postID, answerID) {
+  const answerRef = db
+    .collection("Post")
+    .doc(postID)
+    .collection("Answers")
+    .doc(answerID);
+
+  await answerRef
+    .update({
+      situation: "解決",
+    })
+    .then(() => {
+      console.log("Answer marked as resolved.");
+    })
+    .catch((error) => {
+      console.error("Error marking answer as resolved:", error);
+    });
+}
+
 // タイムスタンプをフォーマットする関数
 function formatTimestamp(timestamp) {
   const date = timestamp.toDate(); // TimestampをDateオブジェクトに変換
@@ -456,19 +497,18 @@ function replyToComment(commentId) {
   );
   const replyForm = document.createElement("div");
   replyForm.innerHTML = `
- 
- 
-  <input type="text" id="replyInput${commentId}" placeholder="テキストを入力" style="width: 1140px; height: 50px;border: 2px solid #ccc; /* 線の太さを調整 */
+
+  <input type="text" id="replyInput${commentId}" placeholder="テキストを入力" style="width: 1100px; height: 50px;border: 2px solid #ccc; /* 線の太さを調整 */
   border-radius: 5px 5px 5px 5px;   font-weight: bold; font-family: あおとゴシック R;">
-   
+  
     
 
-    <div style="text-align: right; margin-top: 10px; font-family: "あおとゴシック R";">
-    <button onclick="cancelReply(${commentId})" style="  height: 35px; width: 100px; background: #f5f6f6;   font-size:15px;  font-weight: bold;border: 2px solid #ccc; /* 線の太さを調整 */
-    border-radius: 5px 5px 5px 5px; /* 右下と左下だけを丸くする */">キャンセル</button>
-    <button onclick="submitReply(${commentId})"  style="width: 100px; height: 35px;   color:#fff; font-size:15px; font-weight: bold; background: #55c500;  border: 2px solid #ccc; /* 線の太さを調整 */
+    <div style="text-align: right; margin-top: 10px; margin-right:20px; font-family: "あおとゴシック R";">
+    <button onclick="cancelReply(${commentId})" style="  height: 35px; width: 100px;color:#fff; background: #55c500;   font-size:15px;  font-weight: bold;border: 2px solid #ccc; /* 線の太さを調整 */
+    border-radius: 5px 5px 5px 5px; /* 右下と左下だけを丸くする */">送信</button>
+    <button onclick="submitReply(${commentId})"  style="width: 100px; height: 35px;    font-size:15px; font-weight: bold; background: #f5f6f6;  border: 2px solid #ccc; /* 線の太さを調整 */
     border-radius: 5px 5px 5px 5px; /* 右下と左下だけを丸くする */
-    ">送信</button>
+    ">キャンセル</button>
     
     </div>
   `;
@@ -514,5 +554,3 @@ function cancelReply(commentId) {
     replyButton.style.display = "inline-block";
   }
 }
-
-//ここまでがコメント返信の処理
