@@ -262,6 +262,8 @@
     /* 相対位置を指定 */
     z-index: 1;
     /* 他の要素より手前に配置 */
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   a.article {
@@ -317,6 +319,8 @@
     margin-left: 5px;
     font-size: 28px;
     font-weight: bolder;
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   aside {
@@ -330,6 +334,8 @@
     border-radius: 20px;
     position: relative;
     display: inline;
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   aside::after {
@@ -369,6 +375,8 @@
     justify-content: right;
     /* 中央寄せ */
     font-size: 25px;
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   .item-list {
@@ -378,6 +386,8 @@
     align-items: center;
     justify-content: left;
     /* 中央寄せ */
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   .article-category {
@@ -386,6 +396,8 @@
     color: #000000;
     padding: 5px 8px 5px 8px;
     margin-right: 5px;
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   .unsolved-category {
@@ -393,6 +405,8 @@
     border-radius: 15px;
     color: #000000;
     padding: 5px 8px 5px 8px;
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   .Notanswered-category {
@@ -400,6 +414,8 @@
     border-radius: 15px;
     color: #000000;
     padding: 5px 8px 5px 8px;
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   .answered-category {
@@ -407,6 +423,8 @@
     border-radius: 15px;
     color: #000000;
     padding: 5px 8px 5px 8px;
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   .format-private{
@@ -635,6 +653,8 @@
     margin-bottom: 3px;
     border-radius: 26px;
     /* 他の要素より手前に配置 */
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   
@@ -650,6 +670,8 @@
     /* 相対位置を指定 */
     z-index: 1;
     /* 他の要素より手前に配置 */
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
 
@@ -664,6 +686,8 @@
     /* 相対位置を指定 */
     z-index: 1;
     /* 他の要素より手前に配置 */
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   a.article {
@@ -679,6 +703,8 @@
     margin-left: 5px;
     font-size: 23px;
     font-weight: bolder;
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   .logo img {
@@ -870,7 +896,7 @@
     /* バーの背景色を設定できます*/
     border-radius: 10px;
     /* バーに丸みをもたせる*/
-    left: 336px;
+    left: 370x;
   }
 
   .simplebar-track .simplebar-scrollbar.simplebar-visible::before {
@@ -884,8 +910,8 @@
   }
 
   .scroll-area {
-    width: 345px;
-    height: 590px;
+    width: 385px;
+    height: 820px;
     left: 5px;
     border-radius: 20px;
     /* バーに丸みをもたせる*/
@@ -903,18 +929,20 @@
   }
 
   .box1 {
-    width: 330px;
+    width: 365px;
     border: 2px solid #8faadc;
     color: #000;
     margin-bottom: 3px;
     border-radius: 26px;
+    word-wrap: break-word;
+  word-break: keep-all;
     /* 他の要素より手前に配置 */
   }
 
   
 
   .box2 {
-    width: 330px;
+    width: 365px;
     background: #ffd966;
     color: #000;
     padding: 2px;
@@ -923,12 +951,14 @@
     position: relative;
     /* 相対位置を指定 */
     z-index: 1;
+    word-wrap: break-word;
+  word-break: keep-all;
     /* 他の要素より手前に配置 */
   }
 
 
   .box3 {
-    width: 330px;
+    width: 365px;
     background: #ff6969;
     color: #000;
     padding: 2px;
@@ -937,6 +967,289 @@
     position: relative;
     /* 相対位置を指定 */
     z-index: 1;
+    word-wrap: break-word;
+  word-break: keep-all;
+    /* 他の要素より手前に配置 */
+  }
+
+  a.article {
+    text-decoration: none;
+  }
+
+  article {
+    background: #fdf6e9;
+    color: #000;
+    padding: 3px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+    font-size: 23px;
+    font-weight: bolder;
+  }
+
+  .logo img {
+    display: none;
+  }
+
+  .home {
+    display: none;
+  }
+
+  .question {
+    display: none;
+  }
+
+  .answers-num{
+    display: none;
+  }
+
+  .article-category {
+    font-size: 10px;
+    background-color: #f2f2f2;
+    border-radius: 15px;
+    color: #000000;
+    padding: 2px 5px 2px 5px;
+    margin-right: 3px;
+  }
+
+  .unsolved-category {
+    background-color: #8faadc;
+    border-radius: 15px;
+    color: #000000;
+    padding: 2px 5px 2px 5px;
+    margin-right: 3px;
+  }
+
+  .Notanswered-category {
+    background-color: #ffd966;
+    border-radius: 15px;
+    color: #000000;
+    padding: 2px 5px 2px 5px;
+    margin-right: 3px;
+  }
+
+  .answered-category {
+    background-color: #ff6969;
+    border-radius: 15px;
+    color: #000000;
+    padding: 2px 5px 2px 5px;
+    margin-right: 3px;
+  }
+  .format-private{
+    font-size: 10px;
+    background-color: #191970;
+    border-radius: 15px;
+    color: #ffffff;
+    font-family: bold;
+    padding: 2px 5px 2px 5px;
+  }
+  .format-exchange{
+    font-size: 10px;
+    background-color: #87ceeb;
+    border-radius: 15px;
+    color: #ffffff;
+    padding: 2px 5px 2px 5px;
+  }
+  .format-qa{    
+    font-size: 10px;
+    background-color: #ffa500;
+    border-radius: 15px;
+    color: #ffffff;
+    padding: 2px 5px 2px 5px;
+  }
+
+
+  .unsolved-category-answer,
+  .Notanswered-category-answer,
+  .answered-category-answer {
+    bottom: 10px;
+    position: absolute;
+    /* 絶対位置を指定 */
+    z-index: 2;
+    /* 他の要素より手前に配置 */
+  }
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto|Noto+Sans|Open+Sans&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
+  .PostDay{
+    font-family: 'Roboto', 'Noto Sans', 'Open Sans', sans-serif;
+  font-size: 0.9rem; /* またはサイトのデザインに合わせて調整 */
+  color: #333; /* カラーコードはサイトのデザインに合わせて調整 */
+  }
+  
+  .UserName{
+  font-family: 'Noto Sans JP', sans-serif;
+  }
+
+
+  .notification {
+    display: none;
+  }
+
+  .login {
+    display: none;
+  }
+
+  .post {
+    display: none;
+  }
+
+  aside {
+    display: none;
+  }
+
+  .rank {
+    display: none;
+  }
+
+  .item {
+    display: none;
+  }
+}
+
+@media (max-width: 390px) and (max-height: 844px) {
+  body {
+    margin-left: auto;
+    /* margin-right: auto;
+    margin-top: 0; */
+    margin-bottom: 0;
+    padding: 0;
+    background: #fff;
+    max-width: 300px;
+    background-color: #f2f2f2;
+  }
+
+  #body {
+    background-image: url("./T-CHAT-Image/T-CHAT_icon.png");
+    background-repeat: no-repeat;
+    background-size: 120px;
+  }
+  .search-form {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 3px,0px,0px,3px;
+    margin-left: 45px;
+  }
+
+  .search-form button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 23px;
+    margin-right: 7px;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    background-color: #2589d0;
+    cursor: pointer;
+  }
+
+  .search-form button::after {
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%20%3Cpath%20d%3D%22M23.7%2020.8%2019%2016.1c-.2-.2-.5-.3-.8-.3h-.8c1.3-1.7%202-3.7%202-6C19.5%204.4%2015.1%200%209.7%200S0%204.4%200%209.7s4.4%209.7%209.7%209.7c2.3%200%204.3-.8%206-2v.8c0%20.3.1.6.3.8l4.7%204.7c.4.4%201.2.4%201.6%200l1.3-1.3c.5-.5.5-1.2.1-1.6zm-14-5.1c-3.3%200-6-2.7-6-6s2.7-6%206-6%206%202.7%206%206-2.6%206-6%206z%22%20fill%3D%22%23fff%22%3E%3C%2Fpath%3E%20%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    content: "";
+  }
+
+
+  main {
+    background-color: white;
+    border-radius: 15px;
+    /*要素を丸くする */
+    border-width: 100px;
+    /* 上、右、下、左の順に指定 */
+    float:right;
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    border: 2px solid black;
+    /* 2pxの幅で黒い縁線を追加 */
+    padding-top: 4px;
+    padding-right: 10px;
+    /* 右側に20pxのパディングを設定 */
+    /* scroll-snap-align: start; */
+  }
+
+  .simplebar-track {
+    background: #e5e5e5;
+    /* バーの背景色を設定できます*/
+    border-radius: 10px;
+    /* バーに丸みをもたせる*/
+    left: 351px;
+  }
+
+  .simplebar-track .simplebar-scrollbar.simplebar-visible::before {
+    opacity: 1;
+    /* デフォルトだと薄くなっています。*/
+  }
+
+  .simplebar-track .simplebar-scrollbar::before {
+    background: #abbdda;
+    /* ここでバーの色を設定 */
+  }
+
+  .scroll-area {
+    width: 360px;
+    height: 767px;
+    left: 5px;
+    border-radius: 20px;
+    /* バーに丸みをもたせる*/
+    bottom: 2px;
+  }
+
+  section {
+    background: #fdf6e9;
+    color: #000;
+    padding: 11px;
+    width: auto;
+    height: auto;
+    /* margin-bottom: 9px; */
+    border-radius: 26px;
+  }
+
+  .box1 {
+    width: 345px;
+    border: 2px solid #8faadc;
+    color: #000;
+    margin-bottom: 3px;
+    border-radius: 26px;
+    word-wrap: break-word;
+  word-break: keep-all;
+    /* 他の要素より手前に配置 */
+  }
+
+  
+
+  .box2 {
+    width: 344px;
+    background: #ffd966;
+    color: #000;
+    padding: 2px;
+    margin-bottom: 3px;
+    border-radius: 26px;
+    position: relative;
+    /* 相対位置を指定 */
+    z-index: 1;
+    word-wrap: break-word;
+  word-break: keep-all;
+    /* 他の要素より手前に配置 */
+  }
+
+
+  .box3 {
+    width: 345px;
+    background: #ff6969;
+    color: #000;
+    padding: 2px;
+    margin-bottom: 3px;
+    border-radius: 26px;
+    position: relative;
+    /* 相対位置を指定 */
+    z-index: 1;
+    word-wrap: break-word;
+  word-break: keep-all;
     /* 他の要素より手前に配置 */
   }
 
