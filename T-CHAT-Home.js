@@ -198,8 +198,8 @@ async function getData(postCollection, searchWord) {
 
         addData += `<div class="${boxClass}">`;
         addData += `<section>`;
-        addData += `<h3>${docData.UserName}</h3>`;
-        addData += `<h1>投稿日:${docData.PostDay}</h1>`;
+        addData += `<div class="UserName">${docData.UserName}</div>`;
+        addData += `<div class="PostDay">投稿日:${docData.PostDay}</div>`;
         const existingParams = new URLSearchParams(window.location.search);
 
         if (!existingParams.has("PostID")) {

@@ -267,6 +267,17 @@
   a.article {
     text-decoration: none;
   }
+  @import url('https://fonts.googleapis.com/css?family=Roboto|Noto+Sans|Open+Sans&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
+  .PostDay{
+    font-family: 'Roboto', 'Noto Sans', 'Open Sans', sans-serif;
+  font-size: 0.9rem; /* またはサイトのデザインに合わせて調整 */
+  color: #333; /* カラーコードはサイトのデザインに合わせて調整 */
+  }
+  
+  .UserName{
+  font-family: 'Noto Sans JP', sans-serif;
+  }
 
   .answers-num {
     float: right;
@@ -515,8 +526,7 @@
 
   /* ここまでがモーダルウィンドウ */
 }
-
-@media screen and (max-width: 480px) {
+@media (max-width: 375px) and (max-height: 667px) {
   body {
     margin-left: auto;
     /* margin-right: auto;
@@ -534,21 +544,21 @@
     background-size: 120px;
   }
 
+
   main {
     background-color: white;
     border-radius: 15px;
     /*要素を丸くする */
     border-width: 100px;
     /* 上、右、下、左の順に指定 */
-    float: right;
+    float:right;
     width: auto;
     height: auto;
-    margin-right: -5px;
     box-sizing: border-box;
     border: 2px solid black;
     /* 2pxの幅で黒い縁線を追加 */
-    padding-top: 6px;
-    padding-right: 20px;
+    padding-top: 4px;
+    padding-right: 10px;
     /* 右側に20pxのパディングを設定 */
     /* scroll-snap-align: start; */
   }
@@ -558,7 +568,7 @@
     /* バーの背景色を設定できます*/
     border-radius: 10px;
     /* バーに丸みをもたせる*/
-    left: 360px;
+    left: 336px;
   }
 
   .simplebar-track .simplebar-scrollbar.simplebar-visible::before {
@@ -572,12 +582,12 @@
   }
 
   .scroll-area {
-    width: 360px;
-    height: 800px;
-    left: 10px;
+    width: 345px;
+    height: 590px;
+    left: 5px;
     border-radius: 20px;
     /* バーに丸みをもたせる*/
-    bottom: 3px;
+    bottom: 2px;
   }
 
   section {
@@ -591,9 +601,36 @@
   }
 
   .box1 {
+    width: 330px;
     border: 2px solid #8faadc;
     color: #000;
-    margin-bottom: 6px;
+    margin-bottom: 3px;
+    border-radius: 26px;
+    /* 他の要素より手前に配置 */
+  }
+
+  
+
+  .box2 {
+    width: 330px;
+    background: #ffd966;
+    color: #000;
+    padding: 2px;
+    margin-bottom: 3px;
+    border-radius: 26px;
+    position: relative;
+    /* 相対位置を指定 */
+    z-index: 1;
+    /* 他の要素より手前に配置 */
+  }
+
+
+  .box3 {
+    width: 330px;
+    background: #ff6969;
+    color: #000;
+    padding: 2px;
+    margin-bottom: 3px;
     border-radius: 26px;
     position: relative;
     /* 相対位置を指定 */
@@ -605,61 +642,19 @@
     text-decoration: none;
   }
 
-  .answers1 {
-    padding-left: 76px;
-  }
-
-  .box2 {
-    background: #ffd966;
-    color: #000;
-    padding: 2px;
-    margin-bottom: 6px;
-    border-radius: 26px;
-    position: relative;
-    /* 相対位置を指定 */
-    z-index: 1;
-    /* 他の要素より手前に配置 */
-  }
-
-  .answers2 {
-    padding-left: 230px;
-    position: relative;
-    top: 5px;
-  }
-
-  .box3 {
-    background: #ff6969;
-    color: #000;
-    padding: 2px;
-    margin-bottom: 6px;
-    border-radius: 26px;
-    position: relative;
-    /* 相対位置を指定 */
-    z-index: 1;
-    /* 他の要素より手前に配置 */
-  }
-
-  .answers3 {
-    padding-left: 120px;
-  }
-
   article {
     background: #fdf6e9;
     color: #000;
     padding: 3px;
-    margin-top: 5px;
-    margin-bottom: 7px;
+    margin-top: 0px;
+    margin-bottom: 2px;
     margin-left: 5px;
-    font-size: 28px;
+    font-size: 23px;
     font-weight: bolder;
   }
 
   .logo img {
-    margin-left: 10px;
-    margin-right: 40px;
-    max-width: 1050px;
-    /* ロゴ画像の
-最大幅を設定 */
+    display: none;
   }
 
   .home {
@@ -670,11 +665,15 @@
     display: none;
   }
 
+  .answers-num{
+    display: none;
+  }
+
   .search-form {
     display: flex;
     align-items: center;
     overflow: hidden;
-    border-radius: 3px;
+    border-radius: 3px,0px,0px,3px;
     margin-left: 45px;
   }
 
@@ -699,41 +698,87 @@
     content: "";
   }
 
-  .article-category {
-    background-color: #f2f2f2;
-    border-radius: 15px;
-    color: #000000;
-    padding: 5px 8px 5px 8px;
-  }
+  
 
-  .format-category {
+  .article-category {
+    font-size: 10px;
     background-color: #f2f2f2;
     border-radius: 15px;
     color: #000000;
-    padding: 5px 8px 5px 8px;
+    padding: 2px 5px 2px 5px;
+    margin-right: 3px;
   }
 
   .unsolved-category {
     background-color: #8faadc;
     border-radius: 15px;
     color: #000000;
-    padding: 5px 8px 5px 8px;
+    padding: 2px 5px 2px 5px;
+    margin-right: 3px;
   }
 
   .Notanswered-category {
     background-color: #ffd966;
     border-radius: 15px;
     color: #000000;
-    padding: 5px 8px 5px 8px;
+    padding: 2px 5px 2px 5px;
+    margin-right: 3px;
   }
 
   .answered-category {
     background-color: #ff6969;
     border-radius: 15px;
     color: #000000;
-    padding: 5px 8px 5px 8px;
+    padding: 2px 5px 2px 5px;
+    margin-right: 3px;
+  }
+  .format-private{
+    font-size: 10px;
+    background-color: #191970;
+    border-radius: 15px;
+    color: #ffffff;
+    font-family: bold;
+    padding: 2px 5px 2px 5px;
+  }
+  .format-exchange{
+    font-size: 10px;
+    background-color: #87ceeb;
+    border-radius: 15px;
+    color: #ffffff;
+    padding: 2px 5px 2px 5px;
+  }
+  .format-qa{    
+    font-size: 10px;
+    background-color: #ffa500;
+    border-radius: 15px;
+    color: #ffffff;
+    padding: 2px 5px 2px 5px;
+  }
+
+
+  .unsolved-category-answer,
+  .Notanswered-category-answer,
+  .answered-category-answer {
+    bottom: 10px;
+    position: absolute;
+    /* 絶対位置を指定 */
+    z-index: 2;
+    /* 他の要素より手前に配置 */
+  }
+
+  @import url('https://fonts.googleapis.com/css?family=Roboto|Noto+Sans|Open+Sans&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
+  .PostDay{
+    font-family: 'Roboto', 'Noto Sans', 'Open Sans', sans-serif;
+  font-size: 0.9rem; /* またはサイトのデザインに合わせて調整 */
+  color: #333; /* カラーコードはサイトのデザインに合わせて調整 */
   }
   
+  .UserName{
+  font-family: 'Noto Sans JP', sans-serif;
+  }
+
+
   .notification {
     display: none;
   }
@@ -757,4 +802,7 @@
   .item {
     display: none;
   }
+}
+@media screen and (max-width: 480px) {
+  
 }

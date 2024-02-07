@@ -25,7 +25,7 @@ var firebaseConfig = {
   measurementId: "G-WPZGDY4H0F",
 };
 var toolbarOptions = [
-  [{ header: [2, 3, false] }],
+  [{ header: [1, 2, false] }],
   ["bold", "italic", "underline"], // toggled buttons
   /* [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown　*/
   ["blockquote"],
@@ -486,71 +486,69 @@ window.addEventListener("load", function () {
   }
 });
 
-//ここからコメント返信の処理
-function replyToComment(commentId) {
-  // リプライフォームが既に表示されている場合は非表示にする
-  hideReplyForm(commentId);
+// //ここからコメント返信の処理
+// function replyToComment(commentId) {
+//   // リプライフォームが既に表示されている場合は非表示にする
+//   hideReplyForm(commentId);
 
-  // リプライフォームを作成し表示する
-  const replyFormContainer = document.getElementById(
-    `replyFormContainer${commentId}`
-  );
-  const replyForm = document.createElement("div");
-  replyForm.innerHTML = `
+//   // リプライフォームを作成し表示する
+//   const replyFormContainer = document.getElementById(
+//     `replyFormContainer${commentId}`
+//   );
+//   const replyForm = document.createElement("div");
+//   replyForm.innerHTML = `
 
-  <input type="text" id="replyInput${commentId}" placeholder="テキストを入力" style="width: 1100px; height: 50px;border: 2px solid #ccc; /* 線の太さを調整 */
-  border-radius: 5px 5px 5px 5px;   font-weight: bold; font-family: あおとゴシック R;">
-  
-    
+//   <input type="text" id="replyInput" placeholder="テキストを入力" style="width: 1100px; height: 50px;border: 2px solid #ccc; /* 線の太さを調整 */
+//   border-radius: 5px 5px 5px 5px;   font-weight: bold; font-family: あおとゴシック R;">
 
-    <div style="text-align: right; margin-top: 10px; margin-right:20px; font-family: "あおとゴシック R";">
-    <button onclick="cancelReply(${commentId})" style="  height: 35px; width: 100px;color:#fff; background: #55c500;   font-size:15px;  font-weight: bold;border: 2px solid #ccc; /* 線の太さを調整 */
-    border-radius: 5px 5px 5px 5px; /* 右下と左下だけを丸くする */">送信</button>
-    <button onclick="submitReply(${commentId})"  style="width: 100px; height: 35px;    font-size:15px; font-weight: bold; background: #f5f6f6;  border: 2px solid #ccc; /* 線の太さを調整 */
-    border-radius: 5px 5px 5px 5px; /* 右下と左下だけを丸くする */
-    ">キャンセル</button>
-    
-    </div>
-  `;
-  replyFormContainer.appendChild(replyForm);
+//     <div style="text-align: right; margin-top: 10px; margin-right:20px; font-family: "あおとゴシック R";">
+//     <button  style="  height: 35px; width: 100px;color:#fff; background: #55c500;   font-size:15px;  font-weight: bold;border: 2px solid #ccc; /* 線の太さを調整 */
+//     border-radius: 5px 5px 5px 5px; /* 右下と左下だけを丸くする */">送信</button>
+//     <button  style="width: 100px; height: 35px;    font-size:15px; font-weight: bold; background: #f5f6f6;  border: 2px solid #ccc; /* 線の太さを調整 */
+//     border-radius: 5px 5px 5px 5px; /* 右下と左下だけを丸くする */
+//     ">キャンセル</button>
 
-  // テキストボックスを非表示にする
-  const replyButton = document.getElementById(`replyButton${commentId}`);
-  if (replyButton) {
-    replyButton.style.display = "none";
-  }
-}
+//     </div>
+//   `;
+//   replyFormContainer.appendChild(replyForm);
 
-function hideReplyForm(commentId) {
-  const replyFormContainer = document.getElementById(
-    `replyFormContainer${commentId}`
-  );
-  replyFormContainer.innerHTML = ""; // 内容をクリア
-}
+//   // テキストボックスを非表示にする
+//   const replyButton = document.getElementById(`replyButton${commentId}`);
+//   if (replyButton) {
+//     replyButton.style.display = "none";
+//   }
+// }
 
-function submitReply(commentId) {
-  const replyInput = document.getElementById(`replyInput${commentId}`);
-  const replyText = replyInput.value;
+// function hideReplyForm(commentId) {
+//   const replyFormContainer = document.getElementById(
+//     `replyFormContainer${commentId}`
+//   );
+//   replyFormContainer.innerHTML = ""; // 内容をクリア
+// }
 
-  // ここでリプライをサーバーに送信したり、表示したりする処理を追加
+// function submitReply(commentId) {
+//   const replyInput = document.getElementById(`replyInput${commentId}`);
+//   const replyText = replyInput.value;
 
-  // 送信が完了したら、リプライフォームを非表示にする
-  hideReplyForm(commentId);
+//   // ここでリプライをサーバーに送信したり、表示したりする処理を追加
 
-  // テキストボックスを再表示する
-  const replyButton = document.getElementById(`replyButton${commentId}`);
-  if (replyButton) {
-    replyButton.style.display = "inline-block";
-  }
-}
+//   // 送信が完了したら、リプライフォームを非表示にする
+//   hideReplyForm(commentId);
 
-function cancelReply(commentId) {
-  // リプライフォームを非表示にする
-  hideReplyForm(commentId);
+//   // テキストボックスを再表示する
+//   const replyButton = document.getElementById(`replyButton${commentId}`);
+//   if (replyButton) {
+//     replyButton.style.display = "inline-block";
+//   }
+// }
 
-  // テキストボックスを再表示する
-  const replyButton = document.getElementById(`replyButton${commentId}`);
-  if (replyButton) {
-    replyButton.style.display = "inline-block";
-  }
-}
+// function cancelReply(commentId) {
+//   // リプライフォームを非表示にする
+//   hideReplyForm(commentId);
+
+//   // テキストボックスを再表示する
+//   const replyButton = document.getElementById(`replyButton${commentId}`);
+//   if (replyButton) {
+//     replyButton.style.display = "inline-block";
+//   }
+// }
