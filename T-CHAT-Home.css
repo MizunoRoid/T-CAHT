@@ -114,6 +114,7 @@
     align-items: center;
     width: 50px;
     height: 35px;
+
     margin-right: 7px;
     border: none;
     border-radius: 0 8px 8px 0;
@@ -171,6 +172,7 @@
     margin-left: 5px;
     margin-right: 40px;
     max-width: 150px;
+
     /* ロゴ画像の
 最大幅を設定 */
   }
@@ -269,16 +271,16 @@
   a.article {
     text-decoration: none;
   }
-  @import url('https://fonts.googleapis.com/css?family=Roboto|Noto+Sans|Open+Sans&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
-  .PostDay{
-    font-family: 'Roboto', 'Noto Sans', 'Open Sans', sans-serif;
-  font-size: 0.9rem; /* またはサイトのデザインに合わせて調整 */
-  color: #333; /* カラーコードはサイトのデザインに合わせて調整 */
+  @import url("https://fonts.googleapis.com/css?family=Roboto|Noto+Sans|Open+Sans&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap");
+  .PostDay {
+    font-family: "Roboto", "Noto Sans", "Open Sans", sans-serif;
+    font-size: 0.9rem; /* またはサイトのデザインに合わせて調整 */
+    color: #333; /* カラーコードはサイトのデザインに合わせて調整 */
   }
-  
-  .UserName{
-  font-family: 'Noto Sans JP', sans-serif;
+
+  .UserName {
+    font-family: "Noto Sans JP", sans-serif;
   }
 
   .answers-num {
@@ -427,20 +429,20 @@
   word-break: keep-all;
   }
 
-  .format-private{
+  .format-private {
     background-color: #191970;
     border-radius: 15px;
     color: #ffffff;
     font-family: bold;
     padding: 5px 8px 5px 8px;
   }
-  .format-exchange{
+  .format-exchange {
     background-color: #87ceeb;
     border-radius: 15px;
     color: #ffffff;
     padding: 5px 8px 5px 8px;
   }
-  .format-qa{    
+  .format-qa {
     background-color: #ffa500;
     border-radius: 15px;
     color: #ffffff;
@@ -565,7 +567,7 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    border-radius: 3px,0px,0px,3px;
+    border-radius: 3px, 0px, 0px, 3px;
     margin-left: 45px;
   }
 
@@ -590,14 +592,13 @@
     content: "";
   }
 
-
   main {
     background-color: white;
     border-radius: 15px;
     /*要素を丸くする */
     border-width: 100px;
     /* 上、右、下、左の順に指定 */
-    float:right;
+    float: right;
     width: auto;
     height: auto;
     box-sizing: border-box;
@@ -657,8 +658,6 @@
   word-break: keep-all;
   }
 
-  
-
   .box2 {
     width: 330px;
     background: #ffd966;
@@ -673,7 +672,6 @@
     word-wrap: break-word;
   word-break: keep-all;
   }
-
 
   .box3 {
     width: 330px;
@@ -707,10 +705,6 @@
   word-break: keep-all;
   }
 
-  .logo img {
-    display: none;
-  }
-
   .home {
     display: none;
   }
@@ -719,7 +713,7 @@
     display: none;
   }
 
-  .answers-num{
+  .answers-num {
     display: none;
   }
 
@@ -755,7 +749,7 @@
     padding: 2px 5px 2px 5px;
     margin-right: 3px;
   }
-  .format-private{
+  .format-private {
     font-size: 10px;
     background-color: #191970;
     border-radius: 15px;
@@ -763,21 +757,20 @@
     font-family: bold;
     padding: 2px 5px 2px 5px;
   }
-  .format-exchange{
+  .format-exchange {
     font-size: 10px;
     background-color: #87ceeb;
     border-radius: 15px;
     color: #ffffff;
     padding: 2px 5px 2px 5px;
   }
-  .format-qa{    
+  .format-qa {
     font-size: 10px;
     background-color: #ffa500;
     border-radius: 15px;
     color: #ffffff;
     padding: 2px 5px 2px 5px;
   }
-
 
   .unsolved-category-answer,
   .Notanswered-category-answer,
@@ -789,18 +782,17 @@
     /* 他の要素より手前に配置 */
   }
 
-  @import url('https://fonts.googleapis.com/css?family=Roboto|Noto+Sans|Open+Sans&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
-  .PostDay{
-    font-family: 'Roboto', 'Noto Sans', 'Open Sans', sans-serif;
-  font-size: 0.9rem; /* またはサイトのデザインに合わせて調整 */
-  color: #333; /* カラーコードはサイトのデザインに合わせて調整 */
-  }
-  
-  .UserName{
-  font-family: 'Noto Sans JP', sans-serif;
+  @import url("https://fonts.googleapis.com/css?family=Roboto|Noto+Sans|Open+Sans&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap");
+  .PostDay {
+    font-family: "Roboto", "Noto Sans", "Open Sans", sans-serif;
+    font-size: 0.9rem; /* またはサイトのデザインに合わせて調整 */
+    color: #333; /* カラーコードはサイトのデザインに合わせて調整 */
   }
 
+  .UserName {
+    font-family: "Noto Sans JP", sans-serif;
+  }
 
   .notification {
     display: none;
@@ -841,14 +833,17 @@
   #body {
     background-image: url("./T-CHAT-Image/T-CHAT_icon.png");
     background-repeat: no-repeat;
-    background-size: 120px;
+    background-size: 90px;
+    background-position: left 10px top 10px; /* 背景画像を右に10ピクセル、下に30ピクセル移動 */
   }
+
   .search-form {
     display: flex;
     align-items: center;
     overflow: hidden;
-    border-radius: 3px,0px,0px,3px;
-    margin-left: 45px;
+
+    border-radius: 3px, 0px, 0px, 3px;
+    margin-left: 15px;
   }
 
   .search-form button {
@@ -856,7 +851,7 @@
     justify-content: center;
     align-items: center;
     width: 50px;
-    height: 23px;
+    height: 22px;
     margin-right: 7px;
     border: none;
     border-radius: 0 8px 8px 0;
@@ -872,14 +867,13 @@
     content: "";
   }
 
-
   main {
     background-color: white;
     border-radius: 15px;
     /*要素を丸くする */
     border-width: 100px;
     /* 上、右、下、左の順に指定 */
-    float:right;
+    float: right;
     width: auto;
     height: auto;
     box-sizing: border-box;
@@ -939,8 +933,6 @@
     /* 他の要素より手前に配置 */
   }
 
-  
-
   .box2 {
     width: 365px;
     background: #ffd966;
@@ -955,7 +947,6 @@
   word-break: keep-all;
     /* 他の要素より手前に配置 */
   }
-
 
   .box3 {
     width: 365px;
@@ -999,7 +990,7 @@
     display: none;
   }
 
-  .answers-num{
+  .answers-num {
     display: none;
   }
 
@@ -1035,7 +1026,7 @@
     padding: 2px 5px 2px 5px;
     margin-right: 3px;
   }
-  .format-private{
+  .format-private {
     font-size: 10px;
     background-color: #191970;
     border-radius: 15px;
@@ -1043,21 +1034,20 @@
     font-family: bold;
     padding: 2px 5px 2px 5px;
   }
-  .format-exchange{
+  .format-exchange {
     font-size: 10px;
     background-color: #87ceeb;
     border-radius: 15px;
     color: #ffffff;
     padding: 2px 5px 2px 5px;
   }
-  .format-qa{    
+  .format-qa {
     font-size: 10px;
     background-color: #ffa500;
     border-radius: 15px;
     color: #ffffff;
     padding: 2px 5px 2px 5px;
   }
-
 
   .unsolved-category-answer,
   .Notanswered-category-answer,
@@ -1069,18 +1059,17 @@
     /* 他の要素より手前に配置 */
   }
 
-  @import url('https://fonts.googleapis.com/css?family=Roboto|Noto+Sans|Open+Sans&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
-  .PostDay{
-    font-family: 'Roboto', 'Noto Sans', 'Open Sans', sans-serif;
-  font-size: 0.9rem; /* またはサイトのデザインに合わせて調整 */
-  color: #333; /* カラーコードはサイトのデザインに合わせて調整 */
-  }
-  
-  .UserName{
-  font-family: 'Noto Sans JP', sans-serif;
+  @import url("https://fonts.googleapis.com/css?family=Roboto|Noto+Sans|Open+Sans&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap");
+  .PostDay {
+    font-family: "Roboto", "Noto Sans", "Open Sans", sans-serif;
+    font-size: 0.9rem; /* またはサイトのデザインに合わせて調整 */
+    color: #333; /* カラーコードはサイトのデザインに合わせて調整 */
   }
 
+  .UserName {
+    font-family: "Noto Sans JP", sans-serif;
+  }
 
   .notification {
     display: none;
