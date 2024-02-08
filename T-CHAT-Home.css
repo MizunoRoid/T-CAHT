@@ -9,6 +9,13 @@
     max-width: 1980px;
   }
 
+  ul {
+    display: flex; /* Flexboxを有効化 */
+    align-items: center; /* 子要素を垂直方向の中央に配置 */
+    padding: 0; /* デフォルトのパディングを削除 */
+    list-style: none; /* デフォルトのリストスタイルを削除 */
+  }
+
   a {
     position: relative;
     z-index: 10;
@@ -175,6 +182,10 @@
 
     /* ロゴ画像の
 最大幅を設定 */
+  }
+
+  .logo-none img{
+    display: none;
   }
 
   nav ul {
@@ -560,21 +571,17 @@
     max-width: 300px;
     background-color: #f2f2f2;
   }
-
   #body {
     background-image: url("./T-CHAT-Image/T-CHAT_icon.png");
     background-repeat: no-repeat;
-    background-size: 110px;
-    background-position: left 10px top 6px; /* 背景画像を右に10ピクセル、下に30ピクセル移動 */
+    background-size: 90px;
+    background-position: left 10px top 10px; /* 背景画像を右に10ピクセル、下に30ピクセル移動 */
   }
-
   .search-form {
     display: flex;
-    align-items: center;
     overflow: hidden;
-
     border-radius: 3px, 0px, 0px, 3px;
-    margin-left: 15px;
+    margin-left: 30px;
   }
 
   .search-form button {
@@ -597,6 +604,7 @@
     background-repeat: no-repeat;
     content: "";
   }
+  
 
   main {
     background-color: white;
@@ -826,10 +834,6 @@
     display: none;
   }
 }
-
-
-
-
 @media (max-width: 414px) and (max-height: 896px) {
   body {
     margin-left: auto;
@@ -922,6 +926,8 @@
     border-radius: 20px;
     /* バーに丸みをもたせる*/
     bottom: 2px;
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   section {
@@ -977,6 +983,8 @@
 
   a.article {
     text-decoration: none;
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   article {
@@ -988,6 +996,8 @@
     margin-left: 5px;
     font-size: 23px;
     font-weight: bolder;
+    word-wrap: break-word;
+    word-break: keep-all;
   }
 
   .logo img {
@@ -2645,9 +2655,10 @@
     word-wrap: break-word;
   word-break: keep-all;
   }
-
   a.article {
     text-decoration: none;
+    word-wrap: break-word;
+  word-break: keep-all;
   }
 
   article {

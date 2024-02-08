@@ -25,7 +25,7 @@ var firebaseConfig = {
   measurementId: "G-WPZGDY4H0F",
 };
 var toolbarOptions = [
-  [{ header: [1, 2, false] }],
+  [{ header: [2, 3, false] }],
   ["bold", "italic", "underline"], // toggled buttons
   /* [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown　*/
   ["blockquote"],
@@ -57,6 +57,22 @@ function getPostIDFromURL() {
 }
 
 document.querySelector(".logo").addEventListener("click", function () {
+  // 現在のURLからパラメータを取得する
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = urlParams.get("UserName");
+  const userId = urlParams.get("UserID");
+  console.log(userName, userId);
+  // パラメータが存在するかチェック
+  if (userName && userId) {
+    window.location.href = `./../T-CHAT-Home.html?UserName=${encodeURIComponent(
+      userName
+    )}&UserID=${encodeURIComponent(userId)}`;
+  } else {
+    window.location.href = `./../T-CHAT-Home.html`;
+  }
+});
+
+document.querySelector(".logo-none").addEventListener("click", function () {
   // 現在のURLからパラメータを取得する
   const urlParams = new URLSearchParams(window.location.search);
   const userName = urlParams.get("UserName");
@@ -200,15 +216,15 @@ async function displayAnswers(postID) {
         responseSection.classList.add("resolved-answer");
       }
 
-      const namePara = document.createElement("p");
+      const namePara = document.createElement("div");
       namePara.classList.add("name");
       namePara.textContent = answer.UserName;
 
-      const datePara = document.createElement("p");
+      const datePara = document.createElement("div");
       datePara.classList.add("date");
       datePara.textContent = formattedDate;
 
-      const replyContent = document.createElement("p");
+      const replyContent = document.createElement("div");
       replyContent.classList.add("reply");
       replyContent.innerHTML = contentHtml;
 
@@ -266,9 +282,9 @@ async function findDocumentByPostID(postID) {
       }
 
       var add_element_data = "";
-      add_element_data += `<p class="name">${data.UserName}</p>`;
-      add_element_data += `<p class="date">投稿日:${data.PostDay}</p>`;
-      add_element_data += `<p class="large">${data.Title}</p>`;
+      add_element_data += `<div class="name">${data.UserName}</div>`;
+      add_element_data += `<div class="date">投稿日:${data.PostDay}</div>`;
+      add_element_data += `<div class="large">${data.Title}</div>`;
       // タグを区切り文字「,」で分割
       const tags = data.Tag.split(",").map((tag) => tag.trim());
       const format = data.Format;

@@ -2,7 +2,6 @@
 <html lang="ja">
   <head>
     <link rel="stylesheet" type="text/css" href="T-CHAT-Temp.css" />
-    
     <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,6 +21,7 @@
     ></script>
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
   </head>
 
   <body>
@@ -43,6 +43,11 @@
             <a  class="question"
               >💡Question</a
             >
+            <div class="logo-none">
+              <a class="home-icon"
+                ><img src="./../T-CHAT-Image/T-CHAT_icon.png"
+              /></a>
+            </div>
             <div class="search-form">
               <input type="text" class="search" placeholder="Search" />
               <button type="submit" aria-label="検索"></button>
@@ -93,8 +98,8 @@
             />
             <div id="replyFormContainer1"></div>
           </div>  -->
-          <p class="border"></p>
-          <p class="comment">コメントする</p>
+          <p class="answer-border"></p>
+          <p class="answer-comment">コメントする</p>
             <section class="answer-form">
               <div class="element">
                 <div id="app">

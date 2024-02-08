@@ -1,6 +1,6 @@
 const save_button = document.getElementById("save");
 
-save_button.addEventListener("click", async function () { });
+save_button.addEventListener("click", async function () {});
 // ここのツールバーはカスタムできます。
 var toolbarOptions = [
   [{ header: [2, 3, false] }],
@@ -46,16 +46,14 @@ const question_tag_content = document.getElementById("question_tag");
 const qlEditorDiv = document.querySelector(".ql-editor");
 
 post_button.addEventListener("click", async function () {
-
   // 空文字かnull判断
-  if (!(document.getElementById('format').value)) {
-    alert('カテゴリを選択して下さい。');
-  } else if (!(document.getElementById('title').value)) {
-    alert('質問のタイトルを入力して下さい。');
-  } else if (!(document.getElementById('question_tag').value)) {
-    alert('タグを選択して下さい。');
+  if (!document.getElementById("format").value) {
+    alert("カテゴリを選択して下さい。");
+  } else if (!document.getElementById("title").value) {
+    alert("質問のタイトルを入力して下さい。");
+  } else if (!document.getElementById("question_tag").value) {
+    alert("タグを選択して下さい。");
   } else {
-
     // パラメータを取得
     const { userName, userId } = getParameters();
 
