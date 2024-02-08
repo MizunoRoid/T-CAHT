@@ -156,7 +156,7 @@ async function getData(postCollection, searchWord) {
   add_element.innerHTML = "";
   searchWord = searchWord ? searchWord.toString().toLowerCase() : "";
   try {
-    const querySnapshot = await postCollection.get();
+    const querySnapshot = await postCollection.orderBy("View", "desc").get();
     let addData = "";
     for (const doc of querySnapshot.docs) {
       const postID = doc.id;
