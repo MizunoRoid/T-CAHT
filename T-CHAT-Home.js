@@ -167,7 +167,6 @@ async function getData(postCollection, searchWord) {
         .collection("Answers")
         .get();
       const answerCount = answersSnapshot.size; // 回答数を取得
-
       const tags = docData.Tag.split(",").map((tag) => tag.trim());
       const format = docData.Format;
       let boxClass = "";
@@ -206,7 +205,7 @@ async function getData(postCollection, searchWord) {
           existingParams.append("PostID", postID);
         }
         const detailLink = `T-CHAT-Detail/T-CHAT-Temp.html?${existingParams.toString()}`;
-        addData += `<a href="${detailLink}" class="article"> <article>${docData.Title}</article> </a>`;
+        addData += `<a href="${detailLink}" class="article"> <article style="cursor: pointer;">${docData.Title}</article> </a>`;
         if (tags.length > 0) {
           let formatClass = "";
           switch (format) {
@@ -236,7 +235,7 @@ async function getData(postCollection, searchWord) {
           }
 
           // タグを表示
-          addData += `<span class="article-category ${articleCategoryClass}">${tag}</span>`;
+          addData += `<span class="article-category ${articleCategoryClass}" style="cursor: pointer;">${tag}</span>`;
         });
         addData += `<span class="answers-num">回答数：${answerCount}件</span>`; // 回答数を表示
         addData += `</section>`;
@@ -328,13 +327,13 @@ function displayRanking(rankingData) {
       <h4>
         <img src="./T-CHAT-Image/no${index + 1}.png" />
       </h4>
-      <div class="item">${item.tag}</div>
+      <div class="item"style="cursor: pointer;">${item.tag}</div>
     `;
     } else {
       // 4位以降は順位を表示
       itemElement.innerHTML = `
       <div class="rank">${index + 1}</div>
-      <div class="item">${item.tag}</div>
+      <div class="item"style="cursor: pointer;">${item.tag}</div>
     `;
     }
     // Trendアイテムにクリックイベントリスナーを追加
@@ -386,3 +385,46 @@ function setTagClickEvent() {
     });
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const mediaQuery = window.matchMedia("(max-width: 430px)");
+
+  // 透明なクリック領域に対する処理を定義
+  function applyBackgroundStyle() {
+    const bodyElement = document.getElementById("body");
+    bodyElement.style.backgroundImage = "url('./T-CHAT-Image/T-CHAT_icon.png')";
+    bodyElement.style.backgroundRepeat = "no-repeat";
+    bodyElement.style.backgroundSize = "90px";
+    bodyElement.style.backgroundPosition = "left 10px top 10px";
+    window.location.href = "T-CHAT-Home.html";
+    console.log("クリックイベントが発生しました。");
+  }
+
+  // 透明なクリック領域を作成して#bodyに追加
+  const clickArea = document.createElement("div");
+  clickArea.id = "invisibleClickArea";
+  clickArea.style.position = "absolute";
+  clickArea.style.width = "90px";
+  clickArea.style.height = "90px";
+  clickArea.style.top = "10px";
+  clickArea.style.left = "10px";
+  clickArea.style.opacity = "0";
+  document.getElementById("body").appendChild(clickArea);
+
+  // メディアクエリがマッチした時のみ透明なクリック領域にクリックイベントを追加
+  function handleMediaQueryChange(mediaQuery) {
+    if (mediaQuery.matches) {
+      // ビューポート幅が430px以下の場合のみクリックイベントを追加
+      clickArea.addEventListener("click", applyBackgroundStyle);
+    } else {
+      // ビューポート幅が430pxを超える場合はクリックイベントを削除
+      clickArea.removeEventListener("click", applyBackgroundStyle);
+    }
+  }
+
+  // メディアクエリの変更を監視
+  mediaQuery.addListener(handleMediaQueryChange);
+
+  // 初期ロード時にもメディアクエリに基づいてイベントリスナーを設定
+  handleMediaQueryChange(mediaQuery);
+});

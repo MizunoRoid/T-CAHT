@@ -37,16 +37,27 @@
   </head>
 
   <body id="body" style="display: none">
+    <div
+      id="invisibleClickArea"
+      style="
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        top: 10px;
+        left: 10px;
+        opacity: 0;
+      "
+    ></div>
     <div class="background">
       <header>
-        <div class="logo">
+        <div class="logo" style="cursor: pointer">
           <a class="home-icon"><img src="./T-CHAT-Image/T-CHAT_icon.png" /></a>
         </div>
 
         <nav>
           <ul>
-            <a class="home">🏡Home</a>
-            <a class="question">💡Question</a>
+            <a class="home" style="cursor: pointer">🏡Home</a>
+            <a class="question" style="cursor: pointer">💡Question</a>
             <div class="search-form">
               <input
                 type="text"
@@ -62,10 +73,6 @@
             </div>
           </ul>
         </nav>
-        <!-- ここからモーダルウィンドウ -->
-        <!-- <a href="javascript:void(0);" class="notification" onclick="showModal()"
-          >🔔</a
-        > -->
 
         <!-- 半透明のオーバーレイ -->
         <div id="overlay" onclick="closeModal()"></div>
@@ -79,7 +86,7 @@
         </div>
         <!-- ここまでがモーダルウィンドウ -->
         <a href="./T-CHAT-Login/T-CHAT-Login.html" class="login">👤Login</a>
-        <a class="post" id="post_button">📪Post</a>
+        <a class="post" id="post_button" style="cursor: pointer" a>📪Post</a>
       </header>
 
       <div class="container">

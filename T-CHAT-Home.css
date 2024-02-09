@@ -233,6 +233,8 @@
     /* 右側に20pxのパディングを設定 */
     /* 右側に20pxのパディングを設定 */
     /* scroll-snap-align: start; */
+    word-wrap: break-word;
+    word-break: keep-all;
   }
 
   .simplebar-track {
@@ -313,6 +315,8 @@
     /* 相対位置を指定 */
     z-index: 1;
     /* 他の要素より手前に配置 */
+    word-wrap: break-word;
+    word-break: keep-all;
   }
 
   .box3 {
@@ -325,6 +329,8 @@
     /* 相対位置を指定 */
     z-index: 1;
     /* 他の要素より手前に配置 */
+    word-wrap: break-word;
+    word-break: keep-all;
   }
 
   article {
@@ -364,6 +370,8 @@
     position: absolute;
     top: 5px;
     right: -20px;
+    word-wrap: break-word;
+    word-break: keep-all;
   }
 
   .head {
@@ -575,6 +583,9 @@
     max-width: 300px;
     background-color: #f2f2f2;
   }
+  .logo img{
+    display: none;
+  }
   #body {
     background-image: url("./T-CHAT-Image/T-CHAT_icon.png");
     background-repeat: no-repeat;
@@ -719,10 +730,6 @@
     margin-left: 5px;
     font-size: 23px;
     font-weight: bolder;
-  }
-
-  .logo img {
-    display: none;
   }
 
   .home {

@@ -174,6 +174,8 @@ async function getData(postCollection, selectedTags, searchWord) {
       const answerCount = answersSnapshot.size; // 回答数を取得
 
       const tags = docData.Tag.split(",").map((tag) => tag.trim());
+      const format = docData.Format;
+
       let boxClass = "";
       const titleContainsSearchWord =
         !searchWord || docData.Title.includes(searchWord);
@@ -206,7 +208,24 @@ async function getData(postCollection, selectedTags, searchWord) {
           existingParams.append("PostID", postID);
         }
         const detailLink = `./../T-CHAT-Detail/T-CHAT-Temp.html?${existingParams.toString()}`;
-        addData += `<a href="${detailLink}" class="article"> <article>${docData.Title}</article> </a>`;
+        addData += `<a href="${detailLink}" class="article"> <article style="cursor: pointer;">${docData.Title}</article> </a>`;
+        if (tags.length > 0) {
+          let formatClass = "";
+          switch (format) {
+            case "プライベート":
+              formatClass = "format-private";
+              break;
+            case "意見交換":
+              formatClass = "format-exchange";
+              break;
+            case "Q＆A":
+              formatClass = "format-qa";
+              break;
+          }
+          // formatに応じたクラスを追加
+          addData += `<span class="${formatClass}">${format}</span>`;
+          addData += " ";
+        }
         tags.forEach((tag, index) => {
           let articleCategoryClass = "";
           if (tag === "未回答" && hasUnsolvedTag) {
@@ -217,7 +236,7 @@ async function getData(postCollection, selectedTags, searchWord) {
             articleCategoryClass = "answered-category";
           }
 
-          addData += `<span class="article-category ${articleCategoryClass}">${tag}</span>`;
+          addData += `<span class="article-category ${articleCategoryClass}" style="cursor: pointer;">${tag}</span>`;
           if (index < tags.length - 1) {
             addData += " ";
           }
