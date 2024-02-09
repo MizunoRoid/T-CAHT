@@ -30,32 +30,21 @@ register_button.addEventListener("click", async function () {
       user.MailAddress === input_UserInfo
     ) {
       isDuplicate = true;
+      if (user.PassWord === input_PassWord) {
+        let userId = doc.id; // ユーザーIDを取得
+        let userName = user.UserName; // ユーザー名を取得
+
+        // URLにパラメータを付与してリダイレクト
+        location.href = `../T-CHAT-Home.html?UserName=${userName}&UserID=${userId}`;
+      } else {
+        alert("パスワードが間違っています。再度ご確認ください。");
+      }
     }
   });
 
-  if (username_or_mail.value !== "" && password.value !== "") {
-    if (isDuplicate) {
-      let userId, userName;
-      querySnapshot.forEach((doc) => {
-        const user = doc.data();
-        if (
-          user.UserName === input_UserInfo ||
-          user.MailAddress === input_UserInfo
-        ) {
-          userId = doc.id; // ユーザーIDを取得
-          userName = user.UserName; // ユーザー名を取得
-        }
-      });
-
-      // URLにパラメータを付与してリダイレクト
-      location.href = `../T-CHAT-Home.html?UserName=${userName}&UserID=${userId}`;
-    } else {
-      // 重複がない場合の処理
-      console.log("ログイン失敗");
-    }
-  } else {
-    // 入力が不足している場合の処理
-    console.log("入力が不足しています。失敗");
+  if (!isDuplicate) {
+    // 重複がない場合の処理
+    alert("ログインに失敗しました。入力間違いがないか再度確認してください。");
   }
 });
 
