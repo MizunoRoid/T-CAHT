@@ -208,7 +208,7 @@ async function getData(postCollection, selectedTags, searchWord) {
           existingParams.append("PostID", postID);
         }
         const detailLink = `./../T-CHAT-Detail/T-CHAT-Temp.html?${existingParams.toString()}`;
-        addData += `<a href="${detailLink}" class="article"> <article>${docData.Title}</article> </a>`;
+        addData += `<a href="${detailLink}" class="article"> <article style="cursor: pointer;">${docData.Title}</article> </a>`;
         if (tags.length > 0) {
           let formatClass = "";
           switch (format) {
@@ -236,7 +236,7 @@ async function getData(postCollection, selectedTags, searchWord) {
             articleCategoryClass = "answered-category";
           }
 
-          addData += `<span class="article-category ${articleCategoryClass}">${tag}</span>`;
+          addData += `<span class="article-category ${articleCategoryClass}" style="cursor: pointer;">${tag}</span>`;
           if (index < tags.length - 1) {
             addData += " ";
           }

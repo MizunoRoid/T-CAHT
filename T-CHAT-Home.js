@@ -205,7 +205,7 @@ async function getData(postCollection, searchWord) {
           existingParams.append("PostID", postID);
         }
         const detailLink = `T-CHAT-Detail/T-CHAT-Temp.html?${existingParams.toString()}`;
-        addData += `<a href="${detailLink}" class="article"> <article>${docData.Title}</article> </a>`;
+        addData += `<a href="${detailLink}" class="article"> <article style="cursor: pointer;">${docData.Title}</article> </a>`;
         if (tags.length > 0) {
           let formatClass = "";
           switch (format) {
@@ -235,7 +235,7 @@ async function getData(postCollection, searchWord) {
           }
 
           // タグを表示
-          addData += `<span class="article-category ${articleCategoryClass}">${tag}</span>`;
+          addData += `<span class="article-category ${articleCategoryClass}" style="cursor: pointer;">${tag}</span>`;
         });
         addData += `<span class="answers-num">回答数：${answerCount}件</span>`; // 回答数を表示
         addData += `</section>`;
@@ -327,13 +327,13 @@ function displayRanking(rankingData) {
       <h4>
         <img src="./T-CHAT-Image/no${index + 1}.png" />
       </h4>
-      <div class="item">${item.tag}</div>
+      <div class="item"style="cursor: pointer;">${item.tag}</div>
     `;
     } else {
       // 4位以降は順位を表示
       itemElement.innerHTML = `
       <div class="rank">${index + 1}</div>
-      <div class="item">${item.tag}</div>
+      <div class="item"style="cursor: pointer;">${item.tag}</div>
     `;
     }
     // Trendアイテムにクリックイベントリスナーを追加

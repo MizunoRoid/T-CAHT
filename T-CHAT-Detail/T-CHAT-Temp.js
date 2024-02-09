@@ -25,7 +25,7 @@ var firebaseConfig = {
   measurementId: "G-WPZGDY4H0F",
 };
 var toolbarOptions = [
-  [{ header: [2, 3, false] }],
+  [{ header: [1, 3, false] }],
   ["bold", "italic", "underline"], // toggled buttons
   /* [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown　*/
   ["blockquote"],
@@ -320,7 +320,7 @@ async function findDocumentByPostID(postID) {
           boxClass = "box3";
         }
 
-        add_element_data += `<span class="article-category ${articleCategoryClass}" style="cursor: pointer;">${tag.trim()}</span>`;
+        add_element_data += `<span class="article-category ${articleCategoryClass}">${tag.trim()}</span>`;
         add_element_data += " "; // ここで適切なスペースを追加する
       });
 

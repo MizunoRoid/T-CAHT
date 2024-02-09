@@ -3,7 +3,7 @@ const save_button = document.getElementById("save");
 save_button.addEventListener("click", async function () {});
 // ここのツールバーはカスタムできます。
 var toolbarOptions = [
-  [{ header: [2, 3, false] }],
+  [{ header: [1, 3, false] }],
   ["bold", "italic", "underline"], // toggled buttons
   /* [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown　*/
   ["blockquote"],
