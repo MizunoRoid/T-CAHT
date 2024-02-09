@@ -357,6 +357,7 @@ img{
   font-weight: bolder;
   margin-top: 1px;
   margin-bottom: 1px;
+  font-size: 23px;
 }
 @import url("https://fonts.googleapis.com/css?family=Roboto|Noto+Sans|Open+Sans&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap");
@@ -365,6 +366,7 @@ img{
   margin-top: 1px;
   margin-bottom: 1px;
   margin-left: 15px;
+  font-size: 17px;
 }
 
 .name {
@@ -456,7 +458,7 @@ img{
 }
 
 .reply {
-  margin-left: 15px;
+  margin-left: 12px;
 }
 
 .content-and-button {
