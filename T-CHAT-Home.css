@@ -158,6 +158,8 @@
     border-radius: 8px 8px 8px 8px;
     font-size: 25px;
     text-decoration: none;
+    position: relative;
+    left: 50px;
   }
 
   .post {
@@ -173,6 +175,8 @@
     border-radius: 8px 8px 8px 8px;
     font-size: 25px;
     text-decoration: none;
+    position: relative;
+    left: 50px;
   }
 
   .logo img {
