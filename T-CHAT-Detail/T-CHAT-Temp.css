@@ -51,6 +51,7 @@ header {
   width: 98.3%;
   border: 2px solid white;
   margin-bottom: 10px;
+  
 }
 
 .home {
@@ -140,6 +141,8 @@ header {
   border-radius: 8px 8px 8px 8px;
   font-size: 25px;
   text-decoration: none;
+  position: relative;
+  left: 50px;
 }
 
 .post {
@@ -155,6 +158,8 @@ header {
   border-radius: 8px 8px 8px 8px;
   font-size: 25px;
   text-decoration: none;
+  position: relative;
+    left: 50px;
 }
 
 .logo img {
