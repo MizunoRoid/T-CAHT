@@ -575,6 +575,7 @@
     max-width: 300px;
     background-color: #f2f2f2;
   }
+  
   #body {
     background-image: url("./T-CHAT-Image/T-CHAT_icon.png");
     background-repeat: no-repeat;
@@ -719,10 +720,6 @@
     margin-left: 5px;
     font-size: 23px;
     font-weight: bolder;
-  }
-
-  .logo img {
-    display: none;
   }
 
   .home {

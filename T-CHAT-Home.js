@@ -385,3 +385,46 @@ function setTagClickEvent() {
     });
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const mediaQuery = window.matchMedia("(max-width: 430px)");
+
+  // 透明なクリック領域に対する処理を定義
+  function applyBackgroundStyle() {
+    const bodyElement = document.getElementById("body");
+    bodyElement.style.backgroundImage = "url('./T-CHAT-Image/T-CHAT_icon.png')";
+    bodyElement.style.backgroundRepeat = "no-repeat";
+    bodyElement.style.backgroundSize = "90px";
+    bodyElement.style.backgroundPosition = "left 10px top 10px";
+    window.location.href = "T-CHAT-Home.html";
+    console.log("クリックイベントが発生しました。");
+  }
+
+  // 透明なクリック領域を作成して#bodyに追加
+  const clickArea = document.createElement("div");
+  clickArea.id = "invisibleClickArea";
+  clickArea.style.position = "absolute";
+  clickArea.style.width = "90px";
+  clickArea.style.height = "90px";
+  clickArea.style.top = "10px";
+  clickArea.style.left = "10px";
+  clickArea.style.opacity = "0";
+  document.getElementById("body").appendChild(clickArea);
+
+  // メディアクエリがマッチした時のみ透明なクリック領域にクリックイベントを追加
+  function handleMediaQueryChange(mediaQuery) {
+    if (mediaQuery.matches) {
+      // ビューポート幅が430px以下の場合のみクリックイベントを追加
+      clickArea.addEventListener("click", applyBackgroundStyle);
+    } else {
+      // ビューポート幅が430pxを超える場合はクリックイベントを削除
+      clickArea.removeEventListener("click", applyBackgroundStyle);
+    }
+  }
+
+  // メディアクエリの変更を監視
+  mediaQuery.addListener(handleMediaQueryChange);
+
+  // 初期ロード時にもメディアクエリに基づいてイベントリスナーを設定
+  handleMediaQueryChange(mediaQuery);
+});
