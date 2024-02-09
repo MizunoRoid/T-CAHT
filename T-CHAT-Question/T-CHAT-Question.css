@@ -540,6 +540,26 @@ aside::after {
   padding: 5px 8px 5px 8px;
 }
 
+.format-private {
+  background-color: #191970;
+  border-radius: 15px;
+  color: #ffffff;
+  font-family: bold;
+  padding: 5px 8px 5px 8px;
+}
+.format-exchange {
+  background-color: #87ceeb;
+  border-radius: 15px;
+  color: #ffffff;
+  padding: 5px 8px 5px 8px;
+}
+.format-qa {
+  background-color: #ffa500;
+  border-radius: 15px;
+  color: #ffffff;
+  padding: 5px 8px 5px 8px;
+}
+
 .unsolved-category-answer,
 .Notanswered-category-answer,
 .answered-category-answer {

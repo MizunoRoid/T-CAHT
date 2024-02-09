@@ -167,7 +167,6 @@ async function getData(postCollection, searchWord) {
         .collection("Answers")
         .get();
       const answerCount = answersSnapshot.size; // 回答数を取得
-
       const tags = docData.Tag.split(",").map((tag) => tag.trim());
       const format = docData.Format;
       let boxClass = "";

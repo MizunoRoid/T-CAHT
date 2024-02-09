@@ -119,6 +119,7 @@ post_button.addEventListener("click", async function () {
         Tag: selectedOptions.join(", "),
         Title: title_content.value,
         UserName: userName,
+        View: 0,
       };
 
       // 新しいPostドキュメントを追加し、ドキュメントIDを取得
